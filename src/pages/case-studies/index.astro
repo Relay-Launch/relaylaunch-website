@@ -1,0 +1,263 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Case Studies — RelayLaunch"
+  description="Real results for real small businesses. See how RelayLaunch replaces disconnected tools, automates operations, and builds connected digital infrastructure that pays for itself."
+>
+
+  <!-- ═══════════════════════════════════════════════ HERO -->
+  <section class="section hero-section">
+    <div class="container">
+      <p class="section-eyebrow">Proof of Work</p>
+      <h1 class="section-title">Case Studies</h1>
+      <p class="section-sub">
+        Every engagement is documented. Real numbers, real clients, real before-and-after.
+        No stock photography. No fabricated testimonials.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CASE STUDY CARDS -->
+  <section class="section cards-section">
+    <div class="container">
+
+      <a href="/case-studies/hrc" class="cs-card card">
+        <div class="cs-card-header">
+          <div class="cs-meta">
+            <span class="badge badge-green">Wellness / Hospitality</span>
+            <span class="cs-location">JW Marriott Turnberry · Aventura, FL</span>
+          </div>
+          <span class="cs-arrow">→</span>
+        </div>
+
+        <h2 class="cs-title">Holistic Rejuvenation Center</h2>
+        <p class="cs-summary">
+          $342/month in disconnected tools replaced with $51/month in unified infrastructure.
+          One luxury spa. Five platforms. Zero integration. We fixed all of it.
+        </p>
+
+        <div class="cs-stats">
+          <div class="cs-stat">
+            <span class="cs-stat-number text-green">$3,492</span>
+            <span class="cs-stat-label">Annual savings</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat-number text-green">11</span>
+            <span class="cs-stat-label">Workflows automated</span>
+          </div>
+          <div class="cs-stat">
+            <span class="cs-stat-number text-green">$50k+</span>
+            <span class="cs-stat-label">Infrastructure value delivered</span>
+          </div>
+        </div>
+
+        <span class="cs-read-more">Read the full case study →</span>
+      </a>
+
+      <!-- Placeholder for future studies -->
+      <div class="coming-soon">
+        <p class="coming-soon-label">More case studies in progress</p>
+        <p class="coming-soon-sub">
+          Every completed engagement becomes a documented case study.
+          <a href="/contact">Start a project</a> and your results could be next.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CTA -->
+  <section class="section cta-section">
+    <div class="container cta-inner">
+      <h2 class="cta-title">Ready to build your own success story?</h2>
+      <p class="cta-sub">
+        Every case study started with a free discovery call. Tell us where you're stuck —
+        we'll map out exactly what needs to change.
+      </p>
+      <div class="cta-actions">
+        <a href="/contact" class="btn-primary">Start a Project</a>
+        <a href="/services" class="btn-secondary">View Services</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero-section {
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;
+  }
+
+  /* ── Case study card ── */
+  .cards-section { background: var(--color-bg); }
+
+  .cs-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 36px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  .cs-card:hover {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 1px var(--color-green);
+    text-decoration: none;
+  }
+
+  .cs-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .cs-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cs-location {
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  .cs-arrow {
+    font-size: 20px;
+    color: var(--color-green);
+    flex-shrink: 0;
+    transition: transform 0.15s;
+  }
+
+  .cs-card:hover .cs-arrow { transform: translateX(4px); }
+
+  .cs-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .cs-summary {
+    font-size: 15px;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .cs-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cs-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cs-stat-number {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .cs-stat-label {
+    font-size: 12px;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  .text-green { color: var(--color-green); }
+
+  .cs-read-more {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-green);
+  }
+
+  /* ── Coming soon placeholder ── */
+  .coming-soon {
+    max-width: 760px;
+    margin: 24px auto 0;
+    padding: 24px 36px;
+    border: 1px dashed var(--color-border);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .coming-soon-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-muted);
+    margin-bottom: 8px;
+  }
+
+  .coming-soon-sub {
+    font-size: 14px;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .coming-soon-sub a {
+    color: var(--color-green);
+    text-decoration: none;
+  }
+
+  .coming-soon-sub a:hover { text-decoration: underline; }
+
+  /* ── CTA section ── */
+  .cta-section {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 600px;
+    margin-inline: auto;
+  }
+
+  .cta-title {
+    font-size: clamp(22px, 4vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .cs-card { padding: 24px 20px; }
+    .cs-stats { gap: 20px; }
+    .coming-soon { padding: 20px 16px; }
+  }
+</style>
