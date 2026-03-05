@@ -41,6 +41,9 @@ const posts = (await getCollection('blog'))
 
           return (
             <a href={`/blog/${post.id}`} class="post-card card">
+              {post.data.heroImage && (
+                <img src={post.data.heroImage} alt="" class="post-hero" loading="lazy" />
+              )}
               <div class="post-tags">
                 {post.data.tags.map((tag: string) => (
                   <span class="badge badge-green">{tag}</span>
@@ -107,6 +110,14 @@ const posts = (await getCollection('blog'))
     border-color: var(--color-green);
     box-shadow: 0 0 0 1px var(--color-green);
     text-decoration: none;
+  }
+
+  .post-hero {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
   }
 
   .post-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
