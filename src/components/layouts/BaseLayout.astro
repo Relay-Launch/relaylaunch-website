@@ -12,9 +12,12 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, ogImage } = Astro.props;
+const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
@@ -40,7 +43,7 @@ const { title, description, ogImage } = Astro.props;
       initTheme();
       document.addEventListener("astro:after-swap", initTheme);
     </script>
-    <SEO title={title} description={description} ogImage={ogImage} />
+    <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} />
   </head>
   <body>
     <slot />

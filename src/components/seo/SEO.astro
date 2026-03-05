@@ -2,32 +2,51 @@
 interface Props {
   title: string;
   description?: string;
+  canonicalUrl?: string;
   ogImage?: string;
-  canonicalURL?: URL;
+  ogType?: string;
+  /** Optional JSON-LD schema object(s) to embed alongside the default Organization schema */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
+
+const siteUrl = 'https://relaylaunch.com';
 
 const {
   title,
   description = 'RelayLaunch builds unified digital infrastructure for small businesses — website, automation, email, social, and dashboard, all connected.',
-  ogImage = 'https://raw.githubusercontent.com/Relay-Launch/.github/main/profile/repo-card.svg',
-  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  canonicalUrl = new URL(Astro.url.pathname, siteUrl).href,
+  ogImage = `${siteUrl}/og-default.png`,
+  ogType = 'website',
+  jsonLd,
 } = Astro.props;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'RelayLaunch LLC',
+  url: siteUrl,
+  description,
+  founder: { '@type': 'Person', name: 'Victor David Medina' },
+};
+
+const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonicalUrl} />
 
 <title>{title}</title>
 <meta name="description" content={description} />
 
 <!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="RelayLaunch" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -35,12 +54,7 @@ const {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-<!-- Schema.org -->
-<script type="application/ld+json" set:html={JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'RelayLaunch LLC',
-  url: 'https://relaylaunch.com',
-  description,
-  founder: { '@type': 'Person', name: 'Victor David Medina' },
-})} />
+<!-- JSON-LD -->
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
