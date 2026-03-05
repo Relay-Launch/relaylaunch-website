@@ -1,0 +1,28 @@
+---
+/**
+ * BaseLayout — minimal HTML shell used by all page layouts.
+ * Provides <html>, <head> (with SEO), <body>, and global styles.
+ * Does NOT include Nav/Footer — that's the responsibility of the
+ * consuming layout (e.g. Layout.astro or BlogPostLayout.astro).
+ */
+import SEO from '../seo/SEO.astro';
+import '../../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEO title={title} description={description} ogImage={ogImage} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
