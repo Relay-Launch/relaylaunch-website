@@ -1,10 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
+
+const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 ---
 
 <Layout
   title="RelayLaunch — Build Smarter. Launch Faster. Grow With Purpose."
   description="RelayLaunch builds unified digital infrastructure for small businesses — one connected system replacing the 5 disconnected tools draining your time and money."
+  canonicalUrl="https://relaylaunch.com/"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'RelayLaunch',
+    url: 'https://relaylaunch.com',
+    description: 'RelayLaunch builds unified digital infrastructure for small businesses.',
+  }}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
@@ -21,8 +32,55 @@ import Layout from '../layouts/Layout.astro';
         running your business while you focus on your clients.
       </p>
       <div class="hero-actions">
-        <a href="/services" class="btn-primary">See Our Packages →</a>
-        <a href="/case-studies/hrc" class="btn-secondary">View Case Study</a>
+        <Button variant="primary" href="/services">See Our Packages →</Button>
+        <Button variant="outline" href="/case-studies/hrc">View Case Study</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ LEAD MAGNET -->
+  <section class="section lead-magnet-section">
+    <div class="container">
+      <div class="lead-magnet-inner card">
+        <div class="lead-magnet-text">
+          <span class="section-eyebrow">Free Download</span>
+          <h2 class="lead-magnet-title">Digital Readiness Assessment</h2>
+          <p class="lead-magnet-desc">
+            A 1-page checklist to see if your business has outgrown its current digital setup.
+            Score yourself across 10 areas — from tool sprawl to automation maturity — and find out
+            where you're leaving time and money on the table.
+          </p>
+        </div>
+        <div class="lead-magnet-form-wrap">
+          <form
+            id="lead-magnet-form"
+            class="lead-magnet-form"
+            data-webhook={webhookUrl}
+            novalidate
+          >
+            <div class="form-field">
+              <label for="lm-name">Name</label>
+              <input type="text" id="lm-name" name="name" required autocomplete="name" placeholder="Your name" />
+            </div>
+            <div class="form-field">
+              <label for="lm-email">Email</label>
+              <input type="email" id="lm-email" name="email" required autocomplete="email" placeholder="you@company.com" />
+            </div>
+            <Button type="submit" variant="primary" class="w-full justify-center">Get the Assessment →</Button>
+            <p class="form-note">No spam. Unsubscribe anytime.</p>
+          </form>
+          <div id="lead-magnet-success" class="lead-magnet-success" hidden>
+            <p class="success-title">You're in.</p>
+            <p class="success-desc">Your Digital Readiness Assessment is ready.</p>
+            <a
+              href="/lead-magnets/digital-readiness-assessment.pdf"
+              download
+              class="success-download"
+            >
+              Download PDF →
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -48,6 +106,37 @@ import Layout from '../layouts/Layout.astro';
       <div class="stat">
         <div class="stat-number">5–10 hrs</div>
         <div class="stat-label">lost every week to manual data entry</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ WHY RELAYLAUNCH -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">Why RelayLaunch</span>
+      <h2 class="section-title" style="margin-bottom: 40px;">Built different. On purpose.</h2>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🎖️</div>
+          <h3>Veteran-Owned, Mission-Driven</h3>
+          <p>USMC discipline meets enterprise engineering experience. Structured execution, clear communication, and zero fluff — the same rigor that managed Fortune 500 integrations, applied to your business.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏗️</div>
+          <h3>Infrastructure-First + AI</h3>
+          <p>We don't bolt AI onto a broken foundation. We build the infrastructure first — website, automations, integrations — then layer in AI where it actually saves time and money.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔗</div>
+          <h3>Full-Service, One Partner</h3>
+          <p>Web, SEO, AI agents, workflow automation, systems integration, cloud infrastructure — all from one team. No coordinating between five freelancers who don't talk to each other.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💲</div>
+          <h3>Clear Fixed Pricing</h3>
+          <p>Market-validated tiers with defined scope and deliverables. You know what you're getting and what it costs before anything starts. No hourly surprises, no scope creep.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -142,7 +231,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Workflow bottleneck map</li>
             <li>30-day priority action plan</li>
           </ul>
-          <a href="/services#signal" class="btn-secondary pkg-cta">Learn More</a>
+          <Button variant="outline" href="/services#signal" class="pkg-cta">Learn More</Button>
         </div>
 
         <div class="card pkg-card">
@@ -155,7 +244,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Automation opportunity map</li>
             <li>Tech stack recommendation</li>
           </ul>
-          <a href="/services#blueprint" class="btn-secondary pkg-cta">Learn More</a>
+          <Button variant="outline" href="/services#blueprint" class="pkg-cta">Learn More</Button>
         </div>
 
         <div class="card featured pkg-card">
@@ -170,7 +259,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Unified business dashboard</li>
             <li>SOP library + 30-day support</li>
           </ul>
-          <a href="/services#relay" class="btn-primary pkg-cta">Learn More</a>
+          <Button variant="primary" href="/services#relay" class="pkg-cta">Learn More</Button>
         </div>
 
         <div class="card pkg-card">
@@ -184,7 +273,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Monthly strategy call</li>
             <li>Priority support channel</li>
           </ul>
-          <a href="/services#sustain" class="btn-secondary pkg-cta">Learn More</a>
+          <Button variant="outline" href="/services#sustain" class="pkg-cta">Learn More</Button>
         </div>
       </div>
     </div>
@@ -216,7 +305,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="stat-label">automation workflows running 24/7</div>
             </div>
           </div>
-          <a href="/case-studies/hrc" class="btn-primary" style="margin-top: 32px;">Read the Full Case Study →</a>
+          <Button variant="primary" href="/case-studies/hrc" class="mt-8">Read the Full Case Study →</Button>
         </div>
         <div class="cs-deliverables">
           <div class="card" style="padding: 24px;">
@@ -273,7 +362,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
           </div>
-          <a href="/about" class="btn-secondary" style="margin-top: 28px;">More About Victor →</a>
+          <Button variant="outline" href="/about" class="mt-7">More About Victor →</Button>
         </div>
         <div class="advantage-card card">
           <p class="section-eyebrow" style="margin-bottom: 16px;">The Difference</p>
@@ -313,13 +402,42 @@ import Layout from '../layouts/Layout.astro';
         start with a conversation. No commitment required.
       </p>
       <div class="hero-actions">
-        <a href="/contact" class="btn-primary">Start a Project →</a>
-        <a href="/services" class="btn-secondary">See All Packages</a>
+        <Button variant="primary" href="/contact">Start a Project →</Button>
+        <Button variant="outline" href="/services">See All Packages</Button>
       </div>
     </div>
   </section>
 
 </Layout>
+
+<script>
+  const form = document.getElementById('lead-magnet-form') as HTMLFormElement;
+  const success = document.getElementById('lead-magnet-success') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = (form.elements.namedItem('name') as HTMLInputElement).value.trim();
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+
+    if (!name || !email) return;
+
+    const webhook = form.dataset.webhook;
+    if (webhook && webhook !== '#') {
+      try {
+        await fetch(webhook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, source: 'digital-readiness-assessment' }),
+        });
+      } catch {
+        // Webhook failure shouldn't block the download
+      }
+    }
+
+    form.hidden = true;
+    success.hidden = false;
+  });
+</script>
 
 <style>
   /* ── Hero ── */
@@ -396,6 +514,24 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-muted);
     text-align: center;
   }
+
+  /* ── Why RelayLaunch ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .why-card {
+    padding: 28px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .why-icon { font-size: 28px; margin-bottom: 14px; }
+  .why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .why-card p { font-size: 14px; line-height: 1.65; }
 
   /* ── Problem checklist ── */
   .problem-list li::before { content: '✗'; color: #f85149; }
@@ -477,8 +613,105 @@ import Layout from '../layouts/Layout.astro';
   .cta-section { background: var(--color-surface); }
   .cta-inner { max-width: 700px; }
 
+  /* ── Lead magnet ── */
+  .lead-magnet-section { background: var(--color-surface); }
+
+  .lead-magnet-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 40px;
+    align-items: center;
+    border-color: var(--color-green);
+  }
+
+  .lead-magnet-title {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 800;
+    margin-bottom: 12px;
+  }
+
+  .lead-magnet-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-muted);
+  }
+
+  .lead-magnet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .form-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .form-field input {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.15s;
+  }
+
+  .form-field input:focus {
+    outline: none;
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(35, 134, 54, 0.15);
+  }
+
+  .form-field input::placeholder { color: var(--color-muted); opacity: 0.6; }
+
+  .form-note {
+    font-size: 12px;
+    color: var(--color-muted);
+    text-align: center;
+  }
+
+  .lead-magnet-success { text-align: center; }
+
+  .success-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-green);
+    margin-bottom: 8px;
+  }
+
+  .success-desc {
+    font-size: 15px;
+    color: var(--color-muted);
+    margin-bottom: 20px;
+  }
+
+  .success-download {
+    display: inline-block;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-green);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+
+  .success-download:hover { opacity: 0.9; text-decoration: none; }
+
   /* ── Responsive ── */
   @media (max-width: 768px) {
+    .lead-magnet-inner { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
+    .why-grid { grid-template-columns: 1fr; }
     .two-col, .cs-inner { grid-template-columns: 1fr; gap: 40px; }
     .stats-grid { gap: 0; }
     .stat-divider { display: none; }

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
@@ -16,9 +17,9 @@ import Layout from '../layouts/Layout.astro';
         Here are some places to go instead:
       </p>
       <nav class="not-found-links" aria-label="Helpful links">
-        <a href="/" class="btn-primary">Go Home</a>
-        <a href="/services" class="btn-secondary">View Services</a>
-        <a href="/contact" class="btn-secondary">Contact Us</a>
+        <Button variant="primary" href="/">Go Home</Button>
+        <Button variant="outline" href="/services">View Services</Button>
+        <Button variant="outline" href="/contact">Contact Us</Button>
       </nav>
     </div>
   </section>

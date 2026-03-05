@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
   title="About — RelayLaunch"
   description="RelayLaunch was founded by Victor David Medina — cloud engineer, USMC veteran, and small business advocate. Enterprise infrastructure applied at small business scale."
+  canonicalUrl="https://relaylaunch.com/about/"
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
@@ -202,8 +204,8 @@ import Layout from '../layouts/Layout.astro';
         Start with a conversation. Tell us where you are and what you're trying to build.
       </p>
       <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <a href="/contact" class="btn-primary">Start a Project →</a>
-        <a href="/case-studies/hrc" class="btn-secondary">See the HRC Case Study</a>
+        <Button variant="primary" href="/contact">Start a Project →</Button>
+        <Button variant="outline" href="/case-studies/hrc">See the HRC Case Study</Button>
       </div>
     </div>
   </section>

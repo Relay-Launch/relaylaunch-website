@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogPostLayout from '../../components/layouts/BlogPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog')).filter((p) => !p.data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const canonicalUrl = `https://relaylaunch.com/blog/${post.id}/`;
+---
+
+<BlogPostLayout frontmatter={post.data} canonicalUrl={canonicalUrl}>
+  <Content />
+</BlogPostLayout>

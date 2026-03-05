@@ -8,7 +8,10 @@ const year = new Date().getFullYear();
       <a href="/" class="brand-link">
         <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
       </a>
+      <p class="footer-company">RelayLaunch LLC</p>
       <p class="footer-tagline">Build Smarter. Launch Faster. Grow With Purpose.</p>
+      <p class="footer-location">Watertown, MA · Serving Boston &amp; the Northeast</p>
+      <a href="mailto:hello@relaylaunch.com" class="footer-email">hello@relaylaunch.com</a>
     </div>
 
     <nav class="footer-nav" aria-label="Footer navigation">
@@ -19,14 +22,24 @@ const year = new Date().getFullYear();
           <li><a href="/services#blueprint">Blueprint — Strategy</a></li>
           <li><a href="/services#relay">Relay — Build</a></li>
           <li><a href="/services#sustain">Sustain — Retainer</a></li>
+          <li><a href="/complete-analysis">Complete Analysis</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Quick Links</p>
+        <ul role="list">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/how-we-work">How We Work</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <p class="footer-col-label">Company</p>
         <ul role="list">
           <li><a href="/about">About</a></li>
-          <li><a href="/case-studies/hrc">HRC Case Study</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/intake">Client Intake</a></li>
           <li><a href="https://github.com/Relay-Launch" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>
@@ -64,11 +77,35 @@ const year = new Date().getFullYear();
   .brand-relay, .brand-launch { color: var(--color-text); }
   .brand-arrow { color: var(--color-green); margin: 0 1px; }
 
+  .footer-company {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: 12px;
+  }
+
   .footer-tagline {
     font-size: 14px;
     color: var(--color-muted);
-    margin-top: 8px;
+    margin-top: 4px;
   }
+
+  .footer-location {
+    font-size: 13px;
+    color: var(--color-muted);
+    margin-top: 12px;
+  }
+
+  .footer-email {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--color-muted);
+    text-decoration: none;
+    margin-top: 4px;
+    transition: color 0.15s;
+  }
+
+  .footer-email:hover { color: var(--color-text); text-decoration: none; }
 
   .footer-nav {
     display: flex;

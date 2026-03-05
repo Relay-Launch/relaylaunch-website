@@ -1,0 +1,308 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
+
+const stages = [
+  { number: '01', title: 'Discovery Call', description: '30–45 minute conversation to understand your business model, current tools, pain points, and goals. No prep required.' },
+  { number: '02', title: 'Client Intake', description: 'You complete a detailed questionnaire covering 7 areas of your business — technology, operations, digital presence, and more.' },
+  { number: '03', title: 'Complete Analysis', description: 'A two-day deep dive into your business. We audit every system, map every workflow, and research your competitive landscape.' },
+  { number: '04', title: 'Presentation', description: 'We walk you through the full 20–30 page report. Every finding, every recommendation, every number — explained in plain language.' },
+  { number: '05', title: 'Proposal', description: 'Based on the analysis, we deliver a scoped proposal with clear deliverables, timeline, and pricing. No surprises.' },
+  { number: '06', title: 'Implementation', description: 'We build your unified infrastructure — website, automations, integrations, dashboards — in focused sprints with regular check-ins.' },
+  { number: '07', title: 'Training & Handoff', description: 'Your team gets hands-on training with every system we build. You own everything — no vendor lock-in, no dependencies on us.' },
+  { number: '08', title: 'Retainer Onboarding', description: 'Optional ongoing support. We monitor, optimize, and iterate on your systems so they keep improving after launch.' },
+];
+
+const analysisOutline = [
+  { title: 'Executive Summary', description: 'High-level findings, key risks, and top 3 recommended actions.' },
+  { title: 'Operations & Workflows', description: 'Bottleneck map, time-cost analysis, and automation opportunities.' },
+  { title: 'Technology Stack', description: 'Full inventory with redundancy analysis, cost breakdown, and replacement recommendations.' },
+  { title: 'Digital Presence', description: 'Website audit, SEO snapshot, social profiles, listings, and review health.' },
+  { title: 'AI Readiness', description: 'Current automation maturity and specific opportunities for AI-assisted workflows.' },
+  { title: 'Competitive Snapshot', description: 'How your digital infrastructure compares to 3–5 direct competitors.' },
+  { title: 'Connection Map', description: 'Visual diagram of how every tool and system connects — and where the gaps are.' },
+  { title: 'Priority Roadmap', description: '90-day action plan with milestones, sequenced by impact and effort.' },
+];
+
+const tools = [
+  { name: 'Astro', description: 'Fast, modern websites with perfect Lighthouse scores and zero JavaScript bloat.' },
+  { name: 'n8n', description: 'Self-hosted workflow automation connecting your tools without recurring per-task fees.' },
+  { name: 'Claude', description: 'AI-powered analysis, content generation, and intelligent workflow automation.' },
+  { name: 'Perplexity', description: 'AI-assisted research for competitive analysis and market intelligence.' },
+  { name: 'Terraform', description: 'Infrastructure as code — repeatable, version-controlled cloud deployments.' },
+  { name: 'AWS', description: 'Enterprise-grade hosting and services scaled to small-business budgets.' },
+];
+---
+
+<Layout
+  title="How We Work — RelayLaunch"
+  description="RelayLaunch follows a standardized 8-stage delivery pipeline — from discovery call to retainer onboarding. See exactly how we turn operational chaos into unified infrastructure."
+  canonicalUrl="https://relaylaunch.com/how-we-work/"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'RelayLaunch LLC',
+    url: 'https://relaylaunch.com',
+    description: 'Digital infrastructure consulting for small businesses — standardized 8-stage delivery pipeline from discovery to retainer.',
+    knowsAbout: ['Business Analysis', 'Workflow Automation', 'Web Development', 'AI Integration', 'Digital Infrastructure'],
+    founder: { '@type': 'Person', name: 'Victor David Medina' },
+  }}
+>
+
+  <!-- ═══════════════════════════════════════════════ HERO -->
+  <section class="section hero">
+    <div class="container">
+      <span class="section-eyebrow">How We Work</span>
+      <h1 class="section-title" style="font-size: clamp(32px, 5vw, 52px); max-width: 700px;">
+        A standardized pipeline.<br />Predictable results.
+      </h1>
+      <p class="section-sub" style="max-width: 620px;">
+        Every RelayLaunch engagement follows the same 8-stage pipeline — from first
+        conversation to running infrastructure. No guesswork, no scope creep, no surprises.
+      </p>
+      <Button variant="primary" href="/contact" size="lg" style="margin-top: 28px;">
+        Book a Discovery Call →
+      </Button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ PIPELINE -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">End-to-End Delivery Pipeline</span>
+      <h2 class="section-title" style="margin-bottom: 48px;">8 stages. One clear path.</h2>
+
+      <div class="timeline">
+        {stages.map((stage) => (
+          <div class="timeline-item">
+            <div class="timeline-marker">
+              <span class="timeline-number">{stage.number}</span>
+              <div class="timeline-line" />
+            </div>
+            <div class="timeline-content">
+              <h3>{stage.title}</h3>
+              <p>{stage.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ COMPLETE ANALYSIS DETAIL -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <span class="section-eyebrow">The Complete Analysis in Detail</span>
+      <h2 class="section-title" style="margin-bottom: 16px;">Two days. 20–30 pages. Complete clarity.</h2>
+      <p class="section-sub" style="max-width: 620px; margin-bottom: 48px;">
+        The Complete Analysis is the foundation of every engagement. Over two focused days,
+        we audit your entire operation and deliver a report that becomes your roadmap.
+      </p>
+
+      <div class="analysis-days">
+        <div class="card day-card">
+          <span class="section-eyebrow" style="margin-bottom: 16px;">Day 1 — Audit & Research</span>
+          <ul class="day-list">
+            <li>Full technology stack inventory and cost analysis</li>
+            <li>Workflow mapping — every process from lead to delivery</li>
+            <li>Digital presence audit (website, SEO, social, listings)</li>
+            <li>Competitive landscape research (3–5 competitors)</li>
+            <li>AI and automation readiness assessment</li>
+          </ul>
+        </div>
+        <div class="card day-card">
+          <span class="section-eyebrow" style="margin-bottom: 16px;">Day 2 — Analysis & Strategy</span>
+          <ul class="day-list">
+            <li>Synthesize findings into actionable recommendations</li>
+            <li>Build connection map of all systems and gaps</li>
+            <li>Calculate ROI projections for recommended changes</li>
+            <li>Sequence the 90-day priority roadmap</li>
+            <li>Compile the full 20–30 page deliverable</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="font-size: 18px; font-weight: 700; margin-top: 48px; margin-bottom: 24px;">What's in the report</h3>
+      <div class="outline-grid">
+        {analysisOutline.map((item) => (
+          <div class="outline-item">
+            <h4>{item.title}</h4>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ TOOLS -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">Tools We Use</span>
+      <h2 class="section-title" style="margin-bottom: 40px;">Modern stack. No bloat.</h2>
+
+      <div class="tools-grid">
+        {tools.map((tool) => (
+          <div class="tool-card">
+            <h3>{tool.name}</h3>
+            <p>{tool.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CTA -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title">Ready to start?</h2>
+      <p class="section-sub" style="margin: 16px auto 32px; max-width: 520px;">
+        Every engagement begins with a 30-minute discovery call.
+        No commitment, no pitch — just a conversation about your business.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <Button variant="primary" href="/contact">Book a Discovery Call →</Button>
+        <Button variant="outline" href="/complete-analysis">Learn About the Complete Analysis</Button>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: 80px; }
+
+  /* ── Timeline ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 24px;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 48px;
+  }
+
+  .timeline-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 2px solid var(--color-green);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-green);
+    flex-shrink: 0;
+  }
+
+  .timeline-line {
+    width: 2px;
+    flex: 1;
+    background: var(--color-border);
+    min-height: 24px;
+  }
+
+  .timeline-item:last-child .timeline-line { display: none; }
+
+  .timeline-content {
+    padding-bottom: 32px;
+    padding-top: 6px;
+  }
+
+  .timeline-item:last-child .timeline-content { padding-bottom: 0; }
+
+  .timeline-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .timeline-content p { font-size: 15px; line-height: 1.65; color: var(--color-muted); }
+
+  /* ── Analysis days ── */
+  .analysis-days {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .day-card { padding: 28px; }
+
+  .day-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .day-list li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-muted);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .day-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-green);
+  }
+
+  /* ── Report outline ── */
+  .outline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  .outline-item {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .outline-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .outline-item p { font-size: 13px; line-height: 1.6; color: var(--color-muted); }
+
+  /* ── Tools grid ── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .tool-card {
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .tool-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .tool-card p { font-size: 14px; line-height: 1.65; color: var(--color-muted); }
+
+  @media (max-width: 768px) {
+    .analysis-days { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .timeline-marker { width: 36px; }
+    .timeline-number { width: 32px; height: 32px; font-size: 11px; }
+    .timeline-item { gap: 16px; }
+  }
+</style>

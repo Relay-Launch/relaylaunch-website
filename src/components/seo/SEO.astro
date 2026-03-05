@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: string;
+  /** Optional JSON-LD schema object(s) to embed alongside the default Organization schema */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const siteUrl = 'https://relaylaunch.com';
+
+const {
+  title,
+  description = 'RelayLaunch builds unified digital infrastructure for small businesses — website, automation, email, social, and dashboard, all connected.',
+  canonicalUrl = new URL(Astro.url.pathname, siteUrl).href,
+  ogImage = `${siteUrl}/og-default.png`,
+  ogType = 'website',
+  jsonLd,
+} = Astro.props;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'RelayLaunch LLC',
+  url: siteUrl,
+  logo: `${siteUrl}/og-default.png`,
+  description,
+  founder: { '@type': 'Person', name: 'Victor David Medina' },
+  sameAs: [
+    'https://github.com/Relay-Launch',
+  ],
+};
+
+const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonicalUrl} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="RelayLaunch" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- JSON-LD -->
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}
