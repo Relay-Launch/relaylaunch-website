@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
@@ -77,8 +78,8 @@ import Layout from '../../layouts/Layout.astro';
         we'll map out exactly what needs to change.
       </p>
       <div class="cta-actions">
-        <a href="/contact" class="btn-primary">Start a Project</a>
-        <a href="/services" class="btn-secondary">View Services</a>
+        <Button variant="primary" href="/contact">Start a Project</Button>
+        <Button variant="outline" href="/services">View Services</Button>
       </div>
     </div>
   </section>

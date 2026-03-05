@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
@@ -31,15 +32,15 @@ import Layout from '../layouts/Layout.astro';
           Fill out our intake form on GitHub — we'll get back to you within 1–2 business days
           to schedule a discovery call.
         </p>
-        <a
+        <Button
+          variant="primary"
           href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml"
-          class="btn-primary"
           target="_blank"
           rel="noopener"
-          style="font-size: 15px; padding: 13px 24px;"
+          size="lg"
         >
           Submit a Project Request →
-        </a>
+        </Button>
 
         <div class="divider-label">or</div>
 
@@ -47,15 +48,15 @@ import Layout from '../layouts/Layout.astro';
         <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
           Not ready to submit a full request? Have a specific question? Use the quick question form.
         </p>
-        <a
+        <Button
+          variant="outline"
           href="https://github.com/Relay-Launch/.github/issues/new?template=quick-question.yml"
-          class="btn-secondary"
           target="_blank"
           rel="noopener"
-          style="font-size: 15px; padding: 13px 24px;"
+          size="lg"
         >
           Ask a Quick Question
-        </a>
+        </Button>
       </div>
 
       <div class="contact-sidebar">

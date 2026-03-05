@@ -11,6 +11,7 @@ const currentPath = Astro.url.pathname;
 function isActive(href: string) {
   return currentPath === href || currentPath.startsWith(href + '/');
 }
+import { Button } from '@/components/starwind/button';
 ---
 
 <header>
@@ -34,7 +35,7 @@ function isActive(href: string) {
     </ul>
 
     <div class="nav-right">
-      <a href="/contact" class="btn-primary nav-cta">Start a Project</a>
+      <Button variant="primary" href="/contact" size="sm" class="nav-cta">Start a Project</Button>
       <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -58,7 +59,7 @@ function isActive(href: string) {
         </li>
       ))}
       <li>
-        <a href="/contact" class="btn-primary mobile-nav-cta">Start a Project</a>
+        <Button variant="primary" href="/contact" class="mobile-nav-cta w-full justify-center">Start a Project</Button>
       </li>
     </ul>
   </div>

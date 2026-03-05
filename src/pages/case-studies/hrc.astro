@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
@@ -334,8 +335,8 @@ import Layout from '../../layouts/Layout.astro';
         or jump straight into a build — we'll figure out the right fit together.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a href="/contact" class="btn-primary">Start Your Build →</a>
-        <a href="/services" class="btn-secondary">See All Packages</a>
+        <Button variant="primary" href="/contact">Start Your Build →</Button>
+        <Button variant="outline" href="/services">See All Packages</Button>
       </div>
     </div>
   </section>

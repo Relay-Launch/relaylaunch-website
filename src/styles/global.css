@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "./starwind.css";
 
 @theme {
   --color-bg: #0d1117;

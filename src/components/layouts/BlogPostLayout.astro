@@ -6,6 +6,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../Nav.astro';
 import Footer from '../Footer.astro';
+import { Button } from '@/components/starwind/button';
 
 interface Props {
   frontmatter: {
@@ -66,8 +67,8 @@ const formattedDate = new Date(frontmatter.date).toLocaleDateString('en-US', {
           See how RelayLaunch replaces disconnected tools with unified infrastructure.
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <a href="/services" class="btn-primary">View Services</a>
-          <a href="/contact" class="btn-secondary">Start a Project</a>
+          <Button variant="primary" href="/services">View Services</Button>
+          <Button variant="outline" href="/contact">Start a Project</Button>
         </div>
       </div>
     </section>

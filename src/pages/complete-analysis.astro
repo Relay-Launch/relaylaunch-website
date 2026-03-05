@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
@@ -139,8 +140,8 @@ import Layout from '../layouts/Layout.astro';
         and give you a clear proposal before anything starts.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a href="/contact" class="btn-primary">Start a Complete Analysis →</a>
-        <a href="/services" class="btn-secondary">Compare All Packages</a>
+        <Button variant="primary" href="/contact">Start a Complete Analysis →</Button>
+        <Button variant="outline" href="/services">Compare All Packages</Button>
       </div>
     </div>
   </section>

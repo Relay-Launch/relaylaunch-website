@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
@@ -21,8 +22,8 @@ import Layout from '../layouts/Layout.astro';
         running your business while you focus on your clients.
       </p>
       <div class="hero-actions">
-        <a href="/services" class="btn-primary">See Our Packages →</a>
-        <a href="/case-studies/hrc" class="btn-secondary">View Case Study</a>
+        <Button variant="primary" href="/services">See Our Packages →</Button>
+        <Button variant="outline" href="/case-studies/hrc">View Case Study</Button>
       </div>
     </div>
   </section>
@@ -142,7 +143,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Workflow bottleneck map</li>
             <li>30-day priority action plan</li>
           </ul>
-          <a href="/services#signal" class="btn-secondary pkg-cta">Learn More</a>
+          <Button variant="outline" href="/services#signal" class="pkg-cta">Learn More</Button>
         </div>
 
         <div class="card pkg-card">
@@ -155,7 +156,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Automation opportunity map</li>
             <li>Tech stack recommendation</li>
           </ul>
-          <a href="/services#blueprint" class="btn-secondary pkg-cta">Learn More</a>
+          <Button variant="outline" href="/services#blueprint" class="pkg-cta">Learn More</Button>
         </div>
 
         <div class="card featured pkg-card">
@@ -170,7 +171,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Unified business dashboard</li>
             <li>SOP library + 30-day support</li>
           </ul>
-          <a href="/services#relay" class="btn-primary pkg-cta">Learn More</a>
+          <Button variant="primary" href="/services#relay" class="pkg-cta">Learn More</Button>
         </div>
 
         <div class="card pkg-card">
@@ -184,7 +185,7 @@ import Layout from '../layouts/Layout.astro';
             <li>Monthly strategy call</li>
             <li>Priority support channel</li>
           </ul>
-          <a href="/services#sustain" class="btn-secondary pkg-cta">Learn More</a>
+          <Button variant="outline" href="/services#sustain" class="pkg-cta">Learn More</Button>
         </div>
       </div>
     </div>
@@ -216,7 +217,7 @@ import Layout from '../layouts/Layout.astro';
               <div class="stat-label">automation workflows running 24/7</div>
             </div>
           </div>
-          <a href="/case-studies/hrc" class="btn-primary" style="margin-top: 32px;">Read the Full Case Study →</a>
+          <Button variant="primary" href="/case-studies/hrc" class="mt-8">Read the Full Case Study →</Button>
         </div>
         <div class="cs-deliverables">
           <div class="card" style="padding: 24px;">
@@ -273,7 +274,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
           </div>
-          <a href="/about" class="btn-secondary" style="margin-top: 28px;">More About Victor →</a>
+          <Button variant="outline" href="/about" class="mt-7">More About Victor →</Button>
         </div>
         <div class="advantage-card card">
           <p class="section-eyebrow" style="margin-bottom: 16px;">The Difference</p>
@@ -313,8 +314,8 @@ import Layout from '../layouts/Layout.astro';
         start with a conversation. No commitment required.
       </p>
       <div class="hero-actions">
-        <a href="/contact" class="btn-primary">Start a Project →</a>
-        <a href="/services" class="btn-secondary">See All Packages</a>
+        <Button variant="primary" href="/contact">Start a Project →</Button>
+        <Button variant="outline" href="/services">See All Packages</Button>
       </div>
     </div>
   </section>
