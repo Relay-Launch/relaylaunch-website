@@ -25,8 +25,12 @@ const orgSchema = {
   '@type': 'Organization',
   name: 'RelayLaunch LLC',
   url: siteUrl,
+  logo: `${siteUrl}/og-default.png`,
   description,
   founder: { '@type': 'Person', name: 'Victor David Medina' },
+  sameAs: [
+    'https://github.com/Relay-Launch',
+  ],
 };
 
 const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];

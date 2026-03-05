@@ -7,6 +7,22 @@ import { Button } from '@/components/starwind/button';
   title="Contact — RelayLaunch"
   description="Start a project with RelayLaunch. Submit a project request or ask a quick question — we'll respond within 1–2 business days."
   canonicalUrl="https://relaylaunch.com/contact/"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: 'RelayLaunch LLC',
+    url: 'https://relaylaunch.com',
+    email: 'hello@relaylaunch.com',
+    description: 'Digital infrastructure consulting for small businesses — website, automation, email, social, and unified dashboards.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Watertown',
+      addressRegion: 'MA',
+      addressCountry: 'US',
+    },
+    founder: { '@type': 'Person', name: 'Victor David Medina' },
+    sameAs: ['https://github.com/Relay-Launch'],
+  }}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->

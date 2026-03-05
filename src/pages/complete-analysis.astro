@@ -7,6 +7,19 @@ import { Button } from '@/components/starwind/button';
   title="Complete Business Analysis — RelayLaunch"
   description="A deep-dive analysis of your digital presence, operations, tool stack, and growth opportunities. Signal + Blueprint combined into one comprehensive engagement."
   canonicalUrl="https://relaylaunch.com/complete-analysis/"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Complete Business Analysis',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
+    description: 'A comprehensive engagement combining Signal audit and Blueprint strategy — full analysis of digital presence, operations, tool stack, and a 90-day growth roadmap.',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '1500',
+      highPrice: '3000',
+    },
+  }}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->

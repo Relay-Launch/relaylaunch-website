@@ -1,12 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
+
+const serviceSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Signal — Visibility & Ops Audit',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
+    description: 'A focused audit of your business operations, digital presence, and tool stack. Identifies what\'s working, what\'s broken, and delivers a prioritized action plan.',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '500',
+      highPrice: '900',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Blueprint — Systems Strategy',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
+    description: 'Full growth roadmap and automation opportunity map including 90-day milestones, competitive landscape, and tech stack recommendations.',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '1200',
+      highPrice: '2000',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Relay — Build & Connect',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
+    description: 'Full build of unified digital infrastructure — website, automation workflows, email sequences, social scheduling, and a single dashboard. One connected system replacing disconnected tools.',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '1800',
+      highPrice: '6000',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Sustain — Monthly Growth Support',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
+    description: 'Ongoing monthly support including social content, SEO & blog maintenance, automation monitoring, performance reports, and priority support.',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '300',
+      highPrice: '500',
+    },
+  },
+];
 ---
 
 <Layout
   title="Services — RelayLaunch"
   description="RelayLaunch service packages for small businesses: Signal audit, Blueprint strategy, Relay full build, and Sustain monthly support."
   canonicalUrl="https://relaylaunch.com/services/"
+  jsonLd={serviceSchemas}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
