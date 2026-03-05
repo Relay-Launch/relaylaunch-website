@@ -110,6 +110,37 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════ WHY RELAYLAUNCH -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">Why RelayLaunch</span>
+      <h2 class="section-title" style="margin-bottom: 40px;">Built different. On purpose.</h2>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🎖️</div>
+          <h3>Veteran-Owned, Mission-Driven</h3>
+          <p>USMC discipline meets enterprise engineering experience. Structured execution, clear communication, and zero fluff — the same rigor that managed Fortune 500 integrations, applied to your business.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🏗️</div>
+          <h3>Infrastructure-First + AI</h3>
+          <p>We don't bolt AI onto a broken foundation. We build the infrastructure first — website, automations, integrations — then layer in AI where it actually saves time and money.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔗</div>
+          <h3>Full-Service, One Partner</h3>
+          <p>Web, SEO, AI agents, workflow automation, systems integration, cloud infrastructure — all from one team. No coordinating between five freelancers who don't talk to each other.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💲</div>
+          <h3>Clear Fixed Pricing</h3>
+          <p>Market-validated tiers with defined scope and deliverables. You know what you're getting and what it costs before anything starts. No hourly surprises, no scope creep.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════ PROBLEM -->
   <section class="section">
     <div class="container">
@@ -484,6 +515,24 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     text-align: center;
   }
 
+  /* ── Why RelayLaunch ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .why-card {
+    padding: 28px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .why-icon { font-size: 28px; margin-bottom: 14px; }
+  .why-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .why-card p { font-size: 14px; line-height: 1.65; }
+
   /* ── Problem checklist ── */
   .problem-list li::before { content: '✗'; color: #f85149; }
 
@@ -662,6 +711,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   /* ── Responsive ── */
   @media (max-width: 768px) {
     .lead-magnet-inner { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
+    .why-grid { grid-template-columns: 1fr; }
     .two-col, .cs-inner { grid-template-columns: 1fr; gap: 40px; }
     .stats-grid { gap: 0; }
     .stat-divider { display: none; }
