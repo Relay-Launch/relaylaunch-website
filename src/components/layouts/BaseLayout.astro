@@ -18,6 +18,9 @@ interface Props {
 }
 
 const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.props;
+
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -43,9 +46,67 @@ const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.prop
       initTheme();
       document.addEventListener("astro:after-swap", initTheme);
     </script>
+    {isProd && gaId && (
+      <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} async></script>
+      <script is:inline define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    )}
     <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} />
   </head>
   <body>
     <slot />
+    {isProd && gaId && (
+      <script is:inline>
+        // CTA click tracking via event delegation
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a[href]');
+          if (!link || typeof gtag !== 'function') return;
+
+          var href = link.getAttribute('href');
+          var text = link.textContent.trim();
+
+          // Track primary CTA clicks
+          if (href === '/contact' || href === '/intake') {
+            gtag('event', 'cta_click', {
+              event_category: 'engagement',
+              event_label: text,
+              link_url: href,
+            });
+          }
+
+          // Track lead magnet download
+          if (href && href.includes('/lead-magnets/')) {
+            gtag('event', 'lead_magnet_download', {
+              event_category: 'conversion',
+              event_label: href,
+            });
+          }
+        });
+
+        // Form submission tracking via event delegation
+        document.addEventListener('submit', function(e) {
+          if (typeof gtag !== 'function') return;
+          var form = e.target;
+
+          if (form.id === 'lead-magnet-form') {
+            gtag('event', 'lead_magnet_submit', {
+              event_category: 'conversion',
+              event_label: 'digital-readiness-assessment',
+            });
+          }
+
+          if (form.id === 'contact-form') {
+            gtag('event', 'contact_form_submit', {
+              event_category: 'conversion',
+              event_label: 'contact',
+            });
+          }
+        });
+      </script>
+    )}
   </body>
 </html>
