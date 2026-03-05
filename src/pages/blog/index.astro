@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-);
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout
@@ -33,7 +33,7 @@ const posts = (await getCollection('blog')).sort(
     <div class="container">
       <div class="posts-grid">
         {posts.map((post) => {
-          const formattedDate = new Date(post.data.date).toLocaleDateString('en-US', {
+          const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
@@ -49,7 +49,7 @@ const posts = (await getCollection('blog')).sort(
               <h2 class="post-title">{post.data.title}</h2>
               <p class="post-excerpt">{post.data.description}</p>
               <div class="post-meta">
-                <time datetime={post.data.date}>{formattedDate}</time>
+                <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
                 {post.data.author && <span> · {post.data.author}</span>}
               </div>
               <span class="post-read-more">Read article →</span>
