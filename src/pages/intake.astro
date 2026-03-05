@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from '@/components/starwind/button';
+
+const intakeFormUrl = import.meta.env.PUBLIC_INTAKE_FORM_URL || '#';
+
+const areas = [
+  { number: '01', title: 'Business Overview', description: 'Your business model, customers, revenue streams, and competitive landscape.' },
+  { number: '02', title: 'Current Technology Stack', description: 'Every tool, platform, and subscription you currently use — and how they connect.' },
+  { number: '03', title: 'Website & Digital Presence', description: 'Your website, social profiles, listings, reviews, and online reputation.' },
+  { number: '04', title: 'Operations & Workflows', description: 'How work moves through your business — from lead to delivery to follow-up.' },
+  { number: '05', title: 'AI & Automation', description: 'Where you currently use automation, and where manual work is costing you time.' },
+  { number: '06', title: 'Goals & Budget', description: 'What you want to achieve in the next 90 days, 6 months, and year — and what you can invest.' },
+  { number: '07', title: 'Decision Making', description: 'Who is involved in decisions, what your timeline looks like, and how you prioritize.' },
+];
+---
+
+<Layout
+  title="Client Intake Questionnaire — RelayLaunch"
+  description="Complete the intake questionnaire before your Complete Analysis engagement. Covers business overview, tech stack, operations, AI readiness, goals, and more."
+  canonicalUrl="https://relaylaunch.com/intake/"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Client Intake Questionnaire',
+    description: 'Pre-engagement intake questionnaire for RelayLaunch Complete Analysis clients.',
+    url: 'https://relaylaunch.com/intake/',
+    publisher: {
+      '@type': 'Organization',
+      name: 'RelayLaunch LLC',
+      url: 'https://relaylaunch.com',
+    },
+  }}
+>
+
+  <!-- ═══════════════════════════════════════════════ HERO -->
+  <section class="section hero">
+    <div class="container">
+      <span class="section-eyebrow">Intake Questionnaire</span>
+      <h1 class="section-title" style="font-size: clamp(32px, 5vw, 52px); max-width: 700px;">
+        Complete Analysis<br />Client Intake
+      </h1>
+      <p class="section-sub" style="max-width: 620px;">
+        This questionnaire is required before every Complete Analysis engagement.
+        It gives us the context we need to make your audit and strategy as specific
+        and actionable as possible. Most clients finish in <strong>15–20 minutes</strong>.
+      </p>
+      <div class="hero-actions">
+        <Button variant="primary" href={intakeFormUrl} target="_blank" rel="noopener" size="lg">
+          Begin Questionnaire →
+        </Button>
+        <a href="/intake-sample.pdf" class="sample-link" download>Download sample questionnaire (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ AREAS COVERED -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">What We'll Ask About</span>
+      <h2 class="section-title" style="margin-bottom: 40px;">7 areas. One complete picture.</h2>
+
+      <div class="areas-grid">
+        {areas.map((area) => (
+          <div class="area-card">
+            <span class="area-number">{area.number}</span>
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CTA -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container" style="text-align: center;">
+      <h2 class="section-title">Ready to get started?</h2>
+      <p class="section-sub" style="margin: 16px auto 32px; max-width: 520px;">
+        The questionnaire takes 15–20 minutes. Your responses are
+        <strong>confidential</strong> and used only to prepare your analysis.
+      </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <Button variant="primary" href={intakeFormUrl} target="_blank" rel="noopener">Begin Questionnaire →</Button>
+        <Button variant="outline" href="/complete-analysis">Learn About the Complete Analysis</Button>
+      </div>
+      <p class="confidentiality-note">
+        All responses are kept strictly confidential and are never shared with third parties.
+      </p>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero { padding-top: 80px; }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .sample-link {
+    font-size: 14px;
+    color: var(--color-muted);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+  }
+
+  .sample-link:hover { color: var(--color-text); }
+
+  /* Areas grid */
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .area-card {
+    padding: 24px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .area-number {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-green);
+    margin-bottom: 12px;
+  }
+
+  .area-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+  .area-card p { font-size: 14px; line-height: 1.65; }
+
+  .confidentiality-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 600px) {
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+  }
+</style>
