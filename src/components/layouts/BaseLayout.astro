@@ -18,8 +18,28 @@ const { title, description, ogImage } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
+    <script is:inline>
+      function initTheme() {
+        const colorTheme = localStorage.getItem("colorTheme");
+        if (!colorTheme) {
+          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("colorTheme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("colorTheme", "light");
+          }
+        } else if (colorTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else if (colorTheme === "light") {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      initTheme();
+      document.addEventListener("astro:after-swap", initTheme);
+    </script>
     <SEO title={title} description={description} ogImage={ogImage} />
   </head>
   <body>
