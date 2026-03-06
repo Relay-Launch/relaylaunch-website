@@ -13,14 +13,25 @@ npm run preview # preview the production build locally
 
 ## Deployment
 
-### Automatic (GitHub Actions)
+### Option A: GitHub Actions Pages deployment (`astro.yml`)
 
-The repository includes a workflow (`.github/workflows/astro.yml`) that automatically builds and deploys the site to GitHub Pages on every push to `main`.
+The workflow `.github/workflows/astro.yml` builds and deploys the site using the GitHub Pages API on every push to `main`.
 
-**One-time setup required:**
+**One-time setup:**
 
 1. Go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**
 2. Ensure GitHub Actions is **enabled** for the account/organization (see [Troubleshooting](#github-actions-is-disabled-for-your-account) below)
+
+### Option B: Branch-based deployment (`deploy-gh-pages.yml`) — recommended if Actions Pages is unavailable
+
+The workflow `.github/workflows/deploy-gh-pages.yml` builds the Astro site and pushes the output to the `gh-pages` branch on every push to `main`. It can also be triggered manually via **Actions → Deploy site to gh-pages branch → Run workflow**.
+
+**One-time setup:**
+
+1. Go to **Settings → Pages → Build and deployment → Source** and select **Deploy from a branch**
+2. Set the branch to **`gh-pages`** and folder to **`/ (root)`**
+
+> **Note:** Options A and B are mutually exclusive. Choose one based on your account's GitHub Actions capabilities.
 
 ### Manual (local deploy script)
 

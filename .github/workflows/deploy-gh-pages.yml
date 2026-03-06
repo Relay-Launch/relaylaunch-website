@@ -1,0 +1,46 @@
+# Builds the Astro site and pushes the output to the gh-pages branch.
+#
+# This is the workaround deployment path for when the GitHub Actions Pages
+# deployment (astro.yml) is unavailable.
+#
+# After this workflow runs successfully, configure GitHub Pages:
+#   Settings → Pages → Build and deployment → Source
+#     → "Deploy from a branch" → gh-pages / (root)
+#
+name: Deploy site to gh-pages branch
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
