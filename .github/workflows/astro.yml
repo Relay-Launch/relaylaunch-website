@@ -1,4 +1,9 @@
-# Deploys the Astro site to GitHub Pages on every push to main
+# Deploys the Astro site to GitHub Pages on every push to main.
+#
+# Prerequisites (one-time setup):
+#   1. Go to Settings → Pages → Build and deployment → Source → select "GitHub Actions"
+#   2. Ensure the repository has GitHub Actions enabled
+#
 name: Deploy Astro site to Pages
 
 on:
@@ -13,7 +18,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -29,11 +34,12 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: npm ci
       - name: Build with Astro
-        run: npx astro build
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
