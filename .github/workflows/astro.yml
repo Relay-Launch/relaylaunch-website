@@ -1,3 +1,4 @@
+# Deploys the Astro site to GitHub Pages on every push to main
 name: Deploy Astro site to Pages
 
 on:
