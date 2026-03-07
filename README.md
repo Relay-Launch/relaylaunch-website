@@ -13,16 +13,19 @@ npm run preview # preview the production build locally
 
 ## Deployment
 
-The workflow `.github/workflows/astro.yml` builds and deploys the site automatically on every push to `main`.
+The workflow `.github/workflows/astro.yml` builds and deploys the site automatically on every push to `main`. It supports **both** GitHub Pages deployment methods so it works regardless of your Pages source setting:
+
+- **GitHub Actions source** — deploys directly via `actions/deploy-pages`
+- **Deploy from a branch source** — pushes built files to the `gh-pages` branch
 
 ### One-time setup (required)
 
-1. Go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**
-   - ⚠️ If it is currently set to "Deploy from a branch", change it — that setting causes GitHub's Jekyll builder to fail on Astro source files
-2. Ensure **GitHub Actions is enabled** for the repository (Settings → Actions → General → Allow all actions)
-3. Confirm that the **`github-pages` environment** exists in Settings → Environments (GitHub creates it automatically when you enable the Actions source)
-
-After merging this PR, push any change to `main` (or click **Actions → Deploy Astro site to Pages → Run workflow**) to trigger the first deployment.
+1. Ensure **GitHub Actions is enabled** for the repository (Settings → Actions → General → Allow all actions)
+2. Go to **Settings → Pages → Build and deployment → Source** and select one of:
+   - **GitHub Actions** (recommended), OR
+   - **Deploy from a branch** → **`gh-pages`** / `/ (root)`
+3. Set **Custom domain** to `relaylaunch.com` and check **Enforce HTTPS**
+4. Push any change to `main` (or click **Actions → Deploy Astro site to Pages → Run workflow**) to trigger the first deployment
 
 ### Manual deploy (fallback)
 
@@ -38,40 +41,24 @@ This builds the site and pushes the `dist/` output to a `gh-pages` branch. After
 
 ## Troubleshooting
 
-### Jekyll build failing ("Invalid YAML front matter")
+### Site not loading / 404 after deployment
 
-This error appears when GitHub Pages Source is set to **Deploy from a branch** pointing to a branch that contains raw Astro source files. Fix:
-
-1. Go to **Settings → Pages → Build and deployment → Source** → select **GitHub Actions**
-2. Merge this PR so `astro.yml` is on `main`, then push (or use `workflow_dispatch`) to trigger a fresh deployment
+1. **Check that the workflow ran successfully** — Go to **Actions** tab and verify the latest "Deploy Astro site to Pages" run is green
+2. **Check the Pages source** — In **Settings → Pages**, confirm:
+   - Source = **GitHub Actions** or **Deploy from a branch → `gh-pages` / `(root)`**
+   - Custom domain = `relaylaunch.com` with a **green checkmark ✅**
+   - "Enforce HTTPS" is **checked**
+3. **Verify DNS** at your registrar (e.g. Porkbun):
+   - `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - `CNAME` record: `www` → `relay-launch.github.io`
+4. **Wait for propagation** — DNS changes and TLS certificate provisioning can take up to 24 hours
 
 ### "GitHub Actions is currently disabled for your account"
 
-Actions has been restricted at the account or organization level. This requires GitHub Support to resolve.
-
-**Steps:**
+Actions has been restricted at the account or organization level.
 
 1. Contact GitHub Support at <https://support.github.com/contact> and request Actions be re-enabled
 2. While waiting, run `bash scripts/deploy.sh` locally, then set Pages source to **Deploy from a branch → `gh-pages` / `(root)`**
-3. Once Actions is re-enabled, switch Pages source back to **GitHub Actions**
-
-### Site not loading / 404 after deployment
-
-1. **Check the Pages source** — In **Settings → Pages**, confirm:
-   - Source = **GitHub Actions** (not "Deploy from a branch")
-   - Custom domain = `relaylaunch.com` with a **green checkmark ✅**
-   - "Enforce HTTPS" is **checked**
-2. **Verify DNS** at your registrar (e.g. Porkbun):
-   - `A` records → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `CNAME` record: `www` → `relay-launch.github.io`
-3. **Wait for propagation** — DNS changes and TLS certificate provisioning can take up to 24 hours
-
-### Workflow stuck in "queued" / never runs
-
-1. Confirm Pages source is set to **GitHub Actions** (not "Deploy from a branch")
-2. Confirm GitHub Actions is enabled (Settings → Actions → General)
-3. Check Settings → Environments → `github-pages` exists and has no blocking protection rules
-4. Try triggering manually: Actions → Deploy Astro site to Pages → Run workflow
 
 ## Project structure
 
