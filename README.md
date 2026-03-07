@@ -63,21 +63,54 @@ npm run build   # production build to dist/
 
 The site deploys automatically to GitHub Pages via `.github/workflows/astro.yml` on every push to `main`.
 
-**GitHub Pages Settings** (Required):
-1. Go to repository Settings → Pages
-2. Set **Source** to: **GitHub Actions**
-3. **Custom domain**: relaylaunch.com (configured via `public/CNAME`)
+The workflow supports two deployment modes and runs both on every push, so you can choose whichever Pages source setting works for your repo:
 
-The workflow:
-- Builds the Astro site (`npm run build` → `dist/`)
-- Uploads the `dist/` directory as a Pages artifact
-- Deploys to GitHub Pages
+| Mode | Pages Source Setting | How it works |
+|------|---------------------|--------------|
+| **GitHub Actions** | Settings → Pages → Source → **GitHub Actions** | `deploy-actions` job deploys the build artifact directly |
+| **Branch deploy** | Settings → Pages → Source → **Deploy from a branch** → `gh-pages` / `(root)` | `build` job pushes `dist/` to the `gh-pages` branch |
 
-**DNS Configuration** (for custom domain):
-- Add a CNAME record pointing `relaylaunch.com` to `relay-launch.github.io`
-- Or use A records pointing to GitHub Pages IPs (see [GitHub docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site))
+#### Step 1 — Enable GitHub Pages (required, one-time manual step)
 
-**Troubleshooting**:
-- If you see 404 errors, verify Pages source is set to "GitHub Actions" (not "Deploy from a branch")
-- Check workflow runs at: Actions → Deploy Astro site to Pages
-- Verify the CNAME file exists in `public/CNAME` (not repository root)
+1. Go to **[Settings → Pages](https://github.com/Relay-Launch/relaylaunch-website/settings/pages)**
+2. Under "Build and deployment" → **Source**: select **GitHub Actions**
+3. Under **Custom domain**: enter `relaylaunch.com`
+4. Click **Save**; tick **Enforce HTTPS** once the DNS check passes
+
+#### Step 2 — Configure DNS
+
+Point your domain registrar at GitHub Pages using **one** of these options:
+
+**Option A — A records (apex domain)**
+Add four A records for `relaylaunch.com`:
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+**Option B — CNAME (www subdomain)**
+```
+www.relaylaunch.com  →  relay-launch.github.io
+```
+
+#### Step 3 — Trigger the first deployment
+
+After enabling Pages, push any commit to `main` (e.g. merge this PR), or manually trigger the workflow:
+
+1. Go to **[Actions → Deploy Astro site to Pages](https://github.com/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml)**
+2. Click **Run workflow** → select branch `main` → **Run workflow**
+
+#### Troubleshooting 404 errors
+
+| Symptom | Likely cause | Fix |
+|---------|-------------|-----|
+| `404` on relaylaunch.com | Pages not enabled | Complete Step 1 above |
+| `404` on relay-launch.github.io | Workflow never ran | Trigger the workflow (Step 3) |
+| `404` after workflow ran | DNS not configured | Complete Step 2 above |
+| `NXDOMAIN` / DNS error | Domain not pointed at GitHub | Complete Step 2 above |
+
+- Check workflow run status: **[Actions tab](https://github.com/Relay-Launch/relaylaunch-website/actions)**
+- Verify `public/CNAME` contains `relaylaunch.com` (not in the repo root)
+- After DNS changes, allow up to 24 hours for propagation

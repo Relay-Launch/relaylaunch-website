@@ -27,9 +27,15 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+        continue-on-error: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -45,6 +51,7 @@ jobs:
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
+        continue-on-error: true
         with:
           path: ./dist
 
