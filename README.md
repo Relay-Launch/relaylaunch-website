@@ -56,7 +56,28 @@ Built with [Astro](https://astro.build/) + [Tailwind CSS](https://tailwindcss.co
 ```bash
 npm ci          # install dependencies
 npm run dev     # local dev server at localhost:4321
-npm run build   # production build
+npm run build   # production build to dist/
 ```
 
-Deployments run automatically via GitHub Actions on push to `main`.
+### Deployment
+
+The site deploys automatically to GitHub Pages via `.github/workflows/astro.yml` on every push to `main`.
+
+**GitHub Pages Settings** (Required):
+1. Go to repository Settings → Pages
+2. Set **Source** to: **GitHub Actions**
+3. **Custom domain**: relaylaunch.com (configured via `public/CNAME`)
+
+The workflow:
+- Builds the Astro site (`npm run build` → `dist/`)
+- Uploads the `dist/` directory as a Pages artifact
+- Deploys to GitHub Pages
+
+**DNS Configuration** (for custom domain):
+- Add a CNAME record pointing `relaylaunch.com` to `relay-launch.github.io`
+- Or use A records pointing to GitHub Pages IPs (see [GitHub docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site))
+
+**Troubleshooting**:
+- If you see 404 errors, verify Pages source is set to "GitHub Actions" (not "Deploy from a branch")
+- Check workflow runs at: Actions → Deploy Astro site to Pages
+- Verify the CNAME file exists in `public/CNAME` (not repository root)
