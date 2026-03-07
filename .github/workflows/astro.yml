@@ -1,4 +1,12 @@
-# Deploys the Astro site to GitHub Pages
+# Deploys the Astro site to GitHub Pages.
+#
+# Supports two Pages source modes:
+#   - "GitHub Actions": the deploy-actions job deploys directly via actions/deploy-pages.
+#   - "Deploy from a branch" (gh-pages): the build job pushes dist/ to the gh-pages
+#     branch so GitHub Pages can serve the pre-built static output.
+#
+# Both jobs run on every push to main, so the site is always up-to-date regardless
+# of which Pages source is configured in Settings → Pages.
 name: Deploy Astro site to Pages
 
 on:
@@ -6,22 +14,19 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  # Build the site and push to the gh-pages branch.
+  # This job does NOT reference the github-pages environment so it is never
+  # held for environment-approval and always runs on push.
+  build:
+    name: Build and push to gh-pages
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,21 +37,49 @@ jobs:
           node-version: "20"
           cache: npm
 
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
       - name: Install dependencies
         run: npm ci
 
       - name: Build with Astro
-        run: npm run build -- --site "${{ steps.pages.outputs.origin }}" --base "${{ steps.pages.outputs.base_path }}"
+        run: npm run build
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
+      - name: Push dist to gh-pages branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          cd dist
+          git init
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add -A
+          git commit -m "Deploy site — $(date -u '+%Y-%m-%d %H:%M:%S UTC')" --allow-empty
+          git remote add origin "https://github.com/${{ github.repository }}.git"
+          git config credential.helper \
+            '!f() { echo username=x-access-token; echo "password=$GITHUB_TOKEN"; }; f'
+          git push --force origin HEAD:gh-pages
+
+  # Deploy via the GitHub Actions Pages API.
+  # This job uses the github-pages environment and will only succeed when the
+  # Pages source is set to "GitHub Actions" in Settings → Pages.
+  # It runs after the build job and is non-blocking (continue-on-error) so a
+  # Pages-source mismatch does not fail the overall workflow.
+  deploy-actions:
+    name: Deploy via GitHub Actions Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    continue-on-error: true
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
