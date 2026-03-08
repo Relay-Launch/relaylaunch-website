@@ -71,14 +71,15 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           </form>
           <div id="lead-magnet-success" class="lead-magnet-success" hidden>
             <p class="success-title">You're in.</p>
-            <p class="success-desc">Your Digital Readiness Assessment is ready.</p>
-            <a
-              href="/lead-magnets/digital-readiness-assessment.pdf"
-              download
-              class="success-download"
-            >
-              Download PDF →
-            </a>
+            <p class="success-desc">
+              Check your inbox — your Digital Readiness Assessment is on the way.
+            </p>
+          </div>
+          <div id="lead-magnet-error" class="lead-magnet-error" hidden>
+            <p class="error-title">Something went wrong.</p>
+            <p class="error-desc">
+              Please try again, or reach out to us at <a href="/contact">contact</a>.
+            </p>
           </div>
         </div>
       </div>
@@ -413,6 +414,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 <script>
   const form = document.getElementById('lead-magnet-form') as HTMLFormElement;
   const success = document.getElementById('lead-magnet-success') as HTMLElement;
+  const error = document.getElementById('lead-magnet-error') as HTMLElement;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -421,28 +423,46 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
     if (!name || !email) return;
 
-    const webhook = form.dataset.webhook;
-    if (webhook && webhook !== '#') {
-      try {
-        // Add timeout to prevent indefinite hangs
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-        await fetch(webhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, source: 'digital-readiness-assessment' }),
-          signal: controller.signal,
-        });
-
-        clearTimeout(timeoutId);
-      } catch {
-        // Webhook failure shouldn't block the download
-      }
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitBtn?.textContent || '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
     }
 
-    form.hidden = true;
-    success.hidden = false;
+    const webhook = form.dataset.webhook;
+    if (!webhook || webhook === '#') {
+      // Webhook not configured — show error instead of false promise
+      form.hidden = true;
+      error.hidden = false;
+      return;
+    }
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+      const res = await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, source: 'digital-readiness-assessment' }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error('Webhook returned an error');
+
+      form.hidden = true;
+      success.hidden = false;
+    } catch {
+      // Restore form so user can retry
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+      error.hidden = false;
+    }
   });
 </script>
 
@@ -898,19 +918,26 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     margin-bottom: 20px;
   }
 
-  .success-download {
-    display: inline-block;
-    padding: 10px 24px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    background: var(--color-green);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: opacity 0.15s;
+  .lead-magnet-error { text-align: center; }
+
+  .error-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-orange);
+    margin-bottom: 8px;
   }
 
-  .success-download:hover { opacity: 0.9; text-decoration: none; }
+  .error-desc {
+    font-size: 15px;
+    color: var(--color-muted);
+  }
+
+  .error-desc a {
+    color: var(--color-green);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
