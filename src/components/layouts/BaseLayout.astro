@@ -29,18 +29,14 @@ const isProd = import.meta.env.PROD;
     <script is:inline>
       function initTheme() {
         const colorTheme = localStorage.getItem("colorTheme");
+        const isDark = colorTheme === "dark" ||
+          (!colorTheme && window.matchMedia?.("(prefers-color-scheme: dark)").matches);
+
+        document.documentElement.classList.toggle("dark", isDark);
+
+        // Only write to localStorage if not set
         if (!colorTheme) {
-          if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("colorTheme", "dark");
-          } else {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("colorTheme", "light");
-          }
-        } else if (colorTheme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else if (colorTheme === "light") {
-          document.documentElement.classList.remove("dark");
+          localStorage.setItem("colorTheme", isDark ? "dark" : "light");
         }
       }
       initTheme();
@@ -61,31 +57,36 @@ const isProd = import.meta.env.PROD;
     <slot />
     {isProd && gaId && (
       <script is:inline>
-        // CTA click tracking via event delegation
+        // CTA click tracking via optimized event delegation
         document.addEventListener('click', function(e) {
-          var link = e.target.closest('a[href]');
-          if (!link || typeof gtag !== 'function') return;
+          // Early exit if gtag not available
+          if (typeof gtag !== 'function') return;
+
+          var target = e.target;
+          if (!(target instanceof Element)) return;
+
+          var link = target.closest('a[href]');
+          if (!link) return;
 
           var href = link.getAttribute('href');
-          var text = link.textContent.trim();
+          if (!href) return;
 
           // Track primary CTA clicks
           if (href === '/contact' || href === '/intake') {
             gtag('event', 'cta_click', {
               event_category: 'engagement',
-              event_label: text,
+              event_label: link.textContent.trim(),
               link_url: href,
             });
           }
-
-          // Track lead magnet download
-          if (href && href.includes('/lead-magnets/')) {
+          // Track lead magnet download (startsWith is faster than includes)
+          else if (href.startsWith('/lead-magnets/')) {
             gtag('event', 'lead_magnet_download', {
               event_category: 'conversion',
               event_label: href,
             });
           }
-        });
+        }, { passive: true });
 
         // Form submission tracking via event delegation
         document.addEventListener('submit', function(e) {
@@ -105,7 +106,7 @@ const isProd = import.meta.env.PROD;
               event_label: 'contact',
             });
           }
-        });
+        }, { passive: true });
       </script>
     )}
   </body>

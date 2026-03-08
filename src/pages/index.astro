@@ -424,11 +424,18 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     const webhook = form.dataset.webhook;
     if (webhook && webhook !== '#') {
       try {
+        // Add timeout to prevent indefinite hangs
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         await fetch(webhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, source: 'digital-readiness-assessment' }),
+          signal: controller.signal,
         });
+
+        clearTimeout(timeoutId);
       } catch {
         // Webhook failure shouldn't block the download
       }

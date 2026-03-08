@@ -180,7 +180,11 @@ const {
       activeToggles.clear();
     }
 
-    document.querySelectorAll<HTMLButtonElement>(".starwind-theme-toggle").forEach((toggle) => {
+    // Scope query to header for better performance (most toggles are in nav)
+    const container = document.querySelector('header') || document;
+    const toggles = container.querySelectorAll<HTMLButtonElement>(".starwind-theme-toggle");
+
+    toggles.forEach((toggle) => {
       if (!themeToggleInstances.has(toggle)) {
         themeToggleInstances.set(toggle, new ThemeToggleHandler(toggle));
       }
