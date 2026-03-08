@@ -10,8 +10,14 @@ const navLinks = [
 
 const currentPath = Astro.url.pathname;
 
-function isActive(href: string) {
-  return currentPath === href || currentPath.startsWith(href + '/');
+/**
+ * Check if a navigation link is active
+ * Optimized with early returns to reduce unnecessary string operations
+ */
+function isActive(href: string): boolean {
+  if (currentPath === href) return true;
+  if (href === '/') return false; // Prevent home from always being active
+  return currentPath.startsWith(href + '/');
 }
 import { Button } from '@/components/starwind/button';
 import { ThemeToggle } from '@/components/starwind/theme-toggle';
@@ -81,14 +87,14 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     toggle.classList.toggle('is-open', !isOpen);
   });
 
-  // Close on link click (navigation)
-  mobileNav?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      mobileNav.setAttribute('aria-hidden', 'true');
-      mobileNav.classList.remove('open');
-      toggle.classList.remove('is-open');
-    });
+  // Close on link click using event delegation (more efficient)
+  mobileNav?.addEventListener('click', (e) => {
+    if (!(e.target as Element).closest('a')) return;
+
+    toggle.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    mobileNav.classList.remove('open');
+    toggle.classList.remove('is-open');
   });
 </script>
 

@@ -1,11 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '@/utils/blog';
 
-const posts = (await getCollection('blog'))
-  .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const posts = await getPublishedPosts();
 ---
 
 <Layout
