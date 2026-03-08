@@ -89,7 +89,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
 
   // Close on link click using event delegation (more efficient)
   mobileNav?.addEventListener('click', (e) => {
-    if (!(e.target as Element).closest('a')) return;
+    if (!(e.target instanceof Element) || !e.target.closest('a')) return;
 
     toggle.setAttribute('aria-expanded', 'false');
     mobileNav.setAttribute('aria-hidden', 'true');
