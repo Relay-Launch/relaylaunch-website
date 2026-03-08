@@ -102,6 +102,21 @@ After enabling Pages, push any commit to `main` (e.g. merge this PR), or manuall
 1. Go to **[Actions → Deploy Astro site to Pages](https://github.com/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml)**
 2. Click **Run workflow** → select branch `main` → **Run workflow**
 
+#### Troubleshooting: "domain already taken by another repository"
+
+If GitHub Pages shows the error **"The custom domain 'relaylaunch.com' is already taken by another repository in your organization"**, it means the `Relay-Launch/.github` repository has a `CNAME` file that claims the same domain.
+
+**Fix — remove the CNAME from the `.github` repo:**
+
+1. Go to **[github.com/Relay-Launch/.github](https://github.com/Relay-Launch/.github)**
+2. Open the `CNAME` file in the root of the repository
+3. Delete the file (click the trash-can icon → **Commit changes**)
+4. Return to **[Settings → Pages](https://github.com/Relay-Launch/relaylaunch-website/settings/pages)** for this repo
+5. Enter `relaylaunch.com` in the **Custom domain** field and click **Save**
+6. Once the DNS check passes, tick **Enforce HTTPS**
+
+> The `.github` repo previously served as a placeholder site. The `relaylaunch-website` Astro project is now the authoritative site and should own the `relaylaunch.com` domain claim. The `public/CNAME` file in this repo already contains `relaylaunch.com` and will be included in every deployment automatically.
+
 #### Troubleshooting 404 errors
 
 | Symptom | Likely cause | Fix |
@@ -110,6 +125,7 @@ After enabling Pages, push any commit to `main` (e.g. merge this PR), or manuall
 | `404` on relay-launch.github.io | Workflow never ran | Trigger the workflow (Step 3) |
 | `404` after workflow ran | DNS not configured | Complete Step 2 above |
 | `NXDOMAIN` / DNS error | Domain not pointed at GitHub | Complete Step 2 above |
+| `domain already taken` error | `.github` repo CNAME conflict | See "domain already taken" section above |
 
 - Check workflow run status: **[Actions tab](https://github.com/Relay-Launch/relaylaunch-website/actions)**
 - Verify `public/CNAME` contains `relaylaunch.com` (not in the repo root)
