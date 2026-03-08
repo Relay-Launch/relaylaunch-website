@@ -75,7 +75,6 @@ Type: A, Host: @, Answer: 185.199.111.153
 ```
 Host: relaylaunch.com (full domain)
 Host: * (wildcard)
-Host: (empty when it should be @)
 ```
 
 ✅ **CORRECT:**
