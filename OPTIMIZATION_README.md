@@ -103,7 +103,7 @@ src/
 └── utils/
     └── blog.ts                            (NEW)
 
-docs/
+./
 ├── PERFORMANCE_AUDIT.md                   (NEW)
 └── IMPLEMENTATION_SUMMARY.md              (NEW)
 ```
