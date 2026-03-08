@@ -61,23 +61,31 @@ npm run build   # production build to dist/
 
 ### Deployment
 
-The site deploys automatically to GitHub Pages via `.github/workflows/astro.yml` on every push to `main`.
+⚠️ **IMPORTANT**: The website is currently **NOT live** because GitHub Pages needs to be enabled in repository settings. This is a **one-time manual step** that requires repository administrator access.
 
-The workflow supports two deployment modes and runs both on every push, so you can choose whichever Pages source setting works for your repo:
+See **[DEPLOYMENT_SETUP.md](DEPLOYMENT_SETUP.md)** for complete setup instructions and troubleshooting.
 
-| Mode | Pages Source Setting | How it works |
-|------|---------------------|--------------|
-| **GitHub Actions** | Settings → Pages → Source → **GitHub Actions** | `deploy-actions` job deploys the build artifact directly |
-| **Branch deploy** | Settings → Pages → Source → **Deploy from a branch** → `gh-pages` / `(root)` | `build` job pushes `dist/` to the `gh-pages` branch |
+#### Quick Start - Enable GitHub Pages (Required, One-Time Setup)
 
-#### Step 1 — Enable GitHub Pages (required, one-time manual step)
+**This step must be completed by a repository administrator before the website goes live:**
 
 1. Go to **[Settings → Pages](https://github.com/Relay-Launch/relaylaunch-website/settings/pages)**
-2. Under "Build and deployment" → **Source**: select **GitHub Actions**
+2. Under "Build and deployment" → **Source**: select **GitHub Actions** ← **CRITICAL**
 3. Under **Custom domain**: enter `relaylaunch.com`
 4. Click **Save**; tick **Enforce HTTPS** once the DNS check passes
 
-#### Step 2 — Configure DNS
+**Status Check**: Run `./scripts/check-deployment.sh` to verify deployment health
+
+#### How the Workflow Works
+
+The site deploys automatically to GitHub Pages via `.github/workflows/astro.yml` on every push to `main`.
+
+| Mode | Pages Source Setting | How it works |
+|------|---------------------|--------------|
+| **GitHub Actions** (Recommended) | Settings → Pages → Source → **GitHub Actions** | `deploy-actions` job deploys the build artifact directly |
+| **Branch deploy** (Fallback) | Settings → Pages → Source → **Deploy from a branch** → `gh-pages` / `(root)` | `build` job pushes `dist/` to the `gh-pages` branch |
+
+#### DNS Configuration
 
 Point your domain registrar at GitHub Pages using **one** of these options:
 
@@ -95,12 +103,24 @@ Add four A records for `relaylaunch.com`:
 www.relaylaunch.com  →  relay-launch.github.io
 ```
 
-#### Step 3 — Trigger the first deployment
+#### Triggering Deployments
 
-After enabling Pages, push any commit to `main` (e.g. merge this PR), or manually trigger the workflow:
+After enabling Pages in the first step:
 
-1. Go to **[Actions → Deploy Astro site to Pages](https://github.com/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml)**
-2. Click **Run workflow** → select branch `main` → **Run workflow**
+- **Automatic**: Push or merge any commit to `main` (workflow runs automatically)
+- **Manual**: Go to [Actions](https://github.com/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml) → **Run workflow** → select `main` → **Run workflow**
+
+#### Verification
+
+Run the health check script:
+```bash
+./scripts/check-deployment.sh
+```
+
+Or manually verify:
+- **Workflow runs**: [Actions tab](https://github.com/Relay-Launch/relaylaunch-website/actions)
+- **Website**: https://relaylaunch.com
+- **GitHub Pages fallback**: https://relay-launch.github.io/relaylaunch-website/
 
 #### Troubleshooting: "domain already taken by another repository"
 
