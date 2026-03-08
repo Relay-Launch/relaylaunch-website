@@ -71,14 +71,9 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           </form>
           <div id="lead-magnet-success" class="lead-magnet-success" hidden>
             <p class="success-title">You're in.</p>
-            <p class="success-desc">Your Digital Readiness Assessment is ready.</p>
-            <a
-              href="/lead-magnets/digital-readiness-assessment.pdf"
-              download
-              class="success-download"
-            >
-              Download PDF →
-            </a>
+            <p class="success-desc">
+              Check your inbox — your Digital Readiness Assessment is on the way.
+            </p>
           </div>
         </div>
       </div>
@@ -421,10 +416,16 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
     if (!name || !email) return;
 
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitBtn?.textContent || '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+    }
+
     const webhook = form.dataset.webhook;
     if (webhook && webhook !== '#') {
       try {
-        // Add timeout to prevent indefinite hangs
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000);
 
@@ -437,12 +438,17 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
         clearTimeout(timeoutId);
       } catch {
-        // Webhook failure shouldn't block the download
+        // Webhook failure shouldn't block the success state
       }
     }
 
     form.hidden = true;
     success.hidden = false;
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
   });
 </script>
 
@@ -898,19 +904,6 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     margin-bottom: 20px;
   }
 
-  .success-download {
-    display: inline-block;
-    padding: 10px 24px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    background: var(--color-green);
-    border-radius: 6px;
-    text-decoration: none;
-    transition: opacity 0.15s;
-  }
-
-  .success-download:hover { opacity: 0.9; text-decoration: none; }
 
   /* ── Responsive ── */
   @media (max-width: 768px) {

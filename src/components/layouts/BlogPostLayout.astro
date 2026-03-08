@@ -83,7 +83,7 @@ const articleSchema = {
         </header>
 
         {frontmatter.heroImage && (
-          <img src={frontmatter.heroImage} alt="" class="blog-hero-image" loading="eager" />
+          <img src={frontmatter.heroImage} alt={`Hero image for ${frontmatter.title}`} class="blog-hero-image" loading="eager" />
         )}
 
         <div class="blog-content">
