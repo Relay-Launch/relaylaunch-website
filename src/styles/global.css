@@ -171,7 +171,7 @@ a:hover { text-decoration: underline; }
 .badge-orange {
   background: var(--color-orange-subtle);
   color: var(--color-orange);
-  border: 1px solid color-mix(in srgb, #e3b341 30%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-orange) 30%, transparent);
 }
 
 /* ─── Tables ─────────────────────────────────────────────────── */
