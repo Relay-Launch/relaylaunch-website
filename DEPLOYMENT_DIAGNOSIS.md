@@ -33,7 +33,9 @@ If you truly see **zero workflow runs** in the Actions tab, also verify:
 ## Evidence
 
 1. **Workflow runs query returned 0 results** for `astro.yml` on main branch
-2. **Repository memories** repeatedly mention: "GitHub Pages Source must be set to 'GitHub Actions'"
+2. **GitHub API query (2026-03-07T12:00:00Z):**  
+   `GET https://api.github.com/repos/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml/runs?branch=main`  
+   Response included `"total_count": 0`, confirming no runs of this workflow on `main`.
 3. **Previous PRs (#10, #14, #18, #20)** all identified the same issue: Pages source misconfiguration
 4. **Build test:** Successfully built 15 pages with no errors
 
