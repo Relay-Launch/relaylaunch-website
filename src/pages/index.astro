@@ -75,6 +75,12 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
               Check your inbox — your Digital Readiness Assessment is on the way.
             </p>
           </div>
+          <div id="lead-magnet-error" class="lead-magnet-error" hidden>
+            <p class="error-title">Something went wrong.</p>
+            <p class="error-desc">
+              Please try again, or reach out to us at <a href="/contact">contact</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -408,6 +414,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 <script>
   const form = document.getElementById('lead-magnet-form') as HTMLFormElement;
   const success = document.getElementById('lead-magnet-success') as HTMLElement;
+  const error = document.getElementById('lead-magnet-error') as HTMLElement;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -424,30 +431,37 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     }
 
     const webhook = form.dataset.webhook;
-    if (webhook && webhook !== '#') {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-        await fetch(webhook, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, source: 'digital-readiness-assessment' }),
-          signal: controller.signal,
-        });
-
-        clearTimeout(timeoutId);
-      } catch {
-        // Webhook failure shouldn't block the success state
-      }
+    if (!webhook || webhook === '#') {
+      // Webhook not configured — show error instead of false promise
+      form.hidden = true;
+      error.hidden = false;
+      return;
     }
 
-    form.hidden = true;
-    success.hidden = false;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-    if (submitBtn) {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
+      const res = await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, source: 'digital-readiness-assessment' }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) throw new Error('Webhook returned an error');
+
+      form.hidden = true;
+      success.hidden = false;
+    } catch {
+      // Restore form so user can retry
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+      error.hidden = false;
     }
   });
 </script>
@@ -902,6 +916,26 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     font-size: 15px;
     color: var(--color-muted);
     margin-bottom: 20px;
+  }
+
+  .lead-magnet-error { text-align: center; }
+
+  .error-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-orange);
+    margin-bottom: 8px;
+  }
+
+  .error-desc {
+    font-size: 15px;
+    color: var(--color-muted);
+  }
+
+  .error-desc a {
+    color: var(--color-green);
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
 
