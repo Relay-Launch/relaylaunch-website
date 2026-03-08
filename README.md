@@ -126,4 +126,4 @@ www  →  relay-launch.github.io
 | `domain already taken` error | `.github` repo claims the domain | Step 2 |
 | `NXDOMAIN` / DNS error | Domain not pointed at GitHub | See DNS section |
 
-Run `./scripts/check-deployment.sh` to verify deployment health.
+Run `./scripts/check-deployment.sh` to verify deployment health. For full deployment instructions, see the Deployment section above in this README.
