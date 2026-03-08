@@ -125,7 +125,7 @@ If GitHub Pages shows the error **"The custom domain 'relaylaunch.com' is alread
 | `404` on relay-launch.github.io | Workflow never ran | Trigger the workflow (Step 3) |
 | `404` after workflow ran | DNS not configured | Complete Step 2 above |
 | `NXDOMAIN` / DNS error | Domain not pointed at GitHub | Complete Step 2 above |
-| "domain already taken" error | `.github` repo CNAME conflict | See "domain already taken" section above |
+| `domain already taken` error | `.github` repo CNAME conflict | See "domain already taken" section above |
 
 - Check workflow run status: **[Actions tab](https://github.com/Relay-Launch/relaylaunch-website/actions)**
 - Verify `public/CNAME` contains `relaylaunch.com` (not in the repo root)
