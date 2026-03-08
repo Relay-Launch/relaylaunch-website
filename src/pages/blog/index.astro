@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
-import { getPublishedPosts } from '@/utils/blog';
+import { getPublishedPosts, formatDate } from '@/utils/blog';
 
 const posts = await getPublishedPosts();
 ---
@@ -30,14 +30,7 @@ const posts = await getPublishedPosts();
   <section class="section">
     <div class="container">
       <div class="posts-grid">
-        {posts.map((post) => {
-          const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          });
-
-          return (
+        {posts.map((post) => (
             <a href={`/blog/${post.id}`} class="post-card card">
               {post.data.heroImage && (
                 <img src={post.data.heroImage} alt="" class="post-hero" loading="lazy" />
@@ -50,13 +43,12 @@ const posts = await getPublishedPosts();
               <h2 class="post-title">{post.data.title}</h2>
               <p class="post-excerpt">{post.data.description}</p>
               <div class="post-meta">
-                <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
+                <time datetime={post.data.pubDate.toISOString()}>{formatDate(post.data.pubDate)}</time>
                 {post.data.author && <span> · {post.data.author}</span>}
               </div>
               <span class="post-read-more">Read article →</span>
             </a>
-          );
-        })}
+        ))}
       </div>
 
       {posts.length === 0 && (
