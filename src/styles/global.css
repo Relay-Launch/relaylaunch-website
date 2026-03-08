@@ -17,6 +17,21 @@
   --color-green-subtle: color-mix(in srgb, var(--primary) 12%, transparent);
   --color-blue: var(--primary);
   --color-orange: #e3b341;
+  --color-orange-subtle: color-mix(in srgb, #e3b341 12%, transparent);
+
+  /* Elevation shadows for depth */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.dark {
+  /* Darker shadows for dark mode */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
 }
 
 /* ─── Base ─────────────────────────────────────────────────── */
@@ -92,11 +107,25 @@ a:hover { text-decoration: underline; }
   border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .card.featured {
   border-color: var(--color-green);
   position: relative;
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--primary) 3%, var(--color-surface)) 100%);
+}
+
+.card.featured:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 /* ─── Divider ───────────────────────────────────────────────── */
@@ -116,6 +145,11 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
 }
 
 .badge-green {
@@ -127,6 +161,17 @@ a:hover { text-decoration: underline; }
 .badge-solid-green {
   background: var(--color-green);
   color: #fff;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.badge-solid-green:hover {
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+.badge-orange {
+  background: var(--color-orange-subtle);
+  color: var(--color-orange);
+  border: 1px solid color-mix(in srgb, var(--color-orange) 30%, transparent);
 }
 
 /* ─── Tables ─────────────────────────────────────────────────── */
