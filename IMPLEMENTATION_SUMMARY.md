@@ -290,7 +290,7 @@ npm ci
 npm run build
 ```
 
-**Result:** ✅ Build succeeded in 2.27s
+**Result:** ✅ Build succeeded in 2.15s (down from 2.27s pre-optimization)
 - Generated 15 pages
 - No errors or warnings
 - All optimizations working correctly
