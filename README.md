@@ -6,16 +6,6 @@
 
 ---
 
-## 🚨 URGENT: Website Not Live
-
-**The website is currently showing a 404 error because GitHub Pages has not been configured.**
-
-👉 **See [ACTION_REQUIRED.md](ACTION_REQUIRED.md) for the 2-minute fix** 👈
-
-This is a one-time setup that requires repository administrator access. The website code is ready and working—it just needs to be deployed.
-
----
-
 Relay Launch is a digital infrastructure consultancy for small businesses. We replace the 5-8 disconnected tools most businesses juggle — website, email, CRM, social, scheduling, analytics, payments — with one integrated system that actually talks to itself.
 
 ## The Problem We Solve
@@ -59,7 +49,7 @@ Service-based small businesses: spas, wellness, trades, professional services, r
 
 ---
 
-### Development
+## Development
 
 Built with [Astro](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). Hosted on GitHub Pages.
 
@@ -69,38 +59,51 @@ npm run dev     # local dev server at localhost:4321
 npm run build   # production build to dist/
 ```
 
-### Deployment
+## Deployment
 
-⚠️ **IMPORTANT**: The website is currently **NOT live** because GitHub Pages needs to be enabled in repository settings. This is a **one-time manual step** that requires repository administrator access.
+The website deploys automatically via `.github/workflows/astro.yml` on every push to `main`. The workflow builds the Astro site, pushes the output to the `gh-pages` branch, and also attempts a direct GitHub Actions Pages deployment.
 
-See **[DEPLOYMENT_SETUP.md](DEPLOYMENT_SETUP.md)** for complete setup instructions and troubleshooting.
+### Resolving the 404 / Blocked Actions
 
-#### Quick Start - Enable GitHub Pages (Required, One-Time Setup)
+The deployment workflow (`astro.yml`) has **never run** because GitHub Actions is blocked for this repository. The built-in Jekyll Pages workflow runs instead, but fails because this is an Astro project (not Jekyll). Follow the steps below in order.
 
-**This step must be completed by a repository administrator before the website goes live:**
+#### Step 1 — Unblock GitHub Actions
+
+GitHub Actions must be allowed for user-defined workflows in the **Relay-Launch** organization before any deployment can happen.
+
+1. Go to **[Organization Settings → Actions → General](https://github.com/organizations/Relay-Launch/settings/actions)**
+2. Under **Actions permissions**, select **Allow all actions and reusable workflows** (or at minimum "Allow select actions" including `actions/*`)
+3. Under **Workflow permissions**, select **Read and write permissions**
+4. Click **Save**
+
+> If these settings are already correct and the workflow still shows "blocked", you need to wait for GitHub Support to resolve the block on your account. Reference your existing support ticket.
+
+#### Step 2 — Disable GitHub Pages on the `.github` repository
+
+The `Relay-Launch/.github` repo also has GitHub Pages enabled with its own HTML files (`index.html`, etc.) and a deploy workflow. This can conflict with this repo's custom domain claim.
+
+1. Go to **[Relay-Launch/.github → Settings → Pages](https://github.com/Relay-Launch/.github/settings/pages)**
+2. Set **Source** to **None** (disable Pages)
+3. If a custom domain is set, remove it and click **Save**
+
+#### Step 3 — Configure GitHub Pages on this repository
 
 1. Go to **[Settings → Pages](https://github.com/Relay-Launch/relaylaunch-website/settings/pages)**
-2. Under "Build and deployment" → **Source**: select **GitHub Actions** ← **CRITICAL**
-3. Under **Custom domain**: enter `relaylaunch.com`
-4. Click **Save**; tick **Enforce HTTPS** once the DNS check passes
+2. Under **Source**: select **GitHub Actions**
+3. Under **Custom domain**: enter `relaylaunch.com` and click **Save**
+4. Tick **Enforce HTTPS** once the DNS check passes
 
-**Status Check**: Run `./scripts/check-deployment.sh` to verify deployment health
+#### Step 4 — Trigger the first deployment
 
-#### How the Workflow Works
+Once Actions are unblocked:
 
-The site deploys automatically to GitHub Pages via `.github/workflows/astro.yml` on every push to `main`.
+- **Automatic**: push or merge any commit to `main`
+- **Manual**: go to [Actions → Deploy Astro site to Pages](https://github.com/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml) → **Run workflow** → select `main` → **Run workflow**
 
-| Mode | Pages Source Setting | How it works |
-|------|---------------------|--------------|
-| **GitHub Actions** (Recommended) | Settings → Pages → Source → **GitHub Actions** | `deploy-actions` job deploys the build artifact directly |
-| **Branch deploy** (Fallback) | Settings → Pages → Source → **Deploy from a branch** → `gh-pages` / `(root)` | `build` job pushes `dist/` to the `gh-pages` branch |
+### DNS Configuration (Porkbun)
 
-#### DNS Configuration
+Point `relaylaunch.com` at GitHub Pages with **A records** for the apex domain:
 
-Point your domain registrar at GitHub Pages using **one** of these options:
-
-**Option A — A records (apex domain)**
-Add four A records for `relaylaunch.com`:
 ```
 185.199.108.153
 185.199.109.153
@@ -108,55 +111,19 @@ Add four A records for `relaylaunch.com`:
 185.199.111.153
 ```
 
-**Option B — CNAME (www subdomain)**
+Optionally add a **CNAME** for `www`:
+
 ```
-www.relaylaunch.com  →  relay-launch.github.io
-```
-
-#### Triggering Deployments
-
-After enabling Pages in the first step:
-
-- **Automatic**: Push or merge any commit to `main` (workflow runs automatically)
-- **Manual**: Go to [Actions](https://github.com/Relay-Launch/relaylaunch-website/actions/workflows/astro.yml) → **Run workflow** → select `main` → **Run workflow**
-
-#### Verification
-
-Run the health check script:
-```bash
-./scripts/check-deployment.sh
+www  →  relay-launch.github.io
 ```
 
-Or manually verify:
-- **Workflow runs**: [Actions tab](https://github.com/Relay-Launch/relaylaunch-website/actions)
-- **Website**: https://relaylaunch.com
-- **GitHub Pages fallback**: https://relay-launch.github.io/relaylaunch-website/
-
-#### Troubleshooting: "domain already taken by another repository"
-
-If GitHub Pages shows the error **"The custom domain 'relaylaunch.com' is already taken by another repository in your organization"**, it means the `Relay-Launch/.github` repository has a `CNAME` file that claims the same domain.
-
-**Fix — remove the CNAME from the `.github` repo:**
-
-1. Go to **[github.com/Relay-Launch/.github](https://github.com/Relay-Launch/.github)**
-2. Open the `CNAME` file in the root of the repository
-3. Delete the file (click the trash-can icon → **Commit changes**)
-4. Return to **[Settings → Pages](https://github.com/Relay-Launch/relaylaunch-website/settings/pages)** for this repo
-5. Enter `relaylaunch.com` in the **Custom domain** field and click **Save**
-6. Once the DNS check passes, tick **Enforce HTTPS**
-
-> The `.github` repo previously served as a placeholder site. The `relaylaunch-website` Astro project is now the authoritative site and should own the `relaylaunch.com` domain claim. The `public/CNAME` file in this repo already contains `relaylaunch.com` and will be included in every deployment automatically.
-
-#### Troubleshooting 404 errors
+### Troubleshooting
 
 | Symptom | Likely cause | Fix |
 |---------|-------------|-----|
-| `404` on relaylaunch.com | Pages not enabled | Complete Step 1 above |
-| `404` on relay-launch.github.io | Workflow never ran | Trigger the workflow (Step 3) |
-| `404` after workflow ran | DNS not configured | Complete Step 2 above |
-| `NXDOMAIN` / DNS error | Domain not pointed at GitHub | Complete Step 2 above |
-| `domain already taken` error | `.github` repo CNAME conflict | See "domain already taken" section above |
+| `404` on relaylaunch.com | Workflow never ran / Actions blocked | Complete Steps 1-4 above |
+| Workflow shows "blocked" | Actions disabled at org level | Step 1 |
+| `domain already taken` error | `.github` repo claims the domain | Step 2 |
+| `NXDOMAIN` / DNS error | Domain not pointed at GitHub | See DNS section |
 
-- Check workflow run status: **[Actions tab](https://github.com/Relay-Launch/relaylaunch-website/actions)**
-- Verify `public/CNAME` contains `relaylaunch.com` (not in the repo root)
-- After DNS changes, allow up to 24 hours for propagation
+Run `./scripts/check-deployment.sh` to verify deployment health.
