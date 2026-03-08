@@ -68,6 +68,13 @@ Name: www
 Value: relay-launch.github.io
 ```
 
+**📋 Need help verifying your DNS configuration?**
+See **[DNS_VERIFICATION_GUIDE.md](DNS_VERIFICATION_GUIDE.md)** for:
+- Detailed Porkbun setup instructions
+- Screenshot comparison checklist
+- Common mistakes to avoid
+- DNS verification commands
+
 **To check your current DNS:**
 ```bash
 dig relaylaunch.com +short
