@@ -62,7 +62,10 @@ const isProd = import.meta.env.PROD;
           // Early exit if gtag not available
           if (typeof gtag !== 'function') return;
 
-          var link = e.target.closest('a[href]');
+          var target = e.target;
+          if (!(target instanceof Element)) return;
+
+          var link = target.closest('a[href]');
           if (!link) return;
 
           var href = link.getAttribute('href');
