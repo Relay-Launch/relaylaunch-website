@@ -14,16 +14,22 @@ After thorough investigation, the **root cause** is clear:
 - The build works perfectly (tested locally - builds 15 pages successfully)
 - PR #20 already moved `Setup Pages` before the build step (correct configuration)
 
-### Why the workflow never runs:
+### Why there is no successful deployment yet
 
 **GitHub Pages is NOT properly enabled/configured for this repository.**
 
-The workflow triggers on `push` to `main` branch, but GitHub Pages deployment workflows **require specific repository settings** to be configured first:
+The `astro.yml` workflow is configured to trigger on `push` to the `main` branch. GitHub Pages settings do **not** prevent a `push`-triggered workflow run from being created, but they **do** determine whether the Pages deployment steps in that workflow can complete successfully.
 
-1. **Pages Source** must be set to "GitHub Actions" (not "Deploy from a branch")
-2. **Pages must be enabled** in repository settings
-3. The workflow environment (`github-pages`) must have proper permissions
+For GitHub Pages deployment from Actions to work as intended, the repository should have:
+1. **Pages Source** set to "GitHub Actions" (not "Deploy from a branch")
+2. **Pages enabled** in repository settings
+3. The workflow environment (`github-pages`) configured with proper permissions
 
+If you truly see **zero workflow runs** in the Actions tab, also verify:
+- GitHub Actions is **enabled** for this repository (and organization, if applicable)
+- There has been at least one **push to `main` after `astro.yml` was added** to `.github/workflows/`
+- The workflow file is in the correct **path and name** (`.github/workflows/astro.yml`) on the default branch
+- The workflow is not limited by additional conditions (e.g., `paths`, `branches`, or `if:` expressions) that are not being met
 ## Evidence
 
 1. **Workflow runs query returned 0 results** for `astro.yml` on main branch
