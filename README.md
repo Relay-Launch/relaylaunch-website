@@ -6,6 +6,16 @@
 
 ---
 
+## 🚨 URGENT: Website Not Live
+
+**The website is currently showing a 404 error because GitHub Pages has not been configured.**
+
+👉 **See [ACTION_REQUIRED.md](ACTION_REQUIRED.md) for the 2-minute fix** 👈
+
+This is a one-time setup that requires repository administrator access. The website code is ready and working—it just needs to be deployed.
+
+---
+
 Relay Launch is a digital infrastructure consultancy for small businesses. We replace the 5-8 disconnected tools most businesses juggle — website, email, CRM, social, scheduling, analytics, payments — with one integrated system that actually talks to itself.
 
 ## The Problem We Solve
