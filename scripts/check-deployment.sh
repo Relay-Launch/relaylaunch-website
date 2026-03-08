@@ -57,10 +57,26 @@ fi
 
 # Check 5: DNS resolution
 echo "5. Checking DNS resolution..."
-if host relaylaunch.com > /dev/null 2>&1; then
-    echo -e "   ${GREEN}✓${NC} DNS configured for relaylaunch.com"
+if command -v host >/dev/null 2>&1; then
+    if host relaylaunch.com > /dev/null 2>&1; then
+        echo -e "   ${GREEN}✓${NC} DNS configured for relaylaunch.com"
+    else
+        echo -e "   ${YELLOW}⚠${NC}  DNS not configured or not propagated yet"
+    fi
+elif command -v dig >/dev/null 2>&1; then
+    if dig +short relaylaunch.com >/dev/null 2>&1; then
+        echo -e "   ${GREEN}✓${NC} DNS configured for relaylaunch.com"
+    else
+        echo -e "   ${YELLOW}⚠${NC}  DNS not configured or not propagated yet"
+    fi
+elif command -v nslookup >/dev/null 2>&1; then
+    if nslookup relaylaunch.com >/dev/null 2>&1; then
+        echo -e "   ${GREEN}✓${NC} DNS configured for relaylaunch.com"
+    else
+        echo -e "   ${YELLOW}⚠${NC}  DNS not configured or not propagated yet"
+    fi
 else
-    echo -e "   ${YELLOW}⚠${NC}  DNS not configured or not propagated yet"
+    echo -e "   ${YELLOW}⚠${NC}  DNS check skipped: no 'host', 'dig', or 'nslookup' command available"
 fi
 
 # Check 6: Website accessibility
