@@ -76,7 +76,7 @@ GitHub Actions must be allowed for user-defined workflows in the **Relay-Launch*
 3. Under **Workflow permissions**, select **Read and write permissions**
 4. Click **Save**
 
-> If these settings are already correct and the workflow still shows "blocked", you need to wait for GitHub Support to resolve the block on your account. Reference your existing support ticket.
+> If these settings are already correct and the workflow still shows "blocked", contact [GitHub Support](https://support.github.com/) to resolve the block on your account.
 
 #### Step 2 — Disable GitHub Pages on the `.github` repository
 
