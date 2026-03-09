@@ -19,9 +19,9 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
-  <section class="hero section hero-gradient">
+  <section class="hero section hero-gradient section-hero-enhanced">
     <div class="container">
-      <div class="badge badge-green hero-badge animate-fade-in-up">Small Business Infrastructure</div>
+      <div class="badge badge-green hero-badge animate-fade-in-up">Veteran-Owned · Digital Infrastructure Consultancy</div>
       <h1 class="hero-headline animate-fade-in-up" style="animation-delay: 0.1s;">
         Stop paying $400/month for tools that<br />
         <span class="text-green">don't talk to each other.</span>
@@ -32,8 +32,19 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
         running your business while you focus on your clients.
       </p>
       <div class="hero-actions animate-fade-in-up" style="animation-delay: 0.3s;">
-        <Button variant="primary" href="/services">See Our Packages →</Button>
-        <Button variant="outline" href="/case-studies/luxury-wellness-spa">View Case Study</Button>
+        <Button variant="primary" href="/services" size="lg">See Our Packages →</Button>
+        <Button variant="outline" href="/case-studies/luxury-wellness-spa" size="lg">View Case Study</Button>
+      </div>
+      <div class="hero-trust animate-fade-in-up" style="animation-delay: 0.45s;">
+        <div class="trust-item">
+          <span class="trust-check">✓</span> USMC Veteran-Owned
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> Fortune 500 Experience
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> Fixed, Transparent Pricing
+        </div>
       </div>
     </div>
   </section>
@@ -114,10 +125,12 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <!-- ═══════════════════════════════════════════════ WHY RELAYLAUNCH -->
   <section class="section">
     <div class="container">
-      <span class="section-eyebrow">Why RelayLaunch</span>
-      <h2 class="section-title" style="margin-bottom: 40px;">Built different. On purpose.</h2>
+      <div class="reveal">
+        <span class="section-eyebrow">Why RelayLaunch</span>
+        <h2 class="section-title" style="margin-bottom: 40px;">Built different. On purpose.</h2>
+      </div>
 
-      <div class="why-grid">
+      <div class="why-grid reveal-stagger">
         <div class="why-card">
           <div class="why-icon">🎖️</div>
           <h3>Veteran-Owned, Mission-Driven</h3>
@@ -146,7 +159,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <section class="section">
     <div class="container">
       <div class="two-col">
-        <div class="two-col-text">
+        <div class="two-col-text reveal">
           <span class="section-eyebrow">The Problem</span>
           <h2 class="section-title">You became a business owner. Not a software administrator.</h2>
           <p class="section-sub" style="margin-bottom: 24px;">
@@ -177,16 +190,18 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <!-- ═══════════════════════════════════════════════ SOLUTION -->
   <section class="section solution-section">
     <div class="container">
-      <span class="section-eyebrow">The Solution</span>
-      <h2 class="section-title">One system. One dashboard.<br />Everything connected.</h2>
-      <p class="section-sub" style="margin-bottom: 48px;">
-        RelayLaunch builds unified digital infrastructure — your website, automations, email, social,
-        and reporting all wired together. When a new client books, the system follows up automatically.
-        When a post goes out, it goes to all four platforms. When something needs your attention, it
-        surfaces to one dashboard.
-      </p>
+      <div class="reveal">
+        <span class="section-eyebrow">The Solution</span>
+        <h2 class="section-title">One system. One dashboard.<br />Everything connected.</h2>
+        <p class="section-sub" style="margin-bottom: 48px;">
+          RelayLaunch builds unified digital infrastructure — your website, automations, email, social,
+          and reporting all wired together. When a new client books, the system follows up automatically.
+          When a post goes out, it goes to all four platforms. When something needs your attention, it
+          surfaces to one dashboard.
+        </p>
+      </div>
 
-      <div class="solution-grid">
+      <div class="solution-grid reveal-stagger">
         <div class="solution-card">
           <div class="solution-icon">⚡</div>
           <h3>Live Automation Workflows</h3>
@@ -214,14 +229,16 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <!-- ═══════════════════════════════════════════════ PACKAGES -->
   <section class="section" id="services">
     <div class="container">
-      <span class="section-eyebrow">Service Packages</span>
-      <h2 class="section-title">Find the right level of engagement.</h2>
-      <p class="section-sub" style="margin-bottom: 48px;">
-        Every engagement starts with a conversation. We match you to the right package based on
-        where you are and where you want to go.
-      </p>
+      <div class="reveal">
+        <span class="section-eyebrow">Service Packages</span>
+        <h2 class="section-title">Find the right level of engagement.</h2>
+        <p class="section-sub" style="margin-bottom: 48px;">
+          Every engagement starts with a conversation. We match you to the right package based on
+          where you are and where you want to go.
+        </p>
+      </div>
 
-      <div class="packages-grid">
+      <div class="packages-grid reveal-stagger">
         <div class="card pkg-card">
           <div class="pkg-name">Signal</div>
           <div class="pkg-tagline">Visibility &amp; Ops Audit</div>
@@ -284,7 +301,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <section class="section case-study-teaser">
     <div class="container">
       <div class="cs-inner">
-        <div class="cs-text">
+        <div class="cs-text reveal">
           <span class="section-eyebrow">Proof of Concept</span>
           <h2 class="section-title">Real client. Real numbers.<br />Day one.</h2>
           <p style="color: var(--color-muted); margin-bottom: 24px;">
@@ -394,17 +411,18 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
   <!-- ═══════════════════════════════════════════════ CTA -->
   <section class="section cta-section">
-    <div class="container cta-inner">
+    <div class="container cta-inner reveal">
+      <span class="section-eyebrow" style="color: var(--color-green);">Ready to Start?</span>
       <h2 class="section-title" style="font-size: clamp(24px, 3.5vw, 38px); max-width: 600px;">
-        Ready to replace your tool stack with one connected system?
+        Replace your tool stack with one connected system.
       </h2>
       <p style="color: var(--color-muted); margin-top: 16px; margin-bottom: 32px; max-width: 500px;">
         Whether you need a full build or just want an honest audit of what's slowing you down —
         start with a conversation. No commitment required.
       </p>
       <div class="hero-actions">
-        <Button variant="primary" href="/contact">Start a Project →</Button>
-        <Button variant="outline" href="/services">See All Packages</Button>
+        <Button variant="primary" href="/contact" size="lg">Start a Project →</Button>
+        <Button variant="outline" href="/services" size="lg">See All Packages</Button>
       </div>
     </div>
   </section>
@@ -534,7 +552,33 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     margin-bottom: 36px;
     line-height: 1.65;
   }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  /* ── Hero trust bar ── */
+  .hero-trust {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-border);
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-muted);
+    letter-spacing: 0.2px;
+  }
+
+  .trust-check {
+    color: var(--color-green);
+    font-weight: 800;
+    font-size: 14px;
+  }
 
   /* ── Animations ── */
   @keyframes fadeInUp {
@@ -941,6 +985,10 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
   /* ── Responsive ── */
   @media (max-width: 768px) {
+    .hero { padding-top: 72px; padding-bottom: 56px; }
+    .hero-headline { font-size: clamp(28px, 6vw, 42px); }
+    .hero-trust { gap: 16px; }
+    .trust-item { font-size: 12px; }
     .lead-magnet-inner { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
     .why-grid { grid-template-columns: 1fr; }
     .two-col, .cs-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -950,5 +998,12 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     .stat:last-child { border-bottom: none; }
     .compare-row { grid-template-columns: 1fr; }
     .tool-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .hero-trust { flex-direction: column; gap: 8px; }
+    .tool-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-actions { flex-direction: column; width: 100%; }
+    .hero-actions :global(a) { width: 100%; justify-content: center; }
   }
 </style>

@@ -72,16 +72,19 @@ const serviceSchemas = [
       <h1 class="section-title" style="font-size: clamp(32px, 5vw, 52px);">
         Built for businesses ready<br />to run leaner and be seen more.
       </h1>
-      <p class="section-sub">
+      <p class="section-sub" style="margin-bottom: 28px;">
         Every package is a defined scope with clear deliverables. You know what you're getting,
         what it costs, and what it replaces. Every engagement starts with a conversation.
       </p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <Button variant="primary" href="/contact" size="lg">Start a Conversation →</Button>
+      </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════ SIGNAL -->
   <section class="section pkg-section" id="signal">
-    <div class="container pkg-inner">
+    <div class="container pkg-inner reveal">
       <div class="pkg-header">
         <div>
           <span class="pkg-number">01</span>
@@ -133,7 +136,7 @@ const serviceSchemas = [
 
   <!-- ═══════════════════════════════════════════════ BLUEPRINT -->
   <section class="section pkg-section" id="blueprint">
-    <div class="container pkg-inner">
+    <div class="container pkg-inner reveal">
       <div class="pkg-header">
         <div>
           <span class="pkg-number">02</span>
@@ -182,7 +185,7 @@ const serviceSchemas = [
 
   <!-- ═══════════════════════════════════════════════ RELAY -->
   <section class="section pkg-section featured-pkg" id="relay">
-    <div class="container pkg-inner">
+    <div class="container pkg-inner reveal">
       <div class="pkg-header">
         <div>
           <div class="badge badge-solid-green" style="margin-bottom: 12px;">Most Popular</div>
@@ -256,7 +259,7 @@ const serviceSchemas = [
 
   <!-- ═══════════════════════════════════════════════ SUSTAIN -->
   <section class="section pkg-section" id="sustain">
-    <div class="container pkg-inner">
+    <div class="container pkg-inner reveal">
       <div class="pkg-header">
         <div>
           <span class="pkg-number">04</span>
@@ -328,7 +331,7 @@ const serviceSchemas = [
         Whether you need a one-time build, ongoing operations, or full-scale growth infrastructure — there's a tier designed for your stage.
       </p>
 
-      <div class="tiers-grid">
+      <div class="tiers-grid reveal-stagger">
         <div class="card tier-card">
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 1</span>
           <h3 class="tier-name">Launch</h3>
@@ -449,7 +452,7 @@ const serviceSchemas = [
 
   /* ── Package sections ── */
   .pkg-section { border-top: 1px solid var(--color-border); }
-  .featured-pkg { background: rgba(35,134,54,0.04); }
+  .featured-pkg { background: color-mix(in srgb, var(--primary) 4%, var(--color-bg)); }
 
   .pkg-inner { display: flex; flex-direction: column; gap: 40px; }
 

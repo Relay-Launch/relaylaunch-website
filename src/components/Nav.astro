@@ -103,10 +103,10 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     position: sticky;
     top: 0;
     z-index: 100;
-    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg) 85%, transparent);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   }
 
   .nav-inner {
@@ -156,8 +156,8 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   }
 
   .nav-link.active {
-    color: var(--color-text);
-    background: var(--color-surface);
+    color: var(--color-green);
+    background: var(--color-green-subtle, color-mix(in srgb, var(--primary) 8%, transparent));
   }
 
   .nav-right {
@@ -262,7 +262,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     text-decoration: none;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .mobile-nav { display: block; }

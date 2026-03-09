@@ -12,21 +12,22 @@ const { variant, size, class: className, ...rest } = Astro.props;
 
 export const button = tv({
   base: [
-    "inline-flex items-center justify-center gap-1.5 rounded-md font-medium whitespace-nowrap",
+    "inline-flex items-center justify-center gap-1.5 rounded-md font-semibold whitespace-nowrap",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0",
-    "transition-all outline-none focus-visible:ring-3",
+    "transition-all duration-200 outline-none focus-visible:ring-3",
     "disabled:pointer-events-none disabled:opacity-50",
     "aria-invalid:border-error aria-invalid:focus-visible:ring-error/40",
+    "cursor-pointer select-none",
   ],
   variants: {
     variant: {
-      default: "bg-foreground text-background hover:bg-foreground/90 focus-visible:ring-outline/50",
+      default: "bg-foreground text-background hover:bg-foreground/90 focus-visible:ring-outline/50 shadow-sm hover:shadow-md",
       primary:
-        "bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary/50",
+        "bg-primary text-white hover:bg-primary-accent focus-visible:ring-primary/50 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0",
       secondary:
         "bg-secondary text-secondary-foreground hover:bg-secondary/90 focus-visible:ring-secondary/50",
       outline:
-        "dark:border-input focus-visible:ring-outline/50 bg-background dark:bg-input/30 focus-visible:border-outline hover:bg-muted dark:hover:bg-input/50 hover:text-foreground border shadow-xs",
+        "border-2 border-border text-foreground focus-visible:ring-outline/50 bg-background dark:bg-input/30 focus-visible:border-outline hover:bg-primary/5 hover:border-primary hover:text-primary dark:hover:bg-input/50 shadow-xs hover:shadow-sm",
       ghost: "hover:bg-muted hover:text-foreground focus-visible:ring-outline/50",
       info: "bg-info text-info-foreground hover:bg-info/90 focus-visible:ring-info/50",
       success:
