@@ -49,7 +49,10 @@ const year = new Date().getFullYear();
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
       <p>&copy; {year} RelayLaunch LLC. All rights reserved.</p>
-      <p><a href="mailto:hello@relaylaunch.com">hello@relaylaunch.com</a></p>
+      <div class="footer-bottom-right">
+        <span class="footer-badge">Veteran-Owned Business</span>
+        <a href="mailto:hello@relaylaunch.com">hello@relaylaunch.com</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -158,6 +161,24 @@ const year = new Date().getFullYear();
     color: var(--color-muted);
   }
 
+  .footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--color-green);
+    padding: 3px 10px;
+    border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+  }
+
   .footer-bottom a {
     color: var(--color-muted);
     transition: color 0.15s;
@@ -175,6 +196,7 @@ const year = new Date().getFullYear();
       padding: 40px 16px 32px;
     }
     .footer-nav { gap: 32px; }
-    .footer-bottom-inner { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .footer-bottom-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .footer-bottom-right { flex-direction: column; align-items: flex-start; gap: 8px; }
   }
 </style>

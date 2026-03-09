@@ -44,36 +44,49 @@ import { Button } from '@/components/starwind/button';
     <div class="container contact-grid">
 
       <div class="contact-primary">
-        <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Submit a Project Request</h2>
+        <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Send Us an Email</h2>
         <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Fill out our intake form on GitHub — we'll get back to you within 1–2 business days
-          to schedule a discovery call.
+          Tell us about your business and what you're looking to build — we'll respond within
+          1–2 business days to schedule a free discovery call.
         </p>
         <Button
           variant="primary"
-          href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml"
-          target="_blank"
-          rel="noopener"
+          href="mailto:hello@relaylaunch.com?subject=Project%20Request%20—%20RelayLaunch&body=Hi%20RelayLaunch%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%20Here%27s%20a%20bit%20about%20my%20business%3A%0A%0ABusiness%20name%3A%20%0AIndustry%3A%20%0AWhat%20I%27m%20looking%20for%3A%20%0ACurrent%20tools%20I%20use%3A%20%0ABiggest%20pain%20point%3A%20%0A%0AThanks!"
           size="lg"
         >
-          Submit a Project Request →
+          Start a Project Request →
         </Button>
 
         <div class="divider-label">or</div>
 
         <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Ask a Quick Question</h2>
         <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Not ready to submit a full request? Have a specific question? Use the quick question form.
+          Not ready to submit a full request? Have a specific question? Just send us a quick email.
         </p>
         <Button
           variant="outline"
-          href="https://github.com/Relay-Launch/.github/issues/new?template=quick-question.yml"
-          target="_blank"
-          rel="noopener"
+          href="mailto:hello@relaylaunch.com?subject=Quick%20Question%20—%20RelayLaunch"
           size="lg"
         >
           Ask a Quick Question
         </Button>
+
+        <div class="divider-label">also available on github</div>
+
+        <div class="github-options">
+          <a href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml" target="_blank" rel="noopener" class="github-link">
+            <span class="github-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </span>
+            Submit a project request on GitHub
+          </a>
+          <a href="https://github.com/Relay-Launch/.github/issues/new?template=quick-question.yml" target="_blank" rel="noopener" class="github-link">
+            <span class="github-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </span>
+            Ask a quick question on GitHub
+          </a>
+        </div>
       </div>
 
       <div class="contact-sidebar">
@@ -132,7 +145,7 @@ import { Button } from '@/components/starwind/button';
       <span class="section-eyebrow">FAQ</span>
       <h2 class="section-title" style="margin-bottom: 40px;">Common Questions</h2>
 
-      <div class="faq-grid">
+      <div class="faq-grid reveal-stagger">
         <div class="faq-item">
           <h3>What do I need to know before reaching out?</h3>
           <p>Not much. Tell us what business you run, what's frustrating you most, and roughly what you're hoping to change. That's enough to have a productive first conversation.</p>
@@ -255,6 +268,43 @@ import { Button } from '@/components/starwind/button';
   }
 
   .faq-item p { font-size: 14px; line-height: 1.7; }
+
+  /* GitHub secondary options */
+  .github-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--color-muted);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+
+  .github-link:hover {
+    color: var(--color-text);
+    border-color: var(--color-muted);
+    background: var(--color-bg);
+    text-decoration: none;
+  }
+
+  .github-icon {
+    display: flex;
+    align-items: center;
+    color: var(--color-muted);
+    flex-shrink: 0;
+  }
+
+  .github-link:hover .github-icon { color: var(--color-text); }
 
   @media (max-width: 900px) {
     .contact-grid { grid-template-columns: 1fr; }
