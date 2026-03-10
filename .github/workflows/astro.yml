@@ -1,6 +1,9 @@
 # Builds the Astro site and deploys to Cloudflare Workers via Wrangler.
 name: Deploy Astro site to Cloudflare
 
+permissions:
+  contents: read
+
 on:
   push:
     branches: ["main"]
@@ -21,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "20.19"
           cache: npm
 
       - name: Install dependencies
