@@ -109,12 +109,15 @@ const posts = await getPublishedPosts();
     padding: 32px;
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.25s cubic-bezier(.22,1,.36,1);
   }
 
   .post-card:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-md);
+    transform: translateY(-3px);
     text-decoration: none;
   }
 

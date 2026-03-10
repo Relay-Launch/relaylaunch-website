@@ -161,14 +161,17 @@ import { Button } from '@/components/starwind/button';
     text-decoration: none;
     color: inherit;
     padding: 36px;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.25s cubic-bezier(.22,1,.36,1);
     max-width: 760px;
     margin-inline: auto;
   }
 
   .cs-card:hover {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-md);
+    transform: translateY(-2px);
     text-decoration: none;
   }
 
