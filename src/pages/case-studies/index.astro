@@ -4,9 +4,35 @@ import { Button } from '@/components/starwind/button';
 ---
 
 <Layout
-  title="Case Studies — RelayLaunch"
-  description="Real results for real businesses. See how RelayLaunch replaces disconnected tools, automates operations, migrates enterprise systems, and builds connected infrastructure that pays for itself."
+  title="Case Studies — RelayLaunch | Real Infrastructure Results for Small Business"
+  description="Real results for real businesses. See how RelayLaunch cut tool costs from $342 to $51/month, migrated enterprise ERP systems, and built connected infrastructure that pays for itself."
   canonicalUrl="https://relaylaunch.com/case-studies/"
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'RelayLaunch Case Studies',
+    description: 'Real results for real businesses — digital infrastructure builds, automation deployments, and enterprise system migrations.',
+    url: 'https://relaylaunch.com/case-studies/',
+    publisher: {
+      '@type': 'Organization',
+      name: 'RelayLaunch LLC',
+      url: 'https://relaylaunch.com',
+    },
+    hasPart: [
+      {
+        '@type': 'Article',
+        name: 'Luxury Wellness Spa — Tool Cost Reduction & Infrastructure Build',
+        url: 'https://relaylaunch.com/case-studies/luxury-wellness-spa/',
+        description: 'How RelayLaunch replaced $342/month in disconnected tools with $51/month in unified infrastructure for a luxury wellness spa.',
+      },
+      {
+        '@type': 'Article',
+        name: 'Global Events Company — ERP Migration',
+        url: 'https://relaylaunch.com/case-studies/events-erp-migration/',
+        description: 'QuickBooks-to-Sage Intacct migration for a global events company with three US entities and multi-currency consolidation.',
+      },
+    ],
+  }}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->

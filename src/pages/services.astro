@@ -6,61 +6,62 @@ const serviceSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Signal — Visibility & Ops Audit',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
-    description: 'A focused audit of your business operations, digital presence, and tool stack. Identifies what\'s working, what\'s broken, and delivers a prioritized action plan.',
+    name: 'Complete Analysis — Business Infrastructure Diagnostic',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    description: 'An 8-area diagnostic of your entire business infrastructure — operations, tech stack, AI readiness, digital footprint, and more — delivered as a 20–30 page professional report with a prioritized roadmap.',
+    url: 'https://relaylaunch.com/complete-analysis/',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '1500',
+      highPrice: '3000',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Launch — Digital Infrastructure Build',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    description: 'One-time project build of unified digital infrastructure — custom website, automation workflows, email sequences, social scheduling, and a single connected dashboard replacing disconnected tools.',
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '2500',
+      highPrice: '5000',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Run — Monthly Digital Operations Retainer',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    description: 'Monthly retainer for ongoing digital operations support — social content, SEO and blog maintenance, automation monitoring, and monthly strategy calls. 3-month minimum.',
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
       lowPrice: '500',
-      highPrice: '900',
+      highPrice: '1000',
     },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Blueprint — Systems Strategy',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
-    description: 'Full growth roadmap and automation opportunity map including 90-day milestones, competitive landscape, and tech stack recommendations.',
+    name: 'Scale — Premium Growth Retainer',
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    description: 'Premium monthly retainer for businesses scaling their digital infrastructure — expanded deliverables, priority support, advanced automation builds, and strategic advisory. 6-month minimum.',
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
-      lowPrice: '1200',
-      highPrice: '2000',
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Relay — Build & Connect',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
-    description: 'Full build of unified digital infrastructure — website, automation workflows, email sequences, social scheduling, and a single dashboard. One connected system replacing disconnected tools.',
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '1800',
-      highPrice: '6000',
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Sustain — Monthly Growth Support',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC' },
-    description: 'Ongoing monthly support including social content, SEO & blog maintenance, automation monitoring, performance reports, and priority support.',
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '300',
-      highPrice: '500',
+      lowPrice: '1000',
+      highPrice: '2500',
     },
   },
 ];
 ---
 
 <Layout
-  title="Services — RelayLaunch"
-  description="RelayLaunch service packages for small businesses: Signal audit, Blueprint strategy, Relay full build, and Sustain monthly support."
+  title="Services — RelayLaunch | Digital Infrastructure for Small Business"
+  description="RelayLaunch service packages: Complete Analysis diagnostic ($1,500–$3,000), Launch build ($2,500–$5,000), Run retainer ($500–$1,000/mo), Scale retainer ($1,000–$2,500/mo)."
   canonicalUrl="https://relaylaunch.com/services/"
   jsonLd={serviceSchemas}
 >
@@ -76,9 +77,13 @@ const serviceSchemas = [
         Every package is a defined scope with clear deliverables. You know what you're getting,
         what it costs, and what it replaces. Every engagement starts with a conversation.
       </p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
         <Button variant="primary" href="/contact" size="lg">Start a Conversation →</Button>
+        <Button variant="outline" href="/complete-analysis" size="lg">Start with a Complete Analysis</Button>
       </div>
+      <p style="margin-top: 16px; font-size: 13px; color: var(--color-muted);">
+        Not sure which package fits? A <a href="/complete-analysis" style="color: var(--color-primary); text-decoration: underline;">Complete Analysis</a> gives you the data to decide.
+      </p>
     </div>
   </section>
 
