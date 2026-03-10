@@ -27,9 +27,15 @@ const isProd = import.meta.env.PROD;
 <html lang="en">
   <head>
     <script is:inline>
-      // Lock to light mode — brand design is light-only
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("colorTheme", "light");
+      // Initialize theme from localStorage or system preference (no flash)
+      (function () {
+        var t = localStorage.getItem("colorTheme");
+        if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
     </script>
     {isProd && gaId && (
       <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} async></script>

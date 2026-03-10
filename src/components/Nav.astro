@@ -20,6 +20,7 @@ function isActive(href: string): boolean {
   return currentPath.startsWith(href + '/');
 }
 import { Button } from '@/components/starwind/button';
+import { ThemeToggle } from '@/components/starwind/theme-toggle';
 ---
 
 <header>
@@ -43,6 +44,7 @@ import { Button } from '@/components/starwind/button';
     </ul>
 
     <div class="nav-right">
+      <ThemeToggle size="sm" class="nav-theme-toggle" />
       <Button variant="primary" href="/contact" size="sm" class="nav-cta">Start a Project</Button>
       <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
         <span class="hamburger-bar"></span>
@@ -68,6 +70,10 @@ import { Button } from '@/components/starwind/button';
       ))}
       <li>
         <Button variant="primary" href="/contact" class="mobile-nav-cta w-full justify-center">Start a Project</Button>
+      </li>
+      <li class="mobile-theme-row">
+        <span class="mobile-theme-label">Dark mode</span>
+        <ThemeToggle size="sm" />
       </li>
     </ul>
   </div>
@@ -260,10 +266,30 @@ import { Button } from '@/components/starwind/button';
     text-decoration: none;
   }
 
+  .nav-theme-toggle {
+    color: var(--color-muted);
+  }
+
+  .mobile-theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-top: 4px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-theme-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+
   @media (max-width: 800px) {
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .mobile-nav { display: block; }
     .nav-cta { display: none; }
+    .nav-theme-toggle { display: none; }
   }
 </style>
