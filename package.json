@@ -7,6 +7,9 @@
   "author": "Victor David Medina <hello@relaylaunch.com>",
   "license": "UNLICENSED",
   "private": true,
+  "engines": {
+    "node": "^20.19.1 || >=22.12.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Relay-Launch/relaylaunch-website.git"
