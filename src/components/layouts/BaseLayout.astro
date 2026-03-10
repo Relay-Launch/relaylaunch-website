@@ -27,20 +27,9 @@ const isProd = import.meta.env.PROD;
 <html lang="en">
   <head>
     <script is:inline>
-      function initTheme() {
-        const colorTheme = localStorage.getItem("colorTheme");
-        const isDark = colorTheme === "dark" ||
-          (!colorTheme && window.matchMedia?.("(prefers-color-scheme: dark)").matches);
-
-        document.documentElement.classList.toggle("dark", isDark);
-
-        // Only write to localStorage if not set
-        if (!colorTheme) {
-          localStorage.setItem("colorTheme", isDark ? "dark" : "light");
-        }
-      }
-      initTheme();
-      document.addEventListener("astro:after-swap", initTheme);
+      // Lock to light mode — brand design is light-only
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("colorTheme", "light");
     </script>
     {isProd && gaId && (
       <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} async></script>

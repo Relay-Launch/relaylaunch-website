@@ -1,28 +1,37 @@
 ---
+import LinkedInIcon from "@tabler/icons/outline/brand-linkedin.svg";
+import GitHubIcon from "@tabler/icons/outline/brand-github.svg";
+
 const year = new Date().getFullYear();
 ---
 
 <footer>
   <div class="container footer-inner">
     <div class="footer-brand">
-      <a href="/" class="brand-link">
+      <a href="/" class="brand-link" aria-label="RelayLaunch home">
         <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
       </a>
-      <p class="footer-company">RelayLaunch LLC</p>
-      <p class="footer-tagline">Build Smarter. Launch Faster. Grow With Purpose.</p>
+      <p class="footer-tagline">Launch your digital infrastructure,<br />without pausing your business.</p>
       <p class="footer-location">Watertown, MA · Serving Boston &amp; the Northeast</p>
       <a href="mailto:hello@relaylaunch.com" class="footer-email">hello@relaylaunch.com</a>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/relaylaunch" target="_blank" rel="noopener" aria-label="RelayLaunch on LinkedIn" class="social-link">
+          <LinkedInIcon class="social-icon" />
+        </a>
+        <a href="https://github.com/Relay-Launch" target="_blank" rel="noopener" aria-label="RelayLaunch on GitHub" class="social-link">
+          <GitHubIcon class="social-icon" />
+        </a>
+      </div>
     </div>
 
     <nav class="footer-nav" aria-label="Footer navigation">
       <div class="footer-col">
         <p class="footer-col-label">Services</p>
         <ul role="list">
-          <li><a href="/services#signal">Signal — Audit</a></li>
-          <li><a href="/services#blueprint">Blueprint — Strategy</a></li>
-          <li><a href="/services#relay">Relay — Build</a></li>
-          <li><a href="/services#sustain">Sustain — Retainer</a></li>
           <li><a href="/complete-analysis">Complete Analysis</a></li>
+          <li><a href="/services#launch">Launch</a></li>
+          <li><a href="/services#run">Run</a></li>
+          <li><a href="/services#scale">Scale</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -40,7 +49,6 @@ const year = new Date().getFullYear();
         <ul role="list">
           <li><a href="/about">About</a></li>
           <li><a href="/intake">Client Intake</a></li>
-          <li><a href="https://github.com/Relay-Launch" target="_blank" rel="noopener">GitHub</a></li>
         </ul>
       </div>
     </nav>
@@ -48,18 +56,15 @@ const year = new Date().getFullYear();
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <p>&copy; {year} RelayLaunch LLC. All rights reserved.</p>
-      <div class="footer-bottom-right">
-        <span class="footer-badge">Veteran-Owned Business</span>
-        <a href="mailto:hello@relaylaunch.com">hello@relaylaunch.com</a>
-      </div>
+      <p>&copy; {year} RelayLaunch LLC. Veteran-Owned.</p>
+      <span class="footer-badge">USMC · Serving Small Business</span>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    border-top: 1px solid var(--color-border);
+    background: #0F172A;
     margin-top: 0;
   }
 
@@ -71,44 +76,73 @@ const year = new Date().getFullYear();
   }
 
   .brand-link {
+    display: inline-block;
     font-size: 20px;
     font-weight: 800;
     text-decoration: none;
     letter-spacing: -0.5px;
   }
 
-  .brand-relay, .brand-launch { color: var(--color-text); }
-  .brand-arrow { color: var(--color-primary); margin: 0 1px; }
-
-  .footer-company {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-top: 12px;
-  }
+  .brand-relay, .brand-launch { color: #ffffff; }
+  .brand-arrow { color: #007AFF; margin: 0 1px; }
 
   .footer-tagline {
     font-size: 14px;
-    color: var(--color-muted);
-    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 14px;
+    line-height: 1.6;
   }
 
   .footer-location {
     font-size: 13px;
-    color: var(--color-muted);
-    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 10px;
   }
 
   .footer-email {
     display: inline-block;
     font-size: 13px;
-    color: var(--color-muted);
+    color: rgba(255, 255, 255, 0.55);
     text-decoration: none;
-    margin-top: 4px;
+    margin-top: 6px;
     transition: color 0.15s;
   }
 
-  .footer-email:hover { color: var(--color-text); text-decoration: none; }
+  .footer-email:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+
+  .social-link:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
+  }
 
   .footer-nav {
     display: flex;
@@ -120,8 +154,8 @@ const year = new Date().getFullYear();
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: var(--color-muted);
-    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 14px;
   }
 
   .footer-col ul {
@@ -130,24 +164,24 @@ const year = new Date().getFullYear();
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 9px;
   }
 
   .footer-col a {
     font-size: 14px;
-    color: var(--color-muted);
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     transition: color 0.15s;
   }
 
   .footer-col a:hover {
-    color: var(--color-text);
+    color: #ffffff;
     text-decoration: none;
   }
 
   .footer-bottom {
-    border-top: 1px solid var(--color-border);
-    padding: 16px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 18px 0;
   }
 
   .footer-bottom-inner {
@@ -158,45 +192,36 @@ const year = new Date().getFullYear();
 
   .footer-bottom p {
     font-size: 13px;
-    color: var(--color-muted);
-  }
-
-  .footer-bottom-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
   }
 
   .footer-badge {
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: #007AFF;
     padding: 3px 10px;
-    border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+    border: 1px solid rgba(0, 122, 255, 0.3);
     border-radius: 4px;
-    background: color-mix(in srgb, var(--primary) 5%, transparent);
-  }
-
-  .footer-bottom a {
-    color: var(--color-muted);
-    transition: color 0.15s;
-  }
-
-  .footer-bottom a:hover {
-    color: var(--color-text);
-    text-decoration: none;
+    background: rgba(0, 122, 255, 0.08);
   }
 
   @media (max-width: 700px) {
     .footer-inner {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 36px;
       padding: 40px 16px 32px;
     }
-    .footer-nav { gap: 32px; }
-    .footer-bottom-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
-    .footer-bottom-right { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .footer-nav {
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+    .footer-bottom-inner {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
   }
 </style>
