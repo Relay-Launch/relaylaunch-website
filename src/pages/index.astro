@@ -35,6 +35,9 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
         <Button variant="primary" href="/services" size="lg">See Our Packages →</Button>
         <Button variant="outline" href="/case-studies/luxury-wellness-spa" size="lg">View Case Study</Button>
       </div>
+      <p class="hero-no-commit animate-fade-in-up" style="animation-delay: 0.38s;">
+        No commitment required. Discovery call is free.
+      </p>
       <div class="hero-trust animate-fade-in-up" style="animation-delay: 0.45s;">
         <div class="trust-item">
           <span class="trust-check">✓</span> USMC Veteran-Owned
@@ -239,7 +242,8 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
       </div>
 
       <div class="packages-grid reveal-stagger">
-        <div class="card pkg-card">
+        <div class="card pkg-card pkg-card-start-here">
+          <div class="pkg-start-badge">Start Here</div>
           <div class="pkg-name">Complete Analysis</div>
           <div class="pkg-tagline">Business Infrastructure Diagnostic</div>
           <div class="pkg-price">$1,500–$3,000</div>
@@ -553,6 +557,12 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     line-height: 1.65;
   }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-no-commit {
+    font-size: 13px;
+    color: var(--color-muted);
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
 
   /* ── Hero trust bar ── */
   .hero-trust {
@@ -765,6 +775,21 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     gap: 20px;
   }
   .pkg-card { display: flex; flex-direction: column; }
+  .pkg-card-start-here { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
+  .pkg-start-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #007AFF;
+    background: rgba(0, 122, 255, 0.1);
+    border: 1px solid rgba(0, 122, 255, 0.25);
+    border-radius: 4px;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
   .pkg-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
   .pkg-tagline { font-size: 13px; color: var(--color-muted); margin-bottom: 10px; }
   .pkg-price { font-size: 15px; font-weight: 700; color: var(--color-primary); }
