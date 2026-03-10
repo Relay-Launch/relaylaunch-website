@@ -1,61 +1,83 @@
 # RelayLaunch Website
 
 ## Project Overview
-RelayLaunch (relaylaunch.com) is a digital infrastructure consultancy website for small businesses. Built with Astro 5 + Tailwind CSS 4 + MDX, deployed to GitHub Pages.
+RelayLaunch (relaylaunch.com) is a veteran-owned digital infrastructure
+consultancy website. Built with Astro 5 + Tailwind CSS 4.2 + MDX.
+Deployed to Cloudflare via wrangler (CI: GitHub Actions → wrangler deploy).
+Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
+Live URL: https://www.relaylaunch.com
+
+## Brand Standards (ENFORCE ON ALL CHANGES)
+- Primary: Dark Navy #0F172A (headers, nav, footer, dark sections)
+- Accent: Electric Blue #007AFF (CTAs, links, hover states ONLY)
+- Background: White #FFFFFF
+- Alt sections: Light Gray #F8FAFC
+- Font: Arial, Helvetica, sans-serif — NO other fonts
+- Tagline: "Launch your digital infrastructure, without pausing your business."
+- Voice: Direct, confident, accessible, action-oriented, veteran precision
+- DO NOT use green, orange, or any color outside this 4-color system
+
+## Service Tiers (Canonical Names)
+- Complete Analysis ($1,500–$3,000) — entry point, diagnostic engagement
+- Launch ($2,500–$5,000) — one-time project build
+- Run ($500–$1,000/mo) — monthly retainer, 3-month min
+- Scale ($1,000–$2,500/mo) — premium retainer, 6-month min
 
 ## Tech Stack
-- **Framework**: Astro 5 (static site generator)
-- **Styling**: Tailwind CSS 4.2 + custom CSS variables
-- **Content**: MDX blog posts via Astro Content Collections
-- **Components**: Starwind design system (button, theme-toggle, toggle)
-- **Deployment**: GitHub Pages via GitHub Actions (.github/workflows/astro.yml)
-- **Domain**: relaylaunch.com (DNS via Porkbun, A records to GitHub Pages IPs)
+- Framework: Astro 5 (static output, islands architecture)
+- Styling: Tailwind CSS 4.2 + custom CSS variables + Starwind components
+- Content: MDX blog posts via Astro Content Collections
+- Deployment: Cloudflare Pages/Workers via wrangler
+- CI/CD: GitHub Actions (.github/workflows/astro.yml → wrangler deploy)
+- Domain: relaylaunch.com (Registrar: Porkbun, DNS: Cloudflare)
+- Adapter: @astrojs/cloudflare
 
 ## Commands
-- `npm ci` — install dependencies
-- `npm run dev` — start dev server at localhost:4321
-- `npm run build` — production build to dist/
-- `npm run preview` — preview built site locally
+- npm ci — install dependencies
+- npm run dev — start dev server at localhost:4321
+- npm run build — production build to dist/
+- npm run preview — build + wrangler dev (local Cloudflare preview)
+- npm run deploy — build + wrangler deploy (push to production)
 
 ## Project Structure
-- `src/pages/` — Astro page routes (index, services, about, contact, etc.)
-- `src/content/blog/` — MDX blog posts with frontmatter schema
-- `src/components/` — Reusable Astro components (Nav, Footer, SEO, layouts)
-- `src/components/starwind/` — Starwind design system components
-- `src/layouts/` — Page layout wrapper (Layout.astro)
-- `src/components/layouts/` — Base layouts (BaseLayout.astro, BlogPostLayout.astro)
-- `src/styles/` — Global CSS and Starwind CSS variables
-- `src/utils/` — Utility functions (blog.ts for post sorting/filtering)
-- `public/` — Static assets (CNAME, favicon, robots.txt, og-default.png)
-- `scripts/` — Deployment and maintenance shell scripts
+- src/pages/ — Astro page routes
+- src/content/blog/ — MDX blog posts with frontmatter schema
+- src/components/ — Reusable Astro components (Nav, Footer, SEO)
+- src/components/starwind/ — Starwind design system components
+- src/components/layouts/ — BaseLayout.astro, BlogPostLayout.astro
+- src/layouts/ — Page layout wrapper (Layout.astro)
+- src/styles/ — Global CSS (global.css, starwind.css)
+- src/utils/ — Utility functions (blog.ts)
+- public/ — Static assets (favicon, robots.txt, og-default.png)
 
-## Environment Variables
-See `.env.example` for required variables:
-- `PUBLIC_LEAD_MAGNET_WEBHOOK_URL` — webhook for lead magnet form
-- `PUBLIC_INTAKE_FORM_URL` — external intake form URL
-- `PUBLIC_GA_MEASUREMENT_ID` — Google Analytics 4 ID
+## Code Standards
+- Every page: unique <title>, <meta description>, Open Graph tags
+- Target: Lighthouse 95+, sub-1-second load
+- Responsive: mobile-first, breakpoints 640/768/1024px
+- Accessibility: WCAG AA, proper heading hierarchy, alt text
+- Use Astro <Image> with lazy loading for all images
+- Zero unnecessary client-side JS — Astro static-first
+- Internal links use root-relative paths (/services, /contact)
+- Commit messages: conventional commits (feat:, fix:, chore:)
 
-## Design System
-- CSS custom properties defined in `src/styles/global.css` and `src/styles/starwind.css`
-- Key colors: `--color-green` (primary), `--color-orange` (accent)
-- Dark mode via `.dark` class on `<html>`, toggled by ThemeToggle component
-- Typography: system font stack, clamp() for fluid sizing
+## BMAD Agent Roles
+When acting as a BMAD agent, follow the role:
+- *analyst = Research & discovery
+- *pm = Requirements & prioritization
+- *architect = Technical design & structure
+- *sm = Story creation & sprint planning
+- *dev = Implementation & code
+- *qa = Testing, audit & brand compliance
 
-## Blog Content
-- Blog posts are `.mdx` files in `src/content/blog/`
-- Schema defined in `src/content.config.ts`
-- Required frontmatter: title, description, pubDate
-- Optional: tags, author, heroImage, draft, updatedDate, ogImage
+## Agent Team Coordination
+When working as a teammate in an agent team:
+- Check the task list before starting new work
+- Module boundaries: pages are self-contained, components are shared
+- Do NOT modify .github/workflows/ unless explicitly asked
+- Lock brand colors — never introduce new colors
+- PR branches: claude/description-XXXXX format
 
-## Key Conventions
-- All pages use the Layout.astro wrapper (which includes Nav + Footer)
-- SEO component (src/components/seo/SEO.astro) handles meta tags and JSON-LD
-- Buttons use the Starwind Button component with variant="primary" or variant="outline"
-- Internal links use root-relative paths (e.g., /services, /contact)
-- External links always have target="_blank" rel="noopener"
-
-## Deployment
-- Pushes to `main` trigger GitHub Actions workflow
-- Workflow builds Astro site and pushes to `gh-pages` branch
-- Also attempts direct GitHub Actions Pages deployment
-- CNAME file in public/ claims relaylaunch.com domain
+## Known Issues
+- global.css still uses --color-green and --color-orange (MUST replace)
+- starwind.css theme may reference wrong color palette
+- README.md may show old tier names (Signal/Blueprint/Relay/Sustain)

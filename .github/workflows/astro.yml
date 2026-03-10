@@ -1,13 +1,5 @@
-# Deploys the Astro site to GitHub Pages.
-#
-# Supports two Pages source modes:
-#   - "GitHub Actions": the deploy-actions job deploys directly via actions/deploy-pages.
-#   - "Deploy from a branch" (gh-pages): the build job pushes dist/ to the gh-pages
-#     branch so GitHub Pages can serve the pre-built static output.
-#
-# Both jobs run on every push to main, so the site is always up-to-date regardless
-# of which Pages source is configured in Settings → Pages.
-name: Deploy Astro site to Pages
+# Builds the Astro site and deploys to Cloudflare Pages via Wrangler.
+name: Deploy Astro site to Cloudflare
 
 on:
   push:
@@ -15,27 +7,16 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: "pages"
+  group: "deploy"
   cancel-in-progress: true
 
 jobs:
-  # Build the site and push to the gh-pages branch.
-  # This job does NOT reference the github-pages environment so it is never
-  # held for environment-approval and always runs on push.
-  build:
-    name: Build and push to gh-pages
+  build-and-deploy:
+    name: Build and deploy to Cloudflare
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-        continue-on-error: true
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -49,44 +30,8 @@ jobs:
       - name: Build with Astro
         run: npm run build
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        continue-on-error: true
-        with:
-          path: ./dist
-
-      - name: Push dist to gh-pages branch
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler deploy
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          cd dist
-          git init
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          git add -A
-          git commit -m "Deploy site — $(date -u '+%Y-%m-%d %H:%M:%S UTC')" --allow-empty
-          git remote add origin "https://github.com/${{ github.repository }}.git"
-          git config credential.helper \
-            '!f() { echo username=x-access-token; echo "password=$GITHUB_TOKEN"; }; f'
-          git push --force origin HEAD:gh-pages
-
-  # Deploy via the GitHub Actions Pages API.
-  # This job uses the github-pages environment and will only succeed when the
-  # Pages source is set to "GitHub Actions" in Settings → Pages.
-  # It runs after the build job and is non-blocking (continue-on-error) so a
-  # Pages-source mismatch does not fail the overall workflow.
-  deploy-actions:
-    name: Deploy via GitHub Actions Pages
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    continue-on-error: true
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
