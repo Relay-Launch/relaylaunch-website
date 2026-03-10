@@ -16,6 +16,7 @@ const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.prop
 ---
 
 <BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd}>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <Nav />
   <main id="main-content">
     <slot />

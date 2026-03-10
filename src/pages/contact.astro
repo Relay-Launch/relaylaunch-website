@@ -152,7 +152,7 @@ import { Button } from '@/components/starwind/button';
         </div>
         <div class="faq-item">
           <h3>Do you only work with businesses that need a full build?</h3>
-          <p>No — the Signal audit package is specifically designed for businesses that want clarity before committing. Some clients start there and handle the build themselves.</p>
+          <p>No — the Complete Analysis is specifically designed for businesses that want clarity before committing. Some clients start there and handle the build themselves.</p>
         </div>
         <div class="faq-item">
           <h3>How long do projects take?</h3>
@@ -160,7 +160,7 @@ import { Button } from '@/components/starwind/button';
         </div>
         <div class="faq-item">
           <h3>Do I need to keep paying after the build is done?</h3>
-          <p>No. The Relay build delivers a self-running system. The Sustain retainer is for ongoing optimization, content, and growth — not keeping the lights on. Your automations keep running whether or not you're on a retainer.</p>
+          <p>No. The Launch build delivers a self-running system. The Run retainer is for ongoing optimization, content, and growth — not keeping the lights on. Your automations keep running whether or not you're on a retainer.</p>
         </div>
         <div class="faq-item">
           <h3>What industry do you focus on?</h3>
@@ -258,7 +258,20 @@ import { Button } from '@/components/starwind/button';
   .faq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+    gap: 24px;
+  }
+
+  .faq-item {
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: color-mix(in srgb, var(--primary) 20%, var(--color-border));
+    box-shadow: var(--shadow-sm);
   }
 
   .faq-item h3 {
@@ -287,7 +300,7 @@ import { Button } from '@/components/starwind/button';
     border-radius: 8px;
     border: 1px solid var(--color-border);
     background: var(--color-surface);
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    transition: color 0.15s, border-color 0.15s, background 0.15s, transform 0.2s ease;
   }
 
   .github-link:hover {
@@ -295,6 +308,7 @@ import { Button } from '@/components/starwind/button';
     border-color: var(--color-muted);
     background: var(--color-bg);
     text-decoration: none;
+    transform: translateY(-1px);
   }
 
   .github-icon {

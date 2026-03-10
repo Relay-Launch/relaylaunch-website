@@ -83,6 +83,13 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   const toggle = document.querySelector('.menu-toggle') as HTMLButtonElement;
   const mobileNav = document.getElementById('mobile-nav') as HTMLElement;
 
+  function closeMobileNav() {
+    toggle.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    mobileNav.classList.remove('open');
+    toggle.classList.remove('is-open');
+  }
+
   toggle?.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!isOpen));
@@ -94,11 +101,15 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   // Close on link click using event delegation (more efficient)
   mobileNav?.addEventListener('click', (e) => {
     if (!(e.target instanceof Element) || !e.target.closest('a')) return;
+    closeMobileNav();
+  });
 
-    toggle.setAttribute('aria-expanded', 'false');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    mobileNav.classList.remove('open');
-    toggle.classList.remove('is-open');
+  // Close on Escape key for keyboard accessibility
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') {
+      closeMobileNav();
+      toggle.focus();
+    }
   });
 </script>
 
@@ -127,10 +138,17 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     text-decoration: none;
     flex-shrink: 0;
     letter-spacing: -0.5px;
+    transition: opacity 0.15s ease;
+  }
+
+  .nav-brand:hover {
+    opacity: 0.85;
+    text-decoration: none;
   }
 
   .brand-relay, .brand-launch { color: var(--color-text); }
-  .brand-arrow { color: var(--color-primary); margin: 0 1px; }
+  .brand-arrow { color: var(--color-primary); margin: 0 1px; transition: transform 0.2s ease; }
+  .nav-brand:hover .brand-arrow { transform: translateX(1px); }
 
   .nav-links {
     display: flex;
@@ -162,6 +180,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   .nav-link.active {
     color: var(--color-primary);
     background: var(--color-primary-subtle, color-mix(in srgb, var(--primary) 8%, transparent));
+    font-weight: 600;
   }
 
   .nav-right {
@@ -222,8 +241,10 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     overflow: hidden;
     max-height: 0;
     background: color-mix(in srgb, var(--color-bg) 98%, transparent);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--color-border);
-    transition: max-height 0.25s ease;
+    transition: max-height 0.3s cubic-bezier(.22,1,.36,1);
   }
 
   .mobile-nav.open {
@@ -250,10 +271,16 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     transition: color 0.15s, background 0.15s;
   }
 
-  .mobile-nav-link:hover,
-  .mobile-nav-link.active {
+  .mobile-nav-link:hover {
     color: var(--color-text);
     background: var(--color-surface);
+    text-decoration: none;
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-primary);
+    background: var(--color-primary-subtle, color-mix(in srgb, var(--primary) 8%, transparent));
+    font-weight: 600;
     text-decoration: none;
   }
 

@@ -667,7 +667,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 <style>
   /* ─── Hero ──────────────────────────────────────────────── */
   .ca-hero {
-    background: #0F172A;
+    background: var(--color-navy);
     padding: 100px 0 80px;
     position: relative;
     overflow: hidden;
@@ -693,7 +693,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     right: -100px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 122, 255, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -712,7 +712,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-weight: 700;
     letter-spacing: 1.6px;
     text-transform: uppercase;
-    color: #007AFF;
+    color: var(--color-primary);
     margin-bottom: 16px;
   }
 
@@ -765,7 +765,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-trust-check {
-    color: #007AFF;
+    color: var(--color-primary);
     font-weight: 800;
     margin-right: 4px;
   }
@@ -794,7 +794,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    background: #007AFF;
+    background: var(--color-primary);
     color: #fff;
     display: flex;
     align-items: center;
@@ -828,7 +828,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #007AFF;
+    color: var(--color-primary);
     margin-bottom: 10px;
   }
 
@@ -852,7 +852,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     border-radius: 4px;
   }
 
-  .ca-tag-hi  { background: rgba(0,122,255,0.2);  color: #60a5fa; }
+  .ca-tag-hi  { background: color-mix(in srgb, var(--primary) 20%, transparent);  color: #60a5fa; }
   .ca-tag-med { background: rgba(251,191,36,0.15); color: #fbbf24; }
   .ca-tag-low { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
 
@@ -871,7 +871,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     border-radius: 50%;
     flex-shrink: 0;
   }
-  .ca-dot-hi  { background: #007AFF; }
+  .ca-dot-hi  { background: var(--color-primary); }
   .ca-dot-med { background: #fbbf24; }
   .ca-dot-low { background: rgba(255,255,255,0.25); }
 
@@ -925,14 +925,14 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-area-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
-    border-top-color: #007AFF;
+    border-top-color: var(--color-primary);
   }
 
   .ca-area-num {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #007AFF;
+    color: var(--color-primary);
     margin-bottom: 10px;
   }
 
@@ -946,7 +946,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 8px;
-    color: #0F172A;
+    color: var(--color-text);
   }
 
   .ca-area-card p {
@@ -995,7 +995,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-delivery-num {
     font-size: 20px;
     font-weight: 800;
-    color: #0F172A;
+    color: var(--color-text);
     line-height: 1;
   }
 
@@ -1057,7 +1057,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    background: #007AFF;
+    background: var(--color-primary);
     color: #fff;
     display: flex;
     align-items: center;
@@ -1070,7 +1070,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-report-co {
     font-size: 12px;
     font-weight: 800;
-    color: #0F172A;
+    color: var(--color-text);
     letter-spacing: -0.2px;
   }
 
@@ -1100,7 +1100,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-report-client-name {
     font-size: 15px;
     font-weight: 700;
-    color: #0F172A;
+    color: var(--color-text);
   }
 
   .ca-report-client-date {
@@ -1114,7 +1114,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    color: #007AFF;
+    color: var(--color-primary);
     margin-bottom: 10px;
   }
 
@@ -1145,7 +1145,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     border-radius: 4px;
   }
 
-  .ca-pill-hi  { background: rgba(0,122,255,0.1);  color: #007AFF; }
+  .ca-pill-hi  { background: color-mix(in srgb, var(--primary) 10%, transparent);  color: var(--color-primary); }
   .ca-pill-med { background: rgba(251,191,36,0.15); color: #b45309; }
   .ca-pill-low { background: #f1f5f9; color: #64748b; }
 
@@ -1171,12 +1171,12 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     letter-spacing: 0.5px;
   }
 
-  .ca-rm-badge-hi  { background: rgba(0,122,255,0.15); color: #007AFF; }
+  .ca-rm-badge-hi  { background: color-mix(in srgb, var(--primary) 15%, transparent); color: var(--color-primary); }
   .ca-rm-badge-med { background: rgba(251,191,36,0.15); color: #b45309; }
   .ca-rm-badge-low { background: #f1f5f9; color: #64748b; }
 
   .ca-rm-bar { height: 8px; border-radius: 4px; }
-  .ca-rm-hi  { background: #007AFF; }
+  .ca-rm-hi  { background: var(--color-primary); }
   .ca-rm-med { background: #fbbf24; }
   .ca-rm-low { background: #e2e8f0; }
 
@@ -1189,7 +1189,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   /* ─── Proof (Dark Navy) ─────────────────────────────────── */
   .ca-proof-section {
-    background: #0F172A;
+    background: var(--color-navy);
     padding: 80px 0;
   }
 
@@ -1222,13 +1222,13 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   .ca-proof-card:hover {
     background: rgba(255,255,255,0.07);
-    border-color: rgba(0,122,255,0.3);
+    border-color: color-mix(in srgb, var(--primary) 30%, transparent);
   }
 
   .ca-proof-stat {
     font-size: clamp(44px, 6vw, 64px);
     font-weight: 800;
-    color: #007AFF;
+    color: var(--color-primary);
     line-height: 1;
     margin-bottom: 14px;
     letter-spacing: -0.02em;
@@ -1272,7 +1272,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-price-range {
     font-size: clamp(34px, 4.5vw, 46px);
     font-weight: 800;
-    color: #0F172A;
+    color: var(--color-text);
     margin-bottom: 8px;
     letter-spacing: -0.02em;
   }
@@ -1283,7 +1283,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-price-anchor strong {
-    color: #007AFF;
+    color: var(--color-primary);
     font-weight: 700;
   }
 
@@ -1339,7 +1339,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-vs-item-label {
     font-size: 13px;
     font-weight: 600;
-    color: #0F172A;
+    color: var(--color-text);
     padding: 12px 14px;
   }
 
@@ -1351,9 +1351,9 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-vs-ours {
-    color: #007AFF;
+    color: var(--color-primary);
     font-weight: 600;
-    background: rgba(0,122,255,0.03);
+    background: color-mix(in srgb, var(--primary) 3%, transparent);
   }
 
   .ca-vs-alt {
@@ -1409,7 +1409,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 2px;
-    color: #007AFF;
+    color: var(--color-primary);
   }
 
   .ca-step-time {
@@ -1425,7 +1425,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-step-title {
     font-size: 18px;
     font-weight: 800;
-    color: #0F172A;
+    color: var(--color-text);
     margin-bottom: 10px;
   }
 
@@ -1441,7 +1441,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     top: 50%;
     transform: translateY(-50%);
     font-size: 18px;
-    color: #007AFF;
+    color: var(--color-primary);
     font-weight: 700;
     z-index: 2;
     background: #F8FAFC;
@@ -1456,7 +1456,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   /* ─── Final CTA (Dark Navy) ─────────────────────────────── */
   .ca-final-cta {
-    background: #0F172A;
+    background: var(--color-navy);
     padding: 80px 0;
     position: relative;
     overflow: hidden;
@@ -1469,7 +1469,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     left: -100px;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 10%, transparent) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -1592,8 +1592,8 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   .ca-form-field input:focus,
   .ca-form-field textarea:focus {
-    border-color: #007AFF;
-    box-shadow: 0 0 0 3px rgba(0,122,255,0.2);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
   }
 
   .ca-form-field textarea {
@@ -1602,7 +1602,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-submit-btn {
-    background: #007AFF;
+    background: var(--color-primary);
     color: #fff;
     font-size: 16px;
     font-weight: 700;
@@ -1612,13 +1612,13 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     border-radius: 8px;
     cursor: pointer;
     transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 4px 16px rgba(0,122,255,0.35);
+    box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 35%, transparent);
   }
 
   .ca-submit-btn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(0,122,255,0.45);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--primary) 45%, transparent);
   }
 
   .ca-submit-btn:active {
@@ -1646,8 +1646,8 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: rgba(0,122,255,0.2);
-    color: #007AFF;
+    background: color-mix(in srgb, var(--primary) 20%, transparent);
+    color: var(--color-primary);
     font-size: 24px;
     font-weight: 800;
     display: flex;
@@ -1687,7 +1687,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-error-desc a {
-    color: #007AFF;
+    color: var(--color-primary);
     text-decoration: underline;
   }
 

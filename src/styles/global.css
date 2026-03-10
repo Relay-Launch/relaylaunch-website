@@ -15,8 +15,7 @@
   --color-primary: var(--primary);           /* #007AFF Electric Blue */
   --color-primary-dark: var(--primary-accent);
   --color-primary-subtle: color-mix(in srgb, var(--primary) 12%, transparent);
-  --color-accent: var(--primary);             /* #007AFF Electric Blue */
-  --color-accent-subtle: color-mix(in srgb, var(--primary) 12%, transparent);
+  /* --color-accent removed: identical to --color-primary */
   --color-navy: #0F172A;                      /* Dark Navy */
 
   /* Elevation shadows for depth */
@@ -32,6 +31,27 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
+}
+
+/* ─── Skip to main content (accessibility) ─────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-primary);
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
 }
 
 /* ─── Base ─────────────────────────────────────────────────── */
@@ -59,6 +79,25 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* text-rendering applied to headings below for perf */
+}
+
+/* ─── Selection ────────────────────────────────────────────── */
+::selection {
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  color: var(--color-text);
+}
+
+/* ─── Focus visible (keyboard accessibility) ───────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ─── Typography ───────────────────────────────────────────── */
@@ -67,11 +106,16 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--color-text);
+  text-rendering: optimizeLegibility;
 }
 
 p { margin: 0; color: var(--color-muted); }
 
-a { color: var(--color-primary); text-decoration: none; }
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
 a:hover { text-decoration: underline; }
 
 /* ─── Layout ────────────────────────────────────────────────── */
@@ -131,16 +175,19 @@ a:hover { text-decoration: underline; }
   font-size: 17px;
   color: var(--color-muted);
   max-width: 600px;
+  line-height: 1.65;
 }
 
 /* ─── Cards ─────────────────────────────────────────────────── */
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 28px;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.25s cubic-bezier(.22,1,.36,1),
+              border-color 0.25s ease;
 }
 
 .card:hover {
@@ -202,7 +249,7 @@ a:hover { text-decoration: underline; }
 }
 
 .badge-accent {
-  background: var(--color-accent-subtle);
+  background: var(--color-primary-subtle);
   color: var(--color-primary);
   border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
 }
@@ -234,6 +281,9 @@ a:hover { text-decoration: underline; }
 }
 
 .rl-table tr:last-child td { border-bottom: none; }
+
+.rl-table tr { transition: background 0.15s ease; }
+.rl-table tbody tr:hover { background: color-mix(in srgb, var(--primary) 3%, transparent); }
 
 .rl-table td:first-child { font-weight: 600; }
 

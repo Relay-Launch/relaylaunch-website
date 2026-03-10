@@ -2,6 +2,15 @@
   "name": "relaylaunch-website",
   "type": "module",
   "version": "1.0.0",
+  "description": "Digital infrastructure consultancy website — Astro 5, Tailwind CSS 4, Cloudflare Pages",
+  "homepage": "https://relaylaunch.com",
+  "author": "Victor David Medina <hello@relaylaunch.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Relay-Launch/relaylaunch-website.git"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

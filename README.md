@@ -4,6 +4,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F6821F?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
 [![MDX](https://img.shields.io/badge/MDX-Blog-1B1F24?logo=mdx&logoColor=white)](https://mdxjs.com/)
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-90%2B-4285F4?logo=lighthouse&logoColor=white)](https://developer.chrome.com/docs/lighthouse)
 
 **RelayLaunch LLC** — Digital infrastructure consultancy for small businesses.
 
@@ -29,10 +30,11 @@ RelayLaunch replaces the 5–8 disconnected tools most small businesses juggle �
 | Layer | Technology |
 |-------|-----------|
 | Framework | [Astro 5](https://astro.build/) — static-first, islands architecture |
-| Styling | [Tailwind CSS 4](https://tailwindcss.com/) + Starwind components |
+| Styling | [Tailwind CSS 4.2](https://tailwindcss.com/) + Starwind components |
 | Content | MDX blog posts via Astro Content Collections |
 | Deployment | [Cloudflare Pages/Workers](https://pages.cloudflare.com/) via `wrangler` |
 | CI/CD | GitHub Actions → `wrangler deploy` on push to `main` |
+| Quality | Lighthouse CI on PRs — Performance, Accessibility, SEO ≥ 90 |
 | Domain | relaylaunch.com — Registrar: Porkbun, DNS: Cloudflare |
 
 ## Local Development
@@ -56,6 +58,7 @@ src/
 │   ├── contact.astro
 │   ├── how-we-work.astro
 │   ├── intake.astro
+│   ├── 404.astro
 │   ├── blog/
 │   └── case-studies/
 ├── components/
@@ -63,14 +66,14 @@ src/
 │   ├── Footer.astro
 │   ├── seo/SEO.astro
 │   ├── layouts/      # BaseLayout, BlogPostLayout
-│   └── starwind/     # Design system components (Button, Toggle)
+│   └── starwind/     # Design system (Button, Toggle, ThemeToggle)
 ├── content/
 │   └── blog/         # MDX blog posts
 ├── layouts/
 │   └── Layout.astro  # Page wrapper (Nav + Footer)
 └── styles/
-    ├── global.css
-    └── starwind.css
+    ├── global.css    # Design tokens + component styles
+    └── starwind.css  # Tailwind v4 theme variables
 public/
 ├── favicon.svg
 ├── og-default.png
@@ -82,7 +85,7 @@ public/
 Deployments are fully automated via GitHub Actions.
 
 **Trigger:** Any push to `main`
-**Pipeline:** Build Astro → `wrangler deploy` → Cloudflare Pages
+**Pipeline:** Build Astro → Lighthouse CI → `wrangler deploy` → Cloudflare Pages
 
 ```
 git push origin main  →  GitHub Actions  →  wrangler deploy  →  relaylaunch.com
@@ -94,7 +97,9 @@ To deploy manually from your machine:
 npm run deploy   # npm run build + wrangler deploy
 ```
 
-Cloudflare environment variables (set in Cloudflare Pages dashboard or `wrangler.toml`):
+### Environment Variables
+
+Set in Cloudflare Pages dashboard or `.env` locally (see `.env.example`):
 
 | Variable | Purpose |
 |----------|---------|
@@ -104,18 +109,29 @@ Cloudflare environment variables (set in Cloudflare Pages dashboard or `wrangler
 
 ## Brand Standards
 
-- **Primary:** Dark Navy `#0F172A` — headers, nav, footer, dark sections
-- **Accent:** Electric Blue `#007AFF` — CTAs, links, hover states only
-- **Background:** White `#FFFFFF`
-- **Alt sections:** Light Gray `#F8FAFC`
-- **Font:** Arial, Helvetica, sans-serif
+| Token | Value | Usage |
+|-------|-------|-------|
+| Navy | `#0F172A` | Headers, nav, footer, dark sections |
+| Electric Blue | `#007AFF` | CTAs, links, hover states only |
+| White | `#FFFFFF` | Page backgrounds |
+| Light Gray | `#F8FAFC` | Alternating section backgrounds |
 
-Design is **light mode only** — no dark mode toggle. Brand requires consistent presentation.
+- **Font:** Arial, Helvetica, sans-serif
+- **Dark mode:** Supported via ThemeToggle component
+- **Accessibility:** WCAG AA — skip-to-content, focus-visible, keyboard navigation
+
+## Contributing
+
+1. Create a feature branch: `git checkout -b claude/description-XXXXX`
+2. Follow [conventional commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `chore:`
+3. Ensure `npm run build` passes with zero errors
+4. Lighthouse CI runs automatically on PRs (thresholds: 90+ perf, a11y, SEO)
+5. Open a PR against `main`
 
 ## Links
 
 - **Live site:** [relaylaunch.com](https://relaylaunch.com)
-- **Complete Analysis (primary conversion page):** [relaylaunch.com/complete-analysis](https://relaylaunch.com/complete-analysis)
+- **Complete Analysis:** [relaylaunch.com/complete-analysis](https://relaylaunch.com/complete-analysis)
 - **Services:** [relaylaunch.com/services](https://relaylaunch.com/services)
 - **Case Studies:** [relaylaunch.com/case-studies](https://relaylaunch.com/case-studies)
 - **Blog:** [relaylaunch.com/blog](https://relaylaunch.com/blog)

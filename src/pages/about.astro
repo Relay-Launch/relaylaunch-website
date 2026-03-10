@@ -271,7 +271,17 @@ import { Button } from '@/components/starwind/button';
 
   .values-list { display: flex; flex-direction: column; gap: 24px; }
 
-  .value-item { display: flex; gap: 16px; align-items: flex-start; }
+  .value-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+  }
+  .value-item:hover {
+    background: color-mix(in srgb, var(--primary) 4%, transparent);
+  }
   .value-num {
     font-size: 11px;
     font-weight: 700;
