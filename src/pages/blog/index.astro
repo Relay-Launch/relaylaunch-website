@@ -37,7 +37,7 @@ const posts = await getPublishedPosts();
               )}
               <div class="post-tags">
                 {post.data.tags.map((tag: string) => (
-                  <span class="badge badge-green">{tag}</span>
+                  <span class="badge badge-primary">{tag}</span>
                 ))}
               </div>
               <h2 class="post-title">{post.data.title}</h2>
@@ -97,8 +97,8 @@ const posts = await getPublishedPosts();
   }
 
   .post-card:hover {
-    border-color: var(--color-green);
-    box-shadow: 0 0 0 1px var(--color-green);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
     text-decoration: none;
   }
 
@@ -137,7 +137,7 @@ const posts = await getPublishedPosts();
   .post-read-more {
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-green);
+    color: var(--color-primary);
   }
 
   .cta-section { background: var(--color-surface); }

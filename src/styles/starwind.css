@@ -75,25 +75,25 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1E293B;
+  --foreground: #0F172A;
   --card: #f8fafc;
-  --card-foreground: #1E293B;
+  --card-foreground: #0F172A;
   --popover: #ffffff;
-  --popover-foreground: #1E293B;
+  --popover-foreground: #0F172A;
   --primary: #007AFF;
   --primary-foreground: #ffffff;
   --primary-accent: #0066d6;
   --secondary: #f1f5f9;
-  --secondary-foreground: #1E293B;
-  --secondary-accent: #1E293B;
+  --secondary-foreground: #0F172A;
+  --secondary-accent: #0F172A;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --accent: #f1f5f9;
   --accent-foreground: #0F172A;
   --info: var(--color-sky-300);
   --info-foreground: var(--color-sky-950);
-  --success: var(--color-green-300);
-  --success-foreground: var(--color-green-950);
+  --success: var(--color-sky-300);
+  --success-foreground: var(--color-sky-950);
   --warning: var(--color-amber-300);
   --warning-foreground: var(--color-amber-950);
   --error: var(--color-red-700);
@@ -105,7 +105,7 @@
 
   /* sidebar variables */
   --sidebar-background: #f8fafc;
-  --sidebar-foreground: #1E293B;
+  --sidebar-foreground: #0F172A;
   --sidebar-primary: #007AFF;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #f1f5f9;
@@ -133,8 +133,8 @@
   --accent-foreground: #e2e8f0;
   --info: var(--color-sky-300);
   --info-foreground: var(--color-sky-950);
-  --success: var(--color-green-300);
-  --success-foreground: var(--color-green-950);
+  --success: var(--color-sky-300);
+  --success-foreground: var(--color-sky-950);
   --warning: var(--color-amber-300);
   --warning-foreground: var(--color-amber-950);
   --error: #f87171;

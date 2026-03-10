@@ -68,7 +68,7 @@ const articleSchema = {
           {frontmatter.tags && (
             <div class="blog-tags">
               {frontmatter.tags.map((tag: string) => (
-                <span class="badge badge-green">{tag}</span>
+                <span class="badge badge-primary">{tag}</span>
               ))}
             </div>
           )}
@@ -170,7 +170,7 @@ const articleSchema = {
   .blog-content :global(li) { margin-bottom: 8px; }
 
   .blog-content :global(blockquote) {
-    border-left: 3px solid var(--color-green);
+    border-left: 3px solid var(--color-primary);
     padding-left: 20px;
     margin: 28px 0;
     font-style: italic;
@@ -201,7 +201,7 @@ const articleSchema = {
   }
 
   .blog-content :global(a) {
-    color: var(--color-green);
+    color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 3px;
   }

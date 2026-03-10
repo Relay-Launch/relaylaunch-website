@@ -21,10 +21,10 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <!-- ═══════════════════════════════════════════════ HERO -->
   <section class="hero section hero-gradient section-hero-enhanced">
     <div class="container">
-      <div class="badge badge-green hero-badge animate-fade-in-up">Veteran-Owned · Digital Infrastructure Consultancy</div>
+      <div class="badge badge-primary hero-badge animate-fade-in-up">Veteran-Owned · Digital Infrastructure Consultancy</div>
       <h1 class="hero-headline animate-fade-in-up" style="animation-delay: 0.1s;">
         Stop paying $400/month for tools that<br />
-        <span class="text-green">don't talk to each other.</span>
+        <span class="text-accent">don't talk to each other.</span>
       </h1>
       <p class="hero-sub animate-fade-in-up" style="animation-delay: 0.2s;">
         The average small business juggles 5–8 separate platforms — website, email, social, scheduling,
@@ -266,7 +266,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
         </div>
 
         <div class="card featured pkg-card">
-          <div class="badge badge-solid-green" style="margin-bottom: 16px;">Most Popular</div>
+          <div class="badge badge-solid-primary" style="margin-bottom: 16px;">Most Popular</div>
           <div class="pkg-name">Relay</div>
           <div class="pkg-tagline">Build &amp; Connect</div>
           <div class="pkg-price">$1,800–$6,000</div>
@@ -311,7 +311,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           </p>
           <div class="cs-stats">
             <div class="cs-stat">
-              <div class="stat-number" style="color: var(--color-green);">$342 → $51</div>
+              <div class="stat-number" style="color: var(--color-primary);">$342 → $51</div>
               <div class="stat-label">monthly infrastructure cost</div>
             </div>
             <div class="cs-stat">
@@ -394,8 +394,8 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
                 <li>Hands you credentials and disappears</li>
               </ul>
             </div>
-            <div class="compare-col green-side">
-              <p class="compare-label green-label">RelayLaunch</p>
+            <div class="compare-col accent-side">
+              <p class="compare-label accent-label">RelayLaunch</p>
               <ul class="compare-list">
                 <li>Builds an operating system for your business</li>
                 <li>Custom-coded in Astro + Tailwind — no templates</li>
@@ -412,7 +412,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <!-- ═══════════════════════════════════════════════ CTA -->
   <section class="section cta-section">
     <div class="container cta-inner reveal">
-      <span class="section-eyebrow" style="color: var(--color-green);">Ready to Start?</span>
+      <span class="section-eyebrow" style="color: var(--color-primary);">Ready to Start?</span>
       <h2 class="section-title" style="font-size: clamp(24px, 3.5vw, 38px); max-width: 600px;">
         Replace your tool stack with one connected system.
       </h2>
@@ -528,20 +528,20 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     line-height: 1.1;
     position: relative;
   }
-  .text-green {
-    color: var(--color-green);
+  .text-accent {
+    color: var(--color-primary);
     position: relative;
     display: inline-block;
   }
 
-  .text-green::after {
+  .text-accent::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-green), var(--color-orange));
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary));
     opacity: 0.3;
   }
 
@@ -575,7 +575,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   }
 
   .trust-check {
-    color: var(--color-green);
+    color: var(--color-primary);
     font-weight: 800;
     font-size: 14px;
   }
@@ -717,7 +717,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     left: -50%;
     width: 800px;
     height: 800px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--color-orange) 8%, transparent) 0%, transparent 70%);
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 8%, transparent) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -741,7 +741,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .solution-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: color-mix(in srgb, var(--color-orange) 40%, var(--color-border));
+    border-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
   }
 
   .solution-icon {
@@ -767,7 +767,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .pkg-card { display: flex; flex-direction: column; }
   .pkg-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
   .pkg-tagline { font-size: 13px; color: var(--color-muted); margin-bottom: 10px; }
-  .pkg-price { font-size: 15px; font-weight: 700; color: var(--color-green); }
+  .pkg-price { font-size: 15px; font-weight: 700; color: var(--color-primary); }
   .pkg-cta { margin-top: auto; padding-top: 20px; display: block; text-align: center; }
 
   /* ── Case study teaser ── */
@@ -821,7 +821,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     color: var(--color-muted);
     margin-bottom: 12px;
   }
-  .green-label { color: var(--color-green) !important; }
+  .accent-label { color: var(--color-primary) !important; }
   .compare-list {
     list-style: none;
     padding: 0;
@@ -831,13 +831,13 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     gap: 8px;
   }
   .compare-list li { font-size: 13px; color: var(--color-muted); }
-  .green-side .compare-list li { color: var(--color-text); }
+  .accent-side .compare-list li { color: var(--color-text); }
 
   /* ── CTA section ── */
   .cta-section {
     background: linear-gradient(135deg,
       var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-orange) 8%, var(--color-surface)) 50%,
+      color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)) 50%,
       var(--color-surface) 100%
     );
     position: relative;
@@ -875,7 +875,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     left: 50%;
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--color-orange) 10%, transparent) 0%, transparent 70%);
+    background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 10%, transparent) 0%, transparent 70%);
     pointer-events: none;
     transform: translateX(-50%);
   }
@@ -886,11 +886,11 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     gap: 48px;
     padding: 40px;
     align-items: center;
-    border-color: var(--color-orange);
+    border-color: var(--color-primary);
     box-shadow: var(--shadow-md);
     position: relative;
     z-index: 1;
-    background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-orange) 3%, var(--color-surface)) 100%);
+    background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-primary) 3%, var(--color-surface)) 100%);
   }
 
   .lead-magnet-title {
@@ -935,7 +935,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
   .form-field input:focus {
     outline: none;
-    border-color: var(--color-green);
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(35, 134, 54, 0.15);
   }
 
@@ -952,7 +952,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .success-title {
     font-size: 22px;
     font-weight: 800;
-    color: var(--color-green);
+    color: var(--color-primary);
     margin-bottom: 8px;
   }
 
@@ -967,7 +967,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .error-title {
     font-size: 22px;
     font-weight: 800;
-    color: var(--color-orange);
+    color: var(--color-primary);
     margin-bottom: 8px;
   }
 
@@ -977,7 +977,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   }
 
   .error-desc a {
-    color: var(--color-green);
+    color: var(--color-primary);
     text-decoration: underline;
     text-underline-offset: 2px;
   }

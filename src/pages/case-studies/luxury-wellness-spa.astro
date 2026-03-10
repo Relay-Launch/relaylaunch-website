@@ -14,12 +14,12 @@ import { Button } from '@/components/starwind/button';
     <div class="container">
       <a href="/case-studies" class="back-link">← Case Studies</a>
       <div class="cs-meta">
-        <span class="badge badge-green">Wellness / Hospitality</span>
+        <span class="badge badge-primary">Wellness / Hospitality</span>
         <span class="cs-location">Five-Star Resort · South Florida</span>
       </div>
       <h1 class="hero-headline">
         $342/month in disconnected tools<br />
-        replaced with <span class="text-green">$51/month</span> in unified infrastructure.
+        replaced with <span class="text-accent">$51/month</span> in unified infrastructure.
       </h1>
       <p class="hero-sub">
         A luxury spa and wellness brand embedded in a five-star resort property in South Florida
@@ -33,7 +33,7 @@ import { Button } from '@/components/starwind/button';
   <section class="stats-bar">
     <div class="container stats-grid">
       <div class="stat">
-        <div class="stat-number green">$342 → $51</div>
+        <div class="stat-number accent">$342 → $51</div>
         <div class="stat-label">monthly infrastructure cost</div>
       </div>
       <div class="stat-divider"></div>
@@ -234,42 +234,42 @@ import { Button } from '@/components/starwind/button';
               <tr>
                 <td>Monthly infrastructure cost</td>
                 <td class="red-val">$342+/mo</td>
-                <td class="green-val">$51/mo</td>
+                <td class="accent-val">$51/mo</td>
               </tr>
               <tr>
                 <td>Annual savings</td>
                 <td class="red-val">—</td>
-                <td class="green-val">$3,492/yr</td>
+                <td class="accent-val">$3,492/yr</td>
               </tr>
               <tr>
                 <td>Booking follow-ups</td>
                 <td class="red-val">Manual, inconsistent</td>
-                <td class="green-val">Automated, same-day</td>
+                <td class="accent-val">Automated, same-day</td>
               </tr>
               <tr>
                 <td>Social posting</td>
                 <td class="red-val">2+ hrs/week manual</td>
-                <td class="green-val">Scheduled, 4 platforms</td>
+                <td class="accent-val">Scheduled, 4 platforms</td>
               </tr>
               <tr>
                 <td>Lead nurturing</td>
                 <td class="red-val">Zero — leads fell through</td>
-                <td class="green-val">5 automated sequences</td>
+                <td class="accent-val">5 automated sequences</td>
               </tr>
               <tr>
                 <td>Website hosting</td>
                 <td class="red-val">$65/mo (Squarespace)</td>
-                <td class="green-val">$0/mo (Cloudflare Pages)</td>
+                <td class="accent-val">$0/mo (Cloudflare Pages)</td>
               </tr>
               <tr>
                 <td>Business visibility</td>
                 <td class="red-val">Generic template, slow</td>
-                <td class="green-val">SEO-optimized, fast, ranked</td>
+                <td class="accent-val">SEO-optimized, fast, ranked</td>
               </tr>
               <tr>
                 <td>Morning briefing</td>
                 <td class="red-val">5 logins, 30 min</td>
-                <td class="green-val">1 Slack dashboard, 2 min</td>
+                <td class="accent-val">1 Slack dashboard, 2 min</td>
               </tr>
             </tbody>
           </table>
@@ -378,7 +378,7 @@ import { Button } from '@/components/starwind/button';
     line-height: 1.1;
   }
 
-  .text-green { color: var(--color-green); }
+  .text-accent { color: var(--color-primary); }
 
   .hero-sub {
     font-size: 17px;
@@ -402,7 +402,7 @@ import { Button } from '@/components/starwind/button';
   }
   .stat { text-align: center; flex: 1; padding: 16px; }
   .stat-divider { width: 1px; height: 48px; background: var(--color-border); flex-shrink: 0; }
-  .stat-number.green { color: var(--color-green); }
+  .stat-number.accent { color: var(--color-primary); }
 
   /* Two col */
   .two-col {
@@ -444,7 +444,7 @@ import { Button } from '@/components/starwind/button';
   .del-value {
     font-size: 12px;
     font-weight: 700;
-    color: var(--color-green);
+    color: var(--color-primary);
     letter-spacing: 0.5px;
     padding-top: 12px;
     border-top: 1px solid var(--color-border);
@@ -461,7 +461,7 @@ import { Button } from '@/components/starwind/button';
   }
 
   .red-val { color: #f85149; font-size: 13px; }
-  .green-val { color: var(--color-green); font-size: 13px; font-weight: 700; }
+  .accent-val { color: var(--color-primary); font-size: 13px; font-weight: 700; }
 
   .total-value-card { padding: 24px; }
   .value-range {
@@ -486,7 +486,7 @@ import { Button } from '@/components/starwind/button';
   }
   .value-note {
     font-size: 13px;
-    color: var(--color-green);
+    color: var(--color-primary);
     font-weight: 700;
     margin-top: 16px;
     padding-top: 16px;
