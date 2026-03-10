@@ -78,6 +78,5 @@ When working as a teammate in an agent team:
 - PR branches: claude/description-XXXXX format
 
 ## Known Issues
-- global.css still uses --color-green and --color-orange (MUST replace)
-- starwind.css theme may reference wrong color palette
-- README.md may show old tier names (Signal/Blueprint/Relay/Sustain)
+- complete-analysis.astro still has some hardcoded hex values (#F8FAFC, #fbbf24, #64748b) that should use CSS variables
+- Inconsistent border-radius values across pages (10px vs 12px) — consider a --radius-card variable
