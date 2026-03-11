@@ -6,7 +6,7 @@
 **Site:** [relaylaunch.com](https://www.relaylaunch.com)
 **Framework:** Astro 5 + Tailwind CSS 4.2 + MDX
 **Deployment:** Cloudflare Pages via Wrangler
-**Branch:** `claude/multi-agent-review-analysis-9JSp9`
+**Source:** Internal multi-agent review analysis
 
 ---
 
