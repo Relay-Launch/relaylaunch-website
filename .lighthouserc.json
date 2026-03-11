@@ -8,7 +8,13 @@
         "/complete-analysis",
         "/about",
         "/contact",
-        "/how-we-work"
+        "/how-we-work",
+        "/blog",
+        "/case-studies",
+        "/case-studies/luxury-wellness-spa",
+        "/intake",
+        "/privacy",
+        "/terms"
       ],
       "numberOfRuns": 1,
       "settings": {

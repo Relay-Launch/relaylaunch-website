@@ -15,9 +15,10 @@ interface Props {
   ogType?: string;
   canonicalUrl?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbs?: { name: string; url: string }[];
 }
 
-const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.props;
+const { title, description, ogImage, ogType, canonicalUrl, jsonLd, breadcrumbs } = Astro.props;
 
 const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const isProd = import.meta.env.PROD;
@@ -46,7 +47,7 @@ const isProd = import.meta.env.PROD;
         gtag('config', gaId);
       </script>
     )}
-    <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} />
+    <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs} />
   </head>
   <body>
     <slot />

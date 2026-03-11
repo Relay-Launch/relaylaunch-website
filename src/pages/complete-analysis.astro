@@ -193,9 +193,9 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
         <div class="ca-report-wrap" aria-hidden="true">
           <div class="ca-report-mock">
             <div class="ca-report-toolbar">
-              <span class="ca-report-dot" style="background:#ff5f57;"></span>
-              <span class="ca-report-dot" style="background:#febc2e;"></span>
-              <span class="ca-report-dot" style="background:#28c840;"></span>
+              <span class="ca-report-dot" style="background:var(--color-border);"></span>
+              <span class="ca-report-dot" style="background:var(--color-border);"></span>
+              <span class="ca-report-dot" style="background:var(--color-border);"></span>
               <span class="ca-report-filename">complete-analysis-report.pdf</span>
             </div>
             <div class="ca-report-body">
@@ -776,7 +776,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-snapshot-card {
-    background: #1e293b;
+    background: var(--color-text);
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 12px;
     padding: 24px;
@@ -852,8 +852,8 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     border-radius: 4px;
   }
 
-  .ca-tag-hi  { background: color-mix(in srgb, var(--primary) 20%, transparent);  color: #60a5fa; }
-  .ca-tag-med { background: rgba(251,191,36,0.15); color: #fbbf24; }
+  .ca-tag-hi  { background: color-mix(in srgb, var(--primary) 20%, transparent);  color: var(--color-primary); }
+  .ca-tag-med { background: var(--color-primary-subtle); color: var(--color-primary); }
   .ca-tag-low { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
 
   .ca-snapshot-roadmap { display: flex; flex-direction: column; gap: 8px; }
@@ -872,7 +872,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     flex-shrink: 0;
   }
   .ca-dot-hi  { background: var(--color-primary); }
-  .ca-dot-med { background: #fbbf24; }
+  .ca-dot-med { background: var(--color-primary); }
   .ca-dot-low { background: rgba(255,255,255,0.25); }
 
   .ca-roadmap-bar {
@@ -916,8 +916,8 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-area-card {
     padding: 24px;
     border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background: #F8FAFC;
+    border-radius: 12px;
+    background: var(--color-surface);
     border-top: 3px solid transparent;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-top-color 0.2s ease;
   }
@@ -957,7 +957,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   /* ─── Deliverable ───────────────────────────────────────── */
   .ca-deliverable-section {
-    background: #F8FAFC;
+    background: var(--color-surface);
   }
 
   .ca-deliverable {
@@ -1013,14 +1013,14 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-report-mock {
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow-xl);
     border: 1px solid var(--color-border);
   }
 
   .ca-report-toolbar {
-    background: #e2e8f0;
+    background: var(--color-border);
     padding: 10px 16px;
     display: flex;
     align-items: center;
@@ -1036,7 +1036,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   .ca-report-filename {
     font-size: 11px;
-    color: #64748b;
+    color: var(--color-muted);
     margin-left: 8px;
     font-weight: 500;
   }
@@ -1076,13 +1076,13 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   .ca-report-subtitle {
     font-size: 11px;
-    color: #64748b;
+    color: var(--color-muted);
     margin-top: 1px;
   }
 
   .ca-report-client-block {
-    background: #F8FAFC;
-    border: 1px solid #e2e8f0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     padding: 12px 16px;
     margin-bottom: 16px;
@@ -1093,7 +1093,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #94a3b8;
+    color: var(--color-muted);
     margin-bottom: 4px;
   }
 
@@ -1105,7 +1105,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   .ca-report-client-date {
     font-size: 11px;
-    color: #94a3b8;
+    color: var(--color-muted);
     margin-top: 2px;
   }
 
@@ -1121,13 +1121,13 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-report-line {
     height: 7px;
     border-radius: 3px;
-    background: #e2e8f0;
+    background: var(--color-border);
     margin-bottom: 7px;
   }
 
   .ca-report-divider {
     height: 1px;
-    background: #e2e8f0;
+    background: var(--color-border);
     margin: 16px 0;
   }
 
@@ -1146,8 +1146,8 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-pill-hi  { background: color-mix(in srgb, var(--primary) 10%, transparent);  color: var(--color-primary); }
-  .ca-pill-med { background: rgba(251,191,36,0.15); color: #b45309; }
-  .ca-pill-low { background: #f1f5f9; color: #64748b; }
+  .ca-pill-med { background: var(--color-primary-subtle); color: var(--color-primary-dark); }
+  .ca-pill-low { background: var(--color-surface); color: var(--color-muted); }
 
   .ca-report-roadmap {
     display: flex;
@@ -1172,13 +1172,13 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-rm-badge-hi  { background: color-mix(in srgb, var(--primary) 15%, transparent); color: var(--color-primary); }
-  .ca-rm-badge-med { background: rgba(251,191,36,0.15); color: #b45309; }
-  .ca-rm-badge-low { background: #f1f5f9; color: #64748b; }
+  .ca-rm-badge-med { background: var(--color-primary-subtle); color: var(--color-primary-dark); }
+  .ca-rm-badge-low { background: var(--color-surface); color: var(--color-muted); }
 
   .ca-rm-bar { height: 8px; border-radius: 4px; }
   .ca-rm-hi  { background: var(--color-primary); }
-  .ca-rm-med { background: #fbbf24; }
-  .ca-rm-low { background: #e2e8f0; }
+  .ca-rm-med { background: var(--color-primary); }
+  .ca-rm-low { background: var(--color-border); }
 
   .ca-report-caption {
     text-align: center;
@@ -1215,7 +1215,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-proof-card {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 32px 28px;
     transition: background 0.2s, border-color 0.2s;
   }
@@ -1304,7 +1304,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   .ca-vs-table {
     border: 1px solid var(--color-border);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
   }
 
@@ -1319,7 +1319,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-vs-row-head {
-    background: #F8FAFC;
+    background: var(--color-surface);
   }
 
   .ca-vs-col-label {
@@ -1362,7 +1362,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
   /* ─── Process ───────────────────────────────────────────── */
   .ca-process-section {
-    background: #F8FAFC;
+    background: var(--color-surface);
   }
 
   .ca-process-flow {
@@ -1386,7 +1386,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-process-step:first-child {
-    border-radius: 10px 0 0 10px;
+    border-radius: 12px 0 0 10px;
   }
 
   .ca-process-step:last-child {
@@ -1416,7 +1416,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-size: 11px;
     font-weight: 600;
     color: var(--color-muted);
-    background: #F8FAFC;
+    background: var(--color-surface);
     padding: 2px 8px;
     border-radius: 4px;
     border: 1px solid var(--color-border);
@@ -1444,7 +1444,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     color: var(--color-primary);
     font-weight: 700;
     z-index: 2;
-    background: #F8FAFC;
+    background: var(--color-surface);
     width: 28px;
     height: 28px;
     display: flex;
@@ -1677,7 +1677,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   .ca-error-title {
     font-size: 16px;
     font-weight: 700;
-    color: #f87171;
+    color: var(--destructive, #f87171);
     margin-bottom: 8px;
   }
 
@@ -1717,7 +1717,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     }
     .ca-process-step {
       border-right: 1px solid var(--color-border);
-      border-radius: 10px !important;
+      border-radius: 12px !important;
     }
     .ca-step-arrow { display: none; }
     .ca-vs-row {
@@ -1734,7 +1734,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     .ca-pricing-layout { grid-template-columns: 1fr; }
     .ca-form-row { grid-template-columns: 1fr; }
     .ca-process-flow { grid-template-columns: 1fr; gap: 12px; }
-    .ca-process-step { border-radius: 10px !important; border-right: 1px solid var(--color-border); }
+    .ca-process-step { border-radius: 12px !important; border-right: 1px solid var(--color-border); }
     .ca-vs-row { grid-template-columns: 100px 1fr 1fr 1fr; font-size: 12px; }
   }
 
@@ -1832,7 +1832,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     content: '✗';
     position: absolute;
     left: 0;
-    color: #f87171;
+    color: var(--destructive, #f87171);
     font-weight: 700;
   }
 

@@ -9,6 +9,9 @@ export default defineConfig({
   site: 'https://relaylaunch.com',
   output: 'static',
   trailingSlash: 'always',
+  redirects: {
+    '/case-studies/hrc': '/case-studies/luxury-wellness-spa/',
+  },
   integrations: [mdx(), sitemap()],
 
   vite: {

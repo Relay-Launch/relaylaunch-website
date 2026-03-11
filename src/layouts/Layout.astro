@@ -10,16 +10,31 @@ interface Props {
   ogType?: string;
   canonicalUrl?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  breadcrumbs?: { name: string; url: string }[];
 }
 
-const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.props;
+const { title, description, ogImage, ogType, canonicalUrl, jsonLd, breadcrumbs } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd}>
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <Nav />
   <main id="main-content">
     <slot />
   </main>
   <Footer />
+  <button class="back-to-top" aria-label="Back to top" id="back-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+  <script>
+    const btn = document.getElementById('back-to-top');
+    if (btn) {
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
 </BaseLayout>

@@ -18,6 +18,10 @@
   /* --color-accent removed: identical to --color-primary */
   --color-navy: #0F172A;                      /* Dark Navy */
 
+  /* Layout tokens */
+  --radius-card: 12px;
+  --radius-sm: 6px;
+
   /* Elevation shadows for depth */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -107,6 +111,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
   color: var(--color-text);
   text-rendering: optimizeLegibility;
+  text-wrap: balance;
 }
 
 p { margin: 0; color: var(--color-muted); }
@@ -182,7 +187,7 @@ a:hover { text-decoration: underline; }
 .card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   padding: 28px;
   box-shadow: var(--shadow-sm);
   transition: transform 0.25s cubic-bezier(.22,1,.36,1),
@@ -366,6 +371,52 @@ a:hover { text-decoration: underline; }
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ─── Card-Interactive (reusable hover lift) ────────────────── */
+.card-interactive {
+  transition: transform 0.25s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.25s cubic-bezier(.22,1,.36,1),
+              border-color 0.25s ease;
+}
+.card-interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--primary) 20%, var(--color-border));
+}
+
+/* ─── Back to Top ────────────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
