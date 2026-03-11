@@ -1,0 +1,2 @@
+# Redirect www to bare domain
+https://www.relaylaunch.com/* https://relaylaunch.com/:splat 301
