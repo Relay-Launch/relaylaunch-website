@@ -64,7 +64,13 @@ const tools = [
         Every RelayLaunch engagement follows the same 8-stage pipeline, from first
         conversation to running infrastructure. No guesswork, no scope creep, no surprises.
       </p>
-      <Button variant="primary" href="/contact" size="lg" style="margin-top: 28px;">
+      <Button
+        variant="primary"
+        size="lg"
+        style="margin-top: 28px;"
+        data-cal-link="relaylaunch/discovery-call"
+        data-cal-config='{"layout":"month_view"}'
+      >
         Book a Discovery Call →
       </Button>
       <p style="margin-top: 12px; font-size: 13px; color: var(--color-muted);">No commitment required. Discovery call is free.</p>
@@ -168,7 +174,7 @@ const tools = [
         No commitment, no pitch. Just a conversation about your business.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <Button variant="primary" href="/contact">Book a Discovery Call →</Button>
+        <Button variant="primary" data-cal-link="relaylaunch/discovery-call" data-cal-config='{"layout":"month_view"}'>Book a Discovery Call →</Button>
         <Button variant="outline" href="/complete-analysis">Learn About the Complete Analysis</Button>
       </div>
     </div>

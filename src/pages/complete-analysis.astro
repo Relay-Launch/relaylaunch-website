@@ -584,6 +584,17 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
             <p class="ca-form-note">No spam. No pitch. Just a conversation.</p>
           </form>
 
+          <div class="ca-or-book-direct">
+            <span class="ca-or-divider"><span>or skip the form</span></span>
+            <button
+              class="ca-book-direct-btn"
+              data-cal-link="relaylaunch/discovery-call"
+              data-cal-config='{"layout":"month_view"}'
+            >
+              Pick a Time Directly →
+            </button>
+          </div>
+
           <div id="ca-book-success" class="ca-form-success" hidden>
             <div class="ca-success-icon">&#10003;</div>
             <p class="ca-success-title">Request received.</p>
@@ -1635,6 +1646,49 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
     font-size: 12px;
     color: rgba(255,255,255,0.35);
     text-align: center;
+  }
+
+  .ca-or-book-direct {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .ca-or-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.35);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+
+  .ca-or-divider::before,
+  .ca-or-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  .ca-book-direct-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+
+  .ca-book-direct-btn:hover {
+    border-color: var(--color-primary);
+    color: #fff;
+    background: rgba(0, 122, 255, 0.1);
   }
 
   .ca-form-success {
