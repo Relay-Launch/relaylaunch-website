@@ -7,7 +7,7 @@ const serviceSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Complete Analysis: Business Infrastructure Diagnostic',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://www.relaylaunch.com' },
     description: 'An 8-area diagnostic of your entire business infrastructure, covering operations, tech stack, AI readiness, digital footprint, and more, delivered as a 20–30 page professional report with a prioritized roadmap.',
     url: 'https://www.relaylaunch.com/complete-analysis/',
     offers: {
@@ -21,7 +21,7 @@ const serviceSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Launch: Digital Infrastructure Build',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://www.relaylaunch.com' },
     description: 'One-time project build of unified digital infrastructure: custom website, automation workflows, email sequences, social scheduling, and a single connected dashboard replacing disconnected tools.',
     offers: {
       '@type': 'AggregateOffer',
@@ -34,7 +34,7 @@ const serviceSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Run: Monthly Digital Operations Retainer',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://www.relaylaunch.com' },
     description: 'Monthly retainer for ongoing digital operations support: social content, SEO and blog maintenance, automation monitoring, and monthly strategy calls. 3-month minimum.',
     offers: {
       '@type': 'AggregateOffer',
@@ -47,7 +47,7 @@ const serviceSchemas = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Scale: Premium Growth Retainer',
-    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
+    provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://www.relaylaunch.com' },
     description: 'Premium monthly retainer for businesses scaling their digital infrastructure: expanded deliverables, priority support, advanced automation builds, and strategic advisory. 6-month minimum.',
     offers: {
       '@type': 'AggregateOffer',
@@ -451,15 +451,17 @@ const faqSchema = {
   /* ── Additional Engagements ── */
   .addons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
   }
 
   .addon-card {
-    padding: 24px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
   }
 
-  .addon-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .addon-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
 
   .addon-price {
     font-size: 16px;
@@ -563,8 +565,13 @@ const faqSchema = {
     color: var(--color-muted);
   }
 
+  @media (max-width: 1024px) {
+    .addons-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .pkg-header, .pkg-body { grid-template-columns: 1fr; }
     .tiers-grid { grid-template-columns: 1fr; }
+    .addons-grid { grid-template-columns: 1fr; }
   }
 </style>
