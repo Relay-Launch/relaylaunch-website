@@ -21,9 +21,10 @@ interface Props {
     tags?: string[];
   };
   canonicalUrl?: string;
+  readingTime?: string;
 }
 
-const { frontmatter, canonicalUrl } = Astro.props;
+const { frontmatter, canonicalUrl, readingTime } = Astro.props;
 
 const formattedDate = formatDate(frontmatter.pubDate);
 
@@ -80,6 +81,7 @@ const articleSchema = {
               <span class="updated-date"> · Updated <time datetime={frontmatter.updatedDate!.toISOString()}>{formattedUpdatedDate}</time></span>
             )}
             {frontmatter.author && <span> · {frontmatter.author}</span>}
+            {readingTime && <span> · {readingTime}</span>}
           </p>
         </header>
 

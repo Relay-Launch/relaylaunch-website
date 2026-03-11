@@ -10,6 +10,10 @@ const posts = await getPublishedPosts();
   title="Blog — RelayLaunch | Small Business Infrastructure & Automation"
   description="Practical insights on digital infrastructure, automation, and operations for small businesses. Written by a USMC veteran with Fortune 500 engineering experience."
   canonicalUrl="https://relaylaunch.com/blog/"
+  breadcrumbs={[
+    { name: 'Home', url: 'https://relaylaunch.com/' },
+    { name: 'Blog', url: 'https://relaylaunch.com/blog/' },
+  ]}
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': 'Blog',
@@ -49,7 +53,7 @@ const posts = await getPublishedPosts();
         {posts.map((post) => (
             <a href={`/blog/${post.id}`} class="post-card card">
               {post.data.heroImage && (
-                <img src={post.data.heroImage} alt="" class="post-hero" loading="lazy" />
+                <img src={post.data.heroImage} alt={post.data.title} class="post-hero" loading="lazy" />
               )}
               <div class="post-tags">
                 {post.data.tags.map((tag: string) => (

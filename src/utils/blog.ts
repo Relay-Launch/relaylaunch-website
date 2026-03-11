@@ -29,6 +29,17 @@ export async function getRecentPosts(limit: number) {
 }
 
 /**
+ * Estimate reading time based on word count (avg 238 words per minute)
+ * @param text Raw text content of the post
+ * @returns Human-readable reading time (e.g., "4 min read")
+ */
+export function getReadingTime(text: string): string {
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.max(1, Math.round(words / 238));
+  return `${minutes} min read`;
+}
+
+/**
  * Format a date for display in blog posts and listings
  * Centralized formatting to avoid duplication across components
  * @param date Date to format

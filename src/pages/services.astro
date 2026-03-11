@@ -57,13 +57,32 @@ const serviceSchemas = [
     },
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Do I have to commit to a retainer right away?', acceptedAnswer: { '@type': 'Answer', text: 'No. The Complete Analysis is a standalone engagement with no strings attached. You get a 20–30 page report, keep it, and decide what to do next.' } },
+    { '@type': 'Question', name: 'Who owns what you build?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of everything we build — website, code, automations, content, accounts, and domains. No vendor lock-in.' } },
+    { '@type': 'Question', name: 'How long does a Complete Analysis take?', acceptedAnswer: { '@type': 'Answer', text: 'Two business days from intake completion. You receive the deliverable within 5 business days of kickoff.' } },
+    { '@type': 'Question', name: "What's the difference between Launch and Run?", acceptedAnswer: { '@type': 'Answer', text: 'Launch is a one-time build — we design and deploy your unified infrastructure. Run is ongoing operations — we stay on as your digital ops team.' } },
+    { '@type': 'Question', name: 'Can I switch tiers once I start?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can upgrade from Run to Scale at any renewal point. Downgrading follows the same cadence.' } },
+    { '@type': 'Question', name: 'Do I need to be local to Boston?', acceptedAnswer: { '@type': 'Answer', text: 'No. We work with small businesses across the U.S. remotely. Boston and the Northeast get priority scheduling.' } },
+    { '@type': 'Question', name: 'What if I\'m already mid-build with another provider?', acceptedAnswer: { '@type': 'Answer', text: 'We can audit what exists and take it from there. The Complete Analysis covers your current stack regardless of who built it.' } },
+    { '@type': 'Question', name: 'How is this different from hiring a freelancer?', acceptedAnswer: { '@type': 'Answer', text: 'Freelancers deliver a project and move on. We deliver infrastructure designed to run your business — then stay accountable to its performance.' } },
+  ],
+};
 ---
 
 <Layout
   title="Services — RelayLaunch | Digital Infrastructure for Small Business"
   description="RelayLaunch service packages: Complete Analysis diagnostic ($1,500–$3,000), Launch build ($2,500–$5,000), Run retainer ($500–$1,000/mo), Scale retainer ($1,000–$2,500/mo)."
   canonicalUrl="https://relaylaunch.com/services/"
-  jsonLd={serviceSchemas}
+  jsonLd={[...serviceSchemas, faqSchema]}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://relaylaunch.com/' },
+    { name: 'Services', url: 'https://relaylaunch.com/services/' },
+  ]}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
@@ -99,7 +118,7 @@ const serviceSchemas = [
       <div class="tiers-grid reveal-stagger">
         <div class="card tier-card">
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 1</span>
-          <h3 class="tier-name">Launch</h3>
+          <h3 id="launch" class="tier-name">Launch</h3>
           <div class="tier-price">$2,500–$5,000 <span>one-time</span></div>
           <p class="tier-desc">Get your foundation built — a professional website, core automations, and connected tools, delivered in a single engagement.</p>
           <h4 class="tier-includes-title">Includes</h4>
@@ -117,7 +136,7 @@ const serviceSchemas = [
         <div class="card tier-card tier-featured">
           <div class="badge badge-solid-primary" style="margin-bottom: 12px;">Most Popular</div>
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 2</span>
-          <h3 class="tier-name">Run</h3>
+          <h3 id="run" class="tier-name">Run</h3>
           <div class="tier-price">$500–$1,000<span>/month</span></div>
           <p class="tier-note">3-month minimum</p>
           <p class="tier-desc">Ongoing operations support — we keep your systems optimized, your content flowing, and your automations evolving.</p>
@@ -135,7 +154,7 @@ const serviceSchemas = [
 
         <div class="card tier-card">
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 3</span>
-          <h3 class="tier-name">Scale</h3>
+          <h3 id="scale" class="tier-name">Scale</h3>
           <div class="tier-price">$1,000–$2,500<span>/month</span></div>
           <p class="tier-note">6-month minimum</p>
           <p class="tier-desc">Full growth infrastructure — AI agents, advanced automations, multi-location support, and a fractional ops partner in your corner.</p>

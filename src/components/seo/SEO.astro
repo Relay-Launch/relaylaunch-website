@@ -1,4 +1,9 @@
 ---
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description?: string;
@@ -7,6 +12,8 @@ interface Props {
   ogType?: string;
   /** Optional JSON-LD schema object(s) to embed alongside the default Organization schema */
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Breadcrumb trail for structured data (auto-generates BreadcrumbList JSON-LD) */
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 const siteUrl = 'https://relaylaunch.com';
@@ -18,6 +25,7 @@ const {
   ogImage = `${siteUrl}/og-default.png`,
   ogType = 'website',
   jsonLd,
+  breadcrumbs,
 } = Astro.props;
 
 const orgSchema = {
@@ -34,7 +42,18 @@ const orgSchema = {
   ],
 };
 
-const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
+const breadcrumbSchema = breadcrumbs?.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+} : null;
+
+const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []), ...(breadcrumbSchema ? [breadcrumbSchema] : [])];
 ---
 
 <meta charset="UTF-8" />
