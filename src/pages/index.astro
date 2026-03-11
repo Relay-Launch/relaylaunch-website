@@ -1263,7 +1263,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     padding: 40px;
     align-items: center;
     border-color: var(--color-primary);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     position: relative;
     z-index: 1;
@@ -1304,7 +1304,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     padding: 10px 14px;
     font-size: 15px;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     background: var(--color-bg);
     color: var(--color-text);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -1402,7 +1402,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     color: var(--color-text);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     white-space: nowrap;
     transition: border-color 0.2s ease;
   }
@@ -1415,10 +1415,10 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   /* ── Client Results Counter ── */
   .results-counter-section {
     background: var(--color-navy);
-    color: #ffffff;
+    color: var(--color-white);
   }
   .results-counter-section .section-eyebrow { color: var(--color-primary); }
-  .results-counter-section .section-title { color: #ffffff; }
+  .results-counter-section .section-title { color: var(--color-white); }
   .results-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1428,8 +1428,8 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .result-card {
     padding: 32px 16px;
     border-radius: var(--radius-card);
-    border: 1px solid color-mix(in srgb, #ffffff 12%, transparent);
-    background: color-mix(in srgb, #ffffff 4%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+    background: color-mix(in srgb, var(--color-white) 4%, transparent);
     transition: transform 0.3s ease, border-color 0.3s ease;
   }
   .result-card:hover {
@@ -1443,7 +1443,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     letter-spacing: -0.5px;
     margin-bottom: 8px;
   }
-  .result-label { font-size: 14px; color: color-mix(in srgb, #ffffff 65%, transparent); }
+  .result-label { font-size: 14px; color: color-mix(in srgb, var(--color-white) 65%, transparent); }
 
   /* ── Before / After ── */
   .ba-section { background: var(--color-surface); }
@@ -1471,7 +1471,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     border: 1px solid var(--color-border);
     background: var(--color-bg);
   }
-  .ba-before { border-color: color-mix(in srgb, #ef4444 30%, var(--color-border)); }
+  .ba-before { border-color: color-mix(in srgb, var(--color-danger) 30%, var(--color-border)); }
   .ba-after { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
   .ba-title { font-size: 18px; font-weight: 800; margin-bottom: 20px; }
   .ba-tools-chaos {
@@ -1490,14 +1490,14 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     border: 1px solid var(--color-border);
     color: var(--color-muted);
   }
-  .ba-tool-disconnected { border-color: color-mix(in srgb, #ef4444 25%, var(--color-border)); }
+  .ba-tool-disconnected { border-color: color-mix(in srgb, var(--color-danger) 25%, var(--color-border)); }
   .ba-unified { text-align: center; margin-bottom: 20px; }
   .ba-hub {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    border-radius: 10px;
+    border-radius: var(--radius-card);
     background: color-mix(in srgb, var(--primary) 10%, var(--color-surface));
     border: 2px solid var(--color-primary);
     font-weight: 700;
@@ -1523,7 +1523,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .ba-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
   .ba-list li { font-size: 14px; padding-left: 22px; position: relative; }
   .ba-list-bad li { color: var(--color-muted); }
-  .ba-list-bad li::before { content: '✗'; position: absolute; left: 0; color: #ef4444; font-weight: 700; }
+  .ba-list-bad li::before { content: '✗'; position: absolute; left: 0; color: var(--color-danger); font-weight: 700; }
   .ba-list-good li { color: var(--color-text); }
   .ba-list-good li::before { content: '✓'; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
 
@@ -1574,7 +1574,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     font-size: 16px;
     font-weight: 600;
     border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     background: var(--color-bg);
     color: var(--color-text);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
