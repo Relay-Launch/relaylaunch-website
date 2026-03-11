@@ -243,7 +243,7 @@ BaseLayout.astro (HTML shell, SEO, GA, Cal.com)
 ### Infrastructure Health
 
 **Deployment Stack:**
-- Astro 5.0.12 (static output, pre-rendered HTML)
+- Astro 5 (static output, pre-rendered HTML)
 - Cloudflare Pages via Wrangler v4.72.0
 - @astrojs/cloudflare adapter v12.6.13
 - GitHub Actions CI/CD (npm ci → build → wrangler deploy)
