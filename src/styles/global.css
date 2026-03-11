@@ -50,21 +50,45 @@
 
   /* Layout tokens */
   --radius-xs: 4px;
-  --radius-card: 12px;
   --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-card: 12px;
   --radius-lg: 16px;
 
   /* Container widths (P2-4) */
+  --container-xs: 480px;
+  --container-narrow: 600px;
   --container-sm: 680px;
   --container-md: 900px;
   --container-lg: 1100px;
   --container-xl: 1200px;
 
+  /* Content max-widths for text readability */
+  --text-width-sm: 500px;
+  --text-width-md: 620px;
+  --text-width-lg: 700px;
+
   /* Z-index scale */
+  --z-base: 1;
+  --z-raised: 2;
   --z-dropdown: 100;
   --z-sticky: 200;
   --z-overlay: 300;
   --z-modal: 400;
+
+  /* Icon sizing system */
+  --icon-xs: 14px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+  --icon-2xl: 40px;
+
+  /* Branded shadow (blue-tinted for interactive elements) */
+  --shadow-primary-focus: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+  --shadow-primary-sm: 0 4px 14px color-mix(in srgb, var(--primary) 30%, transparent);
+  --shadow-primary-md: 0 6px 20px color-mix(in srgb, var(--primary) 45%, transparent);
+  --shadow-primary-lg: 0 8px 24px color-mix(in srgb, var(--primary) 30%, transparent);
 
   /* Elevation shadows for depth */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -467,6 +491,51 @@ a[data-slot="button"]:hover { text-decoration: none; }
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
   border-color: color-mix(in srgb, var(--primary) 20%, var(--color-border));
+}
+
+/* ─── Branded button (blue-tinted shadow, shared across pages) ─── */
+.btn-branded {
+  box-shadow: var(--shadow-primary-sm);
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              background var(--transition-base);
+}
+.btn-branded:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary-md);
+}
+.btn-branded:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: var(--shadow-primary-focus);
+}
+
+/* ─── CTA pulse animation ─────────────────────────────────────── */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent); }
+  50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--primary) 0%, transparent); }
+}
+
+.cta-pulse {
+  animation: cta-pulse 2.5s ease-in-out infinite;
+}
+
+.cta-pulse:hover {
+  animation: none;
+}
+
+/* ─── Section spacing utilities ───────────────────────────────── */
+.section-gap-sm { padding: var(--space-2xl) 0; }
+.section-gap-md { padding: var(--space-3xl) 0; }
+.section-gap-lg { padding: 80px 0; }
+
+/* ─── Progress bar scroll animation ──────────────────────────── */
+.progress-bar-animated {
+  width: 0;
+  transition: width 0.8s cubic-bezier(.22,1,.36,1);
+}
+
+.progress-bar-animated.is-visible {
+  /* width set via style attribute or data-width */
 }
 
 /* ─── Back to Top ────────────────────────────────────────────── */

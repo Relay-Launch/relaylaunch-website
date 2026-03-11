@@ -63,6 +63,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
         <Button variant="primary" href="/complete-analysis" size="lg">Get Your Free Assessment →</Button>
         <Button variant="outline" href="/case-studies/luxury-wellness-spa" size="lg">See a Real Build</Button>
       </div>
+      <a href="/how-we-work" class="animate-fade-in-up" style="animation-delay: 0.35s; display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--color-muted); text-decoration: none; transition: color 0.2s ease;">See how we work →</a>
       <p class="hero-no-commit animate-fade-in-up" style="animation-delay: 0.38s;">
         No commitment required. Discovery call is free.
       </p>
@@ -837,10 +838,10 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   <section class="section cta-section">
     <div class="container cta-inner reveal">
       <span class="section-eyebrow" style="color: var(--color-primary);">Ready to Start?</span>
-      <h2 class="section-title" style="font-size: clamp(24px, 3.5vw, 38px); max-width: 600px;">
+      <h2 class="section-title" style="font-size: clamp(24px, 3.5vw, 38px); max-width: var(--container-narrow);">
         Replace your tool stack with one connected system.
       </h2>
-      <p style="color: var(--color-muted); margin-top: 16px; margin-bottom: 32px; max-width: 500px;">
+      <p style="color: var(--color-muted); margin-top: 16px; margin-bottom: 32px; max-width: var(--text-width-sm);">
         Whether you need a full build or just want an honest audit of what's slowing you down,
         start with a conversation. No commitment required.
       </p>
@@ -1044,6 +1045,12 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     line-height: 1.65;
   }
   .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-actions :global(a[data-slot="button"]:first-child) {
+    animation: cta-pulse 2.5s ease-in-out infinite;
+  }
+  .hero-actions :global(a[data-slot="button"]:first-child:hover) {
+    animation: none;
+  }
   .hero-no-commit {
     font-size: 13px;
     color: var(--color-muted);
@@ -1148,7 +1155,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     padding: 12px 8px;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     font-size: 13px;
     font-weight: 600;
     color: var(--color-text);
@@ -1225,7 +1232,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
   }
 
   .solution-card {
@@ -1285,7 +1292,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     color: var(--color-primary);
     background: color-mix(in srgb, var(--primary) 10%, transparent);
     border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
     padding: 3px 10px;
     margin-bottom: 12px;
   }
@@ -1313,7 +1320,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.3px;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(.22,1,.36,1);
@@ -1345,11 +1352,11 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     background: var(--color-primary);
     color: var(--color-white);
     border: 2px solid var(--color-primary);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-primary) 30%, transparent);
+    box-shadow: var(--shadow-primary-sm);
   }
 
   .pkg-btn-primary:hover {
-    box-shadow: 0 6px 20px color-mix(in srgb, var(--color-primary) 45%, transparent);
+    box-shadow: var(--shadow-primary-md);
     transform: translateY(-2px);
     text-decoration: none;
     color: var(--color-white);
@@ -1363,7 +1370,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
   .pkg-btn-outline:hover {
     background: color-mix(in srgb, var(--color-primary) 8%, transparent);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-primary) 20%, transparent);
+    box-shadow: var(--shadow-primary-sm);
     transform: translateY(-2px);
     text-decoration: none;
     color: var(--color-primary);
@@ -1393,7 +1400,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     gap: 56px;
     align-items: start;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
   }
 
   .cs-stats { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 24px; }
@@ -1462,7 +1469,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .cta-inner {
     max-width: 700px;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
   }
 
   /* ── Lead magnet ── */
@@ -1494,7 +1501,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
     background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-primary) 3%, var(--color-surface)) 100%);
   }
 
@@ -1541,7 +1548,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .form-field input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+    box-shadow: var(--shadow-primary-focus);
   }
 
   .form-field input::placeholder { color: var(--color-muted); opacity: 0.6; }
@@ -1734,7 +1741,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     font-size: 12px;
     font-weight: 600;
     text-align: center;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     color: var(--color-muted);
@@ -1764,7 +1771,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     padding: 4px 10px;
     font-size: 11px;
     font-weight: 600;
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
     background: color-mix(in srgb, var(--primary) 8%, var(--color-surface));
     border: 1px solid color-mix(in srgb, var(--primary) 20%, var(--color-border));
     color: var(--color-primary);
@@ -1831,7 +1838,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .roi-field input:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+    box-shadow: var(--shadow-primary-focus);
   }
   .roi-input-wrap { position: relative; display: flex; }
   .roi-prefix {
@@ -1890,15 +1897,15 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     letter-spacing: 0.5px;
     color: var(--color-white);
     background: var(--color-primary);
-    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-primary) 30%, transparent);
+    box-shadow: var(--shadow-primary-sm);
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .process-step:hover .process-icon {
     transform: scale(1.1);
-    box-shadow: 0 6px 20px color-mix(in srgb, var(--color-primary) 45%, transparent);
+    box-shadow: var(--shadow-primary-md);
   }
 
   .process-connector {
@@ -1937,7 +1944,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     color: var(--color-primary);
     background: color-mix(in srgb, var(--primary) 8%, transparent);
     border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
-    border-radius: 4px;
+    border-radius: var(--radius-xs);
     padding: 3px 10px;
   }
 
