@@ -46,7 +46,7 @@ const tools = [
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: 'RelayLaunch LLC',
-    url: 'https://relaylaunch.com',
+    url: 'https://www.relaylaunch.com',
     description: 'Digital infrastructure consulting for small businesses. Standardized 8-stage delivery pipeline from discovery to retainer.',
     knowsAbout: ['Business Analysis', 'Workflow Automation', 'Web Development', 'AI Integration', 'Digital Infrastructure'],
     founder: { '@type': 'Person', name: 'Victor David Medina' },
@@ -79,16 +79,19 @@ const tools = [
 
       <div class="timeline reveal-stagger">
         {stages.map((stage) => (
-          <div class="timeline-item">
-            <div class="timeline-marker">
-              <span class="timeline-number">{stage.number}</span>
-              <div class="timeline-line" />
-            </div>
-            <div class="timeline-content">
+          <details class="timeline-item">
+            <summary class="timeline-summary">
+              <div class="timeline-marker">
+                <span class="timeline-number">{stage.number}</span>
+              </div>
               <h3>{stage.title}</h3>
+              <span class="timeline-toggle">+</span>
+            </summary>
+            <div class="timeline-content">
               <p>{stage.description}</p>
             </div>
-          </div>
+            <div class="timeline-line-wrap"><div class="timeline-line" /></div>
+          </details>
         ))}
       </div>
     </div>
@@ -181,19 +184,30 @@ const tools = [
     display: flex;
     flex-direction: column;
     gap: 0;
+    max-width: 700px;
   }
 
   .timeline-item {
-    display: flex;
-    gap: 24px;
+    position: relative;
   }
 
-  .timeline-marker {
+  .timeline-summary {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.15s ease;
+  }
+
+  .timeline-summary::-webkit-details-marker { display: none; }
+
+  .timeline-summary:hover { color: var(--color-primary); }
+
+  .timeline-marker {
     flex-shrink: 0;
-    width: 48px;
   }
 
   .timeline-number {
@@ -208,33 +222,54 @@ const tools = [
     font-size: 13px;
     font-weight: 700;
     color: var(--color-primary);
-    flex-shrink: 0;
     transition: background 0.2s ease, color 0.2s ease;
   }
 
-  .timeline-item:hover .timeline-number {
+  .timeline-item[open] .timeline-number,
+  .timeline-summary:hover .timeline-number {
     background: var(--color-primary);
-    color: var(--color-bg);
+    color: #ffffff;
+  }
+
+  .timeline-summary h3 {
+    font-size: 17px;
+    font-weight: 700;
+    flex: 1;
+  }
+
+  .timeline-toggle {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  .timeline-item[open] .timeline-toggle {
+    content: '−';
+    transform: rotate(45deg);
+  }
+
+  .timeline-content {
+    padding: 0 0 16px 60px;
+  }
+
+  .timeline-content p { font-size: 15px; line-height: 1.65; color: var(--color-muted); }
+
+  .timeline-line-wrap {
+    display: flex;
+    justify-content: center;
+    padding-left: 20px;
+    width: 40px;
   }
 
   .timeline-line {
     width: 2px;
-    flex: 1;
+    height: 16px;
     background: var(--color-border);
-    min-height: 24px;
   }
 
-  .timeline-item:last-child .timeline-line { display: none; }
-
-  .timeline-content {
-    padding-bottom: 32px;
-    padding-top: 6px;
-  }
-
-  .timeline-item:last-child .timeline-content { padding-bottom: 0; }
-
-  .timeline-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
-  .timeline-content p { font-size: 15px; line-height: 1.65; color: var(--color-muted); }
+  .timeline-item:last-child .timeline-line-wrap { display: none; }
 
   /* ── Analysis days ── */
   .analysis-days {
