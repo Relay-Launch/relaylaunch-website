@@ -96,12 +96,12 @@ const articleSchema = {
     </article>
 
     <section class="section blog-cta">
-      <div class="container" style="text-align: center;">
-        <h2 class="section-title" style="font-size: clamp(22px, 3vw, 30px);">Ready to build smarter?</h2>
-        <p class="section-sub" style="margin: 12px auto 28px; max-width: 480px;">
+      <div class="container blog-cta-inner">
+        <h2 class="section-title blog-cta-title">Ready to build smarter?</h2>
+        <p class="section-sub blog-cta-desc">
           See how RelayLaunch replaces disconnected tools with unified infrastructure.
         </p>
-        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+        <div class="blog-cta-buttons">
           <Button variant="primary" href="/complete-analysis">Start with a Complete Analysis →</Button>
           <Button variant="outline" href="/services">View All Services</Button>
         </div>
@@ -251,6 +251,22 @@ const articleSchema = {
   }
 
   .blog-cta { background: var(--color-surface); }
+
+  .blog-cta-inner { text-align: center; }
+
+  .blog-cta-title { font-size: clamp(22px, 3vw, 30px); }
+
+  .blog-cta-desc {
+    margin: 12px auto 28px;
+    max-width: 480px;
+  }
+
+  .blog-cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
   .blog-article { padding-top: 80px; }
 </style>

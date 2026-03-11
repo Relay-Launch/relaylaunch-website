@@ -21,6 +21,7 @@
   --color-alt-bg: #F8FAFC;                    /* Light Gray alt sections */
 
   /* Layout tokens */
+  --radius-xs: 4px;
   --radius-card: 12px;
   --radius-sm: 8px;
   --radius-lg: 16px;

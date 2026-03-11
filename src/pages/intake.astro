@@ -764,8 +764,8 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
   }
 
   .field-error {
-    border-color: #dc2626 !important;
-    box-shadow: 0 0 0 3px color-mix(in srgb, #dc2626 15%, transparent) !important;
+    border-color: var(--color-error) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-error) 15%, transparent) !important;
   }
 
   .form-field textarea { resize: vertical; min-height: 80px; }
