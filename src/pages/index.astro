@@ -13,7 +13,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'RelayLaunch',
-    url: 'https://relaylaunch.com',
+    url: 'https://www.relaylaunch.com',
     description: 'RelayLaunch builds unified digital infrastructure for small businesses.',
   }}
 >
@@ -23,17 +23,18 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     <div class="container">
       <div class="badge badge-primary hero-badge animate-fade-in-up">Veteran-Owned · Digital Infrastructure Consultancy</div>
       <h1 class="hero-headline animate-fade-in-up" style="animation-delay: 0.1s;">
-        Stop paying $400/month for tools that<br />
-        <span class="text-accent">don't talk to each other.</span>
+        Your business runs on 6 tools.<br />
+        <span class="text-accent">None of them talk to each other.</span>
       </h1>
       <p class="hero-sub animate-fade-in-up" style="animation-delay: 0.2s;">
-        The average small business juggles 5 to 8 separate platforms: website, email, social, scheduling,
-        payments, analytics. RelayLaunch replaces that entire stack with one connected system,
-        running your business while you focus on your clients.
+        37% of small businesses have a website but zero automation. The rest are paying $300–500/month
+        for disconnected platforms and losing 5–10 hours a week to manual work that a connected system
+        handles automatically. RelayLaunch replaces the entire stack with one unified system — so you
+        can stop managing software and start running your business.
       </p>
       <div class="hero-actions animate-fade-in-up" style="animation-delay: 0.3s;">
-        <Button variant="primary" href="/services" size="lg">See Our Packages →</Button>
-        <Button variant="outline" href="/case-studies/luxury-wellness-spa" size="lg">View Case Study</Button>
+        <Button variant="primary" href="/complete-analysis" size="lg">Get Your Free Assessment →</Button>
+        <Button variant="outline" href="/case-studies/luxury-wellness-spa" size="lg">See a Real Build</Button>
       </div>
       <p class="hero-no-commit animate-fade-in-up" style="animation-delay: 0.38s;">
         No commitment required. Discovery call is free.
@@ -43,10 +44,13 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           <span class="trust-check">✓</span> USMC Veteran-Owned
         </div>
         <div class="trust-item">
-          <span class="trust-check">✓</span> Fortune 500 Experience
+          <span class="trust-check">✓</span> Fortune 500 Engineering
         </div>
         <div class="trust-item">
           <span class="trust-check">✓</span> Fixed, Transparent Pricing
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> One System, Not 6 Tools
         </div>
       </div>
     </div>
@@ -225,6 +229,41 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           <h3>Built to Be Found</h3>
           <p>Mobile-first, SEO-optimized websites built in Astro. Faster than WordPress, cheaper to host ($0 on Cloudflare), and designed to rank.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ TECH STACK MARQUEE -->
+  <section class="tech-marquee-section">
+    <div class="container">
+      <p class="marquee-label">Built With Industry-Leading Tools</p>
+    </div>
+    <div class="marquee-track">
+      <div class="marquee-inner">
+        <span class="marquee-item">Astro</span>
+        <span class="marquee-item">Cloudflare</span>
+        <span class="marquee-item">n8n</span>
+        <span class="marquee-item">Tailwind CSS</span>
+        <span class="marquee-item">Slack</span>
+        <span class="marquee-item">MailChimp</span>
+        <span class="marquee-item">GitHub</span>
+        <span class="marquee-item">Sage Intacct</span>
+        <span class="marquee-item">Claude AI</span>
+        <span class="marquee-item">Stripe</span>
+        <span class="marquee-item">Google Analytics</span>
+        <span class="marquee-item">Calendly</span>
+        <span class="marquee-item">Astro</span>
+        <span class="marquee-item">Cloudflare</span>
+        <span class="marquee-item">n8n</span>
+        <span class="marquee-item">Tailwind CSS</span>
+        <span class="marquee-item">Slack</span>
+        <span class="marquee-item">MailChimp</span>
+        <span class="marquee-item">GitHub</span>
+        <span class="marquee-item">Sage Intacct</span>
+        <span class="marquee-item">Claude AI</span>
+        <span class="marquee-item">Stripe</span>
+        <span class="marquee-item">Google Analytics</span>
+        <span class="marquee-item">Calendly</span>
       </div>
     </div>
   </section>
@@ -830,9 +869,9 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   /* ── Packages ── */
   .packages-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    max-width: 1080px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
     margin: 0 auto;
   }
   .pkg-card {
@@ -840,7 +879,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     flex-direction: column;
     text-align: center;
     align-items: center;
-    padding: 32px 24px;
+    padding: 32px 20px;
   }
   .pkg-card-start-here { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
   .pkg-start-badge {
@@ -856,11 +895,11 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     padding: 3px 10px;
     margin-bottom: 12px;
   }
-  .pkg-name { font-size: 24px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 6px; }
-  .pkg-tagline { font-size: 14px; color: var(--color-muted); margin-bottom: 12px; }
-  .pkg-price { font-size: 18px; font-weight: 800; color: var(--color-primary); letter-spacing: -0.2px; }
+  .pkg-name { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 4px; color: var(--color-text); }
+  .pkg-tagline { font-size: 13px; color: var(--color-muted); margin-bottom: 8px; }
+  .pkg-price { font-size: 20px; font-weight: 800; color: var(--color-primary); letter-spacing: -0.2px; margin-bottom: 4px; }
   .pkg-card .checklist { text-align: left; width: 100%; }
-  .pkg-cta { margin-top: auto; padding-top: 24px; display: flex; justify-content: center; width: 100%; }
+  .pkg-cta { margin-top: auto; padding-top: 20px; display: flex; justify-content: center; width: 100%; }
 
   /* ── Case study teaser ── */
   .case-study-teaser {
@@ -1080,8 +1119,64 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     text-underline-offset: 2px;
   }
 
+  /* ── Tech Stack Marquee ── */
+  .tech-marquee-section {
+    padding: 32px 0 40px;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-bg) 100%);
+  }
+
+  .marquee-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .marquee-track {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  .marquee-inner {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: border-color 0.2s ease;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 
   /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .packages-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .hero { padding-top: 72px; padding-bottom: 56px; }
     .hero-headline { font-size: clamp(28px, 6vw, 42px); }
@@ -1096,6 +1191,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     .stat:last-child { border-bottom: none; }
     .compare-row { grid-template-columns: 1fr; }
     .tool-grid { grid-template-columns: repeat(4, 1fr); }
+    .packages-grid { grid-template-columns: 1fr; max-width: 400px; }
   }
 
   @media (max-width: 480px) {
