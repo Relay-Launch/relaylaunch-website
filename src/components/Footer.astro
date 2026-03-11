@@ -14,11 +14,11 @@ const year = new Date().getFullYear();
       <p class="footer-tagline">Launch your digital infrastructure,<br />without pausing your business.</p>
       <p class="footer-location">Watertown, MA · Serving Boston &amp; the Northeast</p>
       <a href="mailto:hello@relaylaunch.com" class="footer-email">hello@relaylaunch.com</a>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/company/relaylaunch" target="_blank" rel="noopener" aria-label="RelayLaunch on LinkedIn" class="social-link">
+      <div class="footer-social" id="footer-social">
+        <a href="https://www.linkedin.com/company/relaylaunch" target="_blank" rel="noopener" aria-label="RelayLaunch on LinkedIn" class="social-link social-stagger">
           <LinkedInIcon class="social-icon" />
         </a>
-        <a href="https://github.com/Relay-Launch" target="_blank" rel="noopener" aria-label="RelayLaunch on GitHub" class="social-link">
+        <a href="https://github.com/Relay-Launch" target="_blank" rel="noopener" aria-label="RelayLaunch on GitHub" class="social-link social-stagger">
           <GitHubIcon class="social-icon" />
         </a>
       </div>
@@ -254,7 +254,27 @@ const year = new Date().getFullYear();
     background: color-mix(in srgb, var(--primary) 8%, transparent);
   }
 
-  @media (max-width: 700px) {
+  /* ── Social icon stagger animation ── */
+  .social-stagger {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .social-stagger.social-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .social-stagger {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @media (max-width: 768px) {
     .footer-inner {
       grid-template-columns: 1fr;
       gap: 36px;
@@ -276,3 +296,30 @@ const year = new Date().getFullYear();
     }
   }
 </style>
+
+<script>
+  const footerSocial = document.getElementById('footer-social');
+  if (footerSocial) {
+    const icons = footerSocial.querySelectorAll('.social-stagger');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      icons.forEach((icon) => icon.classList.add('social-visible'));
+    } else {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            icons.forEach((icon, i) => {
+              setTimeout(() => {
+                icon.classList.add('social-visible');
+              }, i * 100);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(footerSocial);
+    }
+  }
+</script>

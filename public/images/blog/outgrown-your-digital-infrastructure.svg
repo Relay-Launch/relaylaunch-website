@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <!-- Ascending steps / growth pattern -->
+  <rect x="100" y="480" width="160" height="100" rx="4" fill="#F8FAFC" opacity="0.06"/>
+  <rect x="300" y="380" width="160" height="200" rx="4" fill="#F8FAFC" opacity="0.08"/>
+  <rect x="500" y="280" width="160" height="300" rx="4" fill="#007AFF" opacity="0.1"/>
+  <rect x="700" y="180" width="160" height="400" rx="4" fill="#007AFF" opacity="0.12"/>
+  <rect x="900" y="80" width="160" height="500" rx="4" fill="#007AFF" opacity="0.15"/>
+  <!-- Upward arrow overlay -->
+  <line x1="150" y1="520" x2="1000" y2="120" stroke="#007AFF" stroke-width="3" opacity="0.3"/>
+  <path d="M1000 120 L985 140 L1010 135 Z" fill="#007AFF" opacity="0.3"/>
+  <!-- Horizontal threshold line -->
+  <line x1="80" y1="350" x2="1120" y2="350" stroke="#F8FAFC" stroke-width="1" stroke-dasharray="10 8" opacity="0.1"/>
+  <!-- Small accent diamonds -->
+  <rect x="180" y="60" width="20" height="20" rx="2" fill="#007AFF" opacity="0.15" transform="rotate(45 190 70)"/>
+  <rect x="400" y="100" width="16" height="16" rx="2" fill="#F8FAFC" opacity="0.08" transform="rotate(45 408 108)"/>
+  <rect x="1050" y="400" width="24" height="24" rx="2" fill="#007AFF" opacity="0.12" transform="rotate(45 1062 412)"/>
+</svg>

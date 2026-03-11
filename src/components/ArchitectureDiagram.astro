@@ -1,0 +1,165 @@
+---
+/**
+ * ArchitectureDiagram.astro
+ * Before/After SVG diagram showing disconnected tools vs. unified RelayLaunch hub.
+ * Brand colors only: Navy #0F172A, Blue #007AFF, White #FFFFFF, Gray #F8FAFC.
+ */
+---
+
+<div class="arch-diagram">
+  <div class="arch-panel">
+    <div class="arch-label arch-label-before">Before</div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" aria-label="Six disconnected tools with no connections between them" role="img" class="arch-svg">
+      <!-- Tool boxes scattered, disconnected -->
+      <rect x="40" y="30" width="100" height="40" rx="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+      <text x="90" y="55" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="600" font-family="Arial, Helvetica, sans-serif">Website</text>
+      <line x1="125" y1="50" x2="140" y2="50" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="133" y1="43" x2="140" y2="50" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="133" y1="57" x2="140" y2="50" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+
+      <rect x="260" y="30" width="100" height="40" rx="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+      <text x="310" y="55" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="600" font-family="Arial, Helvetica, sans-serif">Email</text>
+      <line x1="275" y1="45" x2="285" y2="55" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="285" y1="45" x2="275" y2="55" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+
+      <rect x="40" y="130" width="100" height="40" rx="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+      <text x="90" y="155" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="600" font-family="Arial, Helvetica, sans-serif">Social</text>
+      <line x1="125" y1="145" x2="140" y2="155" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="140" y1="145" x2="125" y2="155" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+
+      <rect x="260" y="130" width="100" height="40" rx="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+      <text x="310" y="155" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="600" font-family="Arial, Helvetica, sans-serif">Scheduling</text>
+      <line x1="345" y1="145" x2="355" y2="155" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="355" y1="145" x2="345" y2="155" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+
+      <rect x="40" y="230" width="100" height="40" rx="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+      <text x="90" y="255" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="600" font-family="Arial, Helvetica, sans-serif">Payments</text>
+      <line x1="125" y1="245" x2="140" y2="255" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="140" y1="245" x2="125" y2="255" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+
+      <rect x="260" y="230" width="100" height="40" rx="6" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.5" />
+      <text x="310" y="255" text-anchor="middle" fill="#0F172A" font-size="13" font-weight="600" font-family="Arial, Helvetica, sans-serif">CRM</text>
+      <line x1="345" y1="245" x2="355" y2="255" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+      <line x1="355" y1="245" x2="345" y2="255" stroke="#0F172A" stroke-width="1.5" opacity="0.3" />
+
+      <!-- Disconnect indicators - dashed lines going nowhere -->
+      <line x1="140" y1="50" x2="260" y2="50" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+      <line x1="140" y1="150" x2="260" y2="150" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+      <line x1="140" y1="250" x2="260" y2="250" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+      <line x1="90" y1="70" x2="90" y2="130" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+      <line x1="310" y1="70" x2="310" y2="130" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+      <line x1="90" y1="170" x2="90" y2="230" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+      <line x1="310" y1="170" x2="310" y2="230" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 4" opacity="0.15" />
+    </svg>
+  </div>
+
+  <div class="arch-arrow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" width="40" height="40" aria-hidden="true">
+      <path d="M8 20 H28 M28 20 L22 14 M28 20 L22 26" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+
+  <div class="arch-panel">
+    <div class="arch-label arch-label-after">After</div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" aria-label="Six tools connected through a central RelayLaunch hub" role="img" class="arch-svg">
+      <!-- Central hub -->
+      <rect x="130" y="115" width="140" height="70" rx="10" fill="#0F172A" />
+      <text x="200" y="147" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700" font-family="Arial, Helvetica, sans-serif">RelayLaunch</text>
+      <text x="200" y="165" text-anchor="middle" fill="#007AFF" font-size="10" font-weight="600" font-family="Arial, Helvetica, sans-serif">Unified Hub</text>
+
+      <!-- Tool boxes connected -->
+      <rect x="20" y="15" width="90" height="36" rx="6" fill="#F8FAFC" stroke="#007AFF" stroke-width="1.5" />
+      <text x="65" y="38" text-anchor="middle" fill="#0F172A" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif">Website</text>
+
+      <rect x="290" y="15" width="90" height="36" rx="6" fill="#F8FAFC" stroke="#007AFF" stroke-width="1.5" />
+      <text x="335" y="38" text-anchor="middle" fill="#0F172A" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif">Email</text>
+
+      <rect x="5" y="132" width="90" height="36" rx="6" fill="#F8FAFC" stroke="#007AFF" stroke-width="1.5" />
+      <text x="50" y="155" text-anchor="middle" fill="#0F172A" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif">Social</text>
+
+      <rect x="305" y="132" width="90" height="36" rx="6" fill="#F8FAFC" stroke="#007AFF" stroke-width="1.5" />
+      <text x="350" y="155" text-anchor="middle" fill="#0F172A" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif">Scheduling</text>
+
+      <rect x="20" y="249" width="90" height="36" rx="6" fill="#F8FAFC" stroke="#007AFF" stroke-width="1.5" />
+      <text x="65" y="272" text-anchor="middle" fill="#0F172A" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif">Payments</text>
+
+      <rect x="290" y="249" width="90" height="36" rx="6" fill="#F8FAFC" stroke="#007AFF" stroke-width="1.5" />
+      <text x="335" y="272" text-anchor="middle" fill="#0F172A" font-size="12" font-weight="600" font-family="Arial, Helvetica, sans-serif">CRM</text>
+
+      <!-- Connection lines from tools to hub -->
+      <line x1="110" y1="45" x2="155" y2="115" stroke="#007AFF" stroke-width="1.5" opacity="0.6" />
+      <line x1="290" y1="45" x2="245" y2="115" stroke="#007AFF" stroke-width="1.5" opacity="0.6" />
+      <line x1="95" y1="150" x2="130" y2="150" stroke="#007AFF" stroke-width="1.5" opacity="0.6" />
+      <line x1="305" y1="150" x2="270" y2="150" stroke="#007AFF" stroke-width="1.5" opacity="0.6" />
+      <line x1="110" y1="255" x2="155" y2="185" stroke="#007AFF" stroke-width="1.5" opacity="0.6" />
+      <line x1="290" y1="255" x2="245" y2="185" stroke="#007AFF" stroke-width="1.5" opacity="0.6" />
+
+      <!-- Small arrow heads on connection lines (toward hub) -->
+      <circle cx="155" cy="115" r="3" fill="#007AFF" opacity="0.8" />
+      <circle cx="245" cy="115" r="3" fill="#007AFF" opacity="0.8" />
+      <circle cx="130" cy="150" r="3" fill="#007AFF" opacity="0.8" />
+      <circle cx="270" cy="150" r="3" fill="#007AFF" opacity="0.8" />
+      <circle cx="155" cy="185" r="3" fill="#007AFF" opacity="0.8" />
+      <circle cx="245" cy="185" r="3" fill="#007AFF" opacity="0.8" />
+    </svg>
+  </div>
+</div>
+
+<style>
+  .arch-diagram {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    margin: 32px auto;
+  }
+
+  .arch-panel {
+    flex: 1;
+    position: relative;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card, 12px);
+    padding: 24px 16px 16px;
+    background: var(--color-bg, #FFFFFF);
+  }
+
+  .arch-label {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 2px 12px;
+    border-radius: 4px;
+  }
+
+  .arch-label-before {
+    background: #0F172A;
+    color: #F8FAFC;
+  }
+
+  .arch-label-after {
+    background: #007AFF;
+    color: #FFFFFF;
+  }
+
+  .arch-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .arch-arrow {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .arch-diagram {
+      flex-direction: column;
+    }
+    .arch-arrow {
+      transform: rotate(90deg);
+    }
+  }
+</style>

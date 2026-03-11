@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <!-- Radial hub pattern - unified system -->
+  <circle cx="600" cy="315" r="200" stroke="#007AFF" stroke-width="2" opacity="0.2" fill="none"/>
+  <circle cx="600" cy="315" r="140" stroke="#007AFF" stroke-width="1.5" opacity="0.15" fill="none"/>
+  <circle cx="600" cy="315" r="80" stroke="#007AFF" stroke-width="2" opacity="0.25" fill="none"/>
+  <circle cx="600" cy="315" r="30" fill="#007AFF" opacity="0.3"/>
+  <!-- Spokes connecting to outer ring -->
+  <line x1="600" y1="315" x2="400" y2="200" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <line x1="600" y1="315" x2="800" y2="200" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <line x1="600" y1="315" x2="400" y2="430" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <line x1="600" y1="315" x2="800" y2="430" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <line x1="600" y1="315" x2="600" y2="115" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <line x1="600" y1="315" x2="600" y2="515" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <!-- Node dots at endpoints -->
+  <circle cx="400" cy="200" r="8" fill="#F8FAFC" opacity="0.2"/>
+  <circle cx="800" cy="200" r="8" fill="#F8FAFC" opacity="0.2"/>
+  <circle cx="400" cy="430" r="8" fill="#F8FAFC" opacity="0.2"/>
+  <circle cx="800" cy="430" r="8" fill="#F8FAFC" opacity="0.2"/>
+  <circle cx="600" cy="115" r="8" fill="#F8FAFC" opacity="0.2"/>
+  <circle cx="600" cy="515" r="8" fill="#F8FAFC" opacity="0.2"/>
+  <!-- Background geometric accents -->
+  <rect x="100" y="100" width="120" height="80" rx="8" fill="#F8FAFC" opacity="0.04"/>
+  <rect x="980" y="100" width="120" height="80" rx="8" fill="#F8FAFC" opacity="0.04"/>
+  <rect x="100" y="450" width="120" height="80" rx="8" fill="#007AFF" opacity="0.06"/>
+  <rect x="980" y="450" width="120" height="80" rx="8" fill="#007AFF" opacity="0.06"/>
+</svg>

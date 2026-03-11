@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
+import ServiceIcons from '@/components/ServiceIcons.astro';
 
 const serviceSchemas = [
   {
@@ -113,8 +114,8 @@ const faqSchema = {
         <div class="ca-highlight-inner">
           <div class="ca-highlight-text">
             <div class="addon-start-badge">Recommended First Step</div>
-            <h2 style="font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; margin-bottom: 8px;">Complete Analysis</h2>
-            <div class="ca-highlight-price">$1,500–$3,000</div>
+            <h2 style="font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;"><ServiceIcons icon="complete-analysis" size={32} /> Complete Analysis</h2>
+            <div class="ca-highlight-price price-primary">$1,500–$3,000</div>
             <p style="color: var(--color-muted); font-size: 15px; line-height: 1.7; margin-bottom: 20px;">
               Two-day deep dive combining audit and strategy into one comprehensive engagement. 20–30 page deliverable with a full operational roadmap, so you know exactly what to build before you spend a dollar.
             </p>
@@ -160,8 +161,8 @@ const faqSchema = {
       <div class="tiers-grid reveal-stagger">
         <div class="card tier-card">
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 1</span>
-          <h3 id="launch" class="tier-name">Launch</h3>
-          <div class="tier-price">$2,500–$5,000 <span>one-time</span></div>
+          <h3 id="launch" class="tier-name"><ServiceIcons icon="launch" size={28} /> Launch</h3>
+          <div class="tier-price price-primary">$2,500–$5,000 <span class="price-label">one-time</span></div>
           <p class="tier-desc">Get your foundation built: a professional website, core automations, and connected tools, delivered in a single engagement.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
@@ -178,8 +179,8 @@ const faqSchema = {
         <div class="card tier-card tier-featured">
           <div class="badge badge-solid-primary" style="margin-bottom: 12px;">Most Popular</div>
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 2</span>
-          <h3 id="run" class="tier-name">Run</h3>
-          <div class="tier-price">$500–$1,000<span>/month</span></div>
+          <h3 id="run" class="tier-name"><ServiceIcons icon="run" size={28} /> Run</h3>
+          <div class="tier-price price-primary">$500–$1,000<span class="price-label">/month</span></div>
           <p class="tier-note">3-month minimum</p>
           <p class="tier-desc">Ongoing operations support. We keep your systems optimized, your content flowing, and your automations evolving.</p>
           <h4 class="tier-includes-title">Includes</h4>
@@ -196,8 +197,8 @@ const faqSchema = {
 
         <div class="card tier-card">
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 3</span>
-          <h3 id="scale" class="tier-name">Scale</h3>
-          <div class="tier-price">$1,000–$2,500<span>/month</span></div>
+          <h3 id="scale" class="tier-name"><ServiceIcons icon="scale" size={28} /> Scale</h3>
+          <div class="tier-price price-primary">$1,000–$2,500<span class="price-label">/month</span></div>
           <p class="tier-note">6-month minimum</p>
           <p class="tier-desc">Full growth infrastructure: AI agents, advanced automations, multi-location support, and a fractional ops partner in your corner.</p>
           <h4 class="tier-includes-title">Includes</h4>
@@ -227,25 +228,25 @@ const faqSchema = {
       <div class="addons-grid">
         <div class="card addon-card">
           <h3>AI Agent Setup</h3>
-          <div class="addon-price">$800–$2,000</div>
+          <div class="addon-price price-secondary">$800–$2,000</div>
           <p>Design and deploy AI-powered agents for customer support, lead qualification, content generation, or internal knowledge retrieval, all integrated into your existing tools.</p>
         </div>
 
         <div class="card addon-card">
           <h3>Workflow Automation Build</h3>
-          <div class="addon-price">$500–$1,500 per workflow</div>
+          <div class="addon-price price-secondary">$500–$1,500 per workflow</div>
           <p>Custom n8n workflow design, build, and deployment. Connect your CRM, email, scheduling, invoicing, and any tool with an API into automated sequences.</p>
         </div>
 
         <div class="card addon-card">
           <h3>Systems Integration</h3>
-          <div class="addon-price">$100–$175/hour</div>
+          <div class="addon-price price-secondary">$100–$175/hour</div>
           <p>For businesses that have tools but need them connected. API integrations, data mapping, platform consolidation, and workflow design, billed hourly.</p>
         </div>
 
         <div class="card addon-card">
           <h3>Fractional AI Ops Officer</h3>
-          <div class="addon-price">$1,500–$3,000/month</div>
+          <div class="addon-price price-secondary">$1,500–$3,000/month</div>
           <p>A dedicated AI operations advisor embedded in your business. Identifies automation opportunities, manages AI tooling, and drives operational efficiency at the executive level.</p>
         </div>
       </div>
@@ -381,6 +382,11 @@ const faqSchema = {
 <style>
   .hero { padding-top: 80px; }
 
+  /* ── Unified Price Display ── */
+  .price-primary { font-size: 22px; font-weight: 800; }
+  .price-secondary { font-size: 18px; font-weight: 700; }
+  .price-label { font-size: 14px; font-weight: 500; }
+
   /* ── Package sections ── */
   .pkg-section { border-top: 1px solid var(--color-border); }
   .featured-pkg { background: color-mix(in srgb, var(--primary) 4%, var(--color-bg)); }
@@ -416,14 +422,10 @@ const faqSchema = {
   }
 
   .pkg-price-tag {
-    font-size: 22px;
-    font-weight: 800;
     color: var(--color-primary);
   }
 
   .pkg-price-tag span {
-    font-size: 14px;
-    font-weight: 500;
     color: var(--color-muted);
     margin-left: 4px;
   }
@@ -486,18 +488,17 @@ const faqSchema = {
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .tier-price {
-    font-size: 22px;
-    font-weight: 800;
     color: var(--color-primary);
     margin-bottom: 4px;
   }
 
-  .tier-price span {
-    font-size: 14px;
-    font-weight: 500;
+  .tier-price .price-label {
     color: var(--color-muted);
     margin-left: 2px;
   }
@@ -540,8 +541,6 @@ const faqSchema = {
   .addon-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
 
   .addon-price {
-    font-size: 16px;
-    font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 12px;
   }
@@ -582,8 +581,6 @@ const faqSchema = {
   }
 
   .ca-highlight-price {
-    font-size: 22px;
-    font-weight: 800;
     color: var(--color-primary);
     margin-bottom: 12px;
   }
