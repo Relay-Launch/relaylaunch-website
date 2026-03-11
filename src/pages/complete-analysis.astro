@@ -632,7 +632,7 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
     const webhook = form.dataset.webhook;
     if (!webhook || webhook === '#') {
-      // No webhook configured — fall back to mailto
+      // No webhook configured - fall back to mailto
       window.location.href = `mailto:hello@relaylaunch.com?subject=Complete Analysis Inquiry&body=Name: ${encodeURIComponent(name)}%0ABusiness: ${encodeURIComponent(business)}%0AMessage: ${encodeURIComponent(message)}`;
       return;
     }
