@@ -9,13 +9,39 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   title="RelayLaunch | Build Smarter. Launch Faster. Grow With Purpose."
   description="RelayLaunch builds unified digital infrastructure for small businesses. One connected system replacing the 5 disconnected tools draining your time and money."
   canonicalUrl="https://www.relaylaunch.com/"
-  jsonLd={{
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'RelayLaunch',
-    url: 'https://www.relaylaunch.com',
-    description: 'RelayLaunch builds unified digital infrastructure for small businesses.',
-  }}
+  jsonLd={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'RelayLaunch',
+      url: 'https://www.relaylaunch.com',
+      description: 'RelayLaunch builds unified digital infrastructure for small businesses.',
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: 'RelayLaunch',
+      description: 'Veteran-owned digital infrastructure consultancy helping small businesses replace disconnected tools with unified systems.',
+      url: 'https://www.relaylaunch.com',
+      founder: {
+        '@type': 'Person',
+        name: 'Victor David Medina',
+        jobTitle: 'Founder',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Watertown',
+        addressRegion: 'MA',
+        addressCountry: 'US',
+      },
+      areaServed: {
+        '@type': 'Country',
+        name: 'United States',
+      },
+      priceRange: '$$',
+      knowsAbout: ['digital infrastructure', 'business automation', 'ERP migration', 'web development'],
+    },
+  ]}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
@@ -1591,6 +1617,14 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+    filter: grayscale(100%) brightness(0.7);
+    opacity: 0.6;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  .marquee-item:hover .marquee-logo {
+    filter: grayscale(0%);
+    opacity: 1;
   }
 
   @keyframes marquee {
