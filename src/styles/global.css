@@ -20,6 +20,34 @@
   --color-white: #ffffff;                     /* White — for text on dark backgrounds */
   --color-alt-bg: #F8FAFC;                    /* Light Gray alt sections */
 
+  /* Typography scale (P1-2) */
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  --font-size-hero: clamp(32px, 5vw, 52px);
+  --font-size-section: clamp(24px, 3.5vw, 38px);
+
+  /* Spacing / card padding (P1-3) */
+  --card-padding: 32px;
+  --card-padding-compact: 24px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-smooth: 0.3s ease;
+
   /* Layout tokens */
   --radius-xs: 4px;
   --radius-card: 12px;
@@ -126,6 +154,39 @@ a {
   transition: color 0.15s ease;
 }
 a:hover { text-decoration: underline; }
+
+/* ─── Button hover lift & active press (P0-2, P0-3) ────────── */
+[data-slot="button"],
+button:not(.menu-toggle):not(.back-to-top) {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              background var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-base),
+              opacity var(--transition-base);
+}
+
+[data-slot="button"]:hover,
+button:not(.menu-toggle):not(.back-to-top):hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-slot="button"]:active,
+button:not(.menu-toggle):not(.back-to-top):active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Form focus ring (P1-5) ────────────────────────────────── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
 
 /* Let button component variants control their own text color */
 a[data-slot="button"] {
