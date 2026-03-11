@@ -8,7 +8,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 <Layout
   title="RelayLaunch | Build Smarter. Launch Faster. Grow With Purpose."
   description="RelayLaunch builds unified digital infrastructure for small businesses. One connected system replacing the 5 disconnected tools draining your time and money."
-  canonicalUrl="https://relaylaunch.com/"
+  canonicalUrl="https://www.relaylaunch.com/"
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -831,9 +831,17 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .packages-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
   }
-  .pkg-card { display: flex; flex-direction: column; }
+  .pkg-card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 32px 24px;
+  }
   .pkg-card-start-here { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
   .pkg-start-badge {
     display: inline-block;
@@ -846,13 +854,13 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
     border-radius: 4px;
     padding: 3px 10px;
-    margin-bottom: 10px;
-    align-self: flex-start;
+    margin-bottom: 12px;
   }
-  .pkg-name { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
-  .pkg-tagline { font-size: 13px; color: var(--color-muted); margin-bottom: 10px; }
-  .pkg-price { font-size: 15px; font-weight: 700; color: var(--color-primary); }
-  .pkg-cta { margin-top: auto; padding-top: 20px; display: flex; justify-content: center; width: 100%; }
+  .pkg-name { font-size: 24px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .pkg-tagline { font-size: 14px; color: var(--color-muted); margin-bottom: 12px; }
+  .pkg-price { font-size: 18px; font-weight: 800; color: var(--color-primary); letter-spacing: -0.2px; }
+  .pkg-card .checklist { text-align: left; width: 100%; }
+  .pkg-cta { margin-top: auto; padding-top: 24px; display: flex; justify-content: center; width: 100%; }
 
   /* ── Case study teaser ── */
   .case-study-teaser {
