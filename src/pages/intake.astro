@@ -1,18 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Button } from '@/components/starwind/button';
 
-const intakeFormUrl = import.meta.env.PUBLIC_INTAKE_FORM_URL || 'mailto:hello@relaylaunch.com?subject=Client%20Intake%20—%20RelayLaunch&body=Hi%20RelayLaunch%2C%0A%0AI%27d%20like%20to%20complete%20the%20intake%20questionnaire%20for%20a%20Complete%20Analysis%20engagement.%20Please%20send%20me%20the%20form.%0A%0AThanks!';
-
-const areas = [
-  { number: '01', title: 'Business Overview', description: 'Your business model, customers, revenue streams, and competitive landscape.' },
-  { number: '02', title: 'Current Technology Stack', description: 'Every tool, platform, and subscription you currently use, and how they connect.' },
-  { number: '03', title: 'Website & Digital Presence', description: 'Your website, social profiles, listings, reviews, and online reputation.' },
-  { number: '04', title: 'Operations & Workflows', description: 'How work moves through your business, from lead to delivery to follow-up.' },
-  { number: '05', title: 'AI & Automation', description: 'Where you currently use automation, and where manual work is costing you time.' },
-  { number: '06', title: 'Goals & Budget', description: 'What you want to achieve in the next 90 days, 6 months, and year, and what you can invest.' },
-  { number: '07', title: 'Decision Making', description: 'Who is involved in decisions, what your timeline looks like, and how you prioritize.' },
-];
+const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
 ---
 
 <Layout
@@ -45,97 +34,876 @@ const areas = [
         It gives us the context we need to make your audit and strategy as specific
         and actionable as possible. Most clients finish in <strong>15–20 minutes</strong>.
       </p>
-      <div class="hero-actions">
-        <Button variant="primary" href={intakeFormUrl} target="_blank" rel="noopener" size="lg">
-          Begin Questionnaire →
-        </Button>
-      </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════ AREAS COVERED -->
-  <section class="section">
+  <!-- ═══════════════════════════════════════════════ PROGRESS BAR -->
+  <section class="section" style="padding-top: 0; padding-bottom: 0;">
     <div class="container">
-      <span class="section-eyebrow">What We'll Ask About</span>
-      <h2 class="section-title" style="margin-bottom: 40px;">7 areas. One complete picture.</h2>
-
-      <div class="areas-grid">
-        {areas.map((area) => (
-          <div class="area-card">
-            <span class="area-number">{area.number}</span>
-            <h3>{area.title}</h3>
-            <p>{area.description}</p>
-          </div>
-        ))}
+      <div class="progress-bar-wrap">
+        <div class="progress-steps">
+          <button class="progress-step active" data-step="1"><span class="step-num">1</span><span class="step-label">Business</span></button>
+          <div class="progress-line"><div class="progress-line-fill" data-line="1"></div></div>
+          <button class="progress-step" data-step="2"><span class="step-num">2</span><span class="step-label">Tech Stack</span></button>
+          <div class="progress-line"><div class="progress-line-fill" data-line="2"></div></div>
+          <button class="progress-step" data-step="3"><span class="step-num">3</span><span class="step-label">Digital</span></button>
+          <div class="progress-line"><div class="progress-line-fill" data-line="3"></div></div>
+          <button class="progress-step" data-step="4"><span class="step-num">4</span><span class="step-label">Operations</span></button>
+          <div class="progress-line"><div class="progress-line-fill" data-line="4"></div></div>
+          <button class="progress-step" data-step="5"><span class="step-num">5</span><span class="step-label">AI & Auto</span></button>
+          <div class="progress-line"><div class="progress-line-fill" data-line="5"></div></div>
+          <button class="progress-step" data-step="6"><span class="step-num">6</span><span class="step-label">Goals</span></button>
+          <div class="progress-line"><div class="progress-line-fill" data-line="6"></div></div>
+          <button class="progress-step" data-step="7"><span class="step-num">7</span><span class="step-label">Timeline</span></button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════ CTA -->
-  <section class="section" style="background: var(--color-surface);">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title">Ready to get started?</h2>
-      <p class="section-sub" style="margin: 16px auto 32px; max-width: 520px;">
-        The questionnaire takes 15–20 minutes. Your responses are
-        <strong>confidential</strong> and used only to prepare your analysis.
-      </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <Button variant="primary" href={intakeFormUrl} target="_blank" rel="noopener">Begin Questionnaire →</Button>
-        <Button variant="outline" href="/complete-analysis">Learn About the Complete Analysis</Button>
+  <!-- ═══════════════════════════════════════════════ FORM -->
+  <section class="section form-section">
+    <div class="container">
+      <form id="intake-form" class="intake-form" data-webhook={webhookUrl} novalidate>
+
+        <!-- STEP 1: Business Overview -->
+        <div class="form-step active" data-form-step="1">
+          <div class="step-header">
+            <span class="step-number">01</span>
+            <h2>Business Overview</h2>
+            <p>Tell us about your business, customers, and what makes you different.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label for="business-name">Business Name <span class="required">*</span></label>
+              <input type="text" id="business-name" name="business_name" required placeholder="e.g. Acme Wellness Studio" />
+            </div>
+            <div class="form-field full-width">
+              <label for="contact-name">Your Full Name <span class="required">*</span></label>
+              <input type="text" id="contact-name" name="contact_name" required placeholder="e.g. Jane Smith" />
+            </div>
+            <div class="form-field">
+              <label for="contact-email">Email Address <span class="required">*</span></label>
+              <input type="email" id="contact-email" name="contact_email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-field">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" name="contact_phone" placeholder="(555) 123-4567" />
+            </div>
+            <div class="form-field full-width">
+              <label for="business-desc">Describe your business in 2–3 sentences <span class="required">*</span></label>
+              <textarea id="business-desc" name="business_description" required rows="3" placeholder="What does your business do? Who are your primary customers?"></textarea>
+            </div>
+            <div class="form-field">
+              <label for="industry">Industry</label>
+              <select id="industry" name="industry">
+                <option value="">Select one...</option>
+                <option value="health-wellness">Health & Wellness</option>
+                <option value="professional-services">Professional Services</option>
+                <option value="retail-ecommerce">Retail / E-commerce</option>
+                <option value="food-hospitality">Food & Hospitality</option>
+                <option value="construction-trades">Construction / Trades</option>
+                <option value="real-estate">Real Estate</option>
+                <option value="legal">Legal</option>
+                <option value="financial-services">Financial Services</option>
+                <option value="nonprofit">Nonprofit</option>
+                <option value="technology">Technology</option>
+                <option value="events-entertainment">Events & Entertainment</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="revenue">Annual Revenue Range</label>
+              <select id="revenue" name="revenue_range">
+                <option value="">Select one...</option>
+                <option value="under-100k">Under $100K</option>
+                <option value="100k-250k">$100K–$250K</option>
+                <option value="250k-500k">$250K–$500K</option>
+                <option value="500k-1m">$500K–$1M</option>
+                <option value="1m-5m">$1M–$5M</option>
+                <option value="5m-plus">$5M+</option>
+                <option value="prefer-not">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="team-size">Team Size</label>
+              <select id="team-size" name="team_size">
+                <option value="">Select one...</option>
+                <option value="solo">Just me</option>
+                <option value="2-5">2–5 people</option>
+                <option value="6-15">6–15 people</option>
+                <option value="16-50">16–50 people</option>
+                <option value="50-plus">50+</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="location">Primary Location</label>
+              <input type="text" id="location" name="location" placeholder="City, State" />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Current Technology Stack -->
+        <div class="form-step" data-form-step="2">
+          <div class="step-header">
+            <span class="step-number">02</span>
+            <h2>Current Technology Stack</h2>
+            <p>Every tool, platform, and subscription you currently use.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label for="current-website">Current Website URL (if any)</label>
+              <input type="url" id="current-website" name="current_website" placeholder="https://www.example.com" />
+            </div>
+            <div class="form-field full-width">
+              <label for="current-tools">List the tools and platforms you currently pay for <span class="required">*</span></label>
+              <textarea id="current-tools" name="current_tools" required rows="4" placeholder="e.g. Squarespace ($30/mo), Mailchimp ($20/mo), Calendly ($15/mo), QuickBooks ($30/mo)..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label for="monthly-tool-spend">Estimated monthly tool/software spend</label>
+              <select id="monthly-tool-spend" name="monthly_tool_spend">
+                <option value="">Select one...</option>
+                <option value="under-100">Under $100/mo</option>
+                <option value="100-250">$100–$250/mo</option>
+                <option value="250-500">$250–$500/mo</option>
+                <option value="500-1000">$500–$1,000/mo</option>
+                <option value="1000-plus">$1,000+/mo</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+            <div class="form-field full-width">
+              <label for="tool-frustrations">What frustrates you most about your current tools?</label>
+              <textarea id="tool-frustrations" name="tool_frustrations" rows="3" placeholder="e.g. Nothing talks to each other, I'm copying data between platforms manually..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Website & Digital Presence -->
+        <div class="form-step" data-form-step="3">
+          <div class="step-header">
+            <span class="step-number">03</span>
+            <h2>Website & Digital Presence</h2>
+            <p>Your website, social profiles, and online reputation.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label>Do you have a website?</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="has_website" value="yes" /> Yes</label>
+                <label class="radio-label"><input type="radio" name="has_website" value="no" /> No</label>
+                <label class="radio-label"><input type="radio" name="has_website" value="outdated" /> Yes, but it's outdated</label>
+              </div>
+            </div>
+            <div class="form-field full-width">
+              <label for="website-platform">What platform is it built on?</label>
+              <select id="website-platform" name="website_platform">
+                <option value="">Select one...</option>
+                <option value="wordpress">WordPress</option>
+                <option value="squarespace">Squarespace</option>
+                <option value="wix">Wix</option>
+                <option value="shopify">Shopify</option>
+                <option value="webflow">Webflow</option>
+                <option value="custom">Custom built</option>
+                <option value="none">No website</option>
+                <option value="not-sure">Not sure</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field full-width">
+              <label for="social-profiles">Which social media profiles do you actively maintain?</label>
+              <div class="checkbox-group">
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="instagram" /> Instagram</label>
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="facebook" /> Facebook</label>
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="linkedin" /> LinkedIn</label>
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="tiktok" /> TikTok</label>
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="youtube" /> YouTube</label>
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="x-twitter" /> X / Twitter</label>
+                <label class="checkbox-label"><input type="checkbox" name="social_profiles" value="none" /> None</label>
+              </div>
+            </div>
+            <div class="form-field full-width">
+              <label for="digital-presence-notes">Anything else about your digital presence we should know?</label>
+              <textarea id="digital-presence-notes" name="digital_presence_notes" rows="3" placeholder="e.g. Google Business profile, Yelp reviews, directories..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Operations & Workflows -->
+        <div class="form-step" data-form-step="4">
+          <div class="step-header">
+            <span class="step-number">04</span>
+            <h2>Operations & Workflows</h2>
+            <p>How work moves through your business, from lead to delivery.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label for="lead-source">How do most of your leads/customers find you? <span class="required">*</span></label>
+              <textarea id="lead-source" name="lead_source" required rows="3" placeholder="e.g. Word of mouth, Google search, social media, referrals..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label for="lead-followup">What happens after someone contacts you?</label>
+              <textarea id="lead-followup" name="lead_followup" rows="3" placeholder="e.g. I email them back manually, they book a call on Calendly..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label for="manual-tasks">What tasks take the most manual time each week?</label>
+              <textarea id="manual-tasks" name="manual_tasks" rows="3" placeholder="e.g. Sending follow-up emails, posting on social media, invoicing..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label for="hours-manual">Estimated hours/week spent on manual digital tasks</label>
+              <select id="hours-manual" name="hours_manual_work">
+                <option value="">Select one...</option>
+                <option value="under-2">Under 2 hours</option>
+                <option value="2-5">2–5 hours</option>
+                <option value="5-10">5–10 hours</option>
+                <option value="10-20">10–20 hours</option>
+                <option value="20-plus">20+ hours</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: AI & Automation -->
+        <div class="form-step" data-form-step="5">
+          <div class="step-header">
+            <span class="step-number">05</span>
+            <h2>AI & Automation</h2>
+            <p>Where you currently use automation, and where manual work is costing you.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label>Do you currently use any automation tools?</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="uses_automation" value="yes" /> Yes</label>
+                <label class="radio-label"><input type="radio" name="uses_automation" value="no" /> No</label>
+                <label class="radio-label"><input type="radio" name="uses_automation" value="not-sure" /> Not sure</label>
+              </div>
+            </div>
+            <div class="form-field full-width">
+              <label for="automation-details">If yes, what do you automate today?</label>
+              <textarea id="automation-details" name="automation_details" rows="3" placeholder="e.g. Automatic email sequences, appointment reminders, Zapier integrations..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label>Are you interested in AI-powered tools for your business?</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="ai_interest" value="very" /> Very interested</label>
+                <label class="radio-label"><input type="radio" name="ai_interest" value="somewhat" /> Somewhat interested</label>
+                <label class="radio-label"><input type="radio" name="ai_interest" value="curious" /> Curious but cautious</label>
+                <label class="radio-label"><input type="radio" name="ai_interest" value="not-really" /> Not really</label>
+              </div>
+            </div>
+            <div class="form-field full-width">
+              <label for="automation-wishlist">If you could automate one thing in your business, what would it be?</label>
+              <textarea id="automation-wishlist" name="automation_wishlist" rows="3" placeholder="e.g. Lead follow-up, content posting, invoice reminders..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6: Goals & Budget -->
+        <div class="form-step" data-form-step="6">
+          <div class="step-header">
+            <span class="step-number">06</span>
+            <h2>Goals & Budget</h2>
+            <p>What you want to achieve and what you're prepared to invest.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label for="goals-90-day">What are your top priorities in the next 90 days? <span class="required">*</span></label>
+              <textarea id="goals-90-day" name="goals_90_day" required rows="3" placeholder="e.g. Launch a new website, automate lead follow-up, consolidate tools..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label for="goals-12-month">Where do you want your business to be in 12 months?</label>
+              <textarea id="goals-12-month" name="goals_12_month" rows="3" placeholder="e.g. Double online bookings, expand to a second location, reduce manual work by 80%..."></textarea>
+            </div>
+            <div class="form-field full-width">
+              <label for="budget-range">Budget range for this engagement</label>
+              <select id="budget-range" name="budget_range">
+                <option value="">Select one...</option>
+                <option value="1500-3000">$1,500–$3,000 (Complete Analysis)</option>
+                <option value="2500-5000">$2,500–$5,000 (Launch build)</option>
+                <option value="500-1000-mo">$500–$1,000/mo (Run retainer)</option>
+                <option value="1000-2500-mo">$1,000–$2,500/mo (Scale retainer)</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-field full-width">
+              <label for="biggest-challenge">What is the single biggest challenge holding your business back right now?</label>
+              <textarea id="biggest-challenge" name="biggest_challenge" rows="3" placeholder="Be honest. This is for us to understand where we can have the most impact."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 7: Decision Making & Timeline -->
+        <div class="form-step" data-form-step="7">
+          <div class="step-header">
+            <span class="step-number">07</span>
+            <h2>Decision Making & Timeline</h2>
+            <p>Help us understand your timeline and decision process.</p>
+          </div>
+          <div class="fields-grid">
+            <div class="form-field full-width">
+              <label>When are you looking to get started?</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="timeline" value="asap" /> As soon as possible</label>
+                <label class="radio-label"><input type="radio" name="timeline" value="1-2-weeks" /> Within 1–2 weeks</label>
+                <label class="radio-label"><input type="radio" name="timeline" value="1-month" /> Within a month</label>
+                <label class="radio-label"><input type="radio" name="timeline" value="exploring" /> Just exploring</label>
+              </div>
+            </div>
+            <div class="form-field full-width">
+              <label>Are you the sole decision maker?</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="decision_maker" value="yes" /> Yes, I decide</label>
+                <label class="radio-label"><input type="radio" name="decision_maker" value="partner" /> I have a business partner</label>
+                <label class="radio-label"><input type="radio" name="decision_maker" value="team" /> Decision involves a team</label>
+              </div>
+            </div>
+            <div class="form-field full-width">
+              <label for="how-found">How did you hear about RelayLaunch?</label>
+              <select id="how-found" name="how_found">
+                <option value="">Select one...</option>
+                <option value="google">Google search</option>
+                <option value="social-media">Social media</option>
+                <option value="referral">Referral</option>
+                <option value="linkedin">LinkedIn</option>
+                <option value="case-study">Read a case study</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field full-width">
+              <label for="anything-else">Anything else you'd like us to know?</label>
+              <textarea id="anything-else" name="anything_else" rows="4" placeholder="Any context, concerns, or specific questions you have..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- NAV BUTTONS -->
+        <div class="form-nav">
+          <button type="button" id="prev-btn" class="nav-btn nav-btn-outline" style="visibility: hidden;">
+            <span>&larr;</span> Previous
+          </button>
+          <div class="step-indicator"><span id="step-current">1</span> of 7</div>
+          <button type="button" id="next-btn" class="nav-btn nav-btn-primary">
+            Next <span>&rarr;</span>
+          </button>
+          <button type="submit" id="submit-btn" class="nav-btn nav-btn-primary" style="display: none;">
+            Submit Questionnaire <span>&rarr;</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- SUCCESS MESSAGE -->
+      <div id="intake-success" class="success-state" hidden>
+        <div class="success-icon">&#10003;</div>
+        <h2 class="section-title">Questionnaire Submitted</h2>
+        <p class="section-sub" style="max-width: 520px; margin: 16px auto 32px;">
+          We've received your responses. A member of the RelayLaunch team will review your
+          intake within <strong>1 business day</strong> and reach out to schedule your Complete Analysis kickoff.
+        </p>
+        <a href="/" class="nav-btn nav-btn-primary" style="display: inline-flex;">Back to Home &rarr;</a>
       </div>
+
+      <!-- ERROR MESSAGE -->
+      <div id="intake-error" class="error-state" hidden>
+        <h2 class="section-title">Something went wrong</h2>
+        <p class="section-sub" style="max-width: 520px; margin: 16px auto 32px;">
+          We couldn't submit your questionnaire. Please try again or email your responses directly to
+          <a href="mailto:hello@relaylaunch.com" style="color: var(--color-primary);">hello@relaylaunch.com</a>.
+        </p>
+        <button type="button" id="retry-btn" class="nav-btn nav-btn-outline" style="display: inline-flex;">Try Again</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CONFIDENTIALITY NOTE -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container" style="text-align: center;">
       <p class="confidentiality-note">
         All responses are kept strictly confidential and are never shared with third parties.
+        Your data is transmitted securely and used only to prepare your Complete Analysis.
       </p>
     </div>
   </section>
 
 </Layout>
 
-<style>
-  .hero { padding-top: 80px; }
+<script>
+  const form = document.getElementById('intake-form') as HTMLFormElement;
+  const steps = document.querySelectorAll('.form-step') as NodeListOf<HTMLElement>;
+  const progressSteps = document.querySelectorAll('.progress-step') as NodeListOf<HTMLElement>;
+  const progressLines = document.querySelectorAll('.progress-line-fill') as NodeListOf<HTMLElement>;
+  const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
+  const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successEl = document.getElementById('intake-success') as HTMLElement;
+  const errorEl = document.getElementById('intake-error') as HTMLElement;
+  const retryBtn = document.getElementById('retry-btn') as HTMLButtonElement;
+  const stepCurrent = document.getElementById('step-current') as HTMLElement;
 
-  .hero-actions {
+  let currentStep = 1;
+  const totalSteps = 7;
+
+  function showStep(step: number) {
+    steps.forEach(s => s.classList.remove('active'));
+    const target = document.querySelector(`[data-form-step="${step}"]`) as HTMLElement;
+    if (target) target.classList.add('active');
+
+    progressSteps.forEach(ps => {
+      const psStep = parseInt(ps.dataset.step || '0');
+      ps.classList.toggle('active', psStep === step);
+      ps.classList.toggle('completed', psStep < step);
+    });
+
+    progressLines.forEach(pl => {
+      const lineIdx = parseInt(pl.dataset.line || '0');
+      pl.classList.toggle('filled', lineIdx < step);
+    });
+
+    prevBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+    if (step === totalSteps) {
+      nextBtn.style.display = 'none';
+      submitBtn.style.display = 'inline-flex';
+    } else {
+      nextBtn.style.display = 'inline-flex';
+      submitBtn.style.display = 'none';
+    }
+    stepCurrent.textContent = String(step);
+
+    // Scroll to form top
+    const formSection = document.querySelector('.form-section');
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function validateStep(step: number): boolean {
+    const stepEl = document.querySelector(`[data-form-step="${step}"]`) as HTMLElement;
+    const required = stepEl.querySelectorAll('[required]') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+    let valid = true;
+    required.forEach(field => {
+      field.classList.remove('field-error');
+      if (!field.value.trim()) {
+        field.classList.add('field-error');
+        valid = false;
+      }
+    });
+    return valid;
+  }
+
+  nextBtn.addEventListener('click', () => {
+    if (!validateStep(currentStep)) return;
+    if (currentStep < totalSteps) {
+      currentStep++;
+      showStep(currentStep);
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentStep > 1) {
+      currentStep--;
+      showStep(currentStep);
+    }
+  });
+
+  // Allow clicking completed progress steps
+  progressSteps.forEach(ps => {
+    ps.addEventListener('click', () => {
+      const target = parseInt(ps.dataset.step || '0');
+      if (target < currentStep) {
+        currentStep = target;
+        showStep(currentStep);
+      }
+    });
+  });
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validateStep(currentStep)) return;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Submitting&hellip;';
+
+    const formData = new FormData(form);
+    const data: Record<string, string | string[]> = {};
+    formData.forEach((value, key) => {
+      if (data[key]) {
+        if (Array.isArray(data[key])) {
+          (data[key] as string[]).push(value as string);
+        } else {
+          data[key] = [data[key] as string, value as string];
+        }
+      } else {
+        data[key] = value as string;
+      }
+    });
+    data['source'] = 'intake-questionnaire';
+    data['submitted_at'] = new Date().toISOString();
+
+    const webhook = form.dataset.webhook;
+
+    if (!webhook) {
+      // No webhook configured — send via mailto fallback
+      const subject = encodeURIComponent(`Intake Questionnaire — ${data.business_name || 'New Submission'}`);
+      const body = encodeURIComponent(Object.entries(data).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`).join('\n\n'));
+      window.location.href = `mailto:hello@relaylaunch.com?subject=${subject}&body=${body}`;
+      // Show success anyway after redirect
+      form.hidden = true;
+      successEl.hidden = false;
+      return;
+    }
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+      const res = await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+      if (!res.ok) throw new Error('Submission failed');
+
+      form.hidden = true;
+      successEl.hidden = false;
+    } catch {
+      form.hidden = true;
+      errorEl.hidden = false;
+    }
+  });
+
+  retryBtn?.addEventListener('click', () => {
+    errorEl.hidden = true;
+    form.hidden = false;
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Submit Questionnaire <span>&rarr;</span>';
+  });
+</script>
+
+<style>
+  .hero { padding-top: 80px; padding-bottom: 40px; }
+
+  /* ── Progress Bar ── */
+  .progress-bar-wrap {
+    padding: 32px 0;
+    overflow-x: auto;
+  }
+
+  .progress-steps {
     display: flex;
     align-items: center;
-    gap: 24px;
-    margin-top: 32px;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    min-width: 600px;
   }
 
-  /* Areas grid */
-  .areas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: default;
+    padding: 4px 8px;
+    transition: opacity 0.2s;
   }
 
-  .area-card {
-    padding: 24px;
-    border-radius: 12px;
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
-    transition: transform 0.25s cubic-bezier(.22,1,.36,1),
-                box-shadow 0.25s cubic-bezier(.22,1,.36,1),
-                border-color 0.25s ease;
+  .progress-step.completed { cursor: pointer; }
+  .progress-step.completed:hover { opacity: 0.8; }
+
+  .step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid var(--color-border);
+    color: var(--color-muted);
+    background: var(--color-bg);
+    transition: all 0.3s ease;
   }
 
-  .area-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    border-color: color-mix(in srgb, var(--primary) 25%, var(--color-border));
+  .progress-step.active .step-num {
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    background: var(--color-primary);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-primary) 20%, transparent);
   }
 
-  .area-number {
+  .progress-step.completed .step-num {
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    background: var(--color-primary);
+  }
+
+  .step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-muted);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  .progress-step.active .step-label { color: var(--color-primary); }
+  .progress-step.completed .step-label { color: var(--color-text); }
+
+  .progress-line {
+    flex: 1;
+    height: 2px;
+    background: var(--color-border);
+    min-width: 24px;
+    max-width: 60px;
+    position: relative;
+  }
+
+  .progress-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: var(--color-primary);
+    transition: width 0.4s cubic-bezier(.22,1,.36,1);
+  }
+
+  .progress-line-fill.filled { width: 100%; }
+
+  /* ── Form Steps ── */
+  .form-section { padding-top: 20px; }
+
+  .intake-form {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .form-step {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .form-step.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-header {
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .step-number {
     display: block;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     color: var(--color-primary);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
-  .area-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
-  .area-card p { font-size: 14px; line-height: 1.65; }
+  .step-header h2 {
+    font-size: clamp(24px, 3.5vw, 32px);
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .step-header p {
+    font-size: 15px;
+    color: var(--color-muted);
+  }
+
+  /* ── Fields ── */
+  .fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field.full-width { grid-column: 1 / -1; }
+
+  .form-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .required { color: var(--color-primary); }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    padding: 12px 16px;
+    font-size: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: var(--color-muted);
+    opacity: 0.5;
+  }
+
+  .field-error {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, #dc2626 15%, transparent) !important;
+  }
+
+  .form-field textarea { resize: vertical; min-height: 80px; }
+
+  .form-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+  }
+
+  /* ── Radio / Checkbox ── */
+  .radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .radio-label, .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--color-bg);
+  }
+
+  .radio-label:hover, .checkbox-label:hover {
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 5%, var(--color-bg));
+  }
+
+  .radio-label:has(input:checked),
+  .checkbox-label:has(input:checked) {
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 8%, var(--color-bg));
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .radio-label input, .checkbox-label input {
+    accent-color: var(--color-primary);
+  }
+
+  /* ── Nav Buttons ── */
+  .form-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .step-indicator {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 2px solid var(--color-primary);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    font-family: inherit;
+  }
+
+  .nav-btn span {
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .nav-btn:hover span:last-child { transform: translateX(3px); }
+  .nav-btn:hover span:first-child { transform: translateX(-3px); }
+
+  .nav-btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .nav-btn-primary:hover {
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--color-primary) 45%, transparent);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  .nav-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .nav-btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+  }
+
+  .nav-btn-outline:hover {
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+
+  /* ── Success / Error States ── */
+  .success-state, .error-state {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-white);
+    background: var(--color-primary);
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
 
   .confidentiality-note {
     margin-top: 20px;
@@ -143,7 +911,10 @@ const areas = [
     color: var(--color-muted);
   }
 
-  @media (max-width: 600px) {
-    .hero-actions { flex-direction: column; align-items: flex-start; }
+  @media (max-width: 640px) {
+    .fields-grid { grid-template-columns: 1fr; }
+    .progress-steps { min-width: 500px; }
+    .step-label { font-size: 10px; }
+    .step-num { width: 30px; height: 30px; font-size: 12px; }
   }
 </style>
