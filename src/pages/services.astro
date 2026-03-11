@@ -106,6 +106,48 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════ RECOMMENDED FIRST STEP -->
+  <section class="section" id="complete-analysis-highlight">
+    <div class="container">
+      <div class="ca-highlight card addon-card-featured">
+        <div class="ca-highlight-inner">
+          <div class="ca-highlight-text">
+            <div class="addon-start-badge">Recommended First Step</div>
+            <h2 style="font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; margin-bottom: 8px;">Complete Analysis</h2>
+            <div class="ca-highlight-price">$1,500–$3,000</div>
+            <p style="color: var(--color-muted); font-size: 15px; line-height: 1.7; margin-bottom: 20px;">
+              Two-day deep dive combining audit and strategy into one comprehensive engagement. 20–30 page deliverable with a full operational roadmap, so you know exactly what to build before you spend a dollar.
+            </p>
+            <ul class="checklist">
+              <li>8-area business infrastructure audit</li>
+              <li>Tool stack & ops review</li>
+              <li>AI readiness assessment</li>
+              <li>Prioritized roadmap with cost projections</li>
+            </ul>
+            <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <Button variant="primary" href="/complete-analysis" size="lg">Learn More →</Button>
+              <Button variant="outline" href="/contact" size="lg">Book a Discovery Call</Button>
+            </div>
+          </div>
+          <div class="ca-highlight-sidebar">
+            <div class="ca-highlight-stat">
+              <div class="stat-number" style="color: var(--color-primary); font-size: 28px;">2 days</div>
+              <div class="stat-label">from intake to deliverable</div>
+            </div>
+            <div class="ca-highlight-stat">
+              <div class="stat-number" style="color: var(--color-primary); font-size: 28px;">20–30 pg</div>
+              <div class="stat-label">professional roadmap report</div>
+            </div>
+            <div class="ca-highlight-stat">
+              <div class="stat-number" style="color: var(--color-primary); font-size: 28px;">$0</div>
+              <div class="stat-label">commitment beyond the analysis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════ SERVICE TIERS -->
   <section class="section" id="tiers">
     <div class="container">
@@ -183,14 +225,6 @@ const faqSchema = {
       </p>
 
       <div class="addons-grid">
-        <div class="card addon-card addon-card-featured">
-          <div class="addon-start-badge">Recommended First Step</div>
-          <h3>Complete Analysis</h3>
-          <div class="addon-price">$1,500–$3,000</div>
-          <p>Two-day deep dive combining audit and strategy into one comprehensive engagement. 20–30 page deliverable with a full operational roadmap, so you know exactly what to build before you spend a dollar.</p>
-          <Button variant="primary" href="/complete-analysis" size="sm" class="mt-3">Learn More →</Button>
-        </div>
-
         <div class="card addon-card">
           <h3>AI Agent Setup</h3>
           <div class="addon-price">$800–$2,000</div>
@@ -301,6 +335,48 @@ const faqSchema = {
   </section>
 
 </Layout>
+
+<script>
+  // FAQ smooth accordion animation (P0-5)
+  document.querySelectorAll('.faq-item').forEach((details) => {
+    const answer = details.querySelector('.faq-answer') as HTMLElement;
+    if (!answer) return;
+
+    details.addEventListener('click', (e) => {
+      const summary = (e.target as HTMLElement).closest('summary');
+      if (!summary) return;
+
+      e.preventDefault();
+
+      if (details.hasAttribute('open')) {
+        // Closing: animate then remove open
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = '0';
+          answer.style.paddingBottom = '0';
+        });
+        answer.addEventListener('transitionend', () => {
+          details.removeAttribute('open');
+          answer.style.maxHeight = '';
+          answer.style.paddingBottom = '';
+        }, { once: true });
+      } else {
+        // Opening: set open then animate
+        details.setAttribute('open', '');
+        const height = answer.scrollHeight;
+        answer.style.maxHeight = '0';
+        answer.style.paddingBottom = '0';
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = height + 'px';
+          answer.style.paddingBottom = '20px';
+        });
+        answer.addEventListener('transitionend', () => {
+          answer.style.maxHeight = '';
+        }, { once: true });
+      }
+    });
+  });
+</script>
 
 <style>
   .hero { padding-top: 80px; }
@@ -493,6 +569,43 @@ const faqSchema = {
     margin-bottom: 12px;
   }
 
+  /* ── Complete Analysis Highlight (P0-1) ── */
+  .ca-highlight {
+    padding: var(--card-padding);
+  }
+
+  .ca-highlight-inner {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .ca-highlight-price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+  }
+
+  .ca-highlight-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    background: var(--color-surface-2);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+  }
+
+  .ca-highlight-stat {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .ca-highlight-inner { grid-template-columns: 1fr; }
+  }
+
   /* ── FAQ ── */
   .faq-list {
     max-width: 760px;
@@ -544,6 +657,15 @@ const faqSchema = {
   }
 
   .faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
+    transition: max-height 0.3s cubic-bezier(.22,1,.36,1),
+                padding 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .faq-item[open] .faq-answer {
+    max-height: 300px;
     padding: 0 0 20px;
   }
 
