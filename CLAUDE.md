@@ -78,5 +78,5 @@ When working as a teammate in an agent team:
 - PR branches: claude/description-XXXXX format
 
 ## Known Issues
-- complete-analysis.astro still has some hardcoded hex values (#F8FAFC, #fbbf24, #64748b) that should use CSS variables
-- Inconsistent border-radius values across pages (10px vs 12px) — consider a --radius-card variable
+- Third-party tool logos in index.astro marquee use external brand colors (exempt from 4-color brand standard)
+- Micro-element border-radius (3px, 6px) in complete-analysis.astro progress bars/badges left as literal values (too small for CSS variables)
