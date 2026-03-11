@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const canonicalUrl = `https://relaylaunch.com/blog/${post.id}/`;
+const canonicalUrl = `https://www.relaylaunch.com/blog/${post.id}/`;
 const readingTime = post.body ? getReadingTime(post.body) : '1 min read';
 ---
 
