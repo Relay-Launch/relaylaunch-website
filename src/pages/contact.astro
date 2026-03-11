@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
+
+const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 ---
 
 <Layout
@@ -50,13 +52,14 @@ import { Button } from '@/components/starwind/button';
       <div class="contact-primary">
         <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Book a Discovery Call</h2>
         <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Pick a time that works for you. 30 minutes, no pitch, no commitment.
+          Pick a time that works for you. 30–45 minutes, no pitch, no commitment.
           We'll learn about your business and figure out if we're a fit.
         </p>
         <Button
           variant="primary"
           size="lg"
-          data-cal-link="victor-medina-vh0z5e/30min"
+          href={`https://cal.com/${calLink}`}
+          data-cal-link={calLink}
           data-cal-config='{"layout":"month_view"}'
         >
           Pick a Time →
@@ -130,15 +133,8 @@ import { Button } from '@/components/starwind/button';
             <li>
               <span class="step-num">3</span>
               <div>
-                <strong>Follow-up & proposal</strong>
-                <p>After the call, we send a clear summary with scope, deliverables, timeline, and pricing.</p>
-              </div>
-            </li>
-            <li>
-              <span class="step-num">4</span>
-              <div>
-                <strong>Proposal + scoping</strong>
-                <p>We send a clear proposal with scope, deliverables, timeline, and pricing. No surprises.</p>
+                <strong>Proposal & scoping</strong>
+                <p>After the call, we send a clear proposal with scope, deliverables, timeline, and pricing. No surprises.</p>
               </div>
             </li>
           </ol>

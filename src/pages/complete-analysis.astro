@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
 
 const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
+const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 ---
 
 <Layout
@@ -586,13 +587,14 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
           <div class="ca-or-book-direct">
             <span class="ca-or-divider"><span>or skip the form</span></span>
-            <button
+            <a
               class="ca-book-direct-btn"
-              data-cal-link="victor-medina-vh0z5e/30min"
+              href={`https://cal.com/${calLink}`}
+              data-cal-link={calLink}
               data-cal-config='{"layout":"month_view"}'
             >
               Pick a Time Directly →
-            </button>
+            </a>
           </div>
 
           <div id="ca-book-success" class="ca-form-success" hidden>
@@ -1673,16 +1675,18 @@ const webhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
   }
 
   .ca-book-direct-btn {
+    display: inline-block;
     background: transparent;
     border: 1px solid rgba(255,255,255,0.2);
     color: rgba(255,255,255,0.7);
     padding: 10px 24px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
     font-family: inherit;
+    text-decoration: none;
   }
 
   .ca-book-direct-btn:hover {

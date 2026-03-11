@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
 
+const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
+
 const stages = [
   { number: '01', title: 'Discovery Call', description: '30–45 minute conversation to understand your business model, current tools, pain points, and goals. No prep required.' },
   { number: '02', title: 'Client Intake', description: 'You complete a detailed questionnaire covering 7 areas of your business: technology, operations, digital presence, and more.' },
@@ -68,7 +70,8 @@ const tools = [
         variant="primary"
         size="lg"
         style="margin-top: 28px;"
-        data-cal-link="victor-medina-vh0z5e/30min"
+        href={`https://cal.com/${calLink}`}
+        data-cal-link={calLink}
         data-cal-config='{"layout":"month_view"}'
       >
         Book a Discovery Call →
@@ -174,7 +177,7 @@ const tools = [
         No commitment, no pitch. Just a conversation about your business.
       </p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <Button variant="primary" data-cal-link="victor-medina-vh0z5e/30min" data-cal-config='{"layout":"month_view"}'>Book a Discovery Call →</Button>
+        <Button variant="primary" href={`https://cal.com/${calLink}`} data-cal-link={calLink} data-cal-config='{"layout":"month_view"}'>Book a Discovery Call →</Button>
         <Button variant="outline" href="/complete-analysis">Learn About the Complete Analysis</Button>
       </div>
     </div>
