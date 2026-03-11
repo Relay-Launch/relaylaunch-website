@@ -1,2 +1,2 @@
-# Redirect www to bare domain
-https://www.relaylaunch.com/* https://relaylaunch.com/:splat 301
+# Redirect bare domain to www (bare domain has no Cloudflare Pages custom domain)
+https://relaylaunch.com/* https://www.relaylaunch.com/:splat 301
