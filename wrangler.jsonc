@@ -10,6 +10,10 @@
     "binding": "ASSETS",
     "directory": "dist"
   },
+  "routes": [
+    { "pattern": "relaylaunch.com", "custom_domain": true },
+    { "pattern": "www.relaylaunch.com", "custom_domain": true }
+  ],
   "observability": {
     "enabled": true
   },
