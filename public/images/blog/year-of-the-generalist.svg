@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0F172A"/>
+  <!-- Interconnected network / generalist web -->
+  <!-- Outer hexagonal node arrangement -->
+  <circle cx="600" cy="200" r="10" fill="#007AFF" opacity="0.4"/>
+  <circle cx="400" cy="280" r="10" fill="#007AFF" opacity="0.35"/>
+  <circle cx="800" cy="280" r="10" fill="#007AFF" opacity="0.35"/>
+  <circle cx="400" cy="420" r="10" fill="#007AFF" opacity="0.3"/>
+  <circle cx="800" cy="420" r="10" fill="#007AFF" opacity="0.3"/>
+  <circle cx="600" cy="480" r="10" fill="#007AFF" opacity="0.25"/>
+  <circle cx="600" cy="340" r="16" fill="#007AFF" opacity="0.5"/>
+  <!-- All-to-all connections -->
+  <line x1="600" y1="200" x2="400" y2="280" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <line x1="600" y1="200" x2="800" y2="280" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <line x1="600" y1="200" x2="600" y2="340" stroke="#007AFF" stroke-width="1.5" opacity="0.2"/>
+  <line x1="400" y1="280" x2="800" y2="280" stroke="#007AFF" stroke-width="1" opacity="0.1"/>
+  <line x1="400" y1="280" x2="600" y2="340" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <line x1="800" y1="280" x2="600" y2="340" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <line x1="400" y1="280" x2="400" y2="420" stroke="#007AFF" stroke-width="1.5" opacity="0.12"/>
+  <line x1="800" y1="280" x2="800" y2="420" stroke="#007AFF" stroke-width="1.5" opacity="0.12"/>
+  <line x1="400" y1="420" x2="600" y2="340" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <line x1="800" y1="420" x2="600" y2="340" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <line x1="400" y1="420" x2="800" y2="420" stroke="#007AFF" stroke-width="1" opacity="0.1"/>
+  <line x1="400" y1="420" x2="600" y2="480" stroke="#007AFF" stroke-width="1.5" opacity="0.12"/>
+  <line x1="800" y1="420" x2="600" y2="480" stroke="#007AFF" stroke-width="1.5" opacity="0.12"/>
+  <line x1="600" y1="340" x2="600" y2="480" stroke="#007AFF" stroke-width="1.5" opacity="0.15"/>
+  <!-- Background geometric shapes -->
+  <rect x="120" y="80" width="140" height="90" rx="8" fill="#F8FAFC" opacity="0.04"/>
+  <rect x="940" y="80" width="140" height="90" rx="8" fill="#F8FAFC" opacity="0.04"/>
+  <rect x="120" y="460" width="140" height="90" rx="8" fill="#007AFF" opacity="0.05"/>
+  <rect x="940" y="460" width="140" height="90" rx="8" fill="#007AFF" opacity="0.05"/>
+  <!-- Accent triangles -->
+  <path d="M200 550 L220 520 L240 550 Z" fill="#F8FAFC" opacity="0.06"/>
+  <path d="M960 100 L980 70 L1000 100 Z" fill="#007AFF" opacity="0.08"/>
+</svg>

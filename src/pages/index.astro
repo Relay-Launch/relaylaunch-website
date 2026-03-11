@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
+import ArchitectureDiagram from '@/components/ArchitectureDiagram.astro';
 
 const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 ---
@@ -77,6 +78,31 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
         </div>
         <div class="trust-item">
           <span class="trust-check">✓</span> One System, Not 6 Tools
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ OBJECTION HANDLING -->
+  <section class="section objection-section">
+    <div class="container">
+      <h2 class="section-title" style="font-size: clamp(22px, 3vw, 30px); margin-bottom: 36px; text-align: center;">What Makes This Different</h2>
+      <div class="objection-grid">
+        <div class="objection-item">
+          <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <p class="objection-text">You own 100% of everything we build. No vendor lock-in.</p>
+        </div>
+        <div class="objection-item">
+          <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <p class="objection-text">No technical background needed. We handle the complexity.</p>
+        </div>
+        <div class="objection-item">
+          <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          <p class="objection-text">Veteran-owned, long-term focused. We don't build and disappear.</p>
+        </div>
+        <div class="objection-item">
+          <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <p class="objection-text">Fixed pricing, clear scope. No hourly surprises.</p>
         </div>
       </div>
     </div>
@@ -310,11 +336,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           </ul>
         </div>
         <div class="tool-chaos">
-          <div class="tool-grid">
-            {['Website', 'Email', 'Social', 'Scheduling', 'Payments', 'Analytics', 'Automation', 'CRM'].map((tool, i) => (
-              <div class:list={['tool-item', { dim: i > 3 }]}>{tool}</div>
-            ))}
-          </div>
+          <ArchitectureDiagram />
           <div class="tool-chaos-label">5–8 tools. None connected. All manual.</div>
         </div>
       </div>
@@ -2016,9 +2038,55 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   }
   .testimonials-section { position: relative; overflow: hidden; }
 
+  /* ── Objection Handling ── */
+  .objection-section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .objection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .objection-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .objection-item:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--primary) 30%, var(--color-border));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .objection-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    color: #007AFF;
+  }
+
+  .objection-text {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 1024px) {
     .packages-grid { grid-template-columns: repeat(2, 1fr); }
+    .objection-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 768px) {
@@ -2027,6 +2095,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     .hero-trust { gap: 16px; }
     .trust-item { font-size: 12px; }
     .lead-magnet-inner { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
+    .objection-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
     .two-col, .cs-inner { grid-template-columns: 1fr; gap: 40px; }
     .stats-grid { gap: 0; }
@@ -2045,7 +2114,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     .trust-badges-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .hero-trust { flex-direction: column; gap: 8px; }
     .tool-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-actions { flex-direction: column; width: 100%; }

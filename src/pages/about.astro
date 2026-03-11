@@ -55,6 +55,15 @@ import { Button } from '@/components/starwind/button';
           <h2 class="section-title">Victor David Medina</h2>
           <p class="founder-role">Founder, RelayLaunch LLC</p>
 
+          <!-- Founder Photo Placeholder -->
+          <div class="founder-photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" width="120" height="120" aria-hidden="true">
+              <circle cx="60" cy="45" r="22" fill="#F8FAFC" opacity="0.2"/>
+              <path d="M20 110 C20 82 40 65 60 65 C80 65 100 82 100 110" fill="#F8FAFC" opacity="0.15"/>
+            </svg>
+            <span class="founder-photo-label">Photo Coming Soon</span>
+          </div>
+
           <div class="bio-block">
             <p>
               I've spent my career building infrastructure that handles complexity: enterprise
@@ -250,6 +259,27 @@ import { Button } from '@/components/starwind/button';
     font-weight: 600;
     margin-top: 8px;
     margin-bottom: 28px;
+  }
+
+  .founder-photo-placeholder {
+    width: 180px;
+    height: 200px;
+    border-radius: var(--radius-card, 12px);
+    background: linear-gradient(145deg, #0F172A 0%, #1e293b 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .founder-photo-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #F8FAFC;
+    opacity: 0.4;
   }
 
   .bio-block p { font-size: 16px; color: var(--color-muted); line-height: 1.75; }
