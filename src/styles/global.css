@@ -18,7 +18,6 @@
   /* --color-accent removed: identical to --color-primary */
   --color-navy: #0F172A;                      /* Dark Navy */
   --color-white: #ffffff;                     /* White — for text on dark backgrounds */
-  --color-danger: #ef4444;                    /* Red — negative/error indicators only */
   --color-alt-bg: #F8FAFC;                    /* Light Gray alt sections */
 
   /* Layout tokens */
