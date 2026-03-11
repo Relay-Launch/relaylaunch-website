@@ -67,6 +67,14 @@ const year = new Date().getFullYear();
       </div>
     </div>
   </div>
+
+  <div class="footer-signature">
+    <div class="container footer-signature-inner">
+      <p class="signature-text">
+        Designed &amp; built by <a href="/about" class="signature-link"><span class="signature-brand">Relay</span><span class="signature-arrow">&#x25BA;</span><span class="signature-brand">Launch</span></a> <span class="signature-sep">·</span> Our own infrastructure, launched.
+      </p>
+    </div>
+  </div>
 </footer>
 
 <style>
@@ -254,6 +262,63 @@ const year = new Date().getFullYear();
     background: color-mix(in srgb, var(--primary) 8%, transparent);
   }
 
+  /* ── Footer signature strip ── */
+  .footer-signature {
+    border-top: 1px solid color-mix(in srgb, var(--color-white) 6%, transparent);
+    padding: 14px 0;
+  }
+
+  .footer-signature-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .signature-text {
+    font-size: 11px;
+    letter-spacing: 0.3px;
+    color: color-mix(in srgb, var(--color-white) 28%, transparent);
+    margin: 0;
+    transition: color 0.3s ease;
+  }
+
+  .footer-signature:hover .signature-text {
+    color: color-mix(in srgb, var(--color-white) 50%, transparent);
+  }
+
+  .signature-link {
+    text-decoration: none;
+    color: color-mix(in srgb, var(--color-white) 40%, transparent);
+    font-weight: 700;
+    transition: color 0.3s ease;
+  }
+
+  .signature-link:hover {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .footer-signature:hover .signature-link {
+    color: color-mix(in srgb, var(--color-white) 65%, transparent);
+  }
+
+  .signature-arrow {
+    color: var(--color-primary);
+    margin: 0 1px;
+    font-size: 10px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .signature-link:hover .signature-arrow {
+    opacity: 1;
+  }
+
+  .signature-sep {
+    color: color-mix(in srgb, var(--color-white) 15%, transparent);
+    margin: 0 2px;
+  }
+
   /* ── Social icon stagger animation ── */
   .social-stagger {
     opacity: 0;
@@ -293,6 +358,13 @@ const year = new Date().getFullYear();
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
+    }
+    .footer-signature {
+      padding: 12px 16px;
+    }
+    .signature-text {
+      text-align: center;
+      line-height: 1.5;
     }
   }
 </style>
