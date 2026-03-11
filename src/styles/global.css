@@ -17,10 +17,13 @@
   --color-primary-subtle: color-mix(in srgb, var(--primary) 12%, transparent);
   /* --color-accent removed: identical to --color-primary */
   --color-navy: #0F172A;                      /* Dark Navy */
+  --color-white: #ffffff;                     /* White — for text on dark backgrounds */
+  --color-alt-bg: #F8FAFC;                    /* Light Gray alt sections */
 
   /* Layout tokens */
   --radius-card: 12px;
-  --radius-sm: 6px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
 
   /* Elevation shadows for depth */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -374,7 +377,7 @@ a[data-slot="button"]:hover { text-decoration: none; }
 
 /* ─── Gradient text utility ────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #3395ff 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, color-mix(in srgb, var(--color-primary) 70%, var(--color-white)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
