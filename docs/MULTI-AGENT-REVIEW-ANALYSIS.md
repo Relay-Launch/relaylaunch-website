@@ -133,7 +133,7 @@ Eight specialized agent divisions analyzed the RelayLaunch website simultaneousl
 - Static site generation (zero server latency)
 - System font stack (zero web font overhead)
 - Client-side JS: ~8-10KB total after gzip
-- All scripts use `{ passive: true }` for scroll performance
+- Scroll-related event listeners use `{ passive: true }` where applicable for better scroll performance
 - Google Analytics: conditional loading (production only, async)
 - Cal.com embed: async loading pattern
 
