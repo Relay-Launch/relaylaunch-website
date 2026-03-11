@@ -716,7 +716,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     gap: 64px;
     align-items: center;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
   }
 
   .ca-eyebrow-light {
@@ -793,7 +793,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: var(--radius-card);
     padding: 24px;
-    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+    box-shadow: var(--shadow-xl);
   }
 
   .ca-snapshot-header {
@@ -1409,7 +1409,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 
   .ca-process-step:hover {
     box-shadow: var(--shadow-md);
-    z-index: 1;
+    z-index: var(--z-base);
   }
 
   .ca-step-header {
@@ -1457,7 +1457,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     font-size: 18px;
     color: var(--color-primary);
     font-weight: 700;
-    z-index: 2;
+    z-index: var(--z-raised);
     background: var(--color-surface);
     width: 28px;
     height: 28px;
@@ -1493,7 +1493,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     gap: 64px;
     align-items: start;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
   }
 
   .ca-cta-left {
@@ -1607,7 +1607,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
   .ca-form-field input:focus,
   .ca-form-field textarea:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+    box-shadow: var(--shadow-primary-focus);
   }
 
   .ca-form-field textarea {
@@ -1626,13 +1626,13 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 4px 16px color-mix(in srgb, var(--primary) 35%, transparent);
+    box-shadow: var(--shadow-primary-sm);
   }
 
   .ca-submit-btn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px color-mix(in srgb, var(--primary) 45%, transparent);
+    box-shadow: var(--shadow-primary-md);
   }
 
   .ca-submit-btn:active {
@@ -2013,4 +2013,54 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
   .ca-w-65   { width: 65%; }
   .ca-w-50   { width: 50%; }
   .ca-w-48   { width: 48%; }
+
+  /* ─── Progress bar scroll animation ────────────────────── */
+  .ca-snapshot-bar,
+  .ca-roadmap-bar {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ca-snapshot-bar,
+    .ca-roadmap-bar {
+      transition: none;
+    }
+  }
 </style>
+
+<script>
+  // Progress bar scroll animation — animates bars from width:0 to target width
+  (function () {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const bars = document.querySelectorAll<HTMLElement>('.ca-snapshot-bar, .ca-roadmap-bar');
+    if (!bars.length) return;
+
+    // Store each bar's computed target width, then collapse to 0
+    const barData = new Map<HTMLElement, string>();
+    bars.forEach((bar) => {
+      const targetWidth = getComputedStyle(bar).width;
+      barData.set(bar, targetWidth);
+      bar.style.width = '0';
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const bar = entry.target as HTMLElement;
+            const targetWidth = barData.get(bar);
+            if (targetWidth) {
+              bar.style.width = targetWidth;
+            }
+            observer.unobserve(bar);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    bars.forEach((bar) => observer.observe(bar));
+  })();
+</script>
