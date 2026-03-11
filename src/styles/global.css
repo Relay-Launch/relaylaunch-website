@@ -46,7 +46,7 @@
   padding: 10px 20px;
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-bg);
   background: var(--color-primary);
   border-radius: 0 0 8px 8px;
   text-decoration: none;
@@ -245,7 +245,7 @@ a:hover { text-decoration: underline; }
 
 .badge-solid-primary {
   background: var(--color-primary);
-  color: #fff;
+  color: var(--color-bg);
   box-shadow: 0 2px 8px color-mix(in srgb, var(--primary) 30%, transparent);
 }
 
@@ -428,4 +428,26 @@ a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+}
+
+/* ─── Print ──────────────────────────────────────────────────── */
+@media print {
+  nav, footer, .back-to-top, .skip-link,
+  .section-hero-enhanced::before,
+  button[aria-label="Back to top"] { display: none !important; }
+
+  body { font-size: 12pt; color: #000; background: #fff; }
+  a { color: #000; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; }
+  a[href^="/"]::after { content: " (relaylaunch.com" attr(href) ")"; }
+  a[href^="#"]::after { content: none; }
+
+  .section { padding: 24px 0; }
+  .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+  h1, h2, h3 { break-after: avoid; color: #000; }
+  img { max-width: 100% !important; }
+
+  @page { margin: 1in 0.75in; }
 }

@@ -6,9 +6,9 @@ const serviceSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Complete Analysis — Business Infrastructure Diagnostic',
+    name: 'Complete Analysis: Business Infrastructure Diagnostic',
     provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
-    description: 'An 8-area diagnostic of your entire business infrastructure — operations, tech stack, AI readiness, digital footprint, and more — delivered as a 20–30 page professional report with a prioritized roadmap.',
+    description: 'An 8-area diagnostic of your entire business infrastructure, covering operations, tech stack, AI readiness, digital footprint, and more, delivered as a 20–30 page professional report with a prioritized roadmap.',
     url: 'https://relaylaunch.com/complete-analysis/',
     offers: {
       '@type': 'AggregateOffer',
@@ -20,9 +20,9 @@ const serviceSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Launch — Digital Infrastructure Build',
+    name: 'Launch: Digital Infrastructure Build',
     provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
-    description: 'One-time project build of unified digital infrastructure — custom website, automation workflows, email sequences, social scheduling, and a single connected dashboard replacing disconnected tools.',
+    description: 'One-time project build of unified digital infrastructure: custom website, automation workflows, email sequences, social scheduling, and a single connected dashboard replacing disconnected tools.',
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
@@ -33,9 +33,9 @@ const serviceSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Run — Monthly Digital Operations Retainer',
+    name: 'Run: Monthly Digital Operations Retainer',
     provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
-    description: 'Monthly retainer for ongoing digital operations support — social content, SEO and blog maintenance, automation monitoring, and monthly strategy calls. 3-month minimum.',
+    description: 'Monthly retainer for ongoing digital operations support: social content, SEO and blog maintenance, automation monitoring, and monthly strategy calls. 3-month minimum.',
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
@@ -46,9 +46,9 @@ const serviceSchemas = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Scale — Premium Growth Retainer',
+    name: 'Scale: Premium Growth Retainer',
     provider: { '@type': 'Organization', name: 'RelayLaunch LLC', url: 'https://relaylaunch.com' },
-    description: 'Premium monthly retainer for businesses scaling their digital infrastructure — expanded deliverables, priority support, advanced automation builds, and strategic advisory. 6-month minimum.',
+    description: 'Premium monthly retainer for businesses scaling their digital infrastructure: expanded deliverables, priority support, advanced automation builds, and strategic advisory. 6-month minimum.',
     offers: {
       '@type': 'AggregateOffer',
       priceCurrency: 'USD',
@@ -63,19 +63,19 @@ const faqSchema = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Do I have to commit to a retainer right away?', acceptedAnswer: { '@type': 'Answer', text: 'No. The Complete Analysis is a standalone engagement with no strings attached. You get a 20–30 page report, keep it, and decide what to do next.' } },
-    { '@type': 'Question', name: 'Who owns what you build?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of everything we build — website, code, automations, content, accounts, and domains. No vendor lock-in.' } },
+    { '@type': 'Question', name: 'Who owns what you build?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of everything we build: website, code, automations, content, accounts, and domains. No vendor lock-in.' } },
     { '@type': 'Question', name: 'How long does a Complete Analysis take?', acceptedAnswer: { '@type': 'Answer', text: 'Two business days from intake completion. You receive the deliverable within 5 business days of kickoff.' } },
-    { '@type': 'Question', name: "What's the difference between Launch and Run?", acceptedAnswer: { '@type': 'Answer', text: 'Launch is a one-time build — we design and deploy your unified infrastructure. Run is ongoing operations — we stay on as your digital ops team.' } },
+    { '@type': 'Question', name: "What's the difference between Launch and Run?", acceptedAnswer: { '@type': 'Answer', text: 'Launch is a one-time build. We design and deploy your unified infrastructure. Run is ongoing operations. We stay on as your digital ops team.' } },
     { '@type': 'Question', name: 'Can I switch tiers once I start?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can upgrade from Run to Scale at any renewal point. Downgrading follows the same cadence.' } },
     { '@type': 'Question', name: 'Do I need to be local to Boston?', acceptedAnswer: { '@type': 'Answer', text: 'No. We work with small businesses across the U.S. remotely. Boston and the Northeast get priority scheduling.' } },
     { '@type': 'Question', name: 'What if I\'m already mid-build with another provider?', acceptedAnswer: { '@type': 'Answer', text: 'We can audit what exists and take it from there. The Complete Analysis covers your current stack regardless of who built it.' } },
-    { '@type': 'Question', name: 'How is this different from hiring a freelancer?', acceptedAnswer: { '@type': 'Answer', text: 'Freelancers deliver a project and move on. We deliver infrastructure designed to run your business — then stay accountable to its performance.' } },
+    { '@type': 'Question', name: 'How is this different from hiring a freelancer?', acceptedAnswer: { '@type': 'Answer', text: 'Freelancers deliver a project and move on. We deliver infrastructure designed to run your business, then stay accountable to its performance.' } },
   ],
 };
 ---
 
 <Layout
-  title="Services — RelayLaunch | Digital Infrastructure for Small Business"
+  title="Services | RelayLaunch | Digital Infrastructure for Small Business"
   description="RelayLaunch service packages: Complete Analysis diagnostic ($1,500–$3,000), Launch build ($2,500–$5,000), Run retainer ($500–$1,000/mo), Scale retainer ($1,000–$2,500/mo)."
   canonicalUrl="https://relaylaunch.com/services/"
   jsonLd={[...serviceSchemas, faqSchema]}
@@ -112,7 +112,7 @@ const faqSchema = {
       <span class="section-eyebrow">Service Tiers</span>
       <h2 class="section-title" style="margin-bottom: 16px;">Three tiers. Pick where you are.</h2>
       <p class="section-sub" style="max-width: 600px; margin-bottom: 48px;">
-        Whether you need a one-time build, ongoing operations, or full-scale growth infrastructure — there's a tier designed for your stage.
+        Whether you need a one-time build, ongoing operations, or full-scale growth infrastructure, there's a tier designed for your stage.
       </p>
 
       <div class="tiers-grid reveal-stagger">
@@ -120,7 +120,7 @@ const faqSchema = {
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 1</span>
           <h3 id="launch" class="tier-name">Launch</h3>
           <div class="tier-price">$2,500–$5,000 <span>one-time</span></div>
-          <p class="tier-desc">Get your foundation built — a professional website, core automations, and connected tools, delivered in a single engagement.</p>
+          <p class="tier-desc">Get your foundation built: a professional website, core automations, and connected tools, delivered in a single engagement.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
             <li>Custom website (5–10 pages)</li>
@@ -139,7 +139,7 @@ const faqSchema = {
           <h3 id="run" class="tier-name">Run</h3>
           <div class="tier-price">$500–$1,000<span>/month</span></div>
           <p class="tier-note">3-month minimum</p>
-          <p class="tier-desc">Ongoing operations support — we keep your systems optimized, your content flowing, and your automations evolving.</p>
+          <p class="tier-desc">Ongoing operations support. We keep your systems optimized, your content flowing, and your automations evolving.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
             <li>Everything in Launch</li>
@@ -157,7 +157,7 @@ const faqSchema = {
           <h3 id="scale" class="tier-name">Scale</h3>
           <div class="tier-price">$1,000–$2,500<span>/month</span></div>
           <p class="tier-note">6-month minimum</p>
-          <p class="tier-desc">Full growth infrastructure — AI agents, advanced automations, multi-location support, and a fractional ops partner in your corner.</p>
+          <p class="tier-desc">Full growth infrastructure: AI agents, advanced automations, multi-location support, and a fractional ops partner in your corner.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
             <li>Everything in Run</li>
@@ -187,14 +187,14 @@ const faqSchema = {
           <div class="addon-start-badge">Recommended First Step</div>
           <h3>Complete Analysis</h3>
           <div class="addon-price">$1,500–$3,000</div>
-          <p>Two-day deep dive combining audit and strategy into one comprehensive engagement. 20–30 page deliverable with full operational roadmap — so you know exactly what to build before you spend a dollar.</p>
+          <p>Two-day deep dive combining audit and strategy into one comprehensive engagement. 20–30 page deliverable with a full operational roadmap, so you know exactly what to build before you spend a dollar.</p>
           <Button variant="primary" href="/complete-analysis" size="sm" class="mt-3">Learn More →</Button>
         </div>
 
         <div class="card addon-card">
           <h3>AI Agent Setup</h3>
           <div class="addon-price">$800–$2,000</div>
-          <p>Design and deploy AI-powered agents for customer support, lead qualification, content generation, or internal knowledge retrieval — integrated into your existing tools.</p>
+          <p>Design and deploy AI-powered agents for customer support, lead qualification, content generation, or internal knowledge retrieval, all integrated into your existing tools.</p>
         </div>
 
         <div class="card addon-card">
@@ -206,7 +206,7 @@ const faqSchema = {
         <div class="card addon-card">
           <h3>Systems Integration</h3>
           <div class="addon-price">$100–$175/hour</div>
-          <p>For businesses that have tools but need them connected. API integrations, data mapping, platform consolidation, and workflow design — billed hourly.</p>
+          <p>For businesses that have tools but need them connected. API integrations, data mapping, platform consolidation, and workflow design, billed hourly.</p>
         </div>
 
         <div class="card addon-card">
@@ -231,14 +231,14 @@ const faqSchema = {
         <details class="faq-item">
           <summary class="faq-question">Do I have to commit to a retainer right away?</summary>
           <div class="faq-answer">
-            <p>No. The Complete Analysis is a standalone engagement with no strings attached. You get a 20–30 page report, keep it, and decide what to do next — hire us, DIY it, or do nothing for now. Most clients choose to continue, but that's entirely your call.</p>
+            <p>No. The Complete Analysis is a standalone engagement with no strings attached. You get a 20–30 page report, keep it, and decide what to do next. Hire us, DIY it, or do nothing for now. Most clients choose to continue, but that's entirely your call.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">Who owns what you build?</summary>
           <div class="faq-answer">
-            <p>You own 100% of everything we build — website, code, automations, content, accounts, and domains. No vendor lock-in. No dependencies. If you walk away tomorrow, your systems keep running.</p>
+            <p>You own 100% of everything we build: website, code, automations, content, accounts, and domains. No vendor lock-in. No dependencies. If you walk away tomorrow, your systems keep running.</p>
           </div>
         </details>
 
@@ -252,7 +252,7 @@ const faqSchema = {
         <details class="faq-item">
           <summary class="faq-question">What's the difference between Launch and Run?</summary>
           <div class="faq-answer">
-            <p><strong>Launch</strong> is a one-time build — we design and deploy your unified infrastructure, hand it off, and you run it. <strong>Run</strong> is ongoing operations — we stay on as your digital ops team, keeping systems optimized and content flowing. Most businesses start with Launch, then add Run once the foundation is solid.</p>
+            <p><strong>Launch</strong> is a one-time build. We design and deploy your unified infrastructure, hand it off, and you run it. <strong>Run</strong> is ongoing operations. We stay on as your digital ops team, keeping systems optimized and content flowing. Most businesses start with Launch, then add Run once the foundation is solid.</p>
           </div>
         </details>
 
@@ -280,7 +280,7 @@ const faqSchema = {
         <details class="faq-item">
           <summary class="faq-question">How is this different from hiring a freelancer?</summary>
           <div class="faq-answer">
-            <p>Freelancers deliver a project and move on. We deliver infrastructure designed to run your business — then stay accountable to its performance. We combine strategy, build, and operations in a single engagement, not three separate contracts with three separate people.</p>
+            <p>Freelancers deliver a project and move on. We deliver infrastructure designed to run your business, then stay accountable to its performance. We combine strategy, build, and operations in a single engagement, not three separate contracts with three separate people.</p>
           </div>
         </details>
       </div>
@@ -293,7 +293,7 @@ const faqSchema = {
       <h2 class="section-title">Not sure which package is right for you?</h2>
       <p class="section-sub" style="margin: 16px auto 32px; max-width: 500px;">
         Every engagement starts with a conversation. Tell us where you are and what you're
-        trying to build — we'll figure out the right fit together.
+        trying to build. We'll figure out the right fit together.
       </p>
       <Button variant="primary" href="/contact">Start a Conversation →</Button>
       <p class="cta-no-commit">No commitment required. Discovery call is free.</p>
