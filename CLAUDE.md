@@ -27,10 +27,21 @@ Live URL: https://www.relaylaunch.com
 - Framework: Astro 5 (static output, islands architecture)
 - Styling: Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - Content: MDX blog posts via Astro Content Collections
-- Deployment: Cloudflare Pages/Workers via wrangler
+- Deployment: Cloudflare Workers via wrangler deploy
 - CI/CD: GitHub Actions (.github/workflows/astro.yml → wrangler deploy)
 - Domain: relaylaunch.com (Registrar: Porkbun, DNS: Cloudflare)
+- Custom Domains: relaylaunch.com + www.relaylaunch.com (both via Workers custom domains in wrangler.jsonc)
 - Adapter: @astrojs/cloudflare
+
+## DNS & Domain Configuration
+- Registrar: Porkbun (domain purchased here, DO NOT transfer for 60 days after registration)
+- DNS: Cloudflare (nameservers: lindsey.ns.cloudflare.com, steven.ns.cloudflare.com)
+- Zone ID: 1113a607a714b1f4f3467003a78175fa
+- Both apex (relaylaunch.com) and www are served by Workers custom domains
+- Workers custom domains REQUIRE Cloudflare DNS — do NOT move DNS away from Cloudflare
+- Email: MX records point to Porkbun forwarding (fwd1/fwd2.porkbun.com) + smtp.google.com
+- DKIM/DMARC/SPF configured for Google Workspace email
+- API token requires these permissions: Workers Edit, Workers Routes Edit, Zone Read, DNS Edit
 
 ## Commands
 - npm ci — install dependencies
