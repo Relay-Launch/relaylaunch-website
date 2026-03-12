@@ -383,6 +383,23 @@ Maximum 3 retries per task before escalation."
 
 ---
 
+## NEXUS Strategy: Deployment Modes
+
+The repo includes a **NEXUS Strategy** layer (`strategy/nexus-strategy.md`) for orchestrating agents as coordinated teams. Three deployment modes:
+
+| Mode | Scope | Duration | Example |
+|------|-------|----------|---------|
+| **NEXUS-Full** | Enterprise launches, full product builds | Weeks-months | New SaaS product from discovery to deployment |
+| **NEXUS-Sprint** | Feature development, focused deliverables | 2-6 weeks | Add authentication system, redesign checkout flow |
+| **NEXUS-Micro** | Targeted tasks, bug fixes, quick wins | Hours-days | Fix deployment pipeline, audit a single page |
+
+Additional strategy resources in `strategy/`:
+- `coordination/` — Team coordination playbooks
+- `playbooks/` — Scenario-specific playbooks
+- `runbooks/` — Operational runbooks
+
+---
+
 ## Tips for Using Agents with Claude Code
 
 1. **Invoke by role**: Start prompts with "As the [Agent Name] agent..." to activate the personality and workflows.
