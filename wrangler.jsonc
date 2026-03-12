@@ -11,8 +11,8 @@
     "directory": "dist"
   },
   "routes": [
-    { "pattern": "relaylaunch.com", "custom_domain": true },
-    { "pattern": "www.relaylaunch.com", "custom_domain": true }
+    { "pattern": "relaylaunch.com/*", "zone_name": "relaylaunch.com" },
+    { "pattern": "www.relaylaunch.com/*", "zone_name": "relaylaunch.com" }
   ],
   "observability": {
     "enabled": true
