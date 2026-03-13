@@ -37,7 +37,9 @@ matching agent and explain how to activate it.
 - **What:** Collection of specialized AI agent personalities — engineering,
   design, marketing, sales — each with deep domain expertise
 - **Source:** <https://github.com/msitarzewski/agency-agents>
-- **Install:** Copy agents to `~/.claude/agents/` or use `./scripts/install.sh`
+- **Install:** Clone the repo, then copy agents to `~/.claude/agents/` for
+  Claude Code or run `./scripts/install.sh` from the cloned Agency repo
+  to install for Cursor, Copilot, Aider, or Windsurf
 - **Used in:** Both repos (relaylaunch-website, relaylaunch-control-center)
 
 ---
