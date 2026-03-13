@@ -7,9 +7,42 @@ const year = new Date().getFullYear();
 
 <footer>
   <div class="container footer-inner">
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <div class="footer-col">
+        <p class="footer-col-label">Services</p>
+        <ul role="list">
+          <li><a href="/complete-analysis">Complete Analysis</a></li>
+          <li><a href="/services#launch">Launch</a></li>
+          <li><a href="/services#run">Run</a></li>
+          <li><a href="/services#scale">Scale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Product</p>
+        <ul role="list">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/console">RelayLaunch Console</a></li>
+          <li><a href="/how-we-work">How We Work</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-label">Company</p>
+        <ul role="list">
+          <li><a href="/about">About</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/intake">Client Intake</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="footer-brand">
-      <a href="/" class="brand-link" aria-label="RelayLaunch home">
-        <img src="/logo-footer.svg" alt="RelayLaunch — Ops on Autopilot. You on Strategy." class="footer-logo-banner" width="280" height="140" />
+      <a href="/" class="footer-brand-link" aria-label="RelayLaunch home">
+        <span class="footer-brand-text">
+          <span class="footer-relay">Relay</span><span class="footer-arrow">&#x25BA;</span><span class="footer-launch">Launch</span>
+        </span>
+        <span class="footer-tagline">Ops on Autopilot. You on Strategy.</span>
       </a>
       <p class="footer-location">Watertown, MA · Serving Boston &amp; the Northeast</p>
       <a href="mailto:hello@relaylaunch.com" class="footer-email">hello@relaylaunch.com</a>
@@ -22,36 +55,6 @@ const year = new Date().getFullYear();
         </a>
       </div>
     </div>
-
-    <nav class="footer-nav" aria-label="Footer navigation">
-      <div class="footer-col">
-        <p class="footer-col-label">Services</p>
-        <ul role="list">
-          <li><a href="/complete-analysis">Complete Analysis</a></li>
-          <li><a href="/services#launch">Launch</a></li>
-          <li><a href="/services#run">Run</a></li>
-          <li><a href="/services#scale">Scale</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-col-label">Quick Links</p>
-        <ul role="list">
-          <li><a href="/services">Services</a></li>
-          <li><a href="/control-center">Control Center</a></li>
-          <li><a href="/how-we-work">How We Work</a></li>
-          <li><a href="/case-studies">Case Studies</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-col-label">Company</p>
-        <ul role="list">
-          <li><a href="/about">About</a></li>
-          <li><a href="/intake">Client Intake</a></li>
-        </ul>
-      </div>
-    </nav>
   </div>
 
   <div class="footer-bottom">
@@ -86,34 +89,103 @@ const year = new Date().getFullYear();
 
   .footer-inner {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr;
     gap: 48px;
     padding: 56px 24px 48px;
   }
 
-  .brand-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
+  .footer-nav {
+    display: flex;
+    gap: 48px;
+  }
+
+  .footer-col-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-white) 40%, transparent);
+    margin-bottom: 14px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .footer-col a {
+    font-size: 14px;
+    color: color-mix(in srgb, var(--color-white) 60%, transparent);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .footer-col a:hover {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    justify-self: end;
+  }
+
+  .footer-brand-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     text-decoration: none;
     transition: opacity 0.15s ease;
   }
 
-  .brand-link:hover {
+  .footer-brand-link:hover {
     opacity: 0.85;
     text-decoration: none;
   }
 
-  .footer-logo-banner {
-    width: 280px;
-    height: auto;
-    margin-bottom: 12px;
+  .footer-brand-text {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .footer-relay, .footer-launch {
+    color: var(--color-white);
+  }
+
+  .footer-arrow {
+    color: var(--color-primary);
+    margin: 0 3px;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .footer-brand-link:hover .footer-arrow {
+    transform: translateX(2px);
+  }
+
+  .footer-tagline {
+    font-size: 11px;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--color-white) 50%, transparent);
+    letter-spacing: 0.5px;
+    margin-top: 4px;
   }
 
   .footer-location {
     font-size: 13px;
     color: color-mix(in srgb, var(--color-white) 50%, transparent);
-    margin-top: 10px;
+    margin-top: 16px;
   }
 
   .footer-email {
@@ -160,41 +232,6 @@ const year = new Date().getFullYear();
   .social-icon {
     width: 18px;
     height: 18px;
-  }
-
-  .footer-nav {
-    display: flex;
-    gap: 48px;
-  }
-
-  .footer-col-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-white) 40%, transparent);
-    margin-bottom: 14px;
-  }
-
-  .footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
-
-  .footer-col a {
-    font-size: 14px;
-    color: color-mix(in srgb, var(--color-white) 60%, transparent);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-
-  .footer-col a:hover {
-    color: var(--color-white);
-    text-decoration: none;
   }
 
   .footer-bottom {
@@ -339,6 +376,14 @@ const year = new Date().getFullYear();
       gap: 36px;
       padding: 40px 16px 32px;
     }
+    .footer-brand {
+      align-items: flex-start;
+      text-align: left;
+      order: -1;
+    }
+    .footer-brand-link {
+      align-items: flex-start;
+    }
     .footer-nav {
       flex-wrap: wrap;
       gap: 28px;
@@ -352,9 +397,6 @@ const year = new Date().getFullYear();
       flex-direction: column;
       align-items: flex-start;
       gap: 8px;
-    }
-    .footer-logo-banner {
-      width: 220px;
     }
     .footer-signature {
       padding: 12px 16px;

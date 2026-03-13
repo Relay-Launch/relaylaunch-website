@@ -11,6 +11,7 @@ export default defineConfig({
   trailingSlash: 'always',
   redirects: {
     '/case-studies/hrc': '/case-studies/luxury-wellness-spa/',
+    '/control-center': '/console/',
   },
   integrations: [mdx(), sitemap()],
 
