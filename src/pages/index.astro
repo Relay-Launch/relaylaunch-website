@@ -257,13 +257,14 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     <div class="agents-bg-orb agents-bg-orb-2" aria-hidden="true"></div>
     <div class="container">
       <div class="reveal">
-        <div class="cc-coming-soon-badge">Coming Soon</div>
-        <span class="section-eyebrow">The RelayLaunch Control Center</span>
-        <h2 class="section-title">Six specialist agents. One unified system.</h2>
+        <span class="section-eyebrow">The Relay Method&trade;</span>
+        <h2 class="section-title">Your AI operations team. Already working.</h2>
         <p class="section-sub" style="margin-bottom: 48px;">
-          Every client gets a full operations team built into their Control Center.
-          These agents don't just respond to prompts — they monitor, build, protect,
-          and optimize your systems around the clock.
+          Every RelayLaunch client gets six specialist agents built into their
+          Control Center. They don't wait for prompts — they monitor your
+          infrastructure, ship code, enforce your brand, create content, and
+          grow your business around the clock. This is how we run our own
+          operations, and exactly what we deploy for yours.
         </p>
       </div>
 
@@ -377,11 +378,12 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
       <div class="cc-cta-block">
         <p class="cc-cta-text">
-          The Control Center is in active development. Clients on the Run and Scale
-          tiers get early access. Want to see it before launch?
+          These agents run our own business today — and they're built into every
+          client engagement. See the full agent roster, use cases, and how the
+          Control Center brings it all together.
         </p>
         <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-          <Button variant="primary" href="/contact" size="lg">Get Early Access →</Button>
+          <Button variant="primary" href="/control-center" size="lg">Explore the Control Center →</Button>
           <Button variant="outline" href="/services" size="lg">See Service Tiers</Button>
         </div>
       </div>
@@ -1568,24 +1570,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     border-color: color-mix(in srgb, var(--primary) 30%, transparent);
   }
 
-  .cc-coming-soon-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--color-white);
-    background: var(--color-primary);
-    border-radius: var(--radius-xs);
-    padding: 4px 14px;
-    margin-bottom: 16px;
-    animation: badge-pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes badge-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent); }
-    50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--primary) 0%, transparent); }
-  }
+  /* Badge pulse removed — Coming Soon badge no longer used on homepage */
 
   .cc-cta-block {
     text-align: center;
@@ -1609,6 +1594,8 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   @media (max-width: 768px) {
     .agents-grid { grid-template-columns: 1fr; }
     .agents-bg-grid { display: none; }
+    .agent-card { padding: 24px; }
+    .cc-cta-block { padding: 24px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
