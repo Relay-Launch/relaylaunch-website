@@ -25,33 +25,51 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     <div class="cc-hero-grid-bg" aria-hidden="true"></div>
     <div class="cc-hero-orb cc-hero-orb-1" aria-hidden="true"></div>
     <div class="cc-hero-orb cc-hero-orb-2" aria-hidden="true"></div>
+    <div class="cc-hero-particles" aria-hidden="true">
+      <span class="cc-particle cc-particle-1"></span>
+      <span class="cc-particle cc-particle-2"></span>
+      <span class="cc-particle cc-particle-3"></span>
+      <span class="cc-particle cc-particle-4"></span>
+      <span class="cc-particle cc-particle-5"></span>
+    </div>
     <div class="container">
       <div class="cc-hero-content">
-        <span class="section-eyebrow" style="color: var(--color-primary);">The Relay Method&trade;</span>
-        <h1 class="cc-hero-headline">
-          Six AI agents.<br />
-          <span class="text-accent">One Control Center.</span>
+        <div class="cc-launch-badge animate-fade-in-up">
+          <span class="cc-launch-pulse"></span>
+          Early Preview
+        </div>
+        <h1 class="cc-hero-headline animate-fade-in-up" style="animation-delay: 0.1s;">
+          Your entire business.<br />
+          <span class="text-accent">One intelligent dashboard.</span>
         </h1>
-        <p class="cc-hero-sub">
-          Most businesses juggle disconnected tools, manual processes, and zero
-          visibility. The RelayLaunch Control Center replaces that chaos with an
-          intelligent operations system — six specialist agents that monitor, build,
-          protect, and grow your business around the clock.
+        <p class="cc-hero-sub animate-fade-in-up" style="animation-delay: 0.2s;">
+          Six AI agents. Zero manual work. The RelayLaunch Control Center is the
+          operations platform we built for ourselves — and it's about to be available
+          to every client. One dashboard that monitors, builds, protects, and grows
+          your business while you sleep.
         </p>
-        <p class="cc-hero-proof">
-          This isn't a concept. We run our own business on this system today, and
-          it's built into every client engagement.
-        </p>
-        <div class="cc-waitlist-block" style="margin-top: 36px;">
-          <div class="cc-waitlist-badge-row">
-            <span class="cc-waitlist-badge">Early Preview</span>
+        <div class="cc-hero-stats animate-fade-in-up" style="animation-delay: 0.3s;">
+          <div class="cc-hero-stat">
+            <span class="cc-hero-stat-number">6</span>
+            <span class="cc-hero-stat-label">AI Agents</span>
           </div>
+          <div class="cc-hero-stat-divider"></div>
+          <div class="cc-hero-stat">
+            <span class="cc-hero-stat-number">24/7</span>
+            <span class="cc-hero-stat-label">Autonomous Ops</span>
+          </div>
+          <div class="cc-hero-stat-divider"></div>
+          <div class="cc-hero-stat">
+            <span class="cc-hero-stat-number">1</span>
+            <span class="cc-hero-stat-label">Dashboard</span>
+          </div>
+        </div>
+        <div class="cc-waitlist-block animate-fade-in-up" style="animation-delay: 0.4s;">
           <h3 class="cc-waitlist-headline">Your AI operations team is almost ready.</h3>
           <p class="cc-waitlist-pitch">
-            We're building the Control Center with a small group of business owners
-            who are tired of duct-taping their ops together. Six specialist agents.
-            One dashboard. Zero busywork. Join the waitlist and you could be in the
-            first preview group to put it to work.
+            We're hand-picking the first group of business owners to put the
+            Control Center to work. Join the waitlist and you could be in the
+            first preview group.
           </p>
           <form id="waitlist-form-cc" class="cc-waitlist-form" data-webhook={waitlistWebhookUrl} novalidate>
             <div class="cc-waitlist-fields">
@@ -61,7 +79,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
               <input type="email" id="waitlist-email-cc" name="email" required autocomplete="email" placeholder="you@company.com" class="cc-waitlist-input" />
             </div>
             <button type="submit" class="cc-waitlist-submit">Join the Waitlist <span>&rarr;</span></button>
-            <p class="cc-waitlist-fine-print">*Early Preview slots are limited and granted on a rolling basis. No commitment required — we just want to make sure it's the right fit.</p>
+            <p class="cc-waitlist-fine-print">*Early Preview slots are limited and granted on a rolling basis. No commitment required.</p>
           </form>
           <div id="waitlist-success-cc" class="cc-waitlist-success" role="status" aria-live="polite" hidden>
             <p class="cc-waitlist-success-title">You're in.</p>
@@ -71,15 +89,18 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             <p class="cc-waitlist-error-text">Something went wrong. Please try again.</p>
           </div>
         </div>
-        <div class="hero-actions" style="margin-top: 20px;">
-          <Button variant="outline" href="/services" size="lg">See Service Tiers</Button>
+        <div class="hero-actions animate-fade-in-up" style="animation-delay: 0.5s;">
+          <a href="#how-it-works" class="cc-hero-btn-outline">See How It Works <span class="cc-btn-arrow">&darr;</span></a>
         </div>
+        <p class="cc-hero-proof animate-fade-in-up" style="animation-delay: 0.55s;">
+          Already running our own operations. Launching to clients March 2026.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════ HOW IT WORKS OVERVIEW -->
-  <section class="section">
+  <section class="section" id="how-it-works">
     <div class="container">
       <div class="reveal">
         <span class="section-eyebrow">How It Works</span>
@@ -539,18 +560,29 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 
   <!-- ═══════════════════════════════════════════════ CTA -->
   <section class="section cc-cta-section">
+    <div class="cc-cta-grid-bg" aria-hidden="true"></div>
     <div class="container cc-cta-inner reveal">
-      <span class="section-eyebrow" style="color: var(--color-primary);">Ready to Upgrade Your Ops?</span>
-      <h2 class="section-title" style="font-size: clamp(24px, 3.5vw, 38px); max-width: var(--container-narrow);">
-        Replace scattered tools with one intelligent system.
+      <div class="cc-launch-badge cc-launch-badge-light" style="margin-bottom: 24px;">
+        <span class="cc-launch-pulse"></span>
+        Launching March 2026
+      </div>
+      <h2 class="section-title" style="font-size: clamp(26px, 4vw, 44px); max-width: var(--container-narrow); color: var(--color-white);">
+        Be the first to run your business<br />on autopilot.
       </h2>
-      <p style="color: var(--color-muted); margin-top: 16px; margin-bottom: 32px; max-width: var(--text-width-sm);">
-        Start with a Complete Analysis to map your current operations, or jump
-        straight to a conversation about what your Control Center could look like.
+      <p style="color: color-mix(in srgb, var(--color-white) 70%, transparent); margin-top: 16px; margin-bottom: 16px; max-width: var(--text-width-sm); font-size: 17px; line-height: 1.65;">
+        We're opening early access to a limited number of businesses. Get in before
+        launch and lock in founding member pricing.
       </p>
-      <div class="hero-actions">
-        <Button variant="primary" href="/contact" size="lg">Start a Project →</Button>
-        <Button variant="outline" href="/complete-analysis" size="lg">Book a Complete Analysis</Button>
+      <div class="cc-cta-urgency">
+        <span class="cc-urgency-item">Limited early access spots</span>
+        <span class="cc-urgency-divider">&middot;</span>
+        <span class="cc-urgency-item">Founding member pricing</span>
+        <span class="cc-urgency-divider">&middot;</span>
+        <span class="cc-urgency-item">Priority onboarding</span>
+      </div>
+      <div class="hero-actions" style="margin-top: 32px;">
+        <a href="/contact" class="cc-hero-btn-primary">Claim Early Access <span class="cc-btn-arrow">&rarr;</span></a>
+        <a href="/complete-analysis" class="cc-hero-btn-outline" style="border-color: color-mix(in srgb, var(--color-white) 30%, transparent); color: var(--color-white);">Start with a Complete Analysis</a>
       </div>
     </div>
   </section>
@@ -1315,23 +1347,6 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     border-color: color-mix(in srgb, var(--color-muted) 25%, transparent);
   }
 
-  /* ── CTA ── */
-  .cc-cta-section {
-    background: linear-gradient(135deg,
-      var(--color-surface) 0%,
-      color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)) 50%,
-      var(--color-surface) 100%
-    );
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cc-cta-inner {
-    max-width: 700px;
-    position: relative;
-    z-index: 1;
-  }
-
   /* ── Scroll Reveal ── */
   .scroll-hidden {
     opacity: 0;
@@ -1422,12 +1437,242 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     .cc-feed-time { min-width: auto; }
   }
 
+  /* ── Launch badge ── */
+  .cc-launch-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+    border-radius: 40px;
+    margin-bottom: 28px;
+  }
+
+  .cc-launch-badge-light {
+    color: var(--color-white);
+    background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+    border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+  }
+
+  .cc-launch-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 6px var(--color-primary);
+    animation: cc-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes cc-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--color-primary); }
+    50% { opacity: 0.4; box-shadow: 0 0 16px var(--color-primary); }
+  }
+
+  /* ── Hero stats ── */
+  .cc-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 32px 0;
+    padding: 20px 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+  }
+
+  .cc-hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cc-hero-stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .cc-hero-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: color-mix(in srgb, var(--color-white) 60%, transparent);
+  }
+
+  .cc-hero-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: color-mix(in srgb, var(--color-white) 15%, transparent);
+  }
+
+  /* ── Hero CTA buttons ── */
+  .cc-hero-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--color-primary) 40%, transparent);
+    animation: cc-cta-glow 3s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .cc-hero-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px color-mix(in srgb, var(--color-primary) 55%, transparent);
+    text-decoration: none;
+    color: var(--color-white);
+    animation: none;
+  }
+
+  @keyframes cc-cta-glow {
+    0%, 100% { box-shadow: 0 4px 20px color-mix(in srgb, var(--color-primary) 40%, transparent); }
+    50% { box-shadow: 0 4px 32px color-mix(in srgb, var(--color-primary) 60%, transparent); }
+  }
+
+  .cc-hero-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid color-mix(in srgb, var(--color-primary) 50%, transparent);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+  }
+
+  .cc-hero-btn-outline:hover {
+    background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+
+  .cc-btn-arrow {
+    display: inline-flex;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+    font-size: 18px;
+  }
+
+  .cc-hero-btn-primary:hover .cc-btn-arrow,
+  .cc-hero-btn-outline:hover .cc-btn-arrow { transform: translateX(4px); }
+
+  /* ── Floating particles ── */
+  .cc-hero-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+  .cc-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    opacity: 0.3;
+  }
+
+  .cc-particle-1 { top: 20%; right: 15%; animation: cc-float-1 8s ease-in-out infinite; }
+  .cc-particle-2 { top: 60%; right: 25%; animation: cc-float-2 12s ease-in-out infinite; opacity: 0.2; }
+  .cc-particle-3 { top: 40%; right: 8%; animation: cc-float-1 10s ease-in-out infinite 2s; width: 2px; height: 2px; }
+  .cc-particle-4 { top: 75%; right: 35%; animation: cc-float-2 9s ease-in-out infinite 1s; opacity: 0.15; }
+  .cc-particle-5 { top: 15%; right: 30%; animation: cc-float-1 14s ease-in-out infinite 3s; width: 4px; height: 4px; opacity: 0.2; }
+
+  @keyframes cc-float-1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, -30px); }
+  }
+  @keyframes cc-float-2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(15px, 25px); }
+  }
+
+  /* ── CTA section ── */
+  .cc-cta-section {
+    background: var(--color-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cc-cta-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--primary) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--primary) 4%, transparent) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .cc-cta-inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cc-cta-urgency {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .cc-urgency-item {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 0.3px;
+  }
+
+  .cc-urgency-divider {
+    color: color-mix(in srgb, var(--color-white) 30%, transparent);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+
+  @media (max-width: 768px) {
+    .cc-hero-stats { gap: 20px; flex-wrap: wrap; }
+    .cc-hero-stat-number { font-size: 22px; }
+    .cc-hero-btn-primary,
+    .cc-hero-btn-outline { width: 100%; justify-content: center; padding: 14px 24px; font-size: 15px; }
+    .cc-cta-urgency { flex-direction: column; gap: 6px; }
+    .cc-urgency-divider { display: none; }
+    .cc-hero-particles { display: none; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .cc-hero-grid-bg,
     .cc-hero-orb,
     .cc-agents-bg-grid,
     .cc-agents-orb { animation: none; }
     .cc-status-dot { animation: none; }
+    .cc-launch-pulse { animation: none; }
+    .cc-particle { animation: none; }
+    .cc-hero-btn-primary { animation: none; }
   }
 
   /* ── Waitlist Block (Hero) ── */
