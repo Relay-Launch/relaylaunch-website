@@ -318,7 +318,7 @@ automations, email, social, dashboard).
 **Workflow:**
 1. *pm plans the monthly deliverables and priorities
 2. Content Creator produces blog posts, social content, and copy
-3. SEO *pm audits and optimizes search performance
+3. BMAD *pm (SEO) audits and optimizes search performance
 4. *qa audits brand compliance on all new content
 
 ### 📈 Scale Growth Specialist
@@ -328,7 +328,7 @@ automations, email, social, dashboard).
 **Workflow:**
 1. *pm sets quarterly growth OKRs and sprint plans
 2. Growth Hacker designs experiments and conversion funnels
-3. PPC Strategist manages paid acquisition channels
+3. PPC Campaign Strategist manages paid acquisition channels
 4. Content Creator produces high-volume content assets
 
 ### 🛡️ Brand Guardian Specialist
