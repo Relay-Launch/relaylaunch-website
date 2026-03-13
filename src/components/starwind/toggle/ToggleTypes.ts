@@ -5,10 +5,3 @@ export interface ToggleChangeEvent extends CustomEvent {
     syncGroup?: string;
   };
 }
-
-export interface ToggleSyncEvent extends CustomEvent {
-  detail: {
-    pressed: boolean;
-    sourceId: string;
-  };
-}
