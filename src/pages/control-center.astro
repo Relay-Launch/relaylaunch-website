@@ -8,7 +8,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 <Layout
   title="Control Center | RelayLaunch — AI Agents & Unified Operations"
   description="Six specialist AI agents. One unified dashboard. The RelayLaunch Control Center replaces scattered tools with an intelligent operations system that monitors, builds, protects, and grows your business."
-  canonicalUrl="https://www.relaylaunch.com/control-center"
+  canonicalUrl="https://www.relaylaunch.com/control-center/"
   jsonLd={[
     {
       '@context': 'https://schema.org',
@@ -72,6 +72,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             name in and we'll reach out.
           </p>
           <form id="waitlist-form-cc" class="cc-waitlist-form" data-webhook={waitlistWebhookUrl} novalidate>
+            <div class="hp-field" aria-hidden="true"><label for="cc-website">Website</label><input type="text" id="cc-website" name="website" tabindex="-1" autocomplete="off" /></div>
             <div class="cc-waitlist-fields">
               <label for="waitlist-name-cc" class="sr-only">Name</label>
               <input type="text" id="waitlist-name-cc" name="name" required autocomplete="name" placeholder="Your name" class="cc-waitlist-input" />
@@ -628,10 +629,22 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
       submitBtn.textContent = 'Submitting\u2026';
     }
 
-    const webhook = wlForm.dataset.webhook;
-    if (!webhook || webhook === '#') {
+    // Check for honeypot - if filled, silently "succeed" to fool bots
+    const honeypot = wlForm.querySelector('input[name="website"]') as HTMLInputElement;
+    if (honeypot?.value) {
       wlForm.hidden = true;
       wlSuccess.hidden = false;
+      return;
+    }
+
+    const webhook = wlForm.dataset.webhook;
+    if (!webhook || webhook === '#') {
+      // Webhook not configured - show error instead of false promise
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+      }
+      wlError.hidden = false;
       return;
     }
 

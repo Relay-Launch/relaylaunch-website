@@ -166,6 +166,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             data-webhook={webhookUrl}
             novalidate
           >
+            <div class="hp-field" aria-hidden="true"><label for="lm-website">Website</label><input type="text" id="lm-website" name="website" tabindex="-1" autocomplete="off" /></div>
             <div class="form-field">
               <label for="lm-name">Name</label>
               <input type="text" id="lm-name" name="name" required autocomplete="name" placeholder="Your name" />
@@ -456,6 +457,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             system before we open it up. Drop your email if you want in.
           </p>
           <form id="waitlist-form-home" class="waitlist-form" data-webhook={waitlistWebhookUrl} novalidate>
+            <div class="hp-field" aria-hidden="true"><label for="wl-website">Website</label><input type="text" id="wl-website" name="website" tabindex="-1" autocomplete="off" /></div>
             <div class="waitlist-input-group">
               <label for="waitlist-email-home" class="sr-only">Email address</label>
               <input type="email" id="waitlist-email-home" name="email" required autocomplete="email" placeholder="you@company.com" class="waitlist-input" />
@@ -1059,6 +1061,14 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 
     if (!name || !email) return;
 
+    // Check for honeypot
+    const honeypot = form.querySelector('input[name="website"]') as HTMLInputElement;
+    if (honeypot?.value) {
+      form.hidden = true;
+      success.hidden = false;
+      return;
+    }
+
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn?.textContent || '';
     if (submitBtn) {
@@ -1105,8 +1115,10 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
   function calcROI() {
     const tools = parseFloat((document.getElementById('roi-tools') as HTMLInputElement)?.value) || 0;
     const hours = parseFloat((document.getElementById('roi-hours') as HTMLInputElement)?.value) || 0;
+    const numTools = parseFloat((document.getElementById('roi-num-tools') as HTMLInputElement)?.value) || 1;
     const rate = parseFloat((document.getElementById('roi-rate') as HTMLInputElement)?.value) || 0;
-    const toolSavings = Math.round((tools - 51) * 12);
+    const consolidationRate = Math.min(0.6, numTools * 0.08);
+    const toolSavings = Math.round(tools * consolidationRate * 12);
     const timeValue = Math.round(hours * rate * 52);
     const total = toolSavings + timeValue;
     const fmt = (n: number) => '$' + Math.abs(n).toLocaleString();
@@ -1195,10 +1207,22 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
         submitBtn.textContent = 'Submitting\u2026';
       }
 
-      const webhook = wlForm.dataset.webhook;
-      if (!webhook || webhook === '#') {
+      // Check for honeypot - if filled, silently "succeed" to fool bots
+      const honeypot = wlForm.querySelector('input[name="website"]') as HTMLInputElement;
+      if (honeypot?.value) {
         wlForm.hidden = true;
         wlSuccess.hidden = false;
+        return;
+      }
+
+      const webhook = wlForm.dataset.webhook;
+      if (!webhook || webhook === '#') {
+        // Webhook not configured - show error instead of false promise
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+        wlError.hidden = false;
         return;
       }
 

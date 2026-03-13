@@ -64,6 +64,7 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
   <section class="section form-section">
     <div class="container">
       <form id="intake-form" class="intake-form" data-webhook={webhookUrl} novalidate>
+        <div class="hp-field" aria-hidden="true"><label for="intake-website">Website</label><input type="text" id="intake-website" name="website" tabindex="-1" autocomplete="off" /></div>
 
         <!-- STEP 1: Business Overview -->
         <div class="form-step active" data-form-step="1">
@@ -517,6 +518,13 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!validateStep(currentStep)) return;
+
+    // Check for honeypot
+    const honeypot = form.querySelector('input[name="website"]') as HTMLInputElement;
+    if (honeypot?.value) {
+      form.hidden = true;
+      return;
+    }
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting\u2026';

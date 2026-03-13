@@ -536,6 +536,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
             data-webhook={webhookUrl}
             novalidate
           >
+            <div class="hp-field" aria-hidden="true"><label for="ca-website">Website</label><input type="text" id="ca-website" name="website" tabindex="-1" autocomplete="off" /></div>
             <div class="ca-form-row">
               <div class="ca-form-field">
                 <label for="ca-name">Your Name</label>
@@ -635,6 +636,14 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim();
 
     if (!name || !email) return;
+
+    // Check for honeypot
+    const honeypot = form.querySelector('input[name="website"]') as HTMLInputElement;
+    if (honeypot?.value) {
+      form.hidden = true;
+      successDiv.hidden = false;
+      return;
+    }
 
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn?.textContent || '';
