@@ -1,10 +1,10 @@
 ---
 const navLinks = [
   { label: 'Services', href: '/services' },
+  { label: 'Control Center', href: '/control-center' },
   { label: 'How We Work', href: '/how-we-work' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Client Intake', href: '/intake' },
   { label: 'About', href: '/about' },
 ];
 
@@ -26,6 +26,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
 <header>
   <nav class="nav-inner container">
     <a href="/" class="nav-brand" aria-label="RelayLaunch home">
+      <img src="/logo-square.svg" alt="RelayLaunch" class="nav-logo" width="36" height="36" />
       <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
     </a>
 
@@ -133,6 +134,9 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   }
 
   .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 18px;
     font-weight: 800;
     text-decoration: none;
@@ -144,6 +148,13 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   .nav-brand:hover {
     opacity: 0.85;
     text-decoration: none;
+  }
+
+  .nav-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    flex-shrink: 0;
   }
 
   .brand-relay, .brand-launch { color: var(--color-text); }
@@ -340,10 +351,13 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   }
 
   @media (max-width: 768px) {
+    .nav-inner { height: 56px; gap: 12px; }
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .mobile-nav { display: block; }
     .nav-cta { display: none; }
     .nav-theme-toggle { display: none; }
+    .nav-brand { font-size: 16px; gap: 8px; }
+    .nav-logo { width: 32px; height: 32px; }
   }
 </style>
