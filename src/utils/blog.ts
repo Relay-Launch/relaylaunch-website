@@ -20,15 +20,6 @@ export async function getPublishedPosts() {
 }
 
 /**
- * Get a limited number of recent published posts
- * @param limit Maximum number of posts to return
- */
-export async function getRecentPosts(limit: number) {
-  const posts = await getPublishedPosts();
-  return posts.slice(0, limit);
-}
-
-/**
  * Estimate reading time based on word count (avg 238 words per minute)
  * @param text Raw text content of the post
  * @returns Human-readable reading time (e.g., "4 min read")

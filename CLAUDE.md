@@ -3,7 +3,7 @@
 ## Project Overview
 RelayLaunch (relaylaunch.com) is a veteran-owned digital infrastructure
 consultancy website. Built with Astro 5 + Tailwind CSS 4.2 + MDX.
-Deployed to Cloudflare via wrangler (CI: GitHub Actions → wrangler deploy).
+Deployed to Cloudflare via wrangler (CI: GitHub Actions -> wrangler deploy).
 Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
 Live URL: https://www.relaylaunch.com
 
@@ -12,23 +12,23 @@ Live URL: https://www.relaylaunch.com
 - Accent: Electric Blue #007AFF (CTAs, links, hover states ONLY)
 - Background: White #FFFFFF
 - Alt sections: Light Gray #F8FAFC
-- Font: Arial, Helvetica, sans-serif — NO other fonts
+- Font: Arial, Helvetica, sans-serif - NO other fonts
 - Tagline: "Launch your digital infrastructure, without pausing your business."
 - Voice: Direct, confident, accessible, action-oriented, veteran precision
 - DO NOT use green, orange, or any color outside this 4-color system
 
 ## Service Tiers (Canonical Names)
-- Complete Analysis ($1,500–$3,000) — entry point, diagnostic engagement
-- Launch ($2,500–$5,000) — one-time project build
-- Run ($500–$1,000/mo) — monthly retainer, 3-month min
-- Scale ($1,000–$2,500/mo) — premium retainer, 6-month min
+- Complete Analysis ($1,500-$3,000) - entry point, diagnostic engagement
+- Launch ($2,500-$5,000) - one-time project build
+- Run ($500-$1,000/mo) - monthly retainer, 3-month min
+- Scale ($1,000-$2,500/mo) - premium retainer, 6-month min
 
 ## Tech Stack
 - Framework: Astro 5 (static output, islands architecture)
 - Styling: Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - Content: MDX blog posts via Astro Content Collections
 - Deployment: Cloudflare Workers via wrangler deploy
-- CI/CD: GitHub Actions (.github/workflows/astro.yml → wrangler deploy)
+- CI/CD: GitHub Actions (.github/workflows/astro.yml -> wrangler deploy)
 - Domain: relaylaunch.com (Registrar: Porkbun, DNS: Cloudflare)
 - Custom Domains: relaylaunch.com + www.relaylaunch.com (both via Workers custom domains in wrangler.jsonc)
 - Adapter: @astrojs/cloudflare
@@ -38,28 +38,28 @@ Live URL: https://www.relaylaunch.com
 - DNS: Cloudflare (nameservers: lindsey.ns.cloudflare.com, steven.ns.cloudflare.com)
 - Zone ID: 1113a607a714b1f4f3467003a78175fa
 - Both apex (relaylaunch.com) and www are served by Workers custom domains
-- Workers custom domains REQUIRE Cloudflare DNS — do NOT move DNS away from Cloudflare
+- Workers custom domains REQUIRE Cloudflare DNS - do NOT move DNS away from Cloudflare
 - Email: MX records point to Porkbun forwarding (fwd1/fwd2.porkbun.com) + smtp.google.com
 - DKIM/DMARC/SPF configured for Google Workspace email
 - API token requires these permissions: Workers Edit, Workers Routes Edit, Zone Read, DNS Edit
 
 ## Commands
-- npm ci — install dependencies
-- npm run dev — start dev server at localhost:4321
-- npm run build — production build to dist/
-- npm run preview — build + wrangler dev (local Cloudflare preview)
-- npm run deploy — build + wrangler deploy (push to production)
+- npm ci - install dependencies
+- npm run dev - start dev server at localhost:4321
+- npm run build - production build to dist/
+- npm run preview - build + wrangler dev (local Cloudflare preview)
+- npm run deploy - build + wrangler deploy (push to production)
 
 ## Project Structure
-- src/pages/ — Astro page routes
-- src/content/blog/ — MDX blog posts with frontmatter schema
-- src/components/ — Reusable Astro components (Nav, Footer, SEO)
-- src/components/starwind/ — Starwind design system components
-- src/components/layouts/ — BaseLayout.astro, BlogPostLayout.astro
-- src/layouts/ — Page layout wrapper (Layout.astro)
-- src/styles/ — Global CSS (global.css, starwind.css)
-- src/utils/ — Utility functions (blog.ts)
-- public/ — Static assets (favicon, robots.txt, og-default.png)
+- src/pages/ - Astro page routes
+- src/content/blog/ - MDX blog posts with frontmatter schema
+- src/components/ - Reusable Astro components (Nav, Footer, SEO)
+- src/components/starwind/ - Starwind design system components
+- src/components/layouts/ - BaseLayout.astro, BlogPostLayout.astro
+- src/layouts/ - Page layout wrapper (Layout.astro)
+- src/styles/ - Global CSS (global.css, starwind.css)
+- src/utils/ - Utility functions (blog.ts)
+- public/ - Static assets (favicon, robots.txt, og-default.png)
 
 ## Code Standards
 - Every page: unique <title>, <meta description>, Open Graph tags
@@ -67,7 +67,7 @@ Live URL: https://www.relaylaunch.com
 - Responsive: mobile-first, breakpoints 640/768/1024px
 - Accessibility: WCAG AA, proper heading hierarchy, alt text
 - Use Astro <Image> with lazy loading for all images
-- Zero unnecessary client-side JS — Astro static-first
+- Zero unnecessary client-side JS - Astro static-first
 - Internal links use root-relative paths (/services, /contact)
 - Commit messages: conventional commits (feat:, fix:, chore:)
 
@@ -85,7 +85,7 @@ When working as a teammate in an agent team:
 - Check the task list before starting new work
 - Module boundaries: pages are self-contained, components are shared
 - Do NOT modify .github/workflows/ unless explicitly asked
-- Lock brand colors — never introduce new colors
+- Lock brand colors - never introduce new colors
 - PR branches: claude/description-XXXXX format
 
 ## Known Issues
