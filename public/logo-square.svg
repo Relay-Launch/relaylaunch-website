@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#0F172A"/>
+
+  <!-- Outer circle -->
+  <circle cx="200" cy="175" r="110" stroke="#007AFF" stroke-width="2.5" fill="none" opacity="0.6"/>
+
+  <!-- Dashed orbit ring -->
+  <circle cx="200" cy="175" r="96" stroke="#007AFF" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.35"/>
+
+  <!-- RL Monogram -->
+  <text x="160" y="198" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="900" fill="#007AFF" letter-spacing="-2">RL</text>
+
+  <!-- Rocket accent -->
+  <path d="M218 128 L223 114 L228 128 Z" fill="#007AFF" opacity="0.9"/>
+  <circle cx="223" cy="107" r="3.5" fill="#007AFF" opacity="0.7"/>
+
+  <!-- Growth arrow -->
+  <path d="M232 165 L252 142 L247 152 L262 138" stroke="#007AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="237" cy="160" r="2.5" fill="#007AFF" opacity="0.6"/>
+  <circle cx="247" cy="150" r="2.5" fill="#007AFF" opacity="0.6"/>
+
+  <!-- Circuit nodes at bottom -->
+  <line x1="200" y1="248" x2="200" y2="280" stroke="#007AFF" stroke-width="1.5" opacity="0.4"/>
+  <circle cx="200" cy="252" r="3" fill="#007AFF" opacity="0.5"/>
+  <circle cx="200" cy="280" r="5" fill="none" stroke="#007AFF" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Brand name -->
+  <text x="117" y="330" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" letter-spacing="0.5">
+    <tspan fill="#FFFFFF">Relay</tspan><tspan fill="#007AFF" font-size="20">&#x25BA;</tspan><tspan fill="#FFFFFF">Launch</tspan>
+  </text>
+
+  <!-- Divider -->
+  <line x1="117" y1="342" x2="283" y2="342" stroke="#FFFFFF" stroke-width="1" opacity="0.3"/>
+
+  <!-- Slogan -->
+  <text x="200" y="367" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" fill="#007AFF" text-anchor="middle" letter-spacing="0.5" opacity="0.9">Ops on Autopilot. You on Strategy.</text>
+
+  <!-- Particle dots -->
+  <circle cx="275" cy="95" r="1.5" fill="#007AFF" opacity="0.3"/>
+  <circle cx="125" cy="105" r="1.5" fill="#007AFF" opacity="0.25"/>
+  <circle cx="295" cy="115" r="1" fill="#007AFF" opacity="0.2"/>
+</svg>
