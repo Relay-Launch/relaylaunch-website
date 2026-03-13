@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
+
+const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 ---
 
 <Layout
@@ -34,7 +36,7 @@ import { Button } from '@/components/starwind/button';
       <div class="cc-hero-content">
         <div class="cc-launch-badge animate-fade-in-up">
           <span class="cc-launch-pulse"></span>
-          Launching This Month
+          Early Preview
         </div>
         <h1 class="cc-hero-headline animate-fade-in-up" style="animation-delay: 0.1s;">
           Your entire business.<br />
@@ -62,11 +64,35 @@ import { Button } from '@/components/starwind/button';
             <span class="cc-hero-stat-label">Dashboard</span>
           </div>
         </div>
-        <div class="hero-actions animate-fade-in-up" style="animation-delay: 0.4s;">
-          <a href="/contact" class="cc-hero-btn-primary">Get Early Access <span class="cc-btn-arrow">&rarr;</span></a>
+        <div class="cc-waitlist-block animate-fade-in-up" style="animation-delay: 0.4s;">
+          <h3 class="cc-waitlist-headline">Your AI operations team is almost ready.</h3>
+          <p class="cc-waitlist-pitch">
+            We're hand-picking the first group of business owners to put the
+            Control Center to work. Join the waitlist and you could be in the
+            first preview group.
+          </p>
+          <form id="waitlist-form-cc" class="cc-waitlist-form" data-webhook={waitlistWebhookUrl} novalidate>
+            <div class="cc-waitlist-fields">
+              <label for="waitlist-name-cc" class="sr-only">Name</label>
+              <input type="text" id="waitlist-name-cc" name="name" required autocomplete="name" placeholder="Your name" class="cc-waitlist-input" />
+              <label for="waitlist-email-cc" class="sr-only">Email address</label>
+              <input type="email" id="waitlist-email-cc" name="email" required autocomplete="email" placeholder="you@company.com" class="cc-waitlist-input" />
+            </div>
+            <button type="submit" class="cc-waitlist-submit">Join the Waitlist <span>&rarr;</span></button>
+            <p class="cc-waitlist-fine-print">*Early Preview slots are limited and granted on a rolling basis. No commitment required.</p>
+          </form>
+          <div id="waitlist-success-cc" class="cc-waitlist-success" role="status" aria-live="polite" hidden>
+            <p class="cc-waitlist-success-title">You're in.</p>
+            <p class="cc-waitlist-success-text">We're reviewing waitlist requests now and will reach out when your preview access is ready.</p>
+          </div>
+          <div id="waitlist-error-cc" class="cc-waitlist-error" role="alert" aria-live="assertive" hidden>
+            <p class="cc-waitlist-error-text">Something went wrong. Please try again.</p>
+          </div>
+        </div>
+        <div class="hero-actions animate-fade-in-up" style="animation-delay: 0.5s;">
           <a href="#how-it-works" class="cc-hero-btn-outline">See How It Works <span class="cc-btn-arrow">&darr;</span></a>
         </div>
-        <p class="cc-hero-proof animate-fade-in-up" style="animation-delay: 0.45s;">
+        <p class="cc-hero-proof animate-fade-in-up" style="animation-delay: 0.55s;">
           Already running our own operations. Launching to clients March 2026.
         </p>
       </div>
@@ -576,6 +602,62 @@ import { Button } from '@/components/starwind/button';
   document.querySelectorAll('.reveal, .reveal-stagger > *').forEach(el => {
     el.classList.add('scroll-hidden');
     revealObserver.observe(el);
+  });
+
+  // ── Waitlist Form Handler ──
+  const wlForm = document.getElementById('waitlist-form-cc') as HTMLFormElement;
+  const wlSuccess = document.getElementById('waitlist-success-cc') as HTMLElement;
+  const wlError = document.getElementById('waitlist-error-cc') as HTMLElement;
+
+  wlForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    wlError.hidden = true;
+
+    const nameInput = wlForm.querySelector('input[name="name"]') as HTMLInputElement;
+    const emailInput = wlForm.querySelector('input[name="email"]') as HTMLInputElement;
+    const name = nameInput?.value.trim();
+    const email = emailInput?.value.trim();
+
+    if (!name) { nameInput.focus(); nameInput.reportValidity(); return; }
+    if (!email || !emailInput.validity.valid) { emailInput.focus(); emailInput.reportValidity(); return; }
+
+    const submitBtn = wlForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalHTML = submitBtn?.innerHTML || '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting\u2026';
+    }
+
+    const webhook = wlForm.dataset.webhook;
+    if (!webhook || webhook === '#') {
+      wlForm.hidden = true;
+      wlSuccess.hidden = false;
+      return;
+    }
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+      const res = await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, source: 'control-center-waitlist', page: 'control-center' }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+      if (!res.ok) throw new Error('Webhook error');
+
+      wlForm.hidden = true;
+      wlSuccess.hidden = false;
+    } catch {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalHTML;
+      }
+      wlError.hidden = false;
+    }
   });
 </script>
 
@@ -1591,5 +1673,146 @@ import { Button } from '@/components/starwind/button';
     .cc-launch-pulse { animation: none; }
     .cc-particle { animation: none; }
     .cc-hero-btn-primary { animation: none; }
+  }
+
+  /* ── Waitlist Block (Hero) ── */
+  .cc-waitlist-block {
+    max-width: 540px;
+    text-align: left;
+  }
+
+  .cc-waitlist-badge-row {
+    margin-bottom: 12px;
+  }
+
+  .cc-waitlist-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  .cc-waitlist-headline {
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 10px;
+  }
+
+  .cc-waitlist-pitch {
+    font-size: 15px;
+    color: color-mix(in srgb, var(--color-white) 70%, transparent);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .cc-waitlist-form {
+    max-width: 440px;
+  }
+
+  .cc-waitlist-fields {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .cc-waitlist-input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid color-mix(in srgb, var(--color-white) 20%, transparent);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--color-white) 8%, transparent);
+    color: var(--color-white);
+    outline: none;
+    min-width: 0;
+  }
+
+  .cc-waitlist-input::placeholder {
+    color: color-mix(in srgb, var(--color-white) 40%, transparent);
+  }
+
+  .cc-waitlist-input:focus {
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-white) 12%, transparent);
+  }
+
+  .cc-waitlist-submit {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .cc-waitlist-submit:hover {
+    background: color-mix(in srgb, var(--color-primary) 85%, #000);
+    transform: translateY(-1px);
+  }
+
+  .cc-waitlist-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .cc-waitlist-fine-print {
+    font-size: 12px;
+    color: color-mix(in srgb, var(--color-white) 40%, transparent);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  .cc-waitlist-success {
+    padding: 24px 0;
+  }
+
+  .cc-waitlist-success-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 8px;
+  }
+
+  .cc-waitlist-success-text {
+    font-size: 15px;
+    color: color-mix(in srgb, var(--color-white) 70%, transparent);
+    line-height: 1.55;
+  }
+
+  .cc-waitlist-error {
+    padding: 16px 0;
+  }
+
+  .cc-waitlist-error-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+
+  @media (max-width: 640px) {
+    .cc-waitlist-fields {
+      flex-direction: column;
+    }
+    .cc-waitlist-block {
+      text-align: center;
+    }
+    .cc-waitlist-form {
+      margin: 0 auto;
+    }
   }
 </style>
