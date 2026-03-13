@@ -120,6 +120,26 @@ Set in Cloudflare Pages dashboard or `.env` locally (see `.env.example`):
 - **Dark mode:** Supported via ThemeToggle component
 - **Accessibility:** WCAG AA — skip-to-content, focus-visible, keyboard navigation
 
+## Ecosystem
+
+RelayLaunch uses a multi-repo architecture:
+
+| Repository | Purpose |
+|------------|---------|
+| **relaylaunch-website** (this repo) | Public-facing marketing site — services, blog, lead capture |
+| [**relaylaunch-control-center**](https://github.com/Relay-Launch/relaylaunch-control-center) | Internal Command Center — client dashboard, operations tools |
+
+### Blueprints for AI-Assisted Development
+
+Both repos maintain a `docs/blueprints/` folder for architecture documents,
+API contracts, and feature specs. When starting an AI-assisted build session:
+
+1. Add your spec documents to `docs/blueprints/`
+2. Point the AI tool at the folder (e.g., `@docs/blueprints` in Claude Code)
+3. The AI uses those documents as context for implementation
+
+See [`docs/blueprints/README.md`](docs/blueprints/README.md) for full details.
+
 ## Contributing
 
 1. Create a feature branch: `git checkout -b claude/description-XXXXX`

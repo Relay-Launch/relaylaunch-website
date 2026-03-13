@@ -71,7 +71,47 @@ Live URL: https://www.relaylaunch.com
 - Internal links use root-relative paths (/services, /contact)
 - Commit messages: conventional commits (feat:, fix:, chore:)
 
-## BMAD Agent Roles
+## AI Agents & Tools — The Relay Method™
+This repo uses The Relay Method™ — RelayLaunch's branded AI agent
+orchestration framework. See `docs/agents.md` for the full registry,
+all triggers, and specialist role definitions.
+
+### Quick Triggers
+Type any trigger in your prompt to activate the matching specialist:
+- `/architect` — Architecture review & structure validation
+- `/audit` — Full brand compliance audit
+- `/brandfix` — Find & fix brand color violations
+- `/prettify` — Aesthetic polish with brand compliance
+- `/seo` — SEO audit with prioritized fixes
+- `/build` — Implement features, fix bugs, write code
+- `/plan` — Requirements, prioritization, roadmap
+- `/research` — Research, discovery, competitive analysis
+- `/sprint` — Story creation, sprint planning
+- `/qa` — Testing, audit, compliance checks
+- `/frontend` — UI implementation (React/Vue/Astro)
+- `/backend` — API design, server architecture
+- `/content` — Blog posts, copywriting, editorial
+- `/growth` — Acquisition, viral loops, conversion
+- `/brand` — Brand identity, consistency, positioning
+- `/social` — Cross-platform social strategy
+- `/ads` — PPC/paid media campaigns
+- `/outbound` — Prospecting, cold outreach
+- `/deals` — Deal strategy, pipeline, MEDDPICC
+- `/proposal` — RFPs, proposals, win themes
+
+### Service-Tier Triggers
+- `/relay analysis` — Complete Analysis diagnostic workflow
+- `/relay launch` — Launch tier project build
+- `/relay run` — Run tier monthly retainer ops
+- `/relay scale` — Scale tier premium growth ops
+- `/relay brand` — Brand enforcement across all touchpoints
+- `/relay performance` — Lighthouse, Core Web Vitals, SEO
+
+### Frameworks
+- **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
+- **The Agency** — Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
+
+### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
 - *analyst = Research & discovery
 - *pm = Requirements & prioritization
@@ -80,6 +120,24 @@ When acting as a BMAD agent, follow the role:
 - *dev = Implementation & code
 - *qa = Testing, audit & brand compliance
 
+### BMAD Prompt Files (.github/prompts/)
+- `bmad-architect.prompt.md` — Architecture review (*architect)
+- `bmad-audit.prompt.md` — Brand compliance audit (*qa)
+- `bmad-brand-fix.prompt.md` — Fix brand color violations (*dev)
+- `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
+- `bmad-seo.prompt.md` — SEO audit (*pm)
+
+### Quick Agent Lookup
+When the user asks for help with a topic, check `docs/agents.md` to find
+the right agent. Key mappings for this repo:
+- Brand/colors/fonts → BMAD *qa or *dev (brand), Agency Brand Guardian
+- SEO/meta/schema → BMAD *pm (SEO)
+- Architecture/structure → BMAD *architect, Agency Software Architect
+- Code/build/fix → BMAD *dev, Agency Frontend Developer
+- Content/blog/copy → Agency Content Creator
+- Design/UI/UX → Agency UI Designer, UX Researcher
+- Growth/marketing → Agency Growth Hacker, Social Media Strategist
+
 ## Agent Team Coordination
 When working as a teammate in an agent team:
 - Check the task list before starting new work
@@ -87,6 +145,24 @@ When working as a teammate in an agent team:
 - Do NOT modify .github/workflows/ unless explicitly asked
 - Lock brand colors - never introduce new colors
 - PR branches: claude/description-XXXXX format
+
+## Related Repositories
+This repo is part of the RelayLaunch multi-repo ecosystem:
+- **relaylaunch-website** (this repo) - Public-facing marketing site (Astro 5 + Cloudflare)
+- **relaylaunch-control-center** - Internal Command Center app (client dashboard, operations tools)
+
+When working on features that span both repos (API integrations, shared data
+models, webhook contracts), check `docs/blueprints/` for cross-repo specs.
+
+## Blueprints (AI-Assisted Development)
+Before implementing new features, check `docs/blueprints/` for:
+- Architecture documents and system design specs
+- API contracts and webhook payload schemas
+- Feature requirements and acceptance criteria
+- Shared standards between this repo and the Command Center
+
+Upload blueprint documents to `docs/blueprints/` before starting a build
+session. Reference them in prompts: "Read docs/blueprints/[file] first."
 
 ## Known Issues
 - Third-party tool logos in index.astro marquee use external brand colors (exempt from 4-color brand standard)

@@ -75,6 +75,80 @@ When generating CSS, Tailwind classes, or inline styles:
 - Never introduce `green`, `orange`, `red`, `purple`, or any other hue
 - Never use Tailwind color classes outside `slate`, `white`, and the custom `#007AFF` accent
 
+## AI Agents & Tools — The Relay Method™
+
+This repo uses **The Relay Method™** — RelayLaunch's branded AI agent
+orchestration framework. See `docs/agents.md` for the full registry,
+all triggers, and specialist role definitions.
+
+### Quick Triggers
+
+Type any `/trigger` in your prompt to activate the matching specialist:
+
+| Trigger | Specialist | Trigger | Specialist |
+|---------|-----------|---------|-----------|
+| `/architect` | Architecture review | `/frontend` | UI implementation |
+| `/audit` | Brand compliance | `/backend` | API/server design |
+| `/brandfix` | Fix color violations | `/content` | Blog/copywriting |
+| `/prettify` | Aesthetic polish | `/growth` | Acquisition/conversion |
+| `/seo` | SEO audit | `/brand` | Brand identity |
+| `/build` | Implement code | `/social` | Social strategy |
+| `/plan` | Requirements/roadmap | `/ads` | PPC/paid media |
+| `/research` | Research/discovery | `/outbound` | Prospecting |
+| `/sprint` | Sprint planning | `/deals` | Deal strategy |
+| `/qa` | Testing/compliance | `/proposal` | RFP/proposals |
+
+### Service-Tier Triggers
+
+- `/relay analysis` — Complete Analysis diagnostic workflow
+- `/relay launch` — Launch tier project build
+- `/relay run` — Run tier monthly retainer ops
+- `/relay scale` — Scale tier premium growth ops
+- `/relay brand` — Brand enforcement across all touchpoints
+- `/relay performance` — Lighthouse, Core Web Vitals, SEO
+
+### Frameworks
+
+- **[BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)** — Agile AI development with specialized agents and structured workflows
+- **[The Agency](https://github.com/msitarzewski/agency-agents)** — Curated AI agent personalities for engineering, design, marketing, and sales
+
+### BMAD Prompt Files (`.github/prompts/`)
+
+- `bmad-architect.prompt.md` — Architecture review and structure validation
+- `bmad-audit.prompt.md` — Full brand compliance audit
+- `bmad-brand-fix.prompt.md` — Find and fix brand color violations
+- `bmad-prettify.prompt.md` — Aesthetic polish with brand compliance
+- `bmad-seo.prompt.md` — SEO audit with prioritized fixes
+
+### Quick Agent Lookup
+
+When asked for help with a topic, check `docs/agents.md` to match the task
+to the right agent. Key mappings for this repo:
+
+- **Brand/colors/fonts** → BMAD `*qa` or `*dev`, Agency Brand Guardian
+- **SEO/meta/schema** → BMAD `*pm` (SEO audit prompt)
+- **Architecture/structure** → BMAD `*architect`, Agency Software Architect
+- **Code/build/fix** → BMAD `*dev`, Agency Frontend Developer
+- **Content/blog/copy** → Agency Content Creator
+- **Design/UI/UX** → Agency UI Designer, Agency UX Researcher
+- **Growth/marketing** → Agency Growth Hacker, Agency Social Media Strategist
+
+## Related Repositories
+
+This repo is part of the RelayLaunch multi-repo ecosystem:
+
+- **relaylaunch-website** (this repo) — Public-facing marketing site (Astro 5 + Cloudflare)
+- **relaylaunch-control-center** — Internal Command Center app (client dashboard, operations tools)
+
+When working on features that touch both repos (API integrations, shared data
+models, webhook contracts), check `docs/blueprints/` for cross-repo specs.
+
+## Blueprints (AI-Assisted Development)
+
+Before implementing new features, check `docs/blueprints/` for architecture
+docs, API contracts, feature requirements, and shared standards. Upload
+blueprint documents to that folder before starting a build session.
+
 ## Known Issues
 
 - `complete-analysis.astro` still has some hardcoded hex values (`#F8FAFC`, `#fbbf24`, `#64748b`) that should use CSS variables
