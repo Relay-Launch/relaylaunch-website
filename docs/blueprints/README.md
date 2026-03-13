@@ -47,6 +47,11 @@ systems (API contracts, shared data models, webhook specs) should exist in
 both repos so each AI tool has full context regardless of which repo it is
 working in.
 
+**Keeping specs in sync:** Pick one repo as the source of truth for each
+shared document (typically the repo that owns the API endpoint). Copy the
+spec to the other repo and note at the top which repo holds the canonical
+version. When the spec changes, update the source first, then copy it over.
+
 ## Tips for Blueprint-Driven Development
 
 1. **Upload first, build second** — Add your specs to this folder before
