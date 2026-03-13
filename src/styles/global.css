@@ -312,6 +312,17 @@ a[data-slot="button"]:hover { text-decoration: none; }
   border-width: 0;
 }
 
+/* ─── Honeypot (anti-spam) ─────────────────────────────────── */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ─── Badge / Pill ──────────────────────────────────────────── */
 .badge {
   display: inline-flex;
