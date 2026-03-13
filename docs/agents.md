@@ -24,6 +24,7 @@ engineering team that protects every change going to production.
 | **Brand Agent** | Colors, fonts, voice, identity | Any UI/content change | 4-color system, font stack, voice guidelines, visual consistency |
 | **QA Agent** | A11y, Lighthouse, responsive | Page/component changes | WCAG AA, heading hierarchy, Lighthouse 95+, mobile breakpoints |
 | **GitHub Agent** | Workflows, Actions, branch protection | `.github/` changes, PRs, deploys | Workflow syntax, secret handling, action versions, CI/CD pipeline |
+| **Prose Agent** | Human language, AI-ism detection | Any `.astro`, `.mdx`, `.md`, `.json` with visible text | Em dashes, AI vocabulary, passive voice, sentence length, voice compliance |
 
 ### How Default Agents Work
 - **On every code PR:** Build Agent validates build, Security Agent scans for
@@ -32,10 +33,11 @@ engineering team that protects every change going to production.
 - **On deployment changes:** Infra Agent validates Cloudflare config, GitHub Agent
   checks workflow syntax, Security Agent reviews secrets handling
 - **On content changes:** Brand Agent enforces voice guidelines, QA Agent checks
-  heading hierarchy and meta tags, Build Agent validates MDX frontmatter
-- **On going live (production deploy):** All six agents run a final gate check.
+  heading hierarchy and meta tags, Build Agent validates MDX frontmatter,
+  Prose Agent scans for AI-isms and enforces human language
+- **On going live (production deploy):** All seven agents run a final gate check.
   Infra Agent confirms DNS/CDN, Security Agent runs a production scan, GitHub
-  Agent validates the CI/CD pipeline ran green
+  Agent validates the CI/CD pipeline ran green, Prose Agent confirms human voice
 
 ---
 
@@ -113,8 +115,123 @@ to understand the business domain, not just the technical task.
 - `/relay deploy` — Cloudflare Workers deployment, CI/CD
 - `/relay security` — Security audit, vulnerability scanning
 - `/relay data` — Database design, queries, data modeling
-- `/relay golive` — Full production deployment gate (all 6 default agents run final checks)
+- `/relay golive` — Full production deployment gate (all 7 default agents run final checks)
 - `/relay ci` — GitHub Actions workflow validation and CI/CD pipeline review
+- `/relay optimize` — Agents review and improve their own prompt files
+- `/ship` — Push to remote + create PR with full gate check by all 7 default agents
+
+---
+
+## Mode + Domain Trigger System
+
+The Relay Method™ now supports a **Mode + Domain** shorthand for faster,
+more precise agent activation. Use a mode prefix to tell the agent HOW
+to behave, combined with a domain family for WHAT expertise to use.
+
+### Operation Modes
+
+Every interaction can start with a mode that controls agent behavior.
+Both symbol and word prefixes are supported — they are equivalent.
+
+| Symbol | Word | Mode | Behavior |
+|--------|------|------|----------|
+| `?` | `check` | **Check** | Read-only. Audit, review, report. No code changes. |
+| `!` | `do` | **Do** | Execute. Write code, fix issues, produce commits. |
+| `~` | `think` | **Think** | Brainstorm. Explore ideas, research, no changes. |
+
+**Rules:**
+- `check` mode agents must NEVER modify files — only read, analyze, report
+- `think` mode agents must NEVER modify files — only discuss and propose
+- `do` mode is the only mode that produces code changes
+- If no mode is specified, the agent infers from context
+- Modes work with ALL triggers (one-word, domain, contextual, service-tier)
+
+### Domain Families
+
+Seven memorable domains group agents by business function:
+
+| Domain | Covers | Maps To |
+|--------|--------|---------|
+| **code** | Engineering, architecture, build, frontend, backend, APIs | `/architect`, `/build`, `/frontend`, `/backend`, `/datamodel`, `/api`, `/devops` |
+| **brand** | Colors, fonts, voice, design, UI/UX, aesthetics | `/audit`, `/brandfix`, `/prettify`, `/brand`, `/ui`, `/ux` |
+| **growth** | Marketing, SEO, content, social, ads, email | `/seo`, `/content`, `/growth`, `/social`, `/ads` |
+| **ops** | Infrastructure, CI/CD, deployment, security, GitHub | `/infra`, `/security`, `/github` |
+| **biz** | Sales, deals, proposals, pipeline, outbound | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline` |
+| **plan** | Strategy, research, sprint planning, roadmap | `/plan`, `/research`, `/sprint` |
+| **qa** | Testing, accessibility, Lighthouse, compliance | `/qa`, `/superpowers` |
+
+### Usage Examples
+
+| What You Type | What Happens |
+|---------------|--------------|
+| `?brand` or `check brand` | Audit brand compliance. Report only, no changes. |
+| `!brand` or `do brand` | Fix all brand violations in code. |
+| `~brand` or `think brand` | Brainstorm brand direction and messaging. |
+| `?code` or `check code` | Architecture review, code quality audit. |
+| `!code` or `do code` | Build features, fix bugs, write code. |
+| `~growth` or `think growth` | Workshop marketing strategy and campaign ideas. |
+| `?qa` or `check qa` | Full QA audit — accessibility, Lighthouse, responsive. |
+| `!ops` or `do ops` | Fix deployment issues, update workflows. |
+| `~biz` or `think biz` | Workshop deal strategy, explore pricing. |
+
+Modes also work with specific triggers: `?seo`, `!brandfix`, `~architect`.
+
+### Compatibility
+
+This system is **additive** — all existing triggers work unchanged.
+Mode + Domain is an optional layer for faster, clearer communication.
+
+---
+
+## The Ship Gate — Coordinating Multi-Agent Work
+
+When multiple agents work in parallel, use the **Ship Gate** to prevent
+premature pushes and ensure clean delivery.
+
+### Rules
+
+- Agents CAN commit locally at any time (incremental saves are fine)
+- Agents must NOT push to remote without `/ship`
+- Agents must NOT create PRs without `/ship`
+
+### The `/ship` Command
+
+When you type `/ship`, the following sequence runs:
+
+1. **Freeze** — All agents stop making changes
+2. **Gate check** — All 7 default agents run final review:
+   - Build Agent: `npm run build` passes
+   - Security Agent: No secrets, no injection vectors
+   - Brand Agent: 4-color system, font stack, voice compliance
+   - QA Agent: Accessibility, heading hierarchy, Lighthouse targets
+   - Prose Agent: No AI-isms in text content
+   - Infra Agent: Config files valid (if changed)
+   - GitHub Agent: Workflow syntax valid (if changed)
+3. **Report** — Results presented to you
+4. **Push** — If all gates pass (or you override), push to remote
+5. **PR** — Create PR with consolidated summary of all changes
+
+### Emergency Override
+
+- `/ship --force` — Push immediately, skip gate checks (use sparingly)
+
+---
+
+## Agent Self-Optimization — `/relay optimize`
+
+Use the agents to review and improve their own instructions.
+
+**Trigger:** `/relay optimize`
+**Agents:** All BMAD lifecycle agents + default agents
+
+### Workflow
+
+1. **Self-audit** — Each agent reads its own prompt file, identifies gaps
+2. **Cross-audit** — Each agent reads adjacent prompt files, finds overlaps
+3. **Propose** — New versioned prompt files generated (e.g., `bmad-seo-v2`)
+4. **Human review** — All proposals go through PR review (never auto-deploy)
+
+Run quarterly or when adding new agents.
 
 ---
 
@@ -329,6 +446,7 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | *dev | Implementation | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
 | *dev + *qa | Polish | `bmad-prettify.prompt.md` | `/prettify` | Aesthetic improvements with brand compliance |
 | *pm | Requirements | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
+| Prose Agent | Language | `bmad-prose.prompt.md` | _(default)_ | Human language enforcement, AI-ism detection |
 | *analyst | Research | _(no prompt file yet)_ | `/research` | Research and discovery |
 | *sm | Scrum master | _(no prompt file yet)_ | `/sprint` | Story creation and sprint planning |
 
@@ -469,6 +587,9 @@ It combines:
 - **The Agency** for deep domain specialist expertise
 - **Superpowers** for systematic multi-step development workflows
 - **RelayLaunch business context** for service-tier workflows and brand standards
+- **Mode + Domain** trigger system for precise, memorable agent activation
+- **Ship Gate** for coordinated multi-agent delivery
+- **Prose Agent** for human language enforcement on every change
 
 The name reflects the relay race metaphor: each specialist picks up the
 baton, runs their leg with precision, and hands off cleanly to the next.

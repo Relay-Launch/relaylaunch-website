@@ -100,6 +100,21 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 | `/superpowers` | Workflow engine | `/datamodel` | Data model review |
 | `/api` | API endpoint review | | |
 
+### Mode + Domain Triggers
+
+Use a mode prefix + domain for fast, precise agent activation:
+
+**Modes:** `?` or `check` (review only) | `!` or `do` (make changes) | `~` or `think` (brainstorm)
+**Domains:** `code` | `brand` | `growth` | `ops` | `biz` | `plan` | `qa`
+
+Examples: `?brand` = audit brand, `!code` = build feature, `~growth` = brainstorm marketing
+
+### The Ship Gate
+
+- Agents CAN commit locally but must NOT push without `/ship`
+- `/ship` runs all 7 default agents as gate check, then push + PR
+- Gate order: Build > Security > Brand > QA > Prose > Infra > GitHub
+
 ### Service-Tier Triggers
 
 - `/relay analysis` — Complete Analysis diagnostic workflow
@@ -108,6 +123,7 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 - `/relay scale` — Scale tier premium growth ops
 - `/relay brand` — Brand enforcement across all touchpoints
 - `/relay performance` — Lighthouse, Core Web Vitals, SEO
+- `/relay optimize` — Agents review and improve their own prompt files
 
 ### Frameworks
 
@@ -124,6 +140,7 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 - `bmad-brand-fix.prompt.md` — Find and fix brand color violations
 - `bmad-prettify.prompt.md` — Aesthetic polish with brand compliance
 - `bmad-seo.prompt.md` — SEO audit with prioritized fixes
+- `bmad-prose.prompt.md` — Human language enforcement (Prose Agent)
 
 ### Quick Agent Lookup
 

@@ -28,6 +28,7 @@ These documents describe the architecture, standards, and workflows for the
 | `rl-website-build-framework-v1.md` | v1 | Development workflow, quality gates, content operations |
 | `rl-site-audit-v1.md` | v1 | Homepage alignment audit against Control Center positioning |
 | `rl-slogan-system-v1.md` | v1 | Brand messaging system, taglines, section headers |
+| `rl-trigger-system-v1.md` | v1 | Mode + Domain trigger system, Ship Gate, Prose Agent spec |
 
 ### Control Center (Cross-Repo Context)
 
