@@ -146,7 +146,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ LEAD MAGNET -->
-  <section class="section lead-magnet-section">
+  <section class="section lead-magnet-section mobile-condensed">
     <div class="container">
       <div class="lead-magnet-inner card">
         <div class="lead-magnet-text">
@@ -194,7 +194,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ STATS BAR -->
-  <section class="stats-bar">
+  <section class="stats-bar mobile-condensed">
     <div class="container stats-grid">
       <div class="stat">
         <div class="stat-number">33.2M</div>
@@ -255,7 +255,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ CONTROL CENTER APP -->
-  <section class="section agents-section">
+  <section class="section agents-section mobile-condensed">
     <div class="agents-bg-grid" aria-hidden="true"></div>
     <div class="agents-bg-orb agents-bg-orb-1" aria-hidden="true"></div>
     <div class="agents-bg-orb agents-bg-orb-2" aria-hidden="true"></div>
@@ -509,7 +509,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ CASE STUDY 2: ERP MIGRATION -->
-  <section class="section case-study-teaser-2">
+  <section class="section case-study-teaser-2 mobile-condensed">
     <div class="container">
       <div class="cs-inner">
         <div class="cs-text reveal">
@@ -556,7 +556,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ PROBLEM -->
-  <section class="section">
+  <section class="section mobile-condensed">
     <div class="container">
       <div class="two-col">
         <div class="two-col-text reveal">
@@ -585,7 +585,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ SOLUTION -->
-  <section class="section solution-section">
+  <section class="section solution-section mobile-condensed">
     <div class="container">
       <div class="reveal">
         <span class="section-eyebrow">The Solution</span>
@@ -774,7 +774,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ FOUNDER -->
-  <section class="section founder-section">
+  <section class="section founder-section mobile-condensed">
     <div class="container">
       <div class="two-col">
         <div>
@@ -839,7 +839,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ CLIENT RESULTS COUNTER -->
-  <section class="section results-counter-section">
+  <section class="section results-counter-section mobile-condensed">
     <div class="container">
       <div class="reveal">
         <span class="section-eyebrow">Proven Results</span>
@@ -867,7 +867,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ BEFORE / AFTER -->
-  <section class="section ba-section">
+  <section class="section ba-section mobile-condensed">
     <div class="container">
       <div class="reveal">
         <span class="section-eyebrow">The Transformation</span>
@@ -949,7 +949,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   </section>
 
   <!-- ═══════════════════════════════════════════════ ROI CALCULATOR -->
-  <section class="section roi-section">
+  <section class="section roi-section mobile-condensed">
     <div class="container">
       <div class="reveal">
         <span class="section-eyebrow">ROI Calculator</span>
@@ -2780,5 +2780,10 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     .hero-actions .hero-btn { width: 100%; justify-content: center; }
     .hero-btn { padding: 14px 24px; font-size: 15px; }
     .trust-badges-grid { grid-template-columns: 1fr; }
+
+    /* ── Mobile content optimization ──
+       Hide secondary sections on mobile to reduce scroll fatigue.
+       Core mobile flow: Hero → Marquee → Objections → Why → Case Study → How It Works → Packages → Testimonials → CTA */
+    .mobile-condensed { display: none; }
   }
 </style>
