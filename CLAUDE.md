@@ -13,8 +13,8 @@ Live URL: https://www.relaylaunch.com
 - Background: White #FFFFFF
 - Alt sections: Light Gray #F8FAFC
 - Font: Arial, Helvetica, sans-serif - NO other fonts
-- Tagline: "Launch your digital infrastructure, without pausing your business."
-- Voice: Direct, confident, accessible, action-oriented, veteran precision
+- Tagline: "Ops on Autopilot. You on Strategy."
+- Voice: Direct, confident, accessible, action-oriented, team-first ("we" not "I"), veteran precision
 - DO NOT use green, orange, or any color outside this 4-color system
 
 ## Service Tiers (Canonical Names)
