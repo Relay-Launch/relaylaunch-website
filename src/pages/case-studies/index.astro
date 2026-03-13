@@ -122,13 +122,19 @@ import { Button } from '@/components/starwind/button';
         <span class="cs-read-more">Read the full case study →</span>
       </a>
 
-      <!-- Placeholder for future studies -->
+      <!-- Upcoming case studies -->
       <div class="coming-soon">
-        <p class="coming-soon-label">More case studies in progress</p>
+        <div class="coming-soon-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <p class="coming-soon-label">More success stories on the way</p>
         <p class="coming-soon-sub">
-          Every completed engagement becomes a documented case study.
-          <a href="/contact">Start a project</a> and your results could be next.
+          We're documenting active client wins right now. Each completed engagement becomes
+          a full case study with real numbers. Want your business to be next?
         </p>
+        <a href="/contact" class="coming-soon-cta">Start Your Project &rarr;</a>
       </div>
 
     </div>
@@ -259,37 +265,78 @@ import { Button } from '@/components/starwind/button';
     color: var(--color-primary);
   }
 
-  /* ── Coming soon placeholder ── */
+  /* ── Coming soon — polished ── */
   .coming-soon {
     max-width: 760px;
-    margin: 24px auto 0;
-    padding: 24px 36px;
-    border: 1px dashed var(--color-border);
-    border-radius: var(--radius-sm);
+    margin: 32px auto 0;
+    padding: 40px 36px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
     text-align: center;
+    background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--primary) 3%, var(--color-surface)) 100%);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .coming-soon:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .coming-soon-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    animation: spin-slow 8s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   .coming-soon-label {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-muted);
-    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 10px;
   }
 
   .coming-soon-sub {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--color-muted);
-    line-height: 1.6;
+    line-height: 1.65;
+    max-width: 460px;
+    margin: 0 auto 20px;
   }
 
-  .coming-soon-sub a {
+  .coming-soon-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
+    padding: 10px 24px;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
   }
 
-  .coming-soon-sub a:hover { text-decoration: underline; }
+  .coming-soon-cta:hover {
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--primary) 25%, transparent);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
 
   /* ── CTA section ── */
   .cta-section {
