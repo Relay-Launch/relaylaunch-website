@@ -1,11 +1,12 @@
 # AI Agents & Tools Registry — The Relay Method™
 
 > **The Relay Method™** is RelayLaunch's branded approach to AI-assisted
-> business operations. It unifies two open-source agent frameworks — BMAD
-> Method and The Agency — into a single coordinated system with short
-> trigger commands, specialist roles mapped to real business functions, and
-> cross-repo awareness. Every AI tool in the ecosystem (Claude Code, GitHub
-> Copilot, Cursor) reads this file to route tasks to the right specialist.
+> business operations. It unifies three open-source agent frameworks — BMAD
+> Method, The Agency, and Superpowers — into a single coordinated system
+> with short trigger commands, specialist roles mapped to real business
+> functions, and cross-repo awareness. Every AI tool in the ecosystem
+> (Claude Code, GitHub Copilot, Cursor) reads this file to route tasks to
+> the right specialist.
 
 ---
 
@@ -43,6 +44,9 @@ short, memorable, and organized by business function.
 | `/deals` | Agency Deal Strategist | MEDDPICC, pipeline, win strategy |
 | `/proposal` | Agency Proposal Strategist | RFPs, proposals, win themes |
 | `/coach` | Agency Sales Coach | Rep development, call review, training |
+| `/superpowers` | Superpowers Workflow | Full brainstorm → plan → execute → test → review workflow |
+| `/datamodel` | BMAD *architect | Data model and schema review |
+| `/api` | BMAD *architect | API endpoint review and validation |
 
 ### 🎯 Contextual Triggers (By Business Sector)
 
@@ -83,7 +87,14 @@ to understand the business domain, not just the technical task.
 
 ## The Relay Method™ — How It Works
 
-The Relay Method™ organizes AI agent assistance into three layers:
+The Relay Method™ organizes AI agent assistance into four layers:
+
+| Layer | Purpose | Source |
+|-------|---------|--------|
+| **1. BMAD Lifecycle Agents** | Structured agile roles for the full SDLC (plan, build, test, ship) | BMAD Method |
+| **2. Agency Domain Specialists** | Deep-expertise personas for subject-matter knowledge | The Agency |
+| **3. Superpowers Workflow Engine** | Structured multi-step development workflow (brainstorm → ship) | Superpowers |
+| **4. RelayLaunch Business Context** | Service-tier workflows and brand standards | Internal |
 
 ### Layer 1: BMAD Lifecycle Agents
 Structured agile roles that manage the full software development lifecycle.
@@ -94,6 +105,8 @@ These are the "process" agents — they know *how* to plan, build, test, and shi
 | *analyst | `/research` | Research & discovery | _(ask to act as *analyst)_ |
 | *pm | `/plan` | Requirements & prioritization | _(ask to act as *pm)_ |
 | *architect | `/architect` | Technical design & structure | `bmad-architect.prompt.md` |
+| *architect | `/datamodel` | Data model & schema review | `bmad-data-model.prompt.md` |
+| *architect | `/api` | API endpoint review & validation | `bmad-api-review.prompt.md` |
 | *sm | `/sprint` | Story creation & sprint planning | _(ask to act as *sm)_ |
 | *dev | `/build` | Implementation & code | `bmad-brand-fix.prompt.md`, `bmad-prettify.prompt.md` |
 | *qa | `/qa` | Testing, audit & brand compliance | `bmad-audit.prompt.md` |
@@ -102,7 +115,11 @@ These are the "process" agents — they know *how* to plan, build, test, and shi
 Deep-expertise personas that bring subject-matter knowledge. These are the
 "what" agents — they know the craft inside and out.
 
-### Layer 3: RelayLaunch Business Context
+### Layer 3: Superpowers Workflow Engine
+Structured multi-step development workflow that enforces a systematic process
+from brainstorming through shipping. Activated via `/superpowers`.
+
+### Layer 4: RelayLaunch Business Context
 Service-tier workflows and brand standards that ground every agent in
 RelayLaunch's specific business model, pricing, voice, and client delivery.
 
@@ -130,6 +147,14 @@ RelayLaunch's specific business model, pricing, voice, and client delivery.
   to install for Cursor, Copilot, Aider, or Windsurf
 - **Used in:** Both repos (relaylaunch-website, relaylaunch-control-center)
 
+### Superpowers
+
+- **What:** Comprehensive software development workflow system for coding agents
+- **Source:** <https://github.com/obra/superpowers>
+- **Install:** Plugin marketplace or manual setup
+- **Philosophy:** Test-driven development, systematic processes, complexity reduction
+- **Used in:** Both repos (relaylaunch-website, relaylaunch-control-center)
+
 ---
 
 ## Full Agent Roster by Category
@@ -139,6 +164,8 @@ RelayLaunch's specific business model, pricing, voice, and client delivery.
 | Trigger | Agent | Framework | How to Activate |
 |---------|-------|-----------|-----------------|
 | `/architect` | BMAD *architect | BMAD | `.github/prompts/bmad-architect.prompt.md` |
+| `/datamodel` | BMAD *architect (data) | BMAD | `.github/prompts/bmad-data-model.prompt.md` |
+| `/api` | BMAD *architect (API) | BMAD | `.github/prompts/bmad-api-review.prompt.md` |
 | `/review` | Agency Code Reviewer | Agency | Activate "Code Reviewer" persona |
 | `/security` | Agency Security Engineer | Agency | Activate "Security Engineer" persona |
 | `/database` | Agency Database Optimizer | Agency | Activate "Database Optimizer" persona |
@@ -164,6 +191,7 @@ reliability, SLOs, observability
 | `/prototype` | Agency Rapid Prototyper | Agency | Activate "Rapid Prototyper" persona |
 | `/devops` | Agency DevOps Automator | Agency | Activate "DevOps Automator" persona |
 | `/docs` | Agency Technical Writer | Agency | Activate "Technical Writer" persona |
+| `/superpowers` | Superpowers Workflow | Superpowers | Activate full brainstorm → ship workflow |
 
 **Also responds to:** implement, build, code, fix, component, brand fix, color
 violations, CSS, prettify, polish, aesthetics, spacing, React, Vue, Angular,
@@ -262,6 +290,8 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | Agent | Role | Prompt File | Trigger | Purpose |
 |-------|------|-------------|---------|---------|
 | *architect | Technical design | `bmad-architect.prompt.md` | `/architect` | Architecture review, structure validation |
+| *architect | Data model | `bmad-data-model.prompt.md` | `/datamodel` | Data model and schema review |
+| *architect | API review | `bmad-api-review.prompt.md` | `/api` | API endpoint review and validation |
 | *qa | Testing & audit | `bmad-audit.prompt.md` | `/audit` | Full brand compliance audit |
 | *dev | Implementation | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
 | *dev + *qa | Polish | `bmad-prettify.prompt.md` | `/prettify` | Aesthetic improvements with brand compliance |
@@ -283,6 +313,35 @@ description: "BMAD *role agent — Short description"
 
 You are the BMAD *role agent. [Instructions...]
 ```
+
+---
+
+## Superpowers Integration
+
+When complex multi-step tasks arise, use `/superpowers` to activate the
+structured workflow:
+
+### Phases
+
+1. **Brainstorm** — Refine ideas through clarifying questions before coding
+2. **Plan** — Break work into small, testable tasks (2-5 min each)
+3. **Execute** — Implement tasks with review checkpoints using subagents
+4. **Test** — RED-GREEN-REFACTOR test-driven methodology
+5. **Review** — Validate work against the implementation plan
+6. **Finish** — Handle branch merging and cleanup
+
+### When to Use
+
+- New feature implementations spanning multiple files
+- Refactoring tasks that touch core architecture
+- Bug fixes requiring systematic debugging
+- Any task that benefits from structured planning
+
+### Combo Triggers
+
+- `/superpowers` + `/architect` → Structured architecture design with planning
+- `/superpowers` + `/build` → TDD feature implementation with review checkpoints
+- `/superpowers` + `/qa` → Systematic audit with test-driven validation
 
 ---
 
@@ -375,6 +434,7 @@ operations — from code to content to client delivery.
 It combines:
 - **BMAD Method** for structured agile development lifecycle
 - **The Agency** for deep domain specialist expertise
+- **Superpowers** for systematic multi-step development workflows
 - **RelayLaunch business context** for service-tier workflows and brand standards
 
 The name reflects the relay race metaphor: each specialist picks up the

@@ -97,6 +97,8 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 | `/research` | Research/discovery | `/outbound` | Prospecting |
 | `/sprint` | Sprint planning | `/deals` | Deal strategy |
 | `/qa` | Testing/compliance | `/proposal` | RFP/proposals |
+| `/superpowers` | Workflow engine | `/datamodel` | Data model review |
+| `/api` | API endpoint review | | |
 
 ### Service-Tier Triggers
 
@@ -111,10 +113,13 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 
 - **[BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)** — Agile AI development with specialized agents and structured workflows
 - **[The Agency](https://github.com/msitarzewski/agency-agents)** — Curated AI agent personalities for engineering, design, marketing, and sales
+- **[Superpowers](https://github.com/obra/superpowers)** — Structured multi-step development workflow (brainstorm → ship)
 
 ### BMAD Prompt Files (`.github/prompts/`)
 
 - `bmad-architect.prompt.md` — Architecture review and structure validation
+- `bmad-data-model.prompt.md` — Data model and schema review
+- `bmad-api-review.prompt.md` — API endpoint review and validation
 - `bmad-audit.prompt.md` — Full brand compliance audit
 - `bmad-brand-fix.prompt.md` — Find and fix brand color violations
 - `bmad-prettify.prompt.md` — Aesthetic polish with brand compliance
