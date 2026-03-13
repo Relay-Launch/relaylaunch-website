@@ -88,6 +88,24 @@ When working as a teammate in an agent team:
 - Lock brand colors - never introduce new colors
 - PR branches: claude/description-XXXXX format
 
+## Related Repositories
+This repo is part of the RelayLaunch multi-repo ecosystem:
+- **relaylaunch-website** (this repo) - Public-facing marketing site (Astro 5 + Cloudflare)
+- **relaylaunch-control-center** - Internal Command Center app (client dashboard, operations tools)
+
+When working on features that span both repos (API integrations, shared data
+models, webhook contracts), check `docs/blueprints/` for cross-repo specs.
+
+## Blueprints (AI-Assisted Development)
+Before implementing new features, check `docs/blueprints/` for:
+- Architecture documents and system design specs
+- API contracts and webhook payload schemas
+- Feature requirements and acceptance criteria
+- Shared standards between this repo and the Command Center
+
+Upload blueprint documents to `docs/blueprints/` before starting a build
+session. Reference them in prompts: "Read docs/blueprints/[file] first."
+
 ## Known Issues
 - Third-party tool logos in index.astro marquee use external brand colors (exempt from 4-color brand standard)
 - Micro-element border-radius (3px, 6px) in complete-analysis.astro progress bars/badges left as literal values (too small for CSS variables)

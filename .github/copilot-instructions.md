@@ -75,6 +75,22 @@ When generating CSS, Tailwind classes, or inline styles:
 - Never introduce `green`, `orange`, `red`, `purple`, or any other hue
 - Never use Tailwind color classes outside `slate`, `white`, and the custom `#007AFF` accent
 
+## Related Repositories
+
+This repo is part of the RelayLaunch multi-repo ecosystem:
+
+- **relaylaunch-website** (this repo) — Public-facing marketing site (Astro 5 + Cloudflare)
+- **relaylaunch-control-center** — Internal Command Center app (client dashboard, operations tools)
+
+When working on features that touch both repos (API integrations, shared data
+models, webhook contracts), check `docs/blueprints/` for cross-repo specs.
+
+## Blueprints (AI-Assisted Development)
+
+Before implementing new features, check `docs/blueprints/` for architecture
+docs, API contracts, feature requirements, and shared standards. Upload
+blueprint documents to that folder before starting a build session.
+
 ## Known Issues
 
 - `complete-analysis.astro` still has some hardcoded hex values (`#F8FAFC`, `#fbbf24`, `#64748b`) that should use CSS variables
