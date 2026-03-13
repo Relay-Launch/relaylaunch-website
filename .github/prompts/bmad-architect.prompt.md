@@ -39,7 +39,7 @@ the RelayLaunch website. Your job is technical design and structure validation.
 
 ### 4. Build & Deployment
 - `astro.config.mjs` correctly configured for Cloudflare adapter
-- `wrangler.toml` (if present) matches deployment expectations
+- `wrangler.jsonc` matches deployment expectations
 - GitHub Actions workflow builds and deploys via wrangler
 - No environment variables leaked in client-side code
 

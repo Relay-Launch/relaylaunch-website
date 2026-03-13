@@ -252,14 +252,17 @@ These are the "process" agents — they know *how* to plan, build, test, and shi
 
 | Role | Trigger | Specialty | Prompt File |
 |------|---------|-----------|-------------|
-| *analyst | `/research` | Research & discovery | _(ask to act as *analyst)_ |
-| *pm | `/plan` | Requirements & prioritization | _(ask to act as *pm)_ |
+| *analyst | `/research` | Research & discovery | `bmad-research.prompt.md` |
+| *pm | `/plan` | Requirements & prioritization | `bmad-plan.prompt.md` |
 | *architect | `/architect` | Technical design & structure | `bmad-architect.prompt.md` |
 | *architect | `/datamodel` | Data model & schema review | `bmad-data-model.prompt.md` |
 | *architect | `/api` | API endpoint review & validation | `bmad-api-review.prompt.md` |
-| *sm | `/sprint` | Story creation & sprint planning | _(ask to act as *sm)_ |
-| *dev | `/build` | Implementation & code | `bmad-brand-fix.prompt.md`, `bmad-prettify.prompt.md` |
-| *qa | `/qa` | Testing, audit & brand compliance | `bmad-audit.prompt.md` |
+| *sm | `/sprint` | Story creation & sprint planning | `bmad-sprint.prompt.md` |
+| *dev | `/build` | Implementation & code | `bmad-build.prompt.md` |
+| *dev | `/brandfix` | Brand color violation fixes | `bmad-brand-fix.prompt.md` |
+| *dev + *qa | `/prettify` | Aesthetic polish | `bmad-prettify.prompt.md` |
+| *qa | `/qa` | Testing, audit & compliance | `bmad-qa.prompt.md` |
+| *qa | `/audit` | Brand compliance audit | `bmad-audit.prompt.md` |
 
 ### Layer 2: Agency Domain Specialists
 Deep-expertise personas that bring subject-matter knowledge. These are the
@@ -332,7 +335,7 @@ reliability, SLOs, observability
 
 | Trigger | Agent | Framework | How to Activate |
 |---------|-------|-----------|-----------------|
-| `/build` | BMAD *dev | BMAD | Ask to act as BMAD *dev agent |
+| `/build` | BMAD *dev | BMAD | `.github/prompts/bmad-build.prompt.md` |
 | `/brandfix` | BMAD *dev (brand) | BMAD | `.github/prompts/bmad-brand-fix.prompt.md` |
 | `/prettify` | BMAD *dev + *qa | BMAD | `.github/prompts/bmad-prettify.prompt.md` |
 | `/frontend` | Agency Frontend Developer | Agency | Activate "Frontend Developer" persona |
@@ -387,10 +390,10 @@ Twitter, LinkedIn, thought leadership, Instagram, TikTok, Reddit, community
 
 | Trigger | Agent | Framework | How to Activate |
 |---------|-------|-----------|-----------------|
-| `/plan` | BMAD *pm | BMAD | Ask to act as BMAD *pm agent |
-| `/research` | BMAD *analyst | BMAD | Ask to act as BMAD *analyst agent |
-| `/sprint` | BMAD *sm | BMAD | Ask to act as BMAD *sm agent |
-| `/qa` | BMAD *qa | BMAD | Ask to act as BMAD *qa agent |
+| `/plan` | BMAD *pm | BMAD | `.github/prompts/bmad-plan.prompt.md` |
+| `/research` | BMAD *analyst | BMAD | `.github/prompts/bmad-research.prompt.md` |
+| `/sprint` | BMAD *sm | BMAD | `.github/prompts/bmad-sprint.prompt.md` |
+| `/qa` | BMAD *qa | BMAD | `.github/prompts/bmad-qa.prompt.md` |
 
 **Also responds to:** requirements, prioritize, roadmap, backlog, research,
 discovery, analysis, sprint, stories, scrum, test, audit, compliance
@@ -447,8 +450,9 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | *dev + *qa | Polish | `bmad-prettify.prompt.md` | `/prettify` | Aesthetic improvements with brand compliance |
 | *pm | Requirements | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
 | Prose Agent | Language | `bmad-prose.prompt.md` | _(default)_ | Human language enforcement, AI-ism detection |
-| *analyst | Research | _(no prompt file yet)_ | `/research` | Research and discovery |
-| *sm | Scrum master | _(no prompt file yet)_ | `/sprint` | Story creation and sprint planning |
+| Infra Agent | Infrastructure | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
+| Security Agent | Security | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |
+| GitHub Agent | GitHub | `bmad-github.prompt.md` | `/github` | Workflows, Actions, branch protection |
 
 ### Adding New Prompt Files
 
