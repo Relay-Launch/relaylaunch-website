@@ -63,9 +63,12 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             <button type="submit" class="cc-waitlist-submit">Join the Waitlist <span>&rarr;</span></button>
             <p class="cc-waitlist-fine-print">*Early Preview slots are limited and granted on a rolling basis. No commitment required — we just want to make sure it's the right fit.</p>
           </form>
-          <div id="waitlist-success-cc" class="cc-waitlist-success" hidden>
+          <div id="waitlist-success-cc" class="cc-waitlist-success" role="status" aria-live="polite" hidden>
             <p class="cc-waitlist-success-title">You're in.</p>
             <p class="cc-waitlist-success-text">We're reviewing waitlist requests now and will reach out when your preview access is ready.</p>
+          </div>
+          <div id="waitlist-error-cc" class="cc-waitlist-error" role="alert" aria-live="assertive" hidden>
+            <p class="cc-waitlist-error-text">Something went wrong. Please try again.</p>
           </div>
         </div>
         <div class="hero-actions" style="margin-top: 20px;">
@@ -572,14 +575,19 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
   // ── Waitlist Form Handler ──
   const wlForm = document.getElementById('waitlist-form-cc') as HTMLFormElement;
   const wlSuccess = document.getElementById('waitlist-success-cc') as HTMLElement;
+  const wlError = document.getElementById('waitlist-error-cc') as HTMLElement;
 
   wlForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    wlError.hidden = true;
+
     const nameInput = wlForm.querySelector('input[name="name"]') as HTMLInputElement;
     const emailInput = wlForm.querySelector('input[name="email"]') as HTMLInputElement;
     const name = nameInput?.value.trim();
     const email = emailInput?.value.trim();
-    if (!name || !email) return;
+
+    if (!name) { nameInput.focus(); nameInput.reportValidity(); return; }
+    if (!email || !emailInput.validity.valid) { emailInput.focus(); emailInput.reportValidity(); return; }
 
     const submitBtn = wlForm.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalHTML = submitBtn?.innerHTML || '';
@@ -616,6 +624,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHTML;
       }
+      wlError.hidden = false;
     }
   });
 </script>
@@ -1530,7 +1539,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
   .cc-waitlist-success-title {
     font-size: 20px;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-white);
     margin-bottom: 8px;
   }
 
@@ -1538,6 +1547,16 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     font-size: 15px;
     color: color-mix(in srgb, var(--color-white) 70%, transparent);
     line-height: 1.55;
+  }
+
+  .cc-waitlist-error {
+    padding: 16px 0;
+  }
+
+  .cc-waitlist-error-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-white);
   }
 
   @media (max-width: 640px) {
