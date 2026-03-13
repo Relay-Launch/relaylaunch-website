@@ -89,11 +89,12 @@ baseline engineering team:
 | **Brand Agent** | Colors, fonts, voice, visual identity | Any UI/content change (enforces 4-color system, font stack, voice guidelines) |
 | **QA Agent** | Accessibility, Lighthouse, responsive | Any page or component change (WCAG AA, heading hierarchy, Lighthouse 95+) |
 | **GitHub Agent** | Workflows, Actions, branch protection | Any `.github/` change, PR creation, deployment pipeline modification |
+| **Prose Agent** | Human language, AI-ism detection | Any `.astro`, `.mdx`, `.md`, `.json` with visible text (em dashes, AI vocabulary, passive voice) |
 
 #### Default Agent Behaviors
 - **On every code PR:** Build Agent validates the build passes, Security Agent scans for vulnerabilities, Brand Agent checks color/font compliance, QA Agent verifies accessibility
 - **On deployment changes:** Infra Agent validates Cloudflare config, GitHub Agent checks workflow syntax, Security Agent reviews secrets handling
-- **On content changes:** Brand Agent enforces voice guidelines, QA Agent checks heading hierarchy and meta tags, Build Agent validates MDX frontmatter
+- **On content changes:** Brand Agent enforces voice guidelines, QA Agent checks heading hierarchy and meta tags, Build Agent validates MDX frontmatter, Prose Agent enforces human language (no AI-isms)
 
 ### Quick Triggers
 Type any trigger in your prompt to activate the matching specialist:
@@ -124,6 +125,27 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/datamodel` — Data model and schema review
 - `/api` — API endpoint review and validation
 
+### Mode + Domain Triggers
+Use a mode prefix + domain for fast, precise agent calls. Both symbol
+and word prefixes work. See `docs/blueprints/rl-trigger-system-v1.md`
+for the full spec.
+
+**Modes:**
+- `?` or `check` — Review only, no code changes (audit, report)
+- `!` or `do` — Execute, make changes, produce commits
+- `~` or `think` — Brainstorm, explore ideas, no changes
+
+**Domains:** `code`, `brand`, `growth`, `ops`, `biz`, `plan`, `qa`
+
+**Examples:** `?brand` (audit brand), `!code` (build feature),
+`~growth` (brainstorm marketing), `check security` (security review)
+
+### The Ship Gate
+- Agents CAN commit locally but must NOT push to remote without `/ship`
+- `/ship` — Runs all 7 default agents as gate check, then push + PR
+- `/ship --force` — Push without gate checks (emergency only)
+- Gate order: Build > Security > Brand > QA > Prose > Infra > GitHub
+
 ### Service-Tier Triggers
 - `/relay analysis` — Complete Analysis diagnostic workflow
 - `/relay launch` — Launch tier project build
@@ -131,6 +153,7 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/relay scale` — Scale tier premium growth ops
 - `/relay brand` — Brand enforcement across all touchpoints
 - `/relay performance` — Lighthouse, Core Web Vitals, SEO
+- `/relay optimize` — Agents review and improve their own prompt files
 
 ### Frameworks
 - **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
@@ -154,6 +177,7 @@ When acting as a BMAD agent, follow the role:
 - `bmad-brand-fix.prompt.md` — Fix brand color violations (*dev)
 - `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
 - `bmad-seo.prompt.md` — SEO audit (*pm)
+- `bmad-prose.prompt.md` — Human language enforcement (Prose Agent)
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
