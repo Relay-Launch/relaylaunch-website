@@ -519,7 +519,7 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
     if (!validateStep(currentStep)) return;
 
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Submitting&hellip;';
+    submitBtn.textContent = 'Submitting\u2026';
 
     const formData = new FormData(form);
     const data: Record<string, string | string[]> = {};
@@ -576,7 +576,7 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
     errorEl.hidden = true;
     form.hidden = false;
     submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Submit Questionnaire <span>&rarr;</span>';
+    submitBtn.textContent = 'Submit Questionnaire \u2192';
   });
 </script>
 
