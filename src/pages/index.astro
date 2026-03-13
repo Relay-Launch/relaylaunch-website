@@ -22,7 +22,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: 'RelayLaunch',
-      description: 'Veteran-owned digital infrastructure consultancy. One Control Center replacing scattered AI tools and disconnected systems.',
+      description: 'Digital infrastructure consultancy. One Control Center replacing scattered AI tools and disconnected systems. AI agents built in.',
       url: 'https://www.relaylaunch.com',
       founder: {
         '@type': 'Person',
@@ -70,13 +70,13 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
       </p>
       <div class="hero-trust animate-fade-in-up" style="animation-delay: 0.45s;">
         <div class="trust-item">
-          <span class="trust-check">✓</span> USMC Veteran-Owned
-        </div>
-        <div class="trust-item">
           <span class="trust-check">✓</span> Fortune 500 Engineering
         </div>
         <div class="trust-item">
           <span class="trust-check">✓</span> One Control Center, Not 6 Tools
+        </div>
+        <div class="trust-item">
+          <span class="trust-check">✓</span> AI Agents Built In
         </div>
         <div class="trust-item">
           <span class="trust-check">✓</span> Fixed, Transparent Pricing
@@ -133,8 +133,8 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
           <p class="objection-text">No technical background needed. We handle the complexity.</p>
         </div>
         <div class="objection-item">
-          <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-          <p class="objection-text">Veteran-owned, long-term focused. We don't build and disappear.</p>
+          <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <p class="objection-text">Long-term focused. We build it, run it, and stay in the work.</p>
         </div>
         <div class="objection-item">
           <svg class="objection-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -227,9 +227,9 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
       <div class="why-grid reveal-stagger">
         <div class="why-card">
-          <div class="why-icon">🎖️</div>
-          <h3>Veteran-Owned, Mission-Driven</h3>
-          <p>USMC discipline and Fortune 500 engineering experience. Structured execution, clear communication, zero fluff. The same rigor that managed enterprise integrations, now applied to your business.</p>
+          <div class="why-icon">🤖</div>
+          <h3>AI Agents, Not Just AI Tools</h3>
+          <p>Purpose-built specialist agents handle your content, growth, security, and infrastructure. Not generic chatbots. Agents that know your brand, your systems, and your business logic.</p>
         </div>
         <div class="why-card">
           <div class="why-icon">🏗️</div>
@@ -252,42 +252,126 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
   <!-- ═══════════════════════════════════════════════ CONTROL CENTER APP -->
   <section class="section agents-section">
+    <div class="agents-bg-grid" aria-hidden="true"></div>
+    <div class="agents-bg-orb agents-bg-orb-1" aria-hidden="true"></div>
+    <div class="agents-bg-orb agents-bg-orb-2" aria-hidden="true"></div>
     <div class="container">
       <div class="reveal">
         <div class="cc-coming-soon-badge">Coming Soon</div>
         <span class="section-eyebrow">The RelayLaunch Control Center</span>
-        <h2 class="section-title">One dashboard. A full operations team built in.</h2>
+        <h2 class="section-title">Six specialist agents. One unified system.</h2>
         <p class="section-sub" style="margin-bottom: 48px;">
-          The Control Center is the app behind everything we build. It gives you a single
-          place to see your automations, your content pipeline, your analytics, and your
-          agent team, all working together. Every client gets access.
+          Every client gets a full operations team built into their Control Center.
+          These agents don't just respond to prompts — they monitor, build, protect,
+          and optimize your systems around the clock.
         </p>
       </div>
 
       <div class="agents-grid reveal-stagger">
-        <div class="agent-card">
-          <div class="agent-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        <!-- Infrastructure Agent -->
+        <div class="agent-card agent-card-infra">
+          <div class="agent-status"><span class="agent-status-dot"></span>Active</div>
+          <div class="agent-icon agent-icon-infra">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+              <circle cx="6" cy="6" r="1" fill="currentColor"/><circle cx="6" cy="18" r="1" fill="currentColor"/>
+              <line x1="12" y1="6" x2="18" y2="6"/><line x1="12" y1="18" x2="18" y2="18"/>
+            </svg>
+          </div>
+          <h3>Infra Agent</h3>
+          <p class="agent-role">DNS, CDN, CI/CD, hosting, uptime</p>
+          <p>Manages your entire cloud stack. DNS propagation, edge deployments, build pipelines, and zero-downtime releases. Enterprise-grade infrastructure on autopilot.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/devops</span>
+            <span class="agent-tag">/architect</span>
+          </div>
+        </div>
+
+        <!-- Security Agent -->
+        <div class="agent-card agent-card-security">
+          <div class="agent-status"><span class="agent-status-dot agent-status-dot-alert"></span>Monitoring</div>
+          <div class="agent-icon agent-icon-security">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Security Agent</h3>
+          <p class="agent-role">Threat detection, headers, compliance</p>
+          <p>Scans for vulnerabilities, enforces CSP headers, monitors dependencies, and runs security audits. Your always-on threat detection layer.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/security</span>
+            <span class="agent-tag">/qa</span>
+          </div>
+        </div>
+
+        <!-- Build Agent -->
+        <div class="agent-card agent-card-build">
+          <div class="agent-status"><span class="agent-status-dot"></span>Active</div>
+          <div class="agent-icon agent-icon-build">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              <line x1="14" y1="4" x2="10" y2="20"/>
+            </svg>
+          </div>
+          <h3>Build Agent</h3>
+          <p class="agent-role">Features, fixes, code quality, PRs</p>
+          <p>Implements features, fixes bugs, reviews pull requests, and enforces code quality standards. Writes clean, tested code with your architecture in mind.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/build</span>
+            <span class="agent-tag">/frontend</span>
+          </div>
+        </div>
+
+        <!-- Content Agent -->
+        <div class="agent-card agent-card-content">
+          <div class="agent-status"><span class="agent-status-dot"></span>Active</div>
+          <div class="agent-icon agent-icon-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            </svg>
           </div>
           <h3>Content Agent</h3>
-          <p class="agent-role">Blog posts, social content, email copy</p>
-          <p>Writes on-brand content across every channel. Knows your voice, your audience, and your editorial calendar.</p>
+          <p class="agent-role">Blog posts, social, email copy</p>
+          <p>Writes on-brand content across every channel. Knows your voice, your audience, and your editorial calendar. Publishes to four platforms simultaneously.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/content</span>
+            <span class="agent-tag">/seo</span>
+          </div>
         </div>
-        <div class="agent-card">
-          <div class="agent-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+
+        <!-- Growth Agent -->
+        <div class="agent-card agent-card-growth">
+          <div class="agent-status"><span class="agent-status-dot"></span>Active</div>
+          <div class="agent-icon agent-icon-growth">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
           </div>
           <h3>Growth Agent</h3>
           <p class="agent-role">Acquisition, conversion, retention</p>
-          <p>Tracks your funnel, spots drop-off points, and recommends the highest-impact moves to grow your customer base.</p>
+          <p>Tracks your funnel, spots drop-off points, runs A/B experiments, and recommends the highest-impact moves to grow your customer base.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/growth</span>
+            <span class="agent-tag">/ads</span>
+          </div>
         </div>
-        <div class="agent-card">
-          <div class="agent-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+
+        <!-- Brand Agent -->
+        <div class="agent-card agent-card-brand">
+          <div class="agent-status"><span class="agent-status-dot agent-status-dot-alert"></span>Monitoring</div>
+          <div class="agent-icon agent-icon-brand">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
           </div>
           <h3>Brand Agent</h3>
           <p class="agent-role">Identity, consistency, compliance</p>
-          <p>Enforces your brand standards across every touchpoint. Colors, fonts, voice, and visual identity stay locked in.</p>
+          <p>Enforces your brand standards across every touchpoint. Colors, fonts, voice, and visual identity stay locked in. Catches violations before they ship.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/brand</span>
+            <span class="agent-tag">/audit</span>
+          </div>
         </div>
       </div>
 
@@ -628,7 +712,7 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
       <div class="two-col">
         <div>
           <span class="section-eyebrow">Who We Are</span>
-          <h2 class="section-title">Cloud engineering.<br />Military precision.<br />Small business focus.</h2>
+          <h2 class="section-title">Cloud engineering.<br />Enterprise rigor.<br />Small business focus.</h2>
           <p style="color: var(--color-muted); margin-bottom: 20px;">
             RelayLaunch brings Fortune 500 infrastructure experience to small business problems.
             The same engineering discipline that managed 1,000-user enterprise integrations at a billion-dollar company,
@@ -643,10 +727,10 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
               </div>
             </div>
             <div class="credential">
-              <span class="cred-icon">🎖️</span>
+              <span class="cred-icon">🤖</span>
               <div>
-                <strong>USMC Sergeant (E-5)</strong>
-                <p>Structured execution and operational excellence. These are not aspirational values. They are ingrained ones.</p>
+                <strong>AI-First Operations</strong>
+                <p>Custom AI agent workflows that automate content, monitoring, and client delivery. Not off-the-shelf bots.</p>
               </div>
             </div>
             <div class="credential">
@@ -1231,15 +1315,60 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     overflow: hidden;
   }
 
-  .agents-section::before {
-    content: '';
+  /* Animated grid background */
+  .agents-bg-grid {
     position: absolute;
-    top: -30%;
-    left: -10%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 12%, transparent) 0%, transparent 70%);
+    inset: 0;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--primary) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--primary) 6%, transparent) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
+    animation: grid-drift 20s linear infinite;
     pointer-events: none;
+  }
+
+  @keyframes grid-drift {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(60px, 60px); }
+  }
+
+  /* Floating orbs */
+  .agents-bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(80px);
+  }
+
+  .agents-bg-orb-1 {
+    width: 400px;
+    height: 400px;
+    top: -10%;
+    left: -5%;
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+    animation: orb-float-1 15s ease-in-out infinite;
+  }
+
+  .agents-bg-orb-2 {
+    width: 300px;
+    height: 300px;
+    bottom: -10%;
+    right: -5%;
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    animation: orb-float-2 18s ease-in-out infinite;
+  }
+
+  @keyframes orb-float-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, 30px) scale(1.1); }
+    66% { transform: translate(-20px, 50px) scale(0.95); }
+  }
+
+  @keyframes orb-float-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, -40px) scale(1.08); }
   }
 
   .agents-section .section-eyebrow { color: var(--color-primary); }
@@ -1257,64 +1386,186 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
   .agent-card {
     padding: 28px;
     border-radius: var(--radius-card);
-    border: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
-    background: color-mix(in srgb, var(--color-white) 4%, transparent);
-    transition: transform 0.25s cubic-bezier(.22,1,.36,1),
-                border-color 0.25s ease,
-                box-shadow 0.25s ease;
+    border: 1px solid color-mix(in srgb, var(--color-white) 10%, transparent);
+    background: linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--color-white) 5%, transparent) 0%,
+      color-mix(in srgb, var(--color-white) 2%, transparent) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+                border-color 0.3s ease,
+                box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .agent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-primary) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .agent-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-primary);
-    box-shadow: 0 8px 32px color-mix(in srgb, var(--primary) 15%, transparent);
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    box-shadow:
+      0 8px 32px color-mix(in srgb, var(--primary) 12%, transparent),
+      0 0 0 1px color-mix(in srgb, var(--primary) 15%, transparent),
+      inset 0 1px 0 color-mix(in srgb, var(--color-white) 6%, transparent);
   }
 
+  .agent-card:hover::before { opacity: 1; }
+
+  /* Status indicator */
+  .agent-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-white) 50%, transparent);
+    margin-bottom: 16px;
+  }
+
+  .agent-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e80;
+    animation: status-blink 2s ease-in-out infinite;
+  }
+
+  .agent-status-dot-alert {
+    background: var(--color-primary);
+    box-shadow: 0 0 6px color-mix(in srgb, var(--primary) 50%, transparent);
+  }
+
+  @keyframes status-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Agent icons - larger, more distinctive */
   .agent-icon {
-    width: 40px;
-    height: 40px;
+    width: 52px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    background: color-mix(in srgb, var(--primary) 15%, transparent);
-    border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
-    margin-bottom: 16px;
+    border-radius: 14px;
+    margin-bottom: 18px;
     color: var(--color-primary);
-    transition: background 0.2s ease, transform 0.2s ease;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease;
+  }
+
+  .agent-icon::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--primary) 30%, transparent));
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
   }
 
   .agent-card:hover .agent-icon {
-    background: var(--color-primary);
-    color: var(--color-white);
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(-3deg);
+    box-shadow: 0 4px 20px color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+
+  .agent-card:hover .agent-icon::after { opacity: 0.6; }
+
+  /* Per-agent icon backgrounds */
+  .agent-icon-infra {
+    background: linear-gradient(135deg, color-mix(in srgb, #3b82f6 20%, transparent), color-mix(in srgb, #3b82f6 8%, transparent));
+    border: 1px solid color-mix(in srgb, #3b82f6 30%, transparent);
+  }
+  .agent-icon-security {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 20%, transparent), color-mix(in srgb, var(--primary) 8%, transparent));
+    border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+  .agent-icon-build {
+    background: linear-gradient(135deg, color-mix(in srgb, #a78bfa 20%, transparent), color-mix(in srgb, #a78bfa 8%, transparent));
+    border: 1px solid color-mix(in srgb, #a78bfa 30%, transparent);
+  }
+  .agent-icon-content {
+    background: linear-gradient(135deg, color-mix(in srgb, #f59e0b 15%, transparent), color-mix(in srgb, #f59e0b 5%, transparent));
+    border: 1px solid color-mix(in srgb, #f59e0b 25%, transparent);
+  }
+  .agent-icon-growth {
+    background: linear-gradient(135deg, color-mix(in srgb, #22c55e 18%, transparent), color-mix(in srgb, #22c55e 6%, transparent));
+    border: 1px solid color-mix(in srgb, #22c55e 28%, transparent);
+  }
+  .agent-icon-brand {
+    background: linear-gradient(135deg, color-mix(in srgb, #ec4899 18%, transparent), color-mix(in srgb, #ec4899 6%, transparent));
+    border: 1px solid color-mix(in srgb, #ec4899 28%, transparent);
   }
 
   .agent-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
 
   .agent-card h3 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 4px;
     color: var(--color-white);
   }
 
   .agent-role {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     color: var(--color-primary);
     margin-bottom: 12px;
   }
 
-  .agent-card p:last-child {
+  .agent-card > p:last-of-type {
     font-size: 14px;
     line-height: 1.65;
-    color: color-mix(in srgb, var(--color-white) 65%, transparent);
+    color: color-mix(in srgb, var(--color-white) 60%, transparent);
+  }
+
+  /* Agent trigger tags */
+  .agent-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .agent-tag {
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    letter-spacing: 0.3px;
+    color: color-mix(in srgb, var(--color-white) 45%, transparent);
+    background: color-mix(in srgb, var(--color-white) 5%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-white) 8%, transparent);
+    border-radius: 4px;
+    padding: 2px 8px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .agent-card:hover .agent-tag {
+    color: var(--color-primary);
+    border-color: color-mix(in srgb, var(--primary) 30%, transparent);
   }
 
   .cc-coming-soon-badge {
@@ -1343,6 +1594,8 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
     border-radius: var(--radius-card);
     border: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
     background: color-mix(in srgb, var(--color-white) 3%, transparent);
+    position: relative;
+    z-index: var(--z-base);
   }
 
   .cc-cta-text {
@@ -1355,6 +1608,13 @@ const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 
   @media (max-width: 768px) {
     .agents-grid { grid-template-columns: 1fr; }
+    .agents-bg-grid { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .agents-bg-grid,
+    .agents-bg-orb { animation: none; }
+    .agent-status-dot { animation: none; }
   }
 
   /* ── Problem checklist ── */

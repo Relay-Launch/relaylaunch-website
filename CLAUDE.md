@@ -76,6 +76,25 @@ This repo uses The Relay Method™ — RelayLaunch's branded AI agent
 orchestration framework. See `docs/agents.md` for the full registry,
 all triggers, and specialist role definitions.
 
+### Default Agents (Always Active for Code Changes)
+These agents activate automatically on EVERY code change, deployment,
+or infrastructure modification. No trigger needed — they are the
+baseline engineering team:
+
+| Agent | Role | Auto-Triggers On |
+|-------|------|------------------|
+| **Infra Agent** | DNS, CDN, CI/CD, hosting, uptime | Any `.github/workflows/`, `wrangler.jsonc`, deployment config, or hosting change |
+| **Security Agent** | Threat detection, CSP, dependency audit | Any code change (scans for XSS, injection, secrets, insecure patterns) |
+| **Build Agent** | Code quality, testing, PR review | Any `.astro`, `.ts`, `.css`, `.mdx` file change (enforces standards, runs build) |
+| **Brand Agent** | Colors, fonts, voice, visual identity | Any UI/content change (enforces 4-color system, font stack, voice guidelines) |
+| **QA Agent** | Accessibility, Lighthouse, responsive | Any page or component change (WCAG AA, heading hierarchy, Lighthouse 95+) |
+| **GitHub Agent** | Workflows, Actions, branch protection | Any `.github/` change, PR creation, deployment pipeline modification |
+
+#### Default Agent Behaviors
+- **On every code PR:** Build Agent validates the build passes, Security Agent scans for vulnerabilities, Brand Agent checks color/font compliance, QA Agent verifies accessibility
+- **On deployment changes:** Infra Agent validates Cloudflare config, GitHub Agent checks workflow syntax, Security Agent reviews secrets handling
+- **On content changes:** Brand Agent enforces voice guidelines, QA Agent checks heading hierarchy and meta tags, Build Agent validates MDX frontmatter
+
 ### Quick Triggers
 Type any trigger in your prompt to activate the matching specialist:
 - `/architect` — Architecture review & structure validation
@@ -90,6 +109,9 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/qa` — Testing, audit, compliance checks
 - `/frontend` — UI implementation (React/Vue/Astro)
 - `/backend` — API design, server architecture
+- `/infra` — Infrastructure, DNS, CDN, CI/CD, hosting
+- `/security` — Security audit, vulnerability scanning, CSP
+- `/github` — GitHub workflows, Actions, branch protection
 - `/content` — Blog posts, copywriting, editorial
 - `/growth` — Acquisition, viral loops, conversion
 - `/brand` — Brand identity, consistency, positioning
