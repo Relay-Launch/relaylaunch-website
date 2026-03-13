@@ -10,6 +10,35 @@
 
 ---
 
+## Default Agents — Always Active on Code Changes
+
+These six agents activate **automatically** on every code change, deployment,
+or infrastructure modification. No trigger needed. They represent the baseline
+engineering team that protects every change going to production.
+
+| Agent | Role | Auto-Triggers On | Key Checks |
+|-------|------|-------------------|------------|
+| **Infra Agent** | DNS, CDN, CI/CD, hosting, uptime | `.github/workflows/`, `wrangler.jsonc`, deployment config | Cloudflare config, DNS, edge deployment, build pipeline |
+| **Security Agent** | Threats, CSP, dependency audit | Any code change | XSS, injection, secrets exposure, CSP headers, dependency CVEs |
+| **Build Agent** | Code quality, testing, PR review | `.astro`, `.ts`, `.css`, `.mdx` changes | Build passes, code standards, TypeScript errors, MDX frontmatter |
+| **Brand Agent** | Colors, fonts, voice, identity | Any UI/content change | 4-color system, font stack, voice guidelines, visual consistency |
+| **QA Agent** | A11y, Lighthouse, responsive | Page/component changes | WCAG AA, heading hierarchy, Lighthouse 95+, mobile breakpoints |
+| **GitHub Agent** | Workflows, Actions, branch protection | `.github/` changes, PRs, deploys | Workflow syntax, secret handling, action versions, CI/CD pipeline |
+
+### How Default Agents Work
+- **On every code PR:** Build Agent validates build, Security Agent scans for
+  vulnerabilities, Brand Agent checks color/font compliance, QA Agent verifies
+  accessibility
+- **On deployment changes:** Infra Agent validates Cloudflare config, GitHub Agent
+  checks workflow syntax, Security Agent reviews secrets handling
+- **On content changes:** Brand Agent enforces voice guidelines, QA Agent checks
+  heading hierarchy and meta tags, Build Agent validates MDX frontmatter
+- **On going live (production deploy):** All six agents run a final gate check.
+  Infra Agent confirms DNS/CDN, Security Agent runs a production scan, GitHub
+  Agent validates the CI/CD pipeline ran green
+
+---
+
 ## Quick Triggers — Cheat Sheet
 
 Type any trigger below in Claude Code, Copilot Chat, or any AI prompt to
@@ -33,9 +62,11 @@ short, memorable, and organized by business function.
 | `/frontend` | Agency Frontend Developer | React/Vue/Astro UI implementation |
 | `/backend` | Agency Backend Architect | API design, server architecture |
 | `/devops` | Agency DevOps Automator | CI/CD, pipelines, infrastructure |
-| `/security` | Agency Security Engineer | Threat modeling, vulnerability review |
+| `/infra` | Infra Agent (Default) | DNS, CDN, CI/CD, hosting, uptime monitoring |
+| `/security` | Security Agent (Default) | Threat modeling, vulnerability review, CSP |
+| `/github` | GitHub Agent (Default) | Workflows, Actions, branch protection, CI/CD |
 | `/ux` | Agency UX Researcher | User testing, usability, research |
-| `/brand` | Agency Brand Guardian | Brand identity, consistency, positioning |
+| `/brand` | Brand Agent (Default) | Brand identity, consistency, positioning |
 | `/content` | Agency Content Creator | Blog posts, copywriting, editorial |
 | `/growth` | Agency Growth Hacker | Acquisition, viral loops, conversion |
 | `/social` | Agency Social Media Strategist | Cross-platform social strategy |
@@ -82,6 +113,8 @@ to understand the business domain, not just the technical task.
 - `/relay deploy` — Cloudflare Workers deployment, CI/CD
 - `/relay security` — Security audit, vulnerability scanning
 - `/relay data` — Database design, queries, data modeling
+- `/relay golive` — Full production deployment gate (all 6 default agents run final checks)
+- `/relay ci` — GitHub Actions workflow validation and CI/CD pipeline review
 
 ---
 
