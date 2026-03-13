@@ -9,8 +9,10 @@ const year = new Date().getFullYear();
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href="/" class="brand-link" aria-label="RelayLaunch home">
-        <img src="/logo-square.svg" alt="RelayLaunch" class="footer-logo" width="44" height="44" />
-        <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
+        <img src="/logo-icon.svg" alt="RelayLaunch" class="footer-logo" width="48" height="48" />
+        <span class="footer-brand-text">
+          <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
+        </span>
       </a>
       <p class="footer-tagline">Ops on Autopilot. You on Strategy.</p>
       <p class="footer-location">Watertown, MA · Serving Boston &amp; the Northeast</p>
@@ -96,11 +98,8 @@ const year = new Date().getFullYear();
   .brand-link {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    font-size: 20px;
-    font-weight: 800;
+    gap: 14px;
     text-decoration: none;
-    letter-spacing: -0.5px;
     transition: opacity 0.15s ease;
   }
 
@@ -110,15 +109,24 @@ const year = new Date().getFullYear();
   }
 
   .footer-logo {
-    width: 44px;
-    height: 44px;
-    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
     flex-shrink: 0;
   }
 
+  .footer-brand-text {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
   .brand-relay, .brand-launch { color: var(--color-white); }
-  .brand-arrow { color: var(--color-primary); margin: 0 1px; transition: transform 0.2s ease; }
-  .brand-link:hover .brand-arrow { transform: translateX(1px); }
+  .brand-arrow { color: var(--color-primary); margin: 0 2px; font-size: 15px; transition: transform 0.2s ease; }
+  .brand-link:hover .brand-arrow { transform: translateX(2px); }
 
   .footer-tagline {
     font-size: 14px;

@@ -26,8 +26,10 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
 <header>
   <nav class="nav-inner container">
     <a href="/" class="nav-brand" aria-label="RelayLaunch home">
-      <img src="/logo-square.svg" alt="RelayLaunch" class="nav-logo" width="36" height="36" />
-      <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
+      <img src="/logo-icon.svg" alt="RelayLaunch" class="nav-logo" width="40" height="40" />
+      <span class="nav-brand-text">
+        <span class="brand-relay">Relay</span><span class="brand-arrow">&#x25BA;</span><span class="brand-launch">Launch</span>
+      </span>
     </a>
 
     <ul class="nav-links" role="list">
@@ -129,19 +131,16 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
+    height: 64px;
     gap: 32px;
   }
 
   .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 18px;
-    font-weight: 800;
+    gap: 12px;
     text-decoration: none;
     flex-shrink: 0;
-    letter-spacing: -0.5px;
     transition: opacity 0.15s ease;
   }
 
@@ -151,15 +150,24 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   }
 
   .nav-logo {
-    width: 36px;
-    height: 36px;
-    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     flex-shrink: 0;
   }
 
+  .nav-brand-text {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
   .brand-relay, .brand-launch { color: var(--color-text); }
-  .brand-arrow { color: var(--color-primary); margin: 0 1px; transition: transform 0.2s ease; }
-  .nav-brand:hover .brand-arrow { transform: translateX(1px); }
+  .brand-arrow { color: var(--color-primary); margin: 0 2px; font-size: 14px; transition: transform 0.2s ease; }
+  .nav-brand:hover .brand-arrow { transform: translateX(2px); }
 
   .nav-links {
     display: flex;
@@ -357,7 +365,8 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     .mobile-nav { display: block; }
     .nav-cta { display: none; }
     .nav-theme-toggle { display: none; }
-    .nav-brand { font-size: 16px; gap: 8px; }
-    .nav-logo { width: 32px; height: 32px; }
+    .nav-brand { gap: 10px; }
+    .nav-brand-text { font-size: 18px; }
+    .nav-logo { width: 36px; height: 36px; }
   }
 </style>
