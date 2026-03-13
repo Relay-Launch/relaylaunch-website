@@ -98,6 +98,9 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/outbound` — Prospecting, cold outreach
 - `/deals` — Deal strategy, pipeline, MEDDPICC
 - `/proposal` — RFPs, proposals, win themes
+- `/superpowers` — Full brainstorm → plan → execute → test → review workflow
+- `/datamodel` — Data model and schema review
+- `/api` — API endpoint review and validation
 
 ### Service-Tier Triggers
 - `/relay analysis` — Complete Analysis diagnostic workflow
@@ -110,6 +113,7 @@ Type any trigger in your prompt to activate the matching specialist:
 ### Frameworks
 - **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
 - **The Agency** — Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
+- **Superpowers** — Structured multi-step development workflow (https://github.com/obra/superpowers)
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
@@ -122,6 +126,8 @@ When acting as a BMAD agent, follow the role:
 
 ### BMAD Prompt Files (.github/prompts/)
 - `bmad-architect.prompt.md` — Architecture review (*architect)
+- `bmad-data-model.prompt.md` — Data model and schema review (*architect)
+- `bmad-api-review.prompt.md` — API endpoint review (*architect)
 - `bmad-audit.prompt.md` — Brand compliance audit (*qa)
 - `bmad-brand-fix.prompt.md` — Fix brand color violations (*dev)
 - `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
