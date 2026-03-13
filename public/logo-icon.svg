@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Background -->
+  <rect width="400" height="400" rx="48" fill="#0F172A"/>
+
+  <!-- Outer circle -->
+  <circle cx="200" cy="200" r="130" stroke="#007AFF" stroke-width="3" fill="none" opacity="0.6"/>
+
+  <!-- Dashed orbit ring -->
+  <circle cx="200" cy="200" r="114" stroke="#007AFF" stroke-width="2" stroke-dasharray="7 5" fill="none" opacity="0.3"/>
+
+  <!-- RL Monogram -->
+  <text x="152" y="228" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="900" fill="#007AFF" letter-spacing="-3">RL</text>
+
+  <!-- Rocket accent -->
+  <path d="M216 142 L222 124 L228 142 Z" fill="#007AFF" opacity="0.85"/>
+  <circle cx="222" cy="116" r="4.5" fill="#007AFF" opacity="0.6"/>
+
+  <!-- Growth arrow -->
+  <path d="M235 188 L258 162 L252 174 L272 154" stroke="#007AFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Particle dots -->
+  <circle cx="290" cy="110" r="2" fill="#007AFF" opacity="0.3"/>
+  <circle cx="115" cy="120" r="2" fill="#007AFF" opacity="0.25"/>
+  <circle cx="310" cy="140" r="1.5" fill="#007AFF" opacity="0.2"/>
+</svg>
