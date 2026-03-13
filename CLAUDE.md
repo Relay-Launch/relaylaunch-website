@@ -71,13 +71,45 @@ Live URL: https://www.relaylaunch.com
 - Internal links use root-relative paths (/services, /contact)
 - Commit messages: conventional commits (feat:, fix:, chore:)
 
-## AI Agents & Tools
-This repo uses two agent frameworks. See `docs/agents.md` for the full
-registry with trigger keywords by category.
+## AI Agents & Tools — The Relay Method™
+This repo uses The Relay Method™ — RelayLaunch's branded AI agent
+orchestration framework. See `docs/agents.md` for the full registry,
+all triggers, and specialist role definitions.
+
+### Quick Triggers
+Type any trigger in your prompt to activate the matching specialist:
+- `/architect` — Architecture review & structure validation
+- `/audit` — Full brand compliance audit
+- `/brandfix` — Find & fix brand color violations
+- `/prettify` — Aesthetic polish with brand compliance
+- `/seo` — SEO audit with prioritized fixes
+- `/build` — Implement features, fix bugs, write code
+- `/plan` — Requirements, prioritization, roadmap
+- `/research` — Research, discovery, competitive analysis
+- `/sprint` — Story creation, sprint planning
+- `/qa` — Testing, audit, compliance checks
+- `/frontend` — UI implementation (React/Vue/Astro)
+- `/backend` — API design, server architecture
+- `/content` — Blog posts, copywriting, editorial
+- `/growth` — Acquisition, viral loops, conversion
+- `/brand` — Brand identity, consistency, positioning
+- `/social` — Cross-platform social strategy
+- `/ads` — PPC/paid media campaigns
+- `/outbound` — Prospecting, cold outreach
+- `/deals` — Deal strategy, pipeline, MEDDPICC
+- `/proposal` — RFPs, proposals, win themes
+
+### Service-Tier Triggers
+- `/relay analysis` — Complete Analysis diagnostic workflow
+- `/relay launch` — Launch tier project build
+- `/relay run` — Run tier monthly retainer ops
+- `/relay scale` — Scale tier premium growth ops
+- `/relay brand` — Brand enforcement across all touchpoints
+- `/relay performance` — Lighthouse, Core Web Vitals, SEO
 
 ### Frameworks
-- **BMAD Method** - Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
-- **The Agency** - Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
+- **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
+- **The Agency** — Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:

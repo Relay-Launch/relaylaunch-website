@@ -75,11 +75,37 @@ When generating CSS, Tailwind classes, or inline styles:
 - Never introduce `green`, `orange`, `red`, `purple`, or any other hue
 - Never use Tailwind color classes outside `slate`, `white`, and the custom `#007AFF` accent
 
-## AI Agents & Tools
+## AI Agents & Tools — The Relay Method™
 
-This repo uses two agent frameworks. See `docs/agents.md` for the full
-registry with trigger keywords organized by category (engineering, design,
-marketing, SEO, sales, planning).
+This repo uses **The Relay Method™** — RelayLaunch's branded AI agent
+orchestration framework. See `docs/agents.md` for the full registry,
+all triggers, and specialist role definitions.
+
+### Quick Triggers
+
+Type any `/trigger` in your prompt to activate the matching specialist:
+
+| Trigger | Specialist | Trigger | Specialist |
+|---------|-----------|---------|-----------|
+| `/architect` | Architecture review | `/frontend` | UI implementation |
+| `/audit` | Brand compliance | `/backend` | API/server design |
+| `/brandfix` | Fix color violations | `/content` | Blog/copywriting |
+| `/prettify` | Aesthetic polish | `/growth` | Acquisition/conversion |
+| `/seo` | SEO audit | `/brand` | Brand identity |
+| `/build` | Implement code | `/social` | Social strategy |
+| `/plan` | Requirements/roadmap | `/ads` | PPC/paid media |
+| `/research` | Research/discovery | `/outbound` | Prospecting |
+| `/sprint` | Sprint planning | `/deals` | Deal strategy |
+| `/qa` | Testing/compliance | `/proposal` | RFP/proposals |
+
+### Service-Tier Triggers
+
+- `/relay analysis` — Complete Analysis diagnostic workflow
+- `/relay launch` — Launch tier project build
+- `/relay run` — Run tier monthly retainer ops
+- `/relay scale` — Scale tier premium growth ops
+- `/relay brand` — Brand enforcement across all touchpoints
+- `/relay performance` — Lighthouse, Core Web Vitals, SEO
 
 ### Frameworks
 
