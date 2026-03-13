@@ -62,3 +62,5 @@ version. When the spec changes, update the source first, then copy it over.
    before implementing"
 5. **Cross-link repos** — When a feature spans both repos, note the
    counterpart in each blueprint
+6. **Use the right agent** — Check [`docs/agents.md`](../agents.md) to pick
+   the best agent for your task before starting

@@ -75,6 +75,38 @@ When generating CSS, Tailwind classes, or inline styles:
 - Never introduce `green`, `orange`, `red`, `purple`, or any other hue
 - Never use Tailwind color classes outside `slate`, `white`, and the custom `#007AFF` accent
 
+## AI Agents & Tools
+
+This repo uses two agent frameworks. See `docs/agents.md` for the full
+registry with trigger keywords organized by category (engineering, design,
+marketing, SEO, sales, planning).
+
+### Frameworks
+
+- **[BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)** — Agile AI development with specialized agents and structured workflows
+- **[The Agency](https://github.com/msitarzewski/agency-agents)** — Curated AI agent personalities for engineering, design, marketing, and sales
+
+### BMAD Prompt Files (`.github/prompts/`)
+
+- `bmad-architect.prompt.md` — Architecture review and structure validation
+- `bmad-audit.prompt.md` — Full brand compliance audit
+- `bmad-brand-fix.prompt.md` — Find and fix brand color violations
+- `bmad-prettify.prompt.md` — Aesthetic polish with brand compliance
+- `bmad-seo.prompt.md` — SEO audit with prioritized fixes
+
+### Quick Agent Lookup
+
+When asked for help with a topic, check `docs/agents.md` to match the task
+to the right agent. Key mappings for this repo:
+
+- **Brand/colors/fonts** → BMAD `*qa` or `*dev`, Agency Brand Guardian
+- **SEO/meta/schema** → BMAD `*pm` (SEO audit prompt)
+- **Architecture/structure** → BMAD `*architect`, Agency Software Architect
+- **Code/build/fix** → BMAD `*dev`, Agency Frontend Developer
+- **Content/blog/copy** → Agency Content Creator
+- **Design/UI/UX** → Agency UI Designer, Agency UX Researcher
+- **Growth/marketing** → Agency Growth Hacker, Agency Social Media Strategist
+
 ## Related Repositories
 
 This repo is part of the RelayLaunch multi-repo ecosystem:

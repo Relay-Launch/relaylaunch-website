@@ -71,7 +71,15 @@ Live URL: https://www.relaylaunch.com
 - Internal links use root-relative paths (/services, /contact)
 - Commit messages: conventional commits (feat:, fix:, chore:)
 
-## BMAD Agent Roles
+## AI Agents & Tools
+This repo uses two agent frameworks. See `docs/agents.md` for the full
+registry with trigger keywords by category.
+
+### Frameworks
+- **BMAD Method** - Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
+- **The Agency** - Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
+
+### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
 - *analyst = Research & discovery
 - *pm = Requirements & prioritization
@@ -79,6 +87,24 @@ When acting as a BMAD agent, follow the role:
 - *sm = Story creation & sprint planning
 - *dev = Implementation & code
 - *qa = Testing, audit & brand compliance
+
+### BMAD Prompt Files (.github/prompts/)
+- `bmad-architect.prompt.md` — Architecture review (*architect)
+- `bmad-audit.prompt.md` — Brand compliance audit (*qa)
+- `bmad-brand-fix.prompt.md` — Fix brand color violations (*dev)
+- `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
+- `bmad-seo.prompt.md` — SEO audit (*pm)
+
+### Quick Agent Lookup
+When the user asks for help with a topic, check `docs/agents.md` to find
+the right agent. Key mappings for this repo:
+- Brand/colors/fonts → BMAD *qa or *dev (brand), Agency Brand Guardian
+- SEO/meta/schema → BMAD *pm (SEO)
+- Architecture/structure → BMAD *architect, Agency Software Architect
+- Code/build/fix → BMAD *dev, Agency Frontend Developer
+- Content/blog/copy → Agency Content Creator
+- Design/UI/UX → Agency UI Designer, UX Researcher
+- Growth/marketing → Agency Growth Hacker, Social Media Strategist
 
 ## Agent Team Coordination
 When working as a teammate in an agent team:
