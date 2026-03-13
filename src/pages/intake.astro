@@ -540,8 +540,8 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
     const webhook = form.dataset.webhook;
 
     if (!webhook) {
-      // No webhook configured — send via mailto fallback
-      const subject = encodeURIComponent(`Intake Questionnaire — ${data.business_name || 'New Submission'}`);
+      // No webhook configured - send via mailto fallback
+      const subject = encodeURIComponent(`Intake Questionnaire - ${data.business_name || 'New Submission'}`);
       const body = encodeURIComponent(Object.entries(data).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`).join('\n\n'));
       window.location.href = `mailto:hello@relaylaunch.com?subject=${subject}&body=${body}`;
       // Show success anyway after redirect
