@@ -10,33 +10,60 @@ import { Button } from '@/components/starwind/button';
 
   <section class="section not-found-section">
     <div class="container not-found-inner">
-      <p class="error-code">404</p>
+      <p class="error-code" id="error-code-404"><span class="digit" data-digit>4</span><span class="digit" data-digit>0</span><span class="digit" data-digit>4</span></p>
       <h1 class="not-found-title">Page not found.</h1>
       <p class="not-found-sub">
-        The page you're looking for has moved, been renamed, or doesn't exist.
-        Here are some places to go instead:
+        Mission not found. Let's get you back on track.
       </p>
       <nav class="not-found-links" aria-label="Helpful links">
-        <Button variant="primary" href="/">Go Home</Button>
+        <Button variant="primary" href="/">Return to Base</Button>
         <Button variant="outline" href="/services">View Services</Button>
-        <Button variant="outline" href="/contact">Contact Us</Button>
+        <Button variant="outline" href="/contact">Contact HQ</Button>
       </nav>
     </div>
   </section>
 
 </Layout>
 
+<script>
+  document.querySelectorAll('.digit[data-digit]').forEach((digit) => {
+    digit.addEventListener('click', () => {
+      if (digit.classList.contains('tumbling')) return;
+      digit.classList.add('tumbling');
+      digit.addEventListener('animationend', () => {
+        digit.classList.remove('tumbling');
+      }, { once: true });
+    });
+  });
+</script>
+
 <style>
   .not-found-section {
     min-height: calc(100vh - 60px - 200px);
     display: flex;
     align-items: center;
+    background: var(--color-navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .not-found-section::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, color-mix(in srgb, #007AFF 12%, transparent) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .not-found-inner {
     text-align: center;
     max-width: 520px;
     margin-inline: auto;
+    position: relative;
+    z-index: 1;
   }
 
   .error-code {
@@ -45,10 +72,48 @@ import { Button } from '@/components/starwind/button';
     letter-spacing: -4px;
     line-height: 1;
     margin-bottom: 8px;
-    background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 20%, var(--color-border)) 0%, var(--color-border) 100%);
+    animation: gentleFloat 3s ease-in-out infinite;
+  }
+
+  .digit {
+    display: inline-block;
+    background: linear-gradient(135deg, #007AFF 0%, color-mix(in srgb, #007AFF 50%, #FFFFFF) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+    user-select: none;
+  }
+
+  .digit:hover {
+    transform: scale(1.1);
+  }
+
+  .digit.tumbling {
+    animation: tumble 0.6s ease-in-out;
+  }
+
+  @keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes tumble {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(1); }
+    75% { transform: rotate(270deg) scale(0.9); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .error-code {
+      animation: none;
+    }
+    .digit.tumbling {
+      animation: none;
+    }
   }
 
   .not-found-title {
@@ -56,11 +121,12 @@ import { Button } from '@/components/starwind/button';
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 16px;
+    color: #FFFFFF;
   }
 
   .not-found-sub {
     font-size: 16px;
-    color: var(--color-muted);
+    color: color-mix(in srgb, #FFFFFF 65%, transparent);
     line-height: 1.6;
     margin-bottom: 32px;
   }

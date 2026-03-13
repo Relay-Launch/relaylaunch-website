@@ -45,15 +45,14 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════ CONTACT OPTIONS -->
-  <section class="section">
-    <div class="container contact-grid">
-
-      <div class="contact-primary">
-        <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Book a Discovery Call</h2>
-        <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Pick a time that works for you. 30–45 minutes, no pitch, no commitment.
-          We'll learn about your business and figure out if we're a fit.
+  <!-- ═══════════════════════════════════════════════ PRIMARY CTA -->
+  <section class="section discovery-call-section">
+    <div class="container" style="text-align: center; max-width: var(--container-sm);">
+      <div class="discovery-call-card card" style="padding: var(--card-padding); border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-md);">
+        <span class="section-eyebrow">Highest Value Next Step</span>
+        <h2 class="section-title" style="font-size: clamp(24px, 3.5vw, 36px); margin-bottom: 8px;">Book a Discovery Call</h2>
+        <p style="color: var(--color-muted); font-size: var(--font-size-md); margin-bottom: 24px; max-width: var(--container-xs); margin-left: auto; margin-right: auto;">
+          30–45 minutes. No pitch, no commitment. We learn about your business and figure out if we're a fit.
         </p>
         <Button
           variant="primary"
@@ -64,51 +63,64 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
         >
           Pick a Time →
         </Button>
+        <p style="margin-top: 12px; font-size: var(--font-size-sm); color: var(--color-muted);">Free. No obligation. Calendar invite sent instantly.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="divider-label">or send an email</div>
+  <!-- ═══════════════════════════════════════════════ SECONDARY OPTIONS -->
+  <section class="section">
+    <div class="container contact-grid">
 
-        <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Start a Project Request</h2>
+      <div class="contact-primary">
+        <h2 class="section-title" style="font-size: 22px; margin-bottom: 8px;">Or reach out directly</h2>
         <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Tell us about your business and what you're looking to build. We'll respond within
-          1–2 business days.
+          Prefer email? Send us a project request or a quick question.
         </p>
-        <Button
-          variant="outline"
-          href="mailto:hello@relaylaunch.com?subject=Project%20Request%20—%20RelayLaunch&body=Hi%20RelayLaunch%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%20Here%27s%20a%20bit%20about%20my%20business%3A%0A%0ABusiness%20name%3A%20%0AIndustry%3A%20%0AWhat%20I%27m%20looking%20for%3A%20%0ACurrent%20tools%20I%20use%3A%20%0ABiggest%20pain%20point%3A%20%0A%0AThanks!"
-          size="lg"
-        >
-          Send a Project Request →
-        </Button>
 
-        <div class="divider-label">or</div>
+        <div class="secondary-options">
+          <div class="secondary-option">
+            <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">Start a Project Request</h3>
+            <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Tell us about your business and what you're looking to build.</p>
+            <Button
+              variant="outline"
+              href="mailto:hello@relaylaunch.com?subject=Project%20Request%20—%20RelayLaunch&body=Hi%20RelayLaunch%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%20Here%27s%20a%20bit%20about%20my%20business%3A%0A%0ABusiness%20name%3A%20%0AIndustry%3A%20%0AWhat%20I%27m%20looking%20for%3A%20%0ACurrent%20tools%20I%20use%3A%20%0ABiggest%20pain%20point%3A%20%0A%0AThanks!"
+              size="sm"
+            >
+              Send a Project Request →
+            </Button>
+          </div>
 
-        <h2 class="section-title" style="font-size: 26px; margin-bottom: 8px;">Ask a Quick Question</h2>
-        <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Not ready to submit a full request? Have a specific question? Just send us a quick email.
-        </p>
-        <Button
-          variant="outline"
-          href="mailto:hello@relaylaunch.com?subject=Quick%20Question%20—%20RelayLaunch"
-          size="lg"
-        >
-          Ask a Quick Question
-        </Button>
+          <div class="secondary-option">
+            <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">Ask a Quick Question</h3>
+            <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Not ready for a full request? Just send a quick email.</p>
+            <Button
+              variant="outline"
+              href="mailto:hello@relaylaunch.com?subject=Quick%20Question%20—%20RelayLaunch"
+              size="sm"
+            >
+              Ask a Quick Question
+            </Button>
+          </div>
 
-        <div class="divider-label">also available on github</div>
-
-        <div class="github-options">
-          <a href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml" target="_blank" rel="noopener" class="github-link">
-            <span class="github-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </span>
-            Submit a project request on GitHub
-          </a>
-          <a href="https://github.com/Relay-Launch/.github/issues/new?template=quick-question.yml" target="_blank" rel="noopener" class="github-link">
-            <span class="github-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            </span>
-            Ask a quick question on GitHub
-          </a>
+          <div class="secondary-option">
+            <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">GitHub</h3>
+            <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Submit a request or question via GitHub Issues.</p>
+            <div class="github-options">
+              <a href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml" target="_blank" rel="noopener" class="github-link">
+                <span class="github-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                Project request
+              </a>
+              <a href="https://github.com/Relay-Launch/.github/issues/new?template=quick-question.yml" target="_blank" rel="noopener" class="github-link">
+                <span class="github-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                Quick question
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -195,34 +207,37 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 <style>
   .hero { padding-top: 80px; }
 
+  /* Discovery call hero section (P0-6) */
+  .discovery-call-section {
+    padding-top: 0;
+  }
+
+  .discovery-call-card {
+    background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--primary) 3%, var(--color-surface)) 100%);
+  }
+
+  /* Secondary options grid */
+  .secondary-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .secondary-option {
+    padding: 24px;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 56px;
+    grid-template-columns: 1fr 360px;
+    gap: 48px;
     align-items: start;
   }
 
   .contact-primary { display: flex; flex-direction: column; }
-
-  .divider-label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: var(--color-muted);
-    font-size: 13px;
-    font-weight: 600;
-    margin: 32px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .divider-label::before,
-  .divider-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--color-border);
-  }
 
   /* Process list */
   .process-list {
@@ -279,7 +294,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 
   .faq-item {
     padding: 24px;
-    border-radius: 12px;
+    border-radius: var(--radius-card);
     border: 1px solid var(--color-border);
     background: var(--color-bg);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -336,8 +351,9 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 
   .github-link:hover .github-icon { color: var(--color-text); }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .contact-grid { grid-template-columns: 1fr; }
+    .secondary-options { grid-template-columns: 1fr; }
   }
 
 </style>

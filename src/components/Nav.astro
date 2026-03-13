@@ -117,7 +117,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
   header {
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: var(--z-dropdown);
     background: color-mix(in srgb, var(--color-bg) 85%, transparent);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -167,20 +167,41 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     font-weight: 500;
     color: var(--color-muted);
     text-decoration: none;
-    border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    right: 12px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
   }
 
   .nav-link:hover {
     color: var(--color-text);
-    background: var(--color-surface);
     text-decoration: none;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
   }
 
   .nav-link.active {
     color: var(--color-primary);
-    background: var(--color-primary-subtle, color-mix(in srgb, var(--primary) 8%, transparent));
     font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    transform: scaleX(1);
   }
 
   .nav-right {
@@ -206,7 +227,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     padding: 6px;
     background: none;
     border: 1px solid var(--color-border);
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: border-color 0.15s;
   }
@@ -240,15 +261,21 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     display: none;
     overflow: hidden;
     max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
     background: color-mix(in srgb, var(--color-bg) 98%, transparent);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid var(--color-border);
-    transition: max-height 0.3s cubic-bezier(.22,1,.36,1);
+    transition: max-height 0.3s cubic-bezier(.22,1,.36,1),
+      transform var(--transition-smooth),
+      opacity var(--transition-smooth);
   }
 
   .mobile-nav.open {
     max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .mobile-nav ul {
@@ -267,7 +294,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     font-weight: 500;
     color: var(--color-muted);
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     transition: color 0.15s, background 0.15s;
   }
 
@@ -312,7 +339,7 @@ import { ThemeToggle } from '@/components/starwind/theme-toggle';
     color: var(--color-muted);
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 768px) {
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .mobile-nav { display: block; }
