@@ -87,25 +87,34 @@ const faqSchema = {
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->
-  <section class="section hero">
+  <section class="section svc-hero">
+    <div class="svc-hero-grid" aria-hidden="true"></div>
     <div class="container">
-      <span class="section-eyebrow">Service Packages</span>
-      <h1 class="section-title" style="font-size: clamp(32px, 5vw, 52px);">
-        Stop duct-taping your tech stack.<br />Start building something that lasts.
-      </h1>
-      <p class="section-sub" style="margin-bottom: 28px;">
-        Every package has a defined scope, clear deliverables, and a price you'll know
-        before anything starts. No hidden fees. No scope creep. Every engagement begins
-        with a conversation — not a sales pitch.
-      </p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-        <Button variant="primary" href="/contact" size="lg">Start a Conversation →</Button>
-        <Button variant="outline" href="/complete-analysis" size="lg">Start with a Complete Analysis</Button>
+      <div class="svc-hero-content">
+        <span class="svc-hero-eyebrow">Service Packages</span>
+        <h1 class="svc-hero-headline">
+          Clear scope. Fixed price.<br />
+          <span class="svc-accent">No surprises.</span>
+        </h1>
+        <p class="svc-hero-sub">
+          Every package has defined deliverables, transparent pricing, and a
+          conversation before anything starts. Pick your starting line — we meet
+          you there.
+        </p>
+        <div class="svc-hero-tiers">
+          <a href="#complete-analysis-highlight" class="svc-tier-chip svc-tier-active">Complete Analysis</a>
+          <a href="#launch" class="svc-tier-chip">Launch</a>
+          <a href="#run" class="svc-tier-chip">Run</a>
+          <a href="#scale" class="svc-tier-chip">Scale</a>
+        </div>
+        <div class="svc-hero-actions">
+          <Button variant="primary" href="/contact" size="lg">Start a Conversation →</Button>
+          <Button variant="outline" href="/complete-analysis" size="lg">Start with a Complete Analysis</Button>
+        </div>
+        <p class="svc-hero-note">
+          No commitment required. Discovery call is free.
+        </p>
       </div>
-      <p style="margin-top: 14px; font-size: 13px; color: var(--color-muted);">
-        No commitment required. Discovery call is free. &nbsp;·&nbsp; Not sure which package fits? A <a href="/complete-analysis" style="color: var(--color-primary); text-decoration: underline;">Complete Analysis</a> gives you the data to decide.
-      </p>
-      <a href="/how-we-work" style="color: var(--color-primary); font-size: var(--font-size-md); display: inline-flex; align-items: center; gap: 6px;">See how we work →</a>
     </div>
   </section>
 
@@ -386,7 +395,142 @@ const faqSchema = {
 </script>
 
 <style>
-  .hero { padding-top: 80px; }
+  /* ── Services Hero (distinct from homepage) ── */
+  .svc-hero {
+    background: var(--color-navy);
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    border-top: none;
+  }
+
+  .svc-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--primary) 5%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--primary) 5%, transparent) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 60% 50% at 80% 50%, black 20%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 80% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .svc-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+
+  .svc-hero-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+  }
+
+  .svc-hero-headline {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 800;
+    color: var(--color-white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .svc-accent {
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+  }
+
+  .svc-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), color-mix(in srgb, var(--primary) 40%, transparent));
+    border-radius: 2px;
+  }
+
+  .svc-hero-sub {
+    font-size: 17px;
+    color: color-mix(in srgb, var(--color-white) 72%, transparent);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .svc-hero-tiers {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .svc-tier-chip {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--color-white) 65%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-white) 15%, transparent);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .svc-tier-chip:hover {
+    color: var(--color-white);
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    text-decoration: none;
+  }
+
+  .svc-tier-active {
+    color: var(--color-white);
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+  }
+
+  .svc-hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .svc-hero-actions :global(a) {
+    text-decoration: none;
+  }
+
+  .svc-hero-actions :global(.btn-outline) {
+    border-color: color-mix(in srgb, var(--color-white) 30%, transparent);
+    color: var(--color-white);
+  }
+
+  .svc-hero-actions :global(.btn-outline:hover) {
+    border-color: var(--color-white);
+    background: color-mix(in srgb, var(--color-white) 8%, transparent);
+  }
+
+  .svc-hero-note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: color-mix(in srgb, var(--color-white) 50%, transparent);
+  }
+
+  @media (max-width: 768px) {
+    .svc-hero { padding-top: 72px; padding-bottom: 56px; }
+    .svc-hero-headline { font-size: clamp(26px, 6vw, 40px); }
+    .svc-hero-actions { flex-direction: column; width: 100%; }
+    .svc-hero-actions :global(a) { width: 100%; justify-content: center; }
+    .svc-hero-grid { display: none; }
+  }
 
   /* ── Unified Price Display ── */
   .price-primary { font-size: 22px; font-weight: 800; }
