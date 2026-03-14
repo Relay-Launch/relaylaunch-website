@@ -18,7 +18,8 @@ import { Button } from '@/components/starwind/button';
       name: 'Victor David Medina',
       jobTitle: 'Founder',
       worksFor: { '@type': 'Organization', name: 'RelayLaunch LLC' },
-      knowsAbout: ['Cloud Engineering', 'Workflow Automation', 'Digital Infrastructure', 'Small Business Operations'],
+      knowsAbout: ['Cloud Engineering', 'Full-Stack Development', 'Workflow Automation', 'Digital Infrastructure', 'Small Business Operations'],
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Harvard Extension School' },
       description: 'Cloud engineer, USMC veteran, and small business advocate. Enterprise infrastructure applied at small business scale.',
     },
     {
@@ -36,12 +37,12 @@ import { Button } from '@/components/starwind/button';
     <div class="container">
       <span class="section-eyebrow">About RelayLaunch</span>
       <h1 class="section-title" style="font-size: clamp(32px, 5vw, 52px); max-width: var(--text-width-lg);">
-        We build the systems that let you do what you started your business to do.
+        We build the infrastructure so you can do the work you actually started your business to do.
       </h1>
       <p class="section-sub" style="max-width: var(--container-narrow);">
         Small businesses deserve the same caliber of infrastructure that Fortune 500
-        companies run on. They just need it sized for their world, at a price that
-        makes sense, from a team that sticks around to make sure it works.
+        companies run on. Sized for their world. Priced for their budget. Backed by
+        a team that sticks around to make sure it works.
       </p>
     </div>
   </section>
@@ -57,23 +58,31 @@ import { Button } from '@/components/starwind/button';
 
           <div class="bio-block">
             <p>
-              RelayLaunch was founded on years of building infrastructure that handles complexity:
-              enterprise cloud systems, cross-border operations integrations, and large-scale platform
-              migrations. Our team has managed a 1,000-user Expensify + NetSuite integration
-              processing thousands of transactions daily at a billion-dollar enterprise, and led
-              cross-border post-merger integrations with full regulatory compliance at a global
-              consulting firm.
+              Victor wore every hat. Marine Corps. Finance for nearly a decade. Business
+              operations across Fortune 500 companies and global consulting firms. Through all of it,
+              one thread never changed: building systems, automating what others did by hand, and
+              pushing deeper into the technology that holds it all together.
             </p>
             <p style="margin-top: 16px;">
-              The pattern was always the same: the problems plaguing Fortune 500 migrations were
-              also destroying small businesses, just at a different scale. A wellness spa shouldn't
-              need to pay $342/month for five tools that don't talk to each other. A local contractor
-              shouldn't lose 8 hours a week to manual follow-ups that a workflow could handle.
+              That drive led to Harvard Extension School's full-stack development program, a QA
+              automation engineering track, cloud infrastructure certifications, and years of
+              self-directed study in DevOps, Terraform, and platform architecture. Not a straight-line
+              resume. A builder's resume. Every role added a layer that shapes how RelayLaunch
+              designs systems today.
             </p>
             <p style="margin-top: 16px;">
-              RelayLaunch is the bridge between enterprise-level systems thinking and the small
-              businesses that need it most but can rarely afford it. The same methodology that
-              works at 1,000 users works at 10. It just needs to be sized appropriately.
+              The enterprise experience runs deep: managing a 1,000-user Expensify + NetSuite integration
+              processing thousands of daily transactions, leading cross-border post-merger systems
+              integrations with full regulatory compliance. But the insight that sparked RelayLaunch
+              was simpler: the same infrastructure problems costing Fortune 500 companies millions
+              also crush small businesses. A wellness spa shouldn't pay $342/month for five
+              tools that don't talk to each other. A contractor shouldn't lose 8 hours a week to
+              follow-ups a workflow could handle.
+            </p>
+            <p style="margin-top: 16px;">
+              RelayLaunch bridges that gap. Enterprise-grade systems thinking, sized for small
+              business budgets. The methodology that works at 1,000 users works at 10. It just
+              needs to be built right.
             </p>
           </div>
         </div>
@@ -86,7 +95,14 @@ import { Button } from '@/components/starwind/button';
                 <div class="cred-icon">🎖️</div>
                 <div>
                   <strong>USMC Sergeant (E-5), Honorable Discharge</strong>
-                  <p>Structured execution and results-driven delivery aren't aspirational values. They're operational defaults.</p>
+                  <p>Structured execution and results-driven delivery aren't aspirational. They're operational defaults.</p>
+                </div>
+              </div>
+              <div class="cred-item">
+                <div class="cred-icon">🎓</div>
+                <div>
+                  <strong>Harvard Extension School, Full-Stack Development</strong>
+                  <p>Intensive full-stack web development at Harvard Division of Continuing Education. The engineering foundation behind every system we build.</p>
                 </div>
               </div>
               <div class="cred-item">
@@ -126,14 +142,14 @@ import { Button } from '@/components/starwind/button';
           <h2 class="section-title">The partner small businesses never had.</h2>
           <p style="color: var(--color-muted); font-size: 16px; line-height: 1.7; margin-top: 16px;">
             Consultants hand you a strategy deck and leave. Web designers hand you a
-            website and leave. Neither solves the actual problem: everything is disconnected,
-            nothing is automated, and you're still the one holding it all together.
+            website and leave. Neither solves the actual problem: everything stays disconnected,
+            nothing runs automatically, and you're still holding it all together.
           </p>
           <p style="color: var(--color-muted); font-size: 16px; line-height: 1.7; margin-top: 16px;">
-            RelayLaunch is different. We connect the tools, automate the workflows, build
-            the digital presence, set up the AI agents, and stick around long enough
-            to make sure everything actually works. The goal is straightforward: you started
-            a business to do what you're good at, not to be your own IT department.
+            RelayLaunch connects the tools, automates the workflows, builds
+            the digital presence, deploys the AI agents, and sticks around long enough
+            to make sure everything actually works. You started a business to do what
+            you're good at, not to be your own IT department.
           </p>
         </div>
         <div class="values-list reveal-stagger">
@@ -141,7 +157,7 @@ import { Button } from '@/components/starwind/button';
             <span class="value-num">01</span>
             <div>
               <strong>We build. We don't advise from the sidelines.</strong>
-              <p>We deliver working systems, not slide decks that gather dust in someone's inbox.</p>
+              <p>Working systems, not slide decks gathering dust in someone's inbox.</p>
             </div>
           </div>
           <div class="value-item">
@@ -155,14 +171,14 @@ import { Button } from '@/components/starwind/button';
             <span class="value-num">03</span>
             <div>
               <strong>Infrastructure first.</strong>
-              <p>DNS, CDN, hosting, CI/CD, and security. We handle all of it correctly from day one, not bolted on later.</p>
+              <p>DNS, CDN, hosting, CI/CD, and security. Handled correctly from day one, not bolted on later.</p>
             </div>
           </div>
           <div class="value-item">
             <span class="value-num">04</span>
             <div>
               <strong>Your business runs without us in the room.</strong>
-              <p>We build every system to free up your time, not create a dependency. If you walked away tomorrow, your infrastructure keeps running.</p>
+              <p>Every system frees up your time, never creates a dependency. Walk away tomorrow and your infrastructure keeps running.</p>
             </div>
           </div>
         </div>
@@ -203,7 +219,7 @@ import { Button } from '@/components/starwind/button';
   <section class="section" style="background: var(--color-surface);">
     <div class="container">
       <span class="section-eyebrow">The Difference</span>
-      <h2 class="section-title" style="margin-bottom: 40px;">Not a web design shop. Not a solo freelancer.</h2>
+      <h2 class="section-title" style="margin-bottom: 40px;">Not a freelancer who disappears after launch. Not an agency that charges monthly while nothing changes.</h2>
 
       <div class="compare-table-wrap">
         <table class="rl-table compare-table">
