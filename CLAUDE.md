@@ -18,10 +18,10 @@ Live URL: https://www.relaylaunch.com
 - DO NOT use green, orange, or any color outside this 4-color system
 
 ## Service Tiers (Canonical Names)
-- Complete Analysis ($1,500-$3,000) - entry point, diagnostic engagement
-- Launch ($2,500-$5,000) - one-time project build
-- Run ($500-$1,000/mo) - monthly retainer, 3-month min
-- Scale ($1,000-$2,500/mo) - premium retainer, 6-month min
+- Complete Analysis ($1,500-$3,000) - entry point, diagnostic engagement; 8 Ops Suite divisions (audit mode)
+- Launch ($2,500-$5,000) - one-time project build; 8 Ops Suite divisions (build mode)
+- Run ($500-$1,000/mo) - monthly retainer, 3-month min; 8 Ops Suite divisions (ops mode) + 1 Growth Division
+- Scale ($1,000-$2,500/mo) - premium retainer, 6-month min; 8 Ops Suite divisions (ops mode) + 2 Growth Divisions
 
 ## Tech Stack
 - Framework: Astro 5 (static output, islands architecture)

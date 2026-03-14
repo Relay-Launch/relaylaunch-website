@@ -314,7 +314,7 @@ RelayLaunch's specific business model, pricing, voice, and client delivery.
 
 ### Superpowers
 
-- **What:** Comprehensive software development workflow system for coding agents
+- **What:** Full software development workflow system for coding agents
 - **Source:** <https://github.com/obra/superpowers>
 - **Install:** Plugin marketplace or manual setup
 - **Philosophy:** Test-driven development, systematic processes, complexity reduction
@@ -687,22 +687,37 @@ improvements for processes, tools, and agent workflows.
 
 ### Public-Facing Agents (Website)
 
-The website showcases **11 lead agents** organized into divisions, with 150+
-specialists behind them:
+The website showcases **11 divisions** organized into two categories:
 
-| # | Agent | Division | Public Role |
-|---|-------|----------|-------------|
-| 1 | **Infra Agent** | Infrastructure Command | DNS, CDN, hosting, uptime |
-| 2 | **Security Agent** | Security Division | Threat detection, vulnerability scanning |
-| 3 | **Build Agent** | Engineering Corps | Code quality, testing, PR review |
-| 4 | **Brand Agent** | Brand & Design Lab | Colors, fonts, voice, identity |
-| 5 | **QA Agent** | Engineering Corps | Accessibility, Lighthouse, responsive |
-| 6 | **Prose Agent** | Content Studio | Human language, AI-ism detection |
-| 7 | **Content Agent** | Content Studio | Blog, social, email, SEO content |
-| 8 | **Growth Agent** | Growth Engine | Acquisition, conversion, analytics |
-| 9 | **Sales Agent** | Growth Engine | Pipeline, proposals, outreach |
-| 10 | **Social Agent** | Growth Engine | Cross-platform social strategy |
-| 11 | **Ops Agent** | Infrastructure Command | CI/CD, workflows, deployment |
+### Relay Method Ops Suite (8 divisions, included in every tier)
+
+| # | Division | Agent Count | Public Role |
+|---|----------|-------------|-------------|
+| 1 | **Infrastructure Command** | 18 | DNS, CDN, hosting, uptime |
+| 2 | **Security Division** | 14 | Threat detection, vulnerability scanning |
+| 3 | **Engineering Corps** | 28 | Code quality, testing, PR review |
+| 4 | **Content Studio** | 32 | Blog, email, SEO, copywriting |
+| 5 | **Brand & Design Lab** | 20 | Colors, fonts, voice, identity |
+| 6 | **Ops & Automation** | 8 | CI/CD, workflows, integrations |
+| 7 | **QA & Compliance** | 10 | Accessibility, Lighthouse, standards |
+| 8 | **Strategy & Planning** | 8 | Research, roadmaps, sprint planning |
+
+### Growth Divisions (3 divisions, unlocked in Run/Scale retainers)
+
+| # | Division | Agent Count | Public Role | Unlocked In |
+|---|----------|-------------|-------------|-------------|
+| 9 | **Growth Engine** | 30 | Acquisition, conversion, analytics | Run (+1) or Scale (+2) |
+| 10 | **Sales & Pipeline** | 12 | Outbound, proposals, pipeline | Run (+1) or Scale (+2) |
+| 11 | **Social Media Command** | 10 | Cross-platform strategy, engagement | Run (+1) or Scale (+2) |
+
+### Tier Packaging
+
+| Tier | Ops Suite | Growth Divisions | Total Agent Access |
+|------|-----------|-----------------|-------------------|
+| Complete Analysis | 8 (audit mode) | 0 | ~138 |
+| Launch | 8 (build mode) | 0 | ~138 |
+| Run | 8 (ops mode) | +1 (client picks 1 of 3) | ~158-168 |
+| Scale | 8 (ops mode) | +2 (client picks 2 of 3) | ~180-190 |
 
 ### Internal-Only Agents (Not on Website)
 
@@ -751,7 +766,7 @@ When setting up a new repo in the RelayLaunch ecosystem:
 
 The Relay Method™ is a proprietary framework developed by RelayLaunch LLC
 for orchestrating AI agents across the full spectrum of digital business
-operations — from code to content to client delivery.
+operations, from code to content to client delivery.
 
 It combines:
 - **BMAD Method** for structured agile development lifecycle
