@@ -1,4 +1,4 @@
-# Runs security checks: npm audit, secrets scanning, and dependency review.
+# Runs security checks: CodeQL analysis, npm audit, secrets scanning, and dependency review.
 name: Security Audit
 
 on:
@@ -7,18 +7,51 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    # Run daily at 06:00 UTC to catch newly disclosed CVEs
-    - cron: "0 6 * * *"
+    # Run weekly on Monday at 06:00 UTC for ongoing monitoring
+    - cron: "0 6 * * 1"
   workflow_dispatch:
 
 permissions:
   contents: read
-  security-events: write
 
 jobs:
+  codeql:
+    name: CodeQL analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: javascript-typescript
+          config: |
+            queries:
+              - uses: security-extended
+            paths:
+              - src
+            paths-ignore:
+              - node_modules
+              - dist
+              - "**/*.test.ts"
+              - "**/*.spec.ts"
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:javascript-typescript"
+
   audit:
     name: Dependency audit
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -39,6 +72,10 @@ jobs:
     name: Dependency review (PRs)
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -47,11 +84,16 @@ jobs:
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: high
+          comment-summary-in-pr: always
           deny-licenses: GPL-3.0, AGPL-3.0
+          warn-only: false
 
   secrets-scan:
     name: Secrets scan
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -59,28 +101,6 @@ jobs:
           fetch-depth: 0
 
       - name: Scan for secrets
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@v3
         with:
           extra_args: --only-verified
-
-  codeql:
-    name: CodeQL analysis
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: javascript-typescript
-          queries: security-extended
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3

@@ -4,10 +4,18 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-${{ github.head_ref }}
+  cancel-in-progress: true
+
 jobs:
   lighthouse:
     name: Lighthouse Audit
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       pull-requests: write
       contents: read
@@ -40,11 +48,14 @@ jobs:
       - name: Post Lighthouse results as PR comment
         if: always()
         uses: actions/github-script@v8
+        env:
+          LIGHTHOUSE_LINKS: ${{ steps.lighthouse.outputs.links }}
+          LIGHTHOUSE_MANIFEST: ${{ steps.lighthouse.outputs.manifest }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const links  = JSON.parse('${{ steps.lighthouse.outputs.links }}');
-            const manifest = JSON.parse('${{ steps.lighthouse.outputs.manifest }}');
+            const links  = JSON.parse(process.env.LIGHTHOUSE_LINKS);
+            const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST);
 
             const scoreIcon = (score) => {
               if (score >= 0.9) return '🟢';
