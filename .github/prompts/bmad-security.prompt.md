@@ -15,7 +15,7 @@ headers, and audit dependencies for the RelayLaunch website.
 - **Hosting:** Cloudflare Workers (edge-deployed)
 - **CI/CD:** GitHub Actions with secrets management
 - **Attack surface:** Static pages + potential API routes + form handlers
-- **CI Security:** CodeQL analysis + dependency review + npm audit (`.github/workflows/codeql.yml`)
+- **CI Security:** CodeQL analysis + dependency review + npm audit (`.github/workflows/security.yml`)
 - **Security headers:** Enforced via Astro middleware (`src/middleware.ts`) — NOT `_headers` (Workers ignores that file)
 - **Vulnerability disclosure:** `public/.well-known/security.txt`
 

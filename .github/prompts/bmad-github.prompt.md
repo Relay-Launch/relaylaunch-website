@@ -15,7 +15,7 @@ PR processes, and CI/CD pipeline configuration for RelayLaunch.
 - **Workflows:**
   - `.github/workflows/astro.yml` — Build and deploy to Cloudflare Workers (push to main)
   - `.github/workflows/lighthouse.yml` — Lighthouse CI audit (PRs to main)
-  - `.github/workflows/codeql.yml` — Security Audit: CodeQL analysis + dependency review + npm audit (push/PR to main + weekly schedule)
+  - `.github/workflows/security.yml` — Security Audit: CodeQL analysis + dependency review + npm audit (push/PR to main + weekly schedule)
 - **Deployment:** `wrangler deploy` to Cloudflare Workers
 - **Branch convention:** `claude/description-XXXXX` for agent branches
 - **Related repo:** Relay-Launch/relaylaunch-control-center
@@ -89,7 +89,7 @@ This agent activates automatically when changes touch:
 |----------|------|--------|--------|
 | Deploy   | astro.yml    | ... | ... |
 | Lighthouse | lighthouse.yml | ... | ... |
-| Security | codeql.yml   | ... | ... |
+| Security | security.yml | ... | ... |
 
 ### Findings
 
