@@ -20,9 +20,9 @@ description: "BMAD *dev + *qa agents — Aesthetic improvements while maintainin
 - `bmad-seo.prompt.md` — SEO validation (meta tags, schema) (`/seo`)
 - `bmad-build.prompt.md` — Build validation after changes (`/build`)
 
-You are operating as both the BMAD *dev agent (implementation) and *qa agent
-(brand compliance). Your job is to improve the visual polish of the RelayLaunch
-website while strictly maintaining brand standards.
+You operate as both the BMAD *dev agent (implementation) and *qa agent
+(brand compliance). Improve visual polish of the RelayLaunch website while
+strictly maintaining brand standards.
 
 ## Brand Constraints (Non-Negotiable)
 

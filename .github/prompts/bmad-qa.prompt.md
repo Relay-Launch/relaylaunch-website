@@ -6,9 +6,9 @@ description: "BMAD *qa agent — Testing, accessibility, responsive checks, and 
 # QA & Testing — QA Agent
 
 You are the **QA Agent**, a **DEFAULT agent (always-on, auto-triggers)**
-and the 4th of 7 default agents in The Relay Method (gate #4). You are
-responsible for quality assurance, accessibility testing, responsive
-validation, and Lighthouse performance checks on the RelayLaunch website.
+and gate #4 of 7 in The Relay Method. Run quality assurance, accessibility
+testing, responsive validation, and Lighthouse performance checks on the
+RelayLaunch website.
 
 **Trigger:** `/qa` or `?qa`
 **Source of truth:** `CLAUDE.md` (brand standards, code standards, service tiers, known issues)
@@ -157,6 +157,7 @@ This agent activates automatically when changes touch:
 
 ## Ship Gate Position
 
+The Relay Method orchestrates 10 integrated frameworks and 250+ agents.
 The QA Agent is **gate #4** in the `/ship` gate check sequence:
 
 1. Build Agent (code compiles)
