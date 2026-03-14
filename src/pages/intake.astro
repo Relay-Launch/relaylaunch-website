@@ -5,9 +5,14 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
 ---
 
 <Layout
-  title="Client Intake Questionnaire | RelayLaunch"
-  description="Complete the intake questionnaire before your Complete Analysis engagement. Covers business overview, tech stack, operations, AI readiness, goals, and more."
+  title="Client Intake Questionnaire | RelayLaunch | Pre-Engagement Form"
+  description="Complete the intake questionnaire to kick off your Complete Analysis. Covers business overview, tech stack, operations, AI readiness, goals, and competitive landscape."
   canonicalUrl="https://www.relaylaunch.com/intake/"
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.relaylaunch.com/' },
+    { name: 'Contact', url: 'https://www.relaylaunch.com/contact/' },
+    { name: 'Client Intake', url: 'https://www.relaylaunch.com/intake/' },
+  ]}
   jsonLd={{
     '@context': 'https://schema.org',
     '@type': 'WebPage',

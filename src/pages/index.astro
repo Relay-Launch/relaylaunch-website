@@ -9,7 +9,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 
 <Layout
   title="RelayLaunch | Ops on Autopilot. You on Strategy."
-  description="Tired of scattered AI tools? RelayLaunch designs and runs a single operations console for your automations and infrastructure so your ops run on autopilot and you stay focused on strategy."
+  description="RelayLaunch replaces your scattered tools with one connected system and AI agents that run your operations 24/7. Website, automation, email, and dashboard — all unified. Veteran-owned. Fixed pricing from $1,500."
   canonicalUrl="https://www.relaylaunch.com/"
   jsonLd={[
     {
@@ -42,6 +42,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
       },
       priceRange: '$$',
       knowsAbout: ['digital infrastructure', 'business automation', 'ERP migration', 'web development'],
+      sameAs: ['https://github.com/Relay-Launch', 'https://www.linkedin.com/company/relaylaunch'],
     },
   ]}
 >
@@ -177,13 +178,13 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             <Button type="submit" variant="primary" class="w-full justify-center">Get the Assessment →</Button>
             <p class="form-note">No spam. Unsubscribe anytime.</p>
           </form>
-          <div id="lead-magnet-success" class="lead-magnet-success" hidden>
+          <div id="lead-magnet-success" class="lead-magnet-success" role="status" aria-live="polite" hidden>
             <p class="success-title">You're in.</p>
             <p class="success-desc">
               Check your inbox. Your Digital Readiness Assessment is on the way.
             </p>
           </div>
-          <div id="lead-magnet-error" class="lead-magnet-error" hidden>
+          <div id="lead-magnet-error" class="lead-magnet-error" role="alert" aria-live="assertive" hidden>
             <p class="error-title">Something went wrong.</p>
             <p class="error-desc">
               Please try again, or reach out to us at <a href="/contact">contact</a>.
