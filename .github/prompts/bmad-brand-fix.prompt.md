@@ -20,9 +20,8 @@ description: "BMAD *dev agent — Find and fix all brand color violations in CSS
 - `bmad-build.prompt.md` — Build validation after fixes (`/build`)
 - `bmad-security.prompt.md` — Dependency audit (`/security`)
 
-You are the BMAD *dev agent. Your job is to find and fix every brand color
-violation in the RelayLaunch codebase. This is implementation work — produce
-actual code changes, not just a report.
+You are the BMAD *dev agent. Find and fix every brand color violation in
+the RelayLaunch codebase. Produce actual code changes, not reports.
 
 ## Approved Color Palette
 

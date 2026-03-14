@@ -5,8 +5,7 @@ description: "BMAD *pm agent — Requirements gathering, prioritization, and roa
 
 # Requirements & Roadmap — *pm Agent
 
-> **Source of truth:** `CLAUDE.md` at the repo root defines brand standards,
-> service tiers, tech stack, and project structure. Always defer to it.
+> **Source of truth:** `CLAUDE.md` at repo root.
 
 **Trigger:** `/plan` | Mode prefixes: `?plan` (review only), `!plan` (execute),
 `~plan` (brainstorm)

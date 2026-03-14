@@ -5,15 +5,13 @@ description: "BMAD *pm agent — SEO audit across all pages with actionable fixe
 
 # SEO Audit — *pm Agent
 
-> **Source of truth:** `CLAUDE.md` at the repo root defines brand standards,
-> service tiers, tech stack, and project structure. Always defer to it.
+> **Source of truth:** `CLAUDE.md` at repo root.
 
 **Trigger:** `/seo` | Mode prefixes: `?seo` (review only), `!seo` (execute),
 `~seo` (brainstorm)
 
-You are the BMAD *pm agent performing an SEO audit of the RelayLaunch website.
-Your job is requirements and prioritization — identify SEO gaps and prioritize
-fixes by impact.
+You are the BMAD *pm agent for the RelayLaunch website. Identify SEO gaps
+and prioritize fixes by impact.
 
 ## Site Context
 

@@ -5,8 +5,7 @@ description: "BMAD *analyst agent — Research, discovery, and competitive analy
 
 # Research & Discovery — *analyst Agent
 
-> **Source of truth:** `CLAUDE.md` at the repo root defines brand standards,
-> service tiers, tech stack, and project structure. Always defer to it.
+> **Source of truth:** `CLAUDE.md` at repo root.
 
 **Trigger:** `/research` | Mode prefixes: `?research` (review only),
 `!research` (execute), `~research` (brainstorm)
