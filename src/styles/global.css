@@ -591,6 +591,11 @@ a[data-slot="button"]:hover { text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+  .card:hover { transform: none; }
+  .card.featured:hover { transform: none; }
+  [data-slot="button"]:hover,
+  button:not(.menu-toggle):not(.back-to-top):hover { transform: none; }
+  .back-to-top:hover { transform: none; }
 }
 
 /* ─── Print (P4-5 expanded) ───────────────────────────────────── */
