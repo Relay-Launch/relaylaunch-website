@@ -1,29 +1,31 @@
-# Blueprints — AI-Assisted Development Resources
+# Blueprints — AI-Assisted Development
 
-This folder contains architecture documents, specifications, and reference
-materials that AI coding tools (Claude Code, GitHub Copilot, etc.) should
-consult when generating or reviewing code in this repository.
+Architecture documents, specifications, and reference materials for AI coding
+tools (Claude Code, GitHub Copilot, Cursor) working in the RelayLaunch
+codebase.
 
-## How It Works
+## How to Use
 
-When starting a build session, point your AI tool at this folder:
+Point your AI tool at this folder before starting a build session:
 
-- **Claude Code:** `@docs/blueprints` or reference files directly
-- **GitHub Copilot:** Files here are indexed automatically via workspace context
-- **Any AI tool:** Upload or reference these documents at the start of a session
+- **Claude Code:** Reference files directly or use `@docs/blueprints`
+- **GitHub Copilot:** Files are indexed automatically via workspace context
+- **Any AI tool:** Upload or reference documents at session start
+
+**Rule:** Upload first, build second. The AI builds better when it reads the spec before writing code.
 
 ---
 
 ## Document Index
 
-### Website-Specific (This Repo)
+### Website (This Repo)
 
-These documents describe the architecture, standards, and workflows for the
+Documents covering the architecture, standards, and workflows for the
 `relaylaunch-website` marketing site.
 
 | Document | Version | Description |
 |----------|---------|-------------|
-| `rl-website-agent-instructions-v1.md` | v1 | **Start here** — Rules for AI agents working on this repo |
+| `rl-website-agent-instructions-v1.md` | v1 | Rules for AI agents working on this repo — start here |
 | `rl-website-architecture-v1.md` | v1 | Technical architecture, component map, deployment pipeline |
 | `rl-website-build-framework-v1.md` | v1 | Development workflow, quality gates, content operations |
 | `rl-site-audit-v1.md` | v1 | Homepage alignment audit against Control Center positioning |
@@ -32,9 +34,9 @@ These documents describe the architecture, standards, and workflows for the
 
 ### Control Center (Cross-Repo Context)
 
-These documents describe the `relaylaunch-control-center` repo. They are
-stored here so AI tools working on the website have full cross-repo context
-for integration work.
+Documents describing the `relaylaunch-control-center` repo. Stored here so
+AI tools working on the website have full cross-repo context for integration
+work.
 
 | Document | Version | Description |
 |----------|---------|-------------|
@@ -53,59 +55,44 @@ for integration work.
 
 ### Shared / Strategy
 
-These documents apply to both repos and the overall RelayLaunch business.
+Documents that apply across both repos and the overall RelayLaunch business.
 
 | Document | Version | Description |
 |----------|---------|-------------|
-| `rl-service-playbook-v1.md` | v1 | Service delivery playbook (Discovery → Build → Run) |
+| `rl-service-playbook-v1.md` | v1 | Service delivery playbook (Discovery to Build to Run) |
 | `relaylaunch-market-landscape-v1.md` | v1 | Market research, competitive landscape, sizing |
+| `rl-agent-frameworks-v1.md` | v1 | Agent framework overview and installation guide |
 
 ---
 
-## Versioning Convention
+## Versioning
 
-Documents are versioned with a `-v1`, `-v2` suffix. When proposing changes
-to a canonical spec:
+Documents use a `-v1`, `-v2` suffix. When proposing changes to a spec:
 
-1. **Do NOT** silently edit an existing versioned document.
-2. **Create a new version** (e.g., `rl-website-architecture-v2.md`) that
-   explains the proposed changes.
-3. Wait for human approval before treating the new version as canonical.
+1. Do **not** edit an existing versioned document silently
+2. Create a new version (e.g., `rl-website-architecture-v2.md`) explaining changes
+3. Wait for human approval before treating the new version as canonical
 
 ---
 
-## Cross-Repo Context
+## Source of Truth
 
-This repository (`relaylaunch-website`) is the public-facing marketing site.
-It works alongside the **Command Center** (`relaylaunch-control-center`),
-which is the internal client/operations dashboard.
+| Domain | Owned By |
+|--------|----------|
+| Brand standards, service tiers, public messaging, agent registry | Website repo |
+| Data model, API contracts, Prisma schema, monorepo config | Control Center repo |
+| Market landscape, service playbook | Shared (pick one repo as canonical, copy to the other) |
 
-For shared context between repos, maintain parallel `docs/blueprints/` folders
-in both repositories. Documents that define the interface between the two
-systems (API contracts, shared data models, webhook specs) should exist in
-both repos so each AI tool has full context regardless of which repo it is
-working in.
-
-**Source of truth rules:**
-- Website repo owns: brand standards, service tier names, public messaging, agent registry
-- Control Center repo owns: data model, API contracts, Prisma schema, monorepo config
-- Shared: market landscape, service playbook
-
-**Keeping specs in sync:** Pick one repo as the source of truth for each
-shared document (typically the repo that owns the domain). Copy the spec
-to the other repo and note at the top which repo holds the canonical version.
+For shared documents, note at the top of each copy which repo holds the
+canonical version.
 
 ---
 
-## Tips for Blueprint-Driven Development
+## Tips
 
-1. **Upload first, build second** — Add your specs to this folder before
-   asking the AI to implement them
-2. **Be specific** — Include acceptance criteria, edge cases, and examples
-3. **Keep docs current** — Update blueprints when requirements change
-4. **Reference in prompts** — Tell the AI to "read docs/blueprints/[file]
-   before implementing"
-5. **Cross-link repos** — When a feature spans both repos, note the
-   counterpart in each blueprint
-6. **Use the right agent** — Check [`docs/agents.md`](../agents.md) to pick
-   the best agent for your task before starting
+1. **Upload first, build second** — add specs before asking the AI to implement
+2. **Be specific** — include acceptance criteria, edge cases, examples
+3. **Keep docs current** — update blueprints when requirements change
+4. **Reference in prompts** — tell the AI to "read `docs/blueprints/[file]` first"
+5. **Cross-link repos** — note the counterpart when a feature spans both repos
+6. **Use the right agent** — check [`docs/agents.md`](../agents.md) to match the task to a specialist

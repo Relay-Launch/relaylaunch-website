@@ -1,49 +1,54 @@
-# RelayLaunch Website
+# RelayLaunch
 
 [![Astro](https://img.shields.io/badge/Astro-5-BC52EE?logo=astro&logoColor=white)](https://astro.build/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F6821F?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.2-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F6821F?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
 [![MDX](https://img.shields.io/badge/MDX-Blog-1B1F24?logo=mdx&logoColor=white)](https://mdxjs.com/)
-[![Lighthouse](https://img.shields.io/badge/Lighthouse-90%2B-4285F4?logo=lighthouse&logoColor=white)](https://developer.chrome.com/docs/lighthouse)
+[![Lighthouse](https://img.shields.io/badge/Lighthouse-95%2B-4285F4?logo=lighthouse&logoColor=white)](https://developer.chrome.com/docs/lighthouse)
 
-**RelayLaunch LLC** — Digital infrastructure consultancy for small businesses.
+**Ops on Autopilot. You on Strategy.**
 
-[relaylaunch.com](https://relaylaunch.com) · [hello@relaylaunch.com](mailto:hello@relaylaunch.com) · Watertown, MA
+RelayLaunch is a veteran-owned digital infrastructure consultancy. We replace the 5-8 disconnected tools most small businesses juggle with one integrated system built on real infrastructure. Fortune 500 experience, small business budget.
+
+[relaylaunch.com](https://relaylaunch.com) | [hello@relaylaunch.com](mailto:hello@relaylaunch.com) | Watertown, MA
 
 ---
 
-## About
+## What We Do
 
-RelayLaunch replaces the 5–8 disconnected tools most small businesses juggle — website, email, CRM, social, scheduling, analytics, payments — with one integrated system built on real infrastructure. Veteran-owned, Fortune 500 experience, small business budget.
+We build and run the digital infrastructure that growing businesses need but rarely have the team to manage. Websites, automations, email, CRM, social, scheduling, analytics, and payments, wired together and working.
 
-## Service Tiers
+### Service Tiers
 
-| Package | Description | Investment |
-|---------|-------------|------------|
-| **Complete Analysis** | 8-area business infrastructure diagnostic — 20–30 page report with prioritized roadmap | $1,500–$3,000 |
-| **Launch** | One-time full infrastructure build — website, automations, email, social, dashboard | $2,500–$5,000 |
-| **Run** | Monthly operations retainer — content, SEO, automation monitoring, strategy calls | $500–$1,000/mo · 3-month min |
-| **Scale** | Premium growth retainer — expanded deliverables, priority support, advanced builds | $1,000–$2,500/mo · 6-month min |
+| Tier | What You Get | Investment |
+|------|-------------|------------|
+| **Complete Analysis** | 8-area business infrastructure diagnostic with a 20-30 page prioritized roadmap | $1,500-$3,000 |
+| **Launch** | Full infrastructure build — website, automations, email, social, dashboard | $2,500-$5,000 |
+| **Run** | Monthly operations retainer — content, SEO, automation monitoring, strategy calls | $500-$1,000/mo (3-month min) |
+| **Scale** | Premium growth retainer — expanded deliverables, priority support, advanced builds | $1,000-$2,500/mo (6-month min) |
+
+---
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
 | Framework | [Astro 5](https://astro.build/) — static-first, islands architecture |
-| Styling | [Tailwind CSS 4.2](https://tailwindcss.com/) + Starwind components |
+| Styling | [Tailwind CSS 4.2](https://tailwindcss.com/) + Starwind design system |
 | Content | MDX blog posts via Astro Content Collections |
-| Deployment | [Cloudflare Pages/Workers](https://pages.cloudflare.com/) via `wrangler` |
-| CI/CD | GitHub Actions → `wrangler deploy` on push to `main` |
-| Quality | Lighthouse CI on PRs — Performance, Accessibility, SEO ≥ 90 |
-| Domain | relaylaunch.com — Registrar: Porkbun, DNS: Cloudflare |
+| Hosting | [Cloudflare Workers](https://workers.cloudflare.com/) via `wrangler` |
+| CI/CD | GitHub Actions — build, Lighthouse CI, `wrangler deploy` on push to `main` |
+| Quality | Lighthouse CI on every PR (Performance, Accessibility, SEO targets: 95+) |
+| Domain | relaylaunch.com (Registrar: Porkbun, DNS: Cloudflare) |
 
 ## Local Development
 
 ```bash
-npm ci            # install dependencies (use ci, not install)
-npm run dev       # dev server → http://localhost:4321
-npm run build     # production build → dist/
-npm run preview   # build + wrangler dev (local Cloudflare preview)
+npm ci            # Install dependencies (use ci, not install)
+npm run dev       # Dev server at http://localhost:4321
+npm run build     # Production build to dist/
+npm run preview   # Build + local Cloudflare preview via wrangler
+npm run deploy    # Build + deploy to production
 ```
 
 ## Project Structure
@@ -80,26 +85,27 @@ public/
 └── robots.txt
 ```
 
+---
+
 ## Deployment
 
-Deployments are fully automated via GitHub Actions.
+Deployments run automatically through GitHub Actions on every push to `main`.
 
-**Trigger:** Any push to `main`
-**Pipeline:** Build Astro → Lighthouse CI → `wrangler deploy` → Cloudflare Pages
+**Pipeline:** Astro build > Lighthouse CI > `wrangler deploy` > Cloudflare Workers
 
 ```
 git push origin main  →  GitHub Actions  →  wrangler deploy  →  relaylaunch.com
 ```
 
-To deploy manually from your machine:
+Manual deploy from your machine:
 
 ```bash
-npm run deploy   # npm run build + wrangler deploy
+npm run deploy   # Runs build + wrangler deploy
 ```
 
 ### Environment Variables
 
-Set in Cloudflare Pages dashboard or `.env` locally (see `.env.example`):
+Set in the Cloudflare dashboard or locally in `.env` (see `.env.example`):
 
 | Variable | Purpose |
 |----------|---------|
@@ -107,56 +113,80 @@ Set in Cloudflare Pages dashboard or `.env` locally (see `.env.example`):
 | `PUBLIC_LEAD_MAGNET_WEBHOOK_URL` | n8n webhook for lead magnet form |
 | `PUBLIC_CONTACT_WEBHOOK_URL` | n8n webhook for Complete Analysis booking form |
 
+---
+
 ## Brand Standards
+
+RelayLaunch uses a strict 4-color system across all pages and components.
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| Navy | `#0F172A` | Headers, nav, footer, dark sections |
-| Electric Blue | `#007AFF` | CTAs, links, hover states only |
-| White | `#FFFFFF` | Page backgrounds |
-| Light Gray | `#F8FAFC` | Alternating section backgrounds |
+| **Navy** | `#0F172A` | Headers, nav, footer, dark sections |
+| **Electric Blue** | `#007AFF` | CTAs, links, hover states only |
+| **White** | `#FFFFFF` | Page backgrounds |
+| **Light Gray** | `#F8FAFC` | Alternating section backgrounds |
 
-- **Font:** Arial, Helvetica, sans-serif
+- **Font:** Arial, Helvetica, sans-serif — no other fonts
 - **Dark mode:** Supported via ThemeToggle component
 - **Accessibility:** WCAG AA — skip-to-content, focus-visible, keyboard navigation
+- **Voice:** Direct, confident, accessible, action-oriented, team-first ("we" not "I")
 
-## Ecosystem
+---
 
-RelayLaunch uses a multi-repo architecture:
+## The Relay Method
+
+This repository uses **The Relay Method** — RelayLaunch's AI agent orchestration framework that unifies three open-source frameworks (BMAD Method, The Agency, Superpowers) into one coordinated system. Seven default agents run automatically on every code change:
+
+| Agent | Role |
+|-------|------|
+| **Build** | Code quality, testing, PR review |
+| **Security** | Threat detection, CSP, dependency audit |
+| **Brand** | Colors, fonts, voice, visual identity |
+| **QA** | Accessibility, Lighthouse, responsive |
+| **Prose** | Human language, AI-ism detection |
+| **Infra** | DNS, CDN, CI/CD, hosting |
+| **GitHub** | Workflows, Actions, branch protection |
+
+See [`docs/agents.md`](docs/agents.md) for the full agent registry, triggers, and specialist roles.
+
+---
+
+## Repositories
+
+RelayLaunch operates as a multi-repo architecture:
 
 | Repository | Purpose |
 |------------|---------|
-| **relaylaunch-website** (this repo) | Public-facing marketing site — services, blog, lead capture |
+| **relaylaunch-website** (this repo) | Public marketing site — services, blog, lead capture |
 | [**relaylaunch-control-center**](https://github.com/Relay-Launch/relaylaunch-control-center) | Internal Command Center — client dashboard, operations tools |
 
-### Blueprints for AI-Assisted Development
+### Blueprints
 
-Both repos maintain a `docs/blueprints/` folder for architecture documents,
-API contracts, and feature specs. When starting an AI-assisted build session:
+Both repos maintain a `docs/blueprints/` folder with architecture documents, API contracts, and feature specs for AI-assisted development. See [`docs/blueprints/README.md`](docs/blueprints/README.md) for the full index.
 
-1. Add your spec documents to `docs/blueprints/`
-2. Point the AI tool at the folder (e.g., `@docs/blueprints` in Claude Code)
-3. The AI uses those documents as context for implementation
-
-See [`docs/blueprints/README.md`](docs/blueprints/README.md) for full details.
+---
 
 ## Contributing
 
 1. Create a feature branch: `git checkout -b claude/description-XXXXX`
 2. Follow [conventional commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `chore:`
-3. Ensure `npm run build` passes with zero errors
-4. Lighthouse CI runs automatically on PRs (thresholds: 90+ perf, a11y, SEO)
+3. Run `npm run build` — zero errors required
+4. Lighthouse CI runs on PRs (targets: 95+ performance, accessibility, SEO)
 5. Open a PR against `main`
 
-## Links
-
-- **Live site:** [relaylaunch.com](https://relaylaunch.com)
-- **Complete Analysis:** [relaylaunch.com/complete-analysis](https://relaylaunch.com/complete-analysis)
-- **Services:** [relaylaunch.com/services](https://relaylaunch.com/services)
-- **Case Studies:** [relaylaunch.com/case-studies](https://relaylaunch.com/case-studies)
-- **Blog:** [relaylaunch.com/blog](https://relaylaunch.com/blog)
-- **Contact:** [relaylaunch.com/contact](https://relaylaunch.com/contact)
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
 
 ---
 
-Built by **Victor David Medina** | [RelayLaunch LLC](https://relaylaunch.com) · USMC Sergeant (E-5) · Watertown, MA
+## Links
+
+- [relaylaunch.com](https://relaylaunch.com) — Live site
+- [Complete Analysis](https://relaylaunch.com/complete-analysis) — Start here
+- [Services](https://relaylaunch.com/services) — Full service breakdown
+- [Case Studies](https://relaylaunch.com/case-studies) — Client work
+- [Blog](https://relaylaunch.com/blog) — Insights and guides
+- [Contact](https://relaylaunch.com/contact) — Get in touch
+
+---
+
+**RelayLaunch LLC** | Built by Victor David Medina, USMC Sergeant (E-5) | Watertown, MA

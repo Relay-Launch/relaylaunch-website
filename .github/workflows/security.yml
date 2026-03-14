@@ -1,4 +1,5 @@
 # Runs security checks: CodeQL analysis, npm audit, secrets scanning, and dependency review.
+# Triggers: push to main, PRs to main, weekly Monday 06:00 UTC, manual.
 name: Security Audit
 
 on:
@@ -67,7 +68,11 @@ jobs:
         run: npm ci
 
       - name: Run npm audit
-        run: npm audit --audit-level=high
+        run: |
+          if ! npm audit --audit-level=high 2>&1; then
+            echo "::warning::npm audit found high-severity vulnerabilities. Review the output above and update affected packages."
+            exit 1
+          fi
 
   dependency-review:
     name: Dependency review (PRs)
