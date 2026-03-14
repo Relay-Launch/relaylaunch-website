@@ -38,12 +38,34 @@ RelayLaunch website codebase. Your job is testing, audit, and brand compliance.
    - Unique `<meta name="description">` tag
    - Open Graph tags (og:title, og:description, og:image)
 
-5. **Accessibility** — Check for:
+5. **Tagline presence** — Verify the tagline "Ops on Autopilot. You on Strategy."
+   appears on key pages:
+   - Homepage (`index.astro`) — must be present
+   - Services page — must be present
+   - About page — should be present
+   - Flag any page that uses a modified or paraphrased version of the tagline
+
+6. **Voice consistency** — Audit all visible copy for:
+   - Team-first language: use "we" / "our" / "us", NEVER "I" / "my" / "me"
+   - Veteran precision: direct, confident, no hedging words (avoid "maybe",
+     "might", "could potentially", "we think", "arguably", "it seems")
+   - Action-oriented tone: lead with verbs, avoid passive constructions
+   - Cross-reference with **Prose Agent** (`bmad-prose.prompt.md`) for AI-ism
+     detection — flag em dashes, "leverage", "utilize", "streamline",
+     "cutting-edge", "game-changer", "delve", "foster", and other
+     AI-generated vocabulary patterns
+
+7. **Accessibility** — Check for:
    - Proper heading hierarchy (h1 → h2 → h3, no skips)
    - Alt text on all `<img>` and `<Image>` elements
-   - Sufficient color contrast (Navy on White, White on Navy)
+   - Sufficient color contrast per WCAG AA: minimum **4.5:1** contrast ratio
+     for normal text, **3:1** for large text (18px+ or 14px+ bold)
+   - Verify Navy `#0F172A` on White `#FFFFFF` (ratio: 15.4:1 — passes)
+   - Verify White `#FFFFFF` on Navy `#0F172A` (ratio: 15.4:1 — passes)
+   - Verify Electric Blue `#007AFF` on White `#FFFFFF` (ratio: 4.6:1 — passes
+     for normal text, but flag if used below 16px on light gray `#F8FAFC`)
 
-6. **Link integrity** — Verify:
+8. **Link integrity** — Verify:
    - Internal links use root-relative paths (`/services`, not `services`)
    - External links have `target="_blank"` and `rel="noopener"`
    - No broken anchor references

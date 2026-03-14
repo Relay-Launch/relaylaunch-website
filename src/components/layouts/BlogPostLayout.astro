@@ -58,6 +58,11 @@ const articleSchema = {
   ogType="article"
   canonicalUrl={canonicalUrl}
   jsonLd={articleSchema}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.relaylaunch.com/' },
+    { name: 'Blog', url: 'https://www.relaylaunch.com/blog/' },
+    { name: frontmatter.title, url: canonicalUrl || '' },
+  ]}
 >
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <Nav />

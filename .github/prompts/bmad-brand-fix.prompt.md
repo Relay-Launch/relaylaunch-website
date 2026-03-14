@@ -32,6 +32,21 @@ Look for:
 - Inline `style` attributes with off-brand colors
 - SVG `fill` or `stroke` attributes with off-brand colors
 
+### 1b. Scan for font-family violations
+Search all `.astro`, `.css`, `.mdx`, `.ts`, `.tsx` files for:
+- Any `font-family` declaration not using `Arial, Helvetica, sans-serif`
+- Google Fonts imports (`fonts.googleapis.com`, `fonts.gstatic.com`)
+- `@import` or `<link>` tags loading external font files (`.woff`, `.woff2`, `.ttf`, `.otf`)
+- Tailwind `font-*` utility classes referencing non-default font families
+- Any reference to specific named fonts (e.g., Inter, Roboto, Poppins, etc.)
+
+### 1c. Audit Starwind component colors
+In `src/components/starwind/`, check every component for:
+- Hardcoded hex colors instead of CSS custom properties
+- Starwind CSS variables that resolve to off-brand colors
+- Background, border, text, and shadow colors that fall outside the approved palette
+- Component variants or states (hover, focus, active, disabled) using off-brand colors
+
 ### 2. Fix each violation
 - Replace `--color-green` → `--color-accent` (`#007AFF`)
 - Replace `--color-orange` → `--color-accent` (`#007AFF`) or `--color-primary` (`#0F172A`) based on context
@@ -42,6 +57,14 @@ Look for:
 ### 3. Validate CSS custom properties
 In `src/styles/global.css` and `src/styles/starwind.css`, ensure the
 CSS custom property definitions only reference approved brand colors.
+
+### 3b. Enforce CSS variable naming conventions
+- Brand color variables must use the `--color-` prefix:
+  `--color-primary`, `--color-accent`, `--color-background`, `--color-alt`
+- Verify no duplicate or conflicting variable definitions across stylesheets
+- Starwind overrides in `starwind.css` should map to brand variables, not raw hex
+- Flag any ad-hoc variable names (e.g., `--blue`, `--navy`, `--btn-color`)
+  that bypass the naming convention
 
 ### 4. Verify after fixes
 - Run `npm run build` to confirm no build errors

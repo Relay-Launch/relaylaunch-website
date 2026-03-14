@@ -12,7 +12,7 @@
 
 ## Default Agents — Always Active on Code Changes
 
-These six agents activate **automatically** on every code change, deployment,
+These seven agents activate **automatically** on every code change, deployment,
 or infrastructure modification. No trigger needed. They represent the baseline
 engineering team that protects every change going to production.
 

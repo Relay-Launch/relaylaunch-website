@@ -66,8 +66,15 @@ configuration for the RelayLaunch website.
 ### 6. Monitoring & Reliability
 - Custom domain health checks configured
 - Error pages (404, 500) return proper responses
-- Worker size within Cloudflare limits
+- Worker size within Cloudflare limits (1MB compressed, 10MB uncompressed)
 - No unnecessary redirects adding latency
+- SSL certificate auto-renewal via Cloudflare (verify certificates are valid and not expiring)
+
+### 7. Deployment Rollback
+- Use `wrangler rollback` to revert to previous Worker version if a bad deploy lands
+- Verify rollback target via `wrangler deployments list`
+- Document the current deployment version before deploying changes
+- If rollback is needed: `wrangler rollback --message "Reverting bad deploy"`
 
 ## Auto-Trigger Conditions
 

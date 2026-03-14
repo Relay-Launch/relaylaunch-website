@@ -92,3 +92,27 @@ When competing priorities arise:
 
 ### Feature Spec
 - Problem, user, acceptance criteria, dependencies, and effort estimate
+
+## Cross-Repo Specifications
+Before planning features that touch both `relaylaunch-website` and
+`relaylaunch-control-center`, check `docs/blueprints/` for existing
+architecture documents, API contracts, webhook payload schemas, and
+shared data models. Reference relevant blueprints in feature specs to
+ensure alignment across repos.
+
+## Service Tier Pricing Consistency
+When planning changes that reference service tiers or pricing, verify
+that the canonical pricing is consistent across all pages:
+
+| Tier | Price Range |
+|------|-------------|
+| Complete Analysis | $1,500-$3,000 |
+| Launch | $2,500-$5,000 |
+| Run | $500-$1,000/mo |
+| Scale | $1,000-$2,500/mo |
+
+Check these files for pricing references before shipping:
+- `src/pages/services.astro`
+- `src/pages/complete-analysis.astro`
+- `src/pages/index.astro`
+- Any MDX blog posts that mention specific pricing

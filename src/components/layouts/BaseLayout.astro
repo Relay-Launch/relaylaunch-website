@@ -16,9 +16,10 @@ interface Props {
   canonicalUrl?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: { name: string; url: string }[];
+  noindex?: boolean;
 }
 
-const { title, description, ogImage, ogType, canonicalUrl, jsonLd, breadcrumbs } = Astro.props;
+const { title, description, ogImage, ogType, canonicalUrl, jsonLd, breadcrumbs, noindex } = Astro.props;
 
 const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
 const isProd = import.meta.env.PROD;
@@ -47,7 +48,7 @@ const isProd = import.meta.env.PROD;
         gtag('config', gaId);
       </script>
     )}
-    <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs} />
+    <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs} noindex={noindex} />
   </head>
   <body>
     <slot />
@@ -74,16 +75,33 @@ const isProd = import.meta.env.PROD;
         });
       })();
     </script>
-    <!-- Cal.com embed: scheduling widget for discovery calls -->
+    <!-- Cal.com embed: scheduling widget for discovery calls (lazy-loaded on interaction) -->
     <script is:inline>
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-      Cal("init", {origin:"https://cal.com"});
-      var calTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-      Cal("ui", {
-        theme: calTheme,
-        styles: { branding: { brandColor: "#007AFF" } },
-        hideEventTypeDetails: false,
-      });
+      (function() {
+        var calLoaded = false;
+        function loadCal() {
+          if (calLoaded) return;
+          calLoaded = true;
+          (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+          Cal("init", {origin:"https://cal.com"});
+          var calTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+          Cal("ui", {
+            theme: calTheme,
+            styles: { branding: { brandColor: "#007AFF" } },
+            hideEventTypeDetails: false,
+          });
+        }
+        // Load on first interaction with a Cal link, or after idle
+        document.addEventListener('click', function(e) {
+          if (e.target && e.target.closest && e.target.closest('[data-cal-link]')) loadCal();
+        }, { once: true, passive: true });
+        // Fallback: load after page is idle (3s)
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadCal, { timeout: 3000 });
+        } else {
+          setTimeout(loadCal, 3000);
+        }
+      })();
     </script>
 
     {isProd && gaId && (
