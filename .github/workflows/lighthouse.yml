@@ -29,6 +29,7 @@ jobs:
         with:
           node-version: "22"
           cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -79,7 +80,7 @@ jobs:
               '|------|-------------|---------------|-----|',
               ...rows,
               '',
-              '_Thresholds: Performance ≥ 90 · Accessibility ≥ 90 · SEO ≥ 90_',
+              '_Thresholds: Performance ≥ 95 · Accessibility ≥ 95 · SEO ≥ 95_',
             ].join('\n');
 
             const { data: comments } = await github.rest.issues.listComments({
