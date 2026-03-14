@@ -273,13 +273,14 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     <div class="agents-bg-orb agents-bg-orb-2" aria-hidden="true"></div>
     <div class="container">
       <div class="reveal">
-        <span class="section-eyebrow">The Relay Method&trade; — 142+ AI Agents</span>
+        <span class="section-eyebrow">The Relay Method&trade; — 150+ AI Agents</span>
         <h2 class="section-title">An entire operations team. Already working.</h2>
         <p class="section-sub" style="margin-bottom: 48px;">
           You don't have the budget for a full engineering department, a content
           studio, a security team, and a growth engine. Neither did we — so we built
-          142+ specialist AI agents across three frameworks. They run our operations
-          daily. When you work with RelayLaunch, the same system works for you.
+          150+ specialist AI agents across three rebranded frameworks — built,
+          tested, and improved on our own business every day. When you work with
+          RelayLaunch, the same battle-tested system works for you.
         </p>
       </div>
 
@@ -388,6 +389,86 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
             <span class="agent-tag">/brand</span>
             <span class="agent-tag">/audit</span>
           </div>
+        </div>
+
+        <!-- Sales Agent -->
+        <div class="agent-card agent-card-sales">
+          <div class="agent-status"><span class="agent-status-dot"></span>Active</div>
+          <div class="agent-icon agent-icon-sales">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Sales Agent</h3>
+          <p class="agent-role">Turns conversations into revenue</p>
+          <p>Researches prospects before calls, drafts proposals tailored to each deal, and tracks your pipeline so nothing slips. You focus on the relationship — the agent handles the paperwork.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/deals</span>
+            <span class="agent-tag">/proposal</span>
+          </div>
+        </div>
+
+        <!-- Social Agent -->
+        <div class="agent-card agent-card-social">
+          <div class="agent-status"><span class="agent-status-dot"></span>Active</div>
+          <div class="agent-icon agent-icon-social">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+          <h3>Social Agent</h3>
+          <p class="agent-role">Keeps your audience engaged daily</p>
+          <p>Plans your content calendar, writes posts in your voice, and manages publishing across platforms. Your social presence stays active and on-brand even when you're heads-down on client work.</p>
+          <div class="agent-tags">
+            <span class="agent-tag">/social</span>
+            <span class="agent-tag">/content</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Relay Method — Methodology Breakdown -->
+      <div class="relay-method-block reveal">
+        <div class="relay-method-header">
+          <h3 class="relay-method-title">Built on Three Frameworks. Rebranded as One.</h3>
+          <p class="relay-method-intro">
+            The Relay Method&trade; isn't a single tool — it's three proven AI
+            orchestration frameworks we've unified, rebranded, and hardened on
+            our own operations. Every agent, trigger, and workflow has been
+            tested in production before it ever touches your business.
+          </p>
+        </div>
+
+        <div class="relay-method-grid">
+          <div class="relay-method-card">
+            <div class="relay-method-badge">Framework 1</div>
+            <h4>Structured Development</h4>
+            <p>Agile AI development with role-based agents — analyst, architect, developer, QA — working in coordinated sprints. Every feature gets planned, built, reviewed, and shipped with discipline.</p>
+          </div>
+          <div class="relay-method-card">
+            <div class="relay-method-badge">Framework 2</div>
+            <h4>Specialist Personalities</h4>
+            <p>Each agent has a defined role, expertise, and voice. Your Brand Agent thinks like a creative director. Your Security Agent thinks like a penetration tester. No generic AI — purpose-built specialists.</p>
+          </div>
+          <div class="relay-method-card">
+            <div class="relay-method-badge">Framework 3</div>
+            <h4>Multi-Step Workflows</h4>
+            <p>Complex tasks get broken into structured steps — brainstorm, plan, execute, test, review — with built-in quality gates. Nothing ships without passing every check.</p>
+          </div>
+        </div>
+
+        <div class="relay-method-evolution">
+          <div class="relay-method-evolution-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="20" height="20">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <p>
+            <strong>Always evolving.</strong> We add new agents, refine workflows,
+            and optimize triggers continuously — on our own business first, then
+            yours. The system you get today is better than what we ran last month,
+            and next month it'll be better still.
+          </p>
         </div>
       </div>
 
@@ -1764,6 +1845,14 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 16%, transparent), color-mix(in srgb, var(--primary) 5%, transparent));
     border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
   }
+  .agent-icon-sales {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 20%, transparent), color-mix(in srgb, var(--primary) 7%, transparent));
+    border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+  }
+  .agent-icon-social {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 14%, transparent), color-mix(in srgb, var(--primary) 5%, transparent));
+    border: 1px solid color-mix(in srgb, var(--primary) 22%, transparent);
+  }
 
   .agent-icon svg {
     width: 24px;
@@ -1946,6 +2035,109 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
   @media (max-width: 768px) {
     .premium-agents-grid { grid-template-columns: 1fr; }
     .premium-agents-block { padding: 28px 20px; }
+  }
+
+  /* ── Relay Method Methodology Block ── */
+  .relay-method-block {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding: 36px;
+    border-radius: var(--radius-card);
+    border: 1px solid color-mix(in srgb, var(--color-white) 12%, transparent);
+    background: color-mix(in srgb, var(--color-white) 3%, transparent);
+    position: relative;
+    z-index: var(--z-base);
+  }
+
+  .relay-method-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .relay-method-title {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    color: var(--color-white);
+    margin-bottom: 12px;
+  }
+
+  .relay-method-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--color-white) 70%, transparent);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .relay-method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .relay-method-card {
+    padding: 24px;
+    border-radius: var(--radius-sm);
+    border: 1px solid color-mix(in srgb, var(--color-white) 8%, transparent);
+    background: color-mix(in srgb, var(--color-white) 2%, transparent);
+  }
+
+  .relay-method-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+  }
+
+  .relay-method-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 8px;
+  }
+
+  .relay-method-card p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--color-white) 60%, transparent);
+    margin: 0;
+  }
+
+  .relay-method-evolution {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: var(--radius-sm);
+    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+  }
+
+  .relay-method-evolution-icon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    margin-top: 2px;
+  }
+
+  .relay-method-evolution p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--color-white) 75%, transparent);
+    margin: 0;
+  }
+
+  .relay-method-evolution strong {
+    color: var(--color-white);
+  }
+
+  @media (max-width: 768px) {
+    .relay-method-grid { grid-template-columns: 1fr; }
+    .relay-method-block { padding: 24px 20px; }
+    .relay-method-evolution { flex-direction: column; gap: 12px; }
   }
 
   .cc-cta-block {
