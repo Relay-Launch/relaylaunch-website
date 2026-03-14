@@ -133,6 +133,12 @@ The GitHub Agent works alongside 6 other always-on default agents:
 - QA Agent owns Lighthouse score thresholds; GitHub Agent owns the Lighthouse
   workflow job configuration and runner setup.
 
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge pipelines may add new GitHub Actions workflows or modify existing ones; validate syntax and action versions on all Forge-generated workflow files
+- **`/council`** (`relay-council.prompt.md`) — Convene when CI/CD pipeline changes have cost, speed, or reliability trade-offs
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research new GitHub Actions features, runner optimizations, and CI/CD best practices
+
 ## Output Format
 
 ```

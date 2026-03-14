@@ -117,7 +117,22 @@ Act as a retrospective facilitator:
 
 ---
 
-## 4. Rules
+## 4. Council & Forge Integration
+
+Meta-roles serve as Council seats and Forge advisors:
+
+| Meta-Role | Council Preset | Forge Phase | Contribution |
+|-----------|---------------|-------------|--------------|
+| CEO Review | `/council strategy`, `/council sales` | Phase 2 (Council) | Strategic lens on Forge trend signals |
+| Eng Manager Review | `/council build` | Phase 2 (Council) | Feasibility check on Forge build tasks |
+| Code Review | — | Phase 4 (Ship Gate) | Pre-ship senior review of Forge output |
+| Retrospective | — | Post-delivery | Monthly Forge cycle retrospective |
+
+**Forge feedback loop:** After each Forge delivery cycle, run `~retro` to evaluate what the Forge pipeline produced, what landed well with clients, and what to improve. Feed retrospective findings back into the next Forge cycle.
+
+---
+
+## 5. Rules
 
 - Meta-roles are overlays, not replacements for domain agents.
 - Produce reports and recommendations only (think/check modes).

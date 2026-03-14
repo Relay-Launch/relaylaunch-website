@@ -89,6 +89,12 @@ Run these steps after generating each new harness:
 |----------|---------|-------------|
 | GIMP | `cli-anything-gimp` | Raster image processing (layers, filters, export) |
 
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge pipelines may generate image assets (GIMP) or other CLI-driven outputs. CLI-Anything harnesses execute the automated production steps.
+- **`/council build`** (`relay-council.prompt.md`) — Convene when choosing which software to build a CLI harness for. Council evaluates client demand, build effort, and reuse potential.
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research software APIs, scripting interfaces, and plugin ecosystems before Phase 1 (Analyze). Ensures the CLI design covers the full capability surface.
+
 ## Standards
 
 - Python 3.10+ with Click 8+

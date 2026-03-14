@@ -1,0 +1,16 @@
+{
+  "title": "Luxury Wellness Spa: $342/month to $51/month",
+  "client": "Luxury Wellness Spa",
+  "industry": "Health & Wellness",
+  "description": "Replaced $342/month in disconnected tools with $51/month in unified infrastructure. $3,492 saved annually, 11 automations running 24/7.",
+  "slug": "luxury-wellness-spa",
+  "metrics": [
+    { "label": "Monthly Cost Reduction", "value": "$342 → $51" },
+    { "label": "Annual Savings", "value": "$3,492" },
+    { "label": "Automations Deployed", "value": "11" },
+    { "label": "Tool Reduction", "value": "85%" }
+  ],
+  "services": ["Complete Analysis", "Launch"],
+  "pubDate": "2026-02-15",
+  "featured": true
+}

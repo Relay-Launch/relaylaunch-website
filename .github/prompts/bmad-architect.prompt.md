@@ -97,6 +97,12 @@ The 4-color system must be respected in all component and layout decisions:
 - **`/qa`** (`bmad-qa.prompt.md`) — Accessibility, Lighthouse, responsive testing
 - **`/audit`** (`bmad-audit.prompt.md`) — Full brand compliance audit
 
+## Forge / Council / Deep Research Integration
+
+- **`/council`** (`relay-council.prompt.md`) — Convene a Council when architecture decisions have long-term trade-offs (e.g., new adapter, framework migration, cross-repo contracts)
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge may surface trend-driven feature requests that require architecture review; validate feasibility before passing to `/build`
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Request deep research when evaluating unfamiliar technologies or migration paths
+
 ## Service Tiers (Canonical Names)
 
 Account for the service delivery model in architectural decisions:

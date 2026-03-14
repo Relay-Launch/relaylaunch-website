@@ -95,12 +95,13 @@ Per `CLAUDE.md` Brand Standards:
    - External links have `target="_blank"` and `rel="noopener"`
    - No broken anchor references
 
-9. **Prompt file integrity** — Verify all 20 prompt files exist in
+9. **Prompt file integrity** — Verify all 24 prompt files exist in
    `.github/prompts/`: bmad-architect, bmad-api-review, bmad-audit,
    bmad-brand-fix, bmad-build, bmad-data-model, bmad-github, bmad-infra,
    bmad-plan, bmad-prettify, bmad-prose, bmad-qa, bmad-research,
    bmad-security, bmad-seo, bmad-sprint, finance-founder-navigator,
-   finance-tools-coach, finance-kpi-explainer, relay-meta-roles
+   finance-tools-coach, finance-kpi-explainer, relay-meta-roles,
+   cli-anything, relay-forge, relay-council, relay-deep-research
 
 ## Auto-Trigger Conditions
 
@@ -155,6 +156,12 @@ The Brand Agent works alongside 6 other always-on default agents:
 - `bmad-qa.prompt.md` — General QA, accessibility, Lighthouse, responsive (`/qa`)
 - `bmad-prose.prompt.md` — Human language enforcement (AI-ism detection)
 - `bmad-seo.prompt.md` — SEO-specific audit (`/seo`)
+
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge-generated content must pass brand audit before shipping; audit Forge output files
+- **`/council`** (`relay-council.prompt.md`) — Convene a Council when brand audit reveals systemic issues requiring cross-agent consensus on resolution approach
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research competitor brand standards when expanding the audit scope
 
 ## Output Format
 

@@ -143,6 +143,12 @@ The Infra Agent works alongside 6 other always-on default agents:
 - GitHub Agent owns workflow YAML syntax; Infra Agent owns the deployment
   pipeline logic (wrangler deploy, credential flow).
 
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge deployments may require new Workers routes, environment variables, or DNS records; validate infrastructure before Forge ships
+- **`/council`** (`relay-council.prompt.md`) — Convene when infrastructure changes have cost or reliability trade-offs (e.g., Workers vs. Pages, new services, region decisions)
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research Cloudflare product updates, new Workers features, and infrastructure best practices
+
 ## Output Format
 
 Produce a structured review with:

@@ -112,6 +112,20 @@ Before reviewing, verify the codebase has API routes or form handlers:
 - **`/security`** (`bmad-security.prompt.md`) — Security review of all endpoints (P0 priority)
 - **`/infra`** (`bmad-infra.prompt.md`) — Cloudflare Workers configuration and deployment
 
+## Forge / Council / Deep Research Integration
+
+- **`/council`** (`relay-council.prompt.md`) — Convene when API design decisions have cross-repo implications
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge pipelines may require new API endpoints; validate before implementation
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research API design patterns for Cloudflare Workers edge constraints
+
+## Service Tiers (Canonical Names)
+
+When API endpoints serve service-tier data, use canonical names:
+- **Complete Analysis** ($1,500-$3,000) — entry point, diagnostic engagement
+- **Launch** ($2,500-$5,000) — one-time project build
+- **Run** ($500-$1,000/mo) — monthly retainer, 3-month min
+- **Scale** ($1,000-$2,500/mo) — premium retainer, 6-month min
+
 ## Output Format
 
 Produce a structured review with:

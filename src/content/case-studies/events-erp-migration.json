@@ -1,0 +1,16 @@
+{
+  "title": "Global Events Company ERP Migration",
+  "client": "Global Events Company",
+  "industry": "Events & Entertainment",
+  "description": "Architected a 6-month QuickBooks-to-Sage Intacct migration for a global events company with three US entities, multi-currency consolidation, and a 10-day close cycle.",
+  "slug": "events-erp-migration",
+  "metrics": [
+    { "label": "Migration Timeline", "value": "6 months" },
+    { "label": "Entities Consolidated", "value": "3" },
+    { "label": "Close Cycle", "value": "10 days" },
+    { "label": "Currencies Supported", "value": "Multi-currency" }
+  ],
+  "services": ["Launch", "Scale"],
+  "pubDate": "2026-03-01",
+  "featured": true
+}

@@ -169,3 +169,9 @@ Hand off to or coordinate with these agents when their domain is needed:
 | Build (*dev) | `/build` | When ready to implement planned features |
 
 **Typical flow:** `/research` (discover) -> `/plan` (prioritize) -> `/sprint` (break down) -> `/build` (implement)
+
+## Forge / Council / Deep Research Integration
+
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Run deep research before planning to gather live market intelligence, competitor analysis, and trend signals
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge cycles produce actionable tasks from trend data; incorporate Forge output into the roadmap
+- **`/council`** (`relay-council.prompt.md`) — Convene a Council when the roadmap has competing high-priority items that need multi-perspective prioritization

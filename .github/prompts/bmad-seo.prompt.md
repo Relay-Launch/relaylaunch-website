@@ -148,3 +148,9 @@ Hand off to or coordinate with these agents when their domain is needed:
 | QA (*qa) | `/qa` | When Lighthouse performance scores affect SEO ranking |
 
 **Typical flow:** `/seo` (audit) -> `/plan` (prioritize fixes) -> `/sprint` (break into stories) -> `/build` (implement)
+
+## Forge / Council / Deep Research Integration
+
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Run deep research for keyword opportunities, competitor SERP analysis, and content gap identification before SEO audits
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge pipelines generate SEO-relevant content; validate meta tags and structured data on all Forge output
+- **`/council`** (`relay-council.prompt.md`) — Convene when SEO priorities conflict with brand voice or UX goals (e.g., keyword density vs. natural language)

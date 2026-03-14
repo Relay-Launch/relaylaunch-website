@@ -1,13 +1,15 @@
 # AI Agents & Tools Registry — The Relay Method™
 
 > **The Relay Method™** is RelayLaunch's branded approach to AI-assisted
-> business operations. It unifies ten integrated frameworks — BMAD Method,
+> business operations. It unifies thirteen integrated frameworks — BMAD Method,
 > The Agency, Superpowers, Contains Studio, CrewAI, LangGraph, Dotprompt,
-> CLI-Anything, LangChain, and awesome-scalability — into a single
-> coordinated system with 250+ specialist agents, short trigger commands,
-> roles mapped to real business functions, and cross-repo awareness. Every
-> AI tool in the ecosystem (Claude Code, GitHub Copilot, Cursor) reads this
-> file to route tasks to the right specialist.
+> CLI-Anything, LangChain, awesome-scalability, Relay Forge, Relay Council,
+> and Deep Research — into a single coordinated system with 280+ specialist
+> agents, short trigger commands, roles mapped to real business functions,
+> and cross-repo awareness. Every AI tool in the ecosystem (Claude Code,
+> GitHub Copilot, Cursor) reads this file to route tasks to the right
+> specialist. The system is a symbiote: it learns from every engagement,
+> compounds improvements across clients, and self-optimizes quarterly.
 
 ---
 
@@ -83,8 +85,15 @@ short, memorable, and organized by business function.
 | `/datamodel` | BMAD *architect | Data model and schema review |
 | `/api` | BMAD *architect | API endpoint review and validation |
 | `/prose` | Prose Agent (Default) | Human language enforcement, AI-ism detection |
+| `/cro` | Conversion Architect | CRO, funnel psychology, A/B testing, page structure |
+| `/behavioral` | Behavioral Designer | Cognitive science in design, visual hierarchy |
+| `/buyer` | Buyer Psychologist | Purchase psychology, objection mapping, trust signals |
+| `/neuro` | Neuromarketer | Attention, memory, anchoring, processing fluency |
 | `/review` | Meta-Role Code Reviewer | Pre-ship senior code review |
 | `/cli-anything` | CLI-Anything Pipeline | Generate agent-native CLI for any software |
+| `/council` | Relay Council | Multi-agent structured debate for strategic decisions |
+| `/deep-research` | Deep Research Agent | Multi-source trend intelligence using free/OSS tools |
+| `/relay forge` | Relay Forge | 5-phase trend-aware build pipeline (research-debate-build-gate-deliver) |
 | `~retro` | Meta-Role Retrospective | Structured project retrospective |
 | `~biz-finance` | Finance Navigator (Internal) | Business structure and entity planning |
 | `?biz-tools` | Tools Coach (Internal) | Tool stack audit and cost optimization |
@@ -120,6 +129,16 @@ to understand the business domain, not just the technical task.
 - `/relay social` — Social media strategy and content calendar
 - `/relay ads` — Paid media campaigns and ad creative
 - `/relay email` — Email marketing, sequences, newsletters
+
+**Intelligence & Strategy:**
+- `/relay forge [client]` — Full Forge pipeline: research, council, build, gate, deliver
+- `/relay council` — Convene specialist agents for structured debate
+- `/relay research-deep` — Multi-source trend intelligence gathering
+- `/council strategy` — Council preset: business direction debate
+- `/council build` — Council preset: technical architecture debate
+- `/council client` — Council preset: client delivery decisions
+- `/council growth` — Council preset: marketing and acquisition strategy
+- `/council sales` — Council preset: deal strategy and pricing
 
 **Infrastructure & Engineering:**
 - `/relay arch` — Architecture review and technical decisions
@@ -248,22 +267,145 @@ Run quarterly or when adding new agents.
 
 ---
 
+## Business Sector Playbooks
+
+Pre-configured agent combinations and Forge presets for common client
+verticals. Each sector maps to specific agents, research queries, and
+deliverables. Use these to onboard new clients faster (80% reuse, 20%
+customization per client).
+
+### Wellness & Spa
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Competitor audit, booking tech comparison |
+| Strategy | `/council client` | Service page structure, booking flow, GBP optimization plan |
+| Build | `/relay launch` + `/prettify` | Custom site with booking widget, review schema, seasonal pages |
+| Operate | `/relay run` + `/relay forge` | Monthly content, seasonal promos, trend-based service updates |
+
+**Key automations:** Appointment booking (Calendly/Acuity), review request emails (n8n), seasonal landing pages, GBP post scheduling.
+
+### Fitness & Training
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Class booking tech audit, social presence analysis |
+| Strategy | `/council client` | Membership funnel, class schedule UX, retention strategy |
+| Build | `/relay launch` + `/frontend` | Class booking integration, trainer profiles, progress tracking |
+| Operate | `/relay run` + `/relay forge` | Social content calendar, member retention campaigns, seasonal challenges |
+
+**Key automations:** Class reminders (n8n), new member welcome sequences (MailChimp), social proof collection, referral tracking.
+
+### Local Restaurants
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Menu SEO audit, online ordering comparison, review analysis |
+| Strategy | `/council client` | Menu page design, ordering flow, local SEO plan |
+| Build | `/relay launch` + `/seo` | Menu pages with schema, online ordering setup, location pages |
+| Operate | `/relay run` + `/relay forge` | Seasonal menu updates, review management, event promotion |
+
+**Key automations:** Order notification routing (n8n), review response templates, seasonal menu page generation, event landing pages.
+
+### Professional Services (Accountants, Lawyers, Consultants)
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Authority content audit, client acquisition channel analysis |
+| Strategy | `/council client` | Content strategy, intake automation, client portal design |
+| Build | `/relay launch` + `/content` | Authority blog, intake forms, resource library, client portal |
+| Operate | `/relay run` + `/relay forge` | Monthly thought leadership, newsletter, SEO-driven content |
+
+**Key automations:** Client intake forms (n8n), appointment scheduling, document request workflows, newsletter automation.
+
+### Home Services (HVAC, Plumbing, Electrical, Landscaping)
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Service area analysis, competitor review funnel audit |
+| Strategy | `/council client` | Service area page strategy, emergency page design, review funnel |
+| Build | `/relay launch` + `/seo` | Service area pages, emergency service pages, review collection |
+| Operate | `/relay run` + `/relay forge` | Seasonal campaign pages, review management, GBP optimization |
+
+**Key automations:** Emergency request routing (n8n), review request sequences, seasonal service reminders, quote follow-ups.
+
+### Retail & E-commerce
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Product page audit, local delivery feasibility, competitor analysis |
+| Strategy | `/council client` | Product catalog structure, checkout flow, local delivery setup |
+| Build | `/relay launch` + `/frontend` | Product pages, shopping cart, local delivery/pickup options |
+| Operate | `/relay run` + `/relay forge` | Product updates, seasonal promotions, inventory sync |
+
+**Key automations:** Order notifications (n8n), inventory alerts, abandoned cart emails, seasonal sale page generation.
+
+### Healthcare & Dental
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Patient acquisition audit, telehealth platform comparison |
+| Strategy | `/council client` | Patient portal design, appointment flow, HIPAA compliance review |
+| Build | `/relay launch` + `/security` | Appointment booking, patient resources, HIPAA-compliant forms |
+| Operate | `/relay run` + `/relay forge` | Health content calendar, patient education, seasonal wellness campaigns |
+
+**Key automations:** Appointment reminders (n8n), patient intake forms, follow-up sequences, insurance verification workflows.
+
+### Real Estate
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Market area analysis, competitor site audit, lead capture analysis |
+| Strategy | `/council client` | Neighborhood page strategy, listing display, lead capture funnel |
+| Build | `/relay launch` + `/seo` | Neighborhood pages, listing integration, lead capture forms |
+| Operate | `/relay run` + `/relay forge` | Market update content, listing refresh, neighborhood guides |
+
+**Key automations:** New listing alerts (n8n), lead nurture sequences, open house landing pages, market report generation.
+
+### Education & Tutoring
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Platform comparison, parent acquisition channel analysis |
+| Strategy | `/council client` | Course catalog design, booking flow, parent communication plan |
+| Build | `/relay launch` + `/content` | Course pages, booking system, resource library, parent portal |
+| Operate | `/relay run` + `/relay forge` | Educational content, seasonal enrollment campaigns, progress updates |
+
+**Key automations:** Session booking (n8n), progress report generation, enrollment campaigns, parent communication sequences.
+
+### Nonprofits
+
+| Phase | Agents | Deliverables |
+|-------|--------|-------------|
+| Discovery | `/deep-research` + `/discovery` | Donor engagement audit, grant opportunity research |
+| Strategy | `/council client` | Impact storytelling strategy, donation flow, volunteer portal |
+| Build | `/relay launch` + `/content` | Impact pages, donation flow (Stripe), volunteer sign-up, event pages |
+| Operate | `/relay run` + `/relay forge` | Impact reports, donor newsletters, event promotion, grant applications |
+
+**Key automations:** Donation receipts (n8n + Stripe), volunteer onboarding sequences, event registration, donor thank-you workflows.
+
+---
+
 ## The Relay Method™ — How It Works
 
-The Relay Method™ organizes 250+ AI agents across ten integrated frameworks into these layers:
+The Relay Method™ organizes 280+ AI agents across thirteen integrated frameworks into these layers:
 
 | Layer | Purpose | Source |
 |-------|---------|--------|
 | **1. BMAD Lifecycle Agents** | Structured agile roles for the full SDLC (plan, build, test, ship) | BMAD Method |
 | **2. Agency Domain Specialists** | Deep-expertise personas for subject-matter knowledge | The Agency |
 | **3. Contains Studio Specialists** | Department-organized agent specs (design, eng, marketing, ops) | Contains Studio |
-| **4. Superpowers Workflow Engine** | Structured multi-step development workflow (brainstorm → ship) | Superpowers |
+| **4. Superpowers Workflow Engine** | Structured multi-step development workflow (brainstorm -> ship) | Superpowers |
 | **5. CrewAI Orchestration** | Multi-agent crew orchestration for complex workflows | CrewAI |
 | **6. LangGraph Workflows** | Graph-based workflow execution and state management | LangGraph |
 | **7. LangChain Integrations** | 700+ tool integrations, RAG chains, agent orchestration | LangChain |
 | **8. CLI-Anything Harnesses** | Agent-native CLI generation for any software | CLI-Anything |
 | **9. Meta-Role Overlays & Finance** | Executive review, business health, KPI coaching | Internal |
 | **10. RelayLaunch Business Context** | Service-tier workflows, brand standards, triggers, Ship Gate | Internal |
+| **11. Relay Forge Engine** | Trend-aware build pipeline: research, debate, build, gate, deliver | Relay Forge |
+| **12. Relay Council** | Multi-agent structured debate for strategic decisions | Relay Council |
+| **13. Deep Research Intelligence** | Multi-source trend intelligence using free/OSS tools | Deep Research |
+| **14. Behavioral Design & CRO** | Conversion psychology, cognitive science, buyer behavior, neuromarketing | Relay Behavioral |
 
 ### Layer 1: BMAD Lifecycle Agents
 Structured agile roles that manage the full software development lifecycle.
@@ -387,6 +529,20 @@ component library, design system, UX, user testing, usability, brand identity,
 consistency, positioning, visual story, multimedia, delight, micro-interactions,
 AI images, Midjourney, DALL-E
 
+### 🧠 Behavioral Design & CRO
+
+| Trigger | Agent | Framework | How to Activate |
+|---------|-------|-----------|-----------------|
+| `/cro` | Conversion Architect | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/behavioral` | Behavioral Designer | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/buyer` | Buyer Psychologist | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/neuro` | Neuromarketer | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+
+**Also responds to:** conversion, funnel, A/B testing, CRO, cognitive load,
+visual hierarchy, font sizing, spacing, whitespace, Hick's Law, Fitts' Law,
+buyer psychology, purchase decision, objection handling, anchoring, social proof,
+neuromarketing, attention, memory, processing fluency, choice architecture
+
 ### 📈 SEO & Content
 
 | Trigger | Agent | Framework | How to Activate |
@@ -477,6 +633,20 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | Infra Agent | Infrastructure | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
 | Security Agent | Security | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |
 | GitHub Agent | GitHub | `bmad-github.prompt.md` | `/github` | Workflows, Actions, branch protection |
+| Relay Forge | Forge Engine | `relay-forge.prompt.md` | `/relay forge` | Trend-aware build pipeline |
+| Relay Council | Decision Engine | `relay-council.prompt.md` | `/council` | Multi-agent structured debate |
+| Deep Research | Intelligence | `relay-deep-research.prompt.md` | `/deep-research` | Multi-source trend research |
+| Conversion Architect | CRO | `relay-behavioral-design.prompt.md` | `/cro` | Conversion optimization, funnel psychology |
+| Behavioral Designer | Cognitive design | `relay-behavioral-design.prompt.md` | `/behavioral` | Visual hierarchy, spacing, cognitive load |
+| Buyer Psychologist | Purchase psychology | `relay-behavioral-design.prompt.md` | `/buyer` | Buyer personas, objection mapping, trust signals |
+| Neuromarketer | Neuromarketing | `relay-behavioral-design.prompt.md` | `/neuro` | Attention, anchoring, memory, processing fluency |
+| Backend Architect | Backend | `agency-backend-architect.prompt.md` | `/backend` | Cloudflare/D1/n8n stack architecture |
+| Brand Guardian | Brand | `agency-brand-guardian.prompt.md` | `/brand` | 4-color system, typography, voice enforcement |
+| Content Creator | Content | `agency-content-creator.prompt.md` | `/content` | Blog posts, service pages, case studies |
+| DevOps Automator | DevOps | `agency-devops-automator.prompt.md` | `/devops` | GitHub Actions + Cloudflare Workers |
+| Frontend Developer | Frontend | `agency-frontend-developer.prompt.md` | `/frontend` | Astro 5, Tailwind 4.2, Starwind |
+| Growth Hacker | Growth | `agency-growth-hacker.prompt.md` | `/growth` | Funnel architecture, channel strategy |
+| Proposal Strategist | Sales | `agency-proposal-strategist.prompt.md` | `/proposal` | Win themes, value-based pricing |
 
 ### Adding New Prompt Files
 
@@ -689,6 +859,13 @@ improvements for processes, tools, and agent workflows.
 | **Dotprompt** | [google/dotprompt](https://github.com/google/dotprompt) | Phase 2 | Typed audit/report templates |
 | **LangChain** | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Phase 2 | 700+ tool integrations, RAG chains, agent orchestration |
 | **awesome-scalability** | [binhnguyennus/awesome-scalability](https://github.com/binhnguyennus/awesome-scalability) | Active | Scaling patterns, infra knowledge base (400+ resources) |
+| **Perplexica** | [ItzCrazyKns/Perplexica](https://github.com/ItzCrazyKns/Perplexica) | Phase 1 | OSS Perplexity clone for Deep Research (self-hosted, $0) |
+| **SearXNG** | [searxng/searxng](https://github.com/searxng/searxng) | Phase 1 | Meta-search backend for Perplexica (70+ engines) |
+| **Morphic** | [miurla/morphic](https://github.com/miurla/morphic) | Phase 1 | Secondary OSS search engine for Forge validation |
+| **Flowise** | [FlowiseAI/Flowise](https://github.com/FlowiseAI/Flowise) | Phase 1 | Visual LLM workflow builder for client demos |
+| **Activepieces** | [activepieces/activepieces](https://github.com/activepieces/activepieces) | Phase 1 | OSS workflow automation (450+ integrations) |
+| **Ollama** | [ollama/ollama](https://github.com/ollama/ollama) | Phase 1 | Local LLM runner for offline/privacy-sensitive work |
+| **Langflow** | [logspace-ai/langflow](https://github.com/logspace-ai/langflow) | Phase 2 | Visual LangChain builder for Forge graph prototyping |
 
 ---
 
@@ -745,7 +922,7 @@ The website showcases **11 divisions** organized into two categories:
 | Category | Count |
 |----------|-------|
 | Default agents (always-on) | 7 |
-| BMAD + Relay prompt files | 20 |
+| BMAD + Relay prompt files | 32 |
 | Finance agents (internal) | 3 |
 | Meta-role overlays (internal) | 4 |
 | Agency domain specialists | 30+ |
@@ -754,8 +931,13 @@ The website showcases **11 divisions** organized into two categories:
 | CLI-Anything harnesses | 1 (GIMP) |
 | LangChain tool agents (Phase 2) | 50+ |
 | awesome-scalability patterns | 10 |
-| Total named triggers | 60+ |
-| Total specialist agents | 250+ |
+| Relay Forge pipeline agents | 5 |
+| Relay Council presets | 5 |
+| Deep Research tool integrations | 8 |
+| Business sector playbooks | 10 |
+| Behavioral Design & CRO agents | 4 |
+| Total named triggers | 80+ |
+| Total specialist agents | 300+ |
 
 ---
 
@@ -825,6 +1007,136 @@ To generate a CLI for new software using the CLI-Anything methodology:
 
 ---
 
+## Relay Forge — Trend-Aware Build Engine (Layer 11)
+
+The Relay Forge is a 5-phase pipeline that turns market intelligence into
+concrete client deliverables. It compounds improvements across engagements.
+
+**Trigger:** `/relay forge [client-name]`
+**Prompt File:** `.github/prompts/relay-forge.prompt.md`
+
+### Pipeline Phases
+
+1. **Deep Research** (`/deep-research`) — Pull live trends from free tools
+2. **Council Debate** (`/council`) — 5-7 agents debate what to build
+3. **Task Provisioning** — Convert verdict into agent assignments
+4. **Ship Gate** — Standard 7-agent gate check on all changes
+5. **Deliver and Log** — Push, dashboard update, archive for learning
+
+### Forge Pricing by Tier
+
+| Tier | Forge Frequency | Upsell |
+|------|----------------|--------|
+| Complete Analysis | One-time trend snapshot | Included in diagnostic |
+| Launch | Trend-informed build | During project |
+| Run | Monthly cycle | $100-250/mo add-on |
+| Scale | Bi-weekly cycle | Included |
+| AI Operations Partner | Weekly cycle | Included |
+
+---
+
+## Relay Council — Multi-Agent Decision Engine (Layer 12)
+
+Structured adversarial debate among specialist agents. Every strategic
+recommendation gets stress-tested before execution.
+
+**Trigger:** `/council` | `/relay council`
+**Prompt File:** `.github/prompts/relay-council.prompt.md`
+
+### Council Presets
+
+| Preset | Trigger | Seated Agents |
+|--------|---------|---------------|
+| Strategy | `/council strategy` | CEO Review, Growth, Finance, Brand, Content |
+| Build | `/council build` | Architect, Build, Security, UX, Eng Manager |
+| Client | `/council client` | Growth, Content, SEO, UX, Brand |
+| Growth | `/council growth` | Growth, SEO, Content, Social, Ads |
+| Sales | `/council sales` | Deals, Discovery, Proposal, Coach, CEO Review |
+
+### Council Output
+
+Every session produces a Verdict:
+1. Consensus points (where agents agreed)
+2. Key disagreements (where they split and why)
+3. Ranked recommendations (top 3 by impact/effort)
+4. Dissenting views (preserved, not dismissed)
+5. Decision for the founder (options laid out)
+
+---
+
+## Deep Research — Trend Intelligence (Layer 13)
+
+Multi-source market intelligence using free and open-source search tools.
+Phase 1 of the Relay Forge pipeline.
+
+**Trigger:** `/deep-research` | `/relay research-deep`
+**Prompt File:** `.github/prompts/relay-deep-research.prompt.md`
+
+### Free Research Tool Stack
+
+| Tool | Cost | Monthly Limit | Best For |
+|------|------|---------------|----------|
+| **Perplexica** (self-hosted) | $0 ongoing | Unlimited | General research with citations |
+| **SearXNG** | $0 (self-hosted) | Unlimited | Meta-search across 70+ engines |
+| **Serper.dev** | $0 | 2,500 searches | Google SERP and keyword research |
+| **Brave Search API** | $0 | 2,000 queries | Independent index, no Google dependency |
+| **Tavily** | $0 | 1,000 searches | AI-optimized trend signals |
+| **Firecrawl** | $0 | 500 pages | Competitor site crawling |
+| **Morphic** (self-hosted) | $0 | Unlimited | Secondary search validation |
+| **Google Trends** | $0 | Unlimited | Seasonal patterns |
+
+**Total research cost:** $6-10/mo (VPS for self-hosted tools only).
+
+---
+
+## Free & Low-Cost Tool Stack
+
+Complete list of free tools that power the Relay Method ecosystem. These
+replace $330-600/mo of typical small business SaaS spend with under $51/mo.
+
+### Your Operating Stack (What RelayLaunch Pays)
+
+| Tool | Plan | Monthly Cost |
+|------|------|-------------|
+| Cloudflare Pages | Free | $0 |
+| n8n (self-hosted) | VPS | $6-10 |
+| MailChimp | Free (<500 contacts) | $0 |
+| Buffer | Free (3 channels) | $0 |
+| GitHub | Free | $0 |
+| Stripe | 2.9% + $0.30/txn | Pay-per-use |
+| Calendly | Free | $0 |
+| Claude Pro | Pro | $20 |
+| Domain | Annual | ~$1 |
+| **Total** | | **~$27-31/mo** |
+
+### Client Stack (What They Pay After Handoff)
+
+| Tool | Plan | Monthly Cost |
+|------|------|-------------|
+| Cloudflare Pages | Free | $0 |
+| n8n VPS | Self-hosted | $6-10 |
+| MailChimp | Essentials | $13-45 |
+| Buffer | Essentials | $6-18 |
+| Calendly | Free/Premium | $0-8 |
+| Stripe | 2.9% + $0.30 | Pay-per-use |
+| **Total** | | **$25-81/mo** |
+
+**Savings vs. typical stack:** $280-550/mo saved ($3,360-6,600/yr).
+Lead every proposal with this number.
+
+### Additional Free AI/Automation Tools
+
+| Tool | What It Does | Relay Use |
+|------|-------------|-----------|
+| **Ollama** | Run LLMs locally (LLaMA, Mistral, DeepSeek) | Offline audits for privacy-sensitive clients |
+| **Open WebUI** | Chat interface for Ollama | Test local agents before deploying |
+| **Flowise** | Drag-drop LLM workflow builder | Visual agent builder for client demos |
+| **Activepieces** | OSS workflow automation (450+ integrations) | n8n alternative for no-code client flows |
+| **Whisper** | Free speech-to-text | Transcribe discovery calls |
+| **Langflow** | Visual LangChain/agent builder | Prototype Forge graphs before LangGraph |
+
+---
+
 ## About The Relay Method™
 
 The Relay Method™ is a proprietary framework developed by RelayLaunch LLC
@@ -842,14 +1154,23 @@ It combines:
 - **Prose Agent** for human language enforcement on every change
 - **Meta-Role Overlays** for executive-level strategic review
 - **Founder Finance Agents** for internal business health and clarity
+- **Relay Forge** for trend-aware, self-improving build pipelines
+- **Relay Council** for multi-agent structured debate on strategic decisions
+- **Deep Research** for free multi-source market intelligence
 - **CrewAI** (Phase 2) for multi-agent service-tier crews
 - **LangGraph** (Phase 3) for executable workflow graphs
 - **LangChain** (Phase 2) for 700+ tool integrations and RAG chains
 - **awesome-scalability** for infrastructure scaling knowledge patterns
 - **Dotprompt** (Phase 2) for typed audit and report templates
+- **Business Sector Playbooks** for 80% reuse across 10 client verticals
 
 The name reflects the relay race metaphor. Each specialist picks up the
 baton, runs their leg with precision, and hands off cleanly to the next.
 The method is faster than any individual. Every handoff is deliberate.
 
-© RelayLaunch LLC. "The Relay Method" is a trademark of RelayLaunch LLC.
+The system is a **symbiote**: it lives inside your codebase, learns from
+every engagement, compounds improvements across clients, and self-optimizes
+quarterly via `/relay optimize`. The more you use it, the better it gets.
+No other local agency has this.
+
+(c) RelayLaunch LLC. "The Relay Method" is a trademark of RelayLaunch LLC.

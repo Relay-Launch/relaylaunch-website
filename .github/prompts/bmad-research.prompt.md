@@ -120,3 +120,9 @@ Hand off to or coordinate with these agents when their domain is needed:
 | Brand | `/brand` | When research involves competitive positioning or brand differentiation |
 
 **Typical flow:** `/research` (discover) -> `/plan` (prioritize) -> `/sprint` (break down) -> `/build` (implement)
+
+## Forge / Council / Deep Research Integration
+
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Deep Research is the heavy-duty version of `/research`. Use `/research` for quick, scoped lookups. Use `/deep-research` for multi-source trend intelligence across 5+ tools with cross-validation.
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge Phase 1 calls Deep Research automatically. Research Agent provides quick validation or follow-up when Forge surfaces ambiguous signals.
+- **`/council`** (`relay-council.prompt.md`) — Research findings feed Council debates as evidence. When the Council needs data to resolve a disagreement, escalate to `/research` or `/deep-research`.

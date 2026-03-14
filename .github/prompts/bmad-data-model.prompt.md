@@ -94,6 +94,20 @@ component props. Ensure only these values are used:
 - **`/security`** (`bmad-security.prompt.md`) — Input validation and sanitization review
 - **`/qa`** (`bmad-qa.prompt.md`) — Verify schema changes don't break accessibility or SEO
 
+## Forge / Council / Deep Research Integration
+
+- **`/council`** (`relay-council.prompt.md`) — Convene when schema evolution decisions affect cross-repo contracts
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge pipelines may introduce new data shapes; validate against existing schemas
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research best practices for schema migration patterns
+
+## Service Tiers (Canonical Names)
+
+When schemas define service-related data structures, use canonical names:
+- **Complete Analysis** ($1,500-$3,000) — entry point, diagnostic engagement
+- **Launch** ($2,500-$5,000) — one-time project build
+- **Run** ($500-$1,000/mo) — monthly retainer, 3-month min
+- **Scale** ($1,000-$2,500/mo) — premium retainer, 6-month min
+
 ## Output Format
 
 Produce a structured review with:

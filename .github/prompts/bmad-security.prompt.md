@@ -145,6 +145,12 @@ The Security Agent works alongside 6 other always-on default agents:
 - Security Agent scans ALL code changes for secrets and injection vectors,
   regardless of which other agents are also reviewing the same files.
 
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge pipelines introduce new dependencies and external API calls; scan all Forge-generated code for injection vectors, secrets, and dependency vulnerabilities
+- **`/council`** (`relay-council.prompt.md`) — Convene when a security finding blocks a business-critical feature and the team needs to evaluate risk vs. reward
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research emerging CVEs, attack vectors, and Cloudflare Workers security best practices
+
 ## Output Format
 
 ```

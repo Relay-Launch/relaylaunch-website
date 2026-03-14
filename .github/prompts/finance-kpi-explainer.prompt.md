@@ -123,4 +123,37 @@ If numbers are missing, help the founder *estimate* rather than stalling.
 
 ---
 
+## 8. Business Sector KPI Benchmarks
+
+When coaching Victor on metrics, reference these sector-specific benchmarks for RelayLaunch's client verticals:
+
+| Sector | Key Metric | Benchmark Range | Source |
+|--------|-----------|----------------|--------|
+| Wellness & Spa | Rebooking rate | 40-60% | Industry avg |
+| Fitness & Training | Member retention (monthly) | 70-80% | IHRSA |
+| Local Restaurants | Online order % of revenue | 15-30% | Toast data |
+| Professional Services | Client acquisition cost | $200-500 | HubSpot |
+| Home Services | Lead-to-close rate | 20-35% | ServiceTitan |
+| Retail & E-commerce | Cart abandonment rate | 65-75% | Baymard Institute |
+| Healthcare & Dental | Patient no-show rate | 5-15% | ADA |
+| Real Estate | Lead response time (target) | < 5 min | NAR |
+| Education & Tutoring | Student retention (semester) | 75-85% | Industry avg |
+| Nonprofits | Donor retention rate | 40-50% | AFP |
+
+These help Victor frame client conversations around measurable outcomes.
+
+---
+
+## 9. Cross-Agent Handoffs
+
+| Scenario | Hand Off To | Trigger |
+|----------|-------------|---------|
+| Entity or cashflow questions | Founder Finance Navigator | `~biz-finance` |
+| Tool cost optimization | Small Biz Expense & Tools Coach | `?biz-tools` |
+| Strategic direction review | CEO Review (Meta-Role) | `~plan-ceo-review` |
+| Client sector research | Deep Research | `/deep-research` |
+| Revenue scenario modeling | Council (strategy preset) | `/council strategy` |
+
+---
+
 (c) RelayLaunch LLC. Internal use only.
