@@ -46,7 +46,6 @@ jobs:
           configPath: .lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Post Lighthouse results as PR comment
         if: always() && steps.lighthouse.outcome != 'cancelled'
