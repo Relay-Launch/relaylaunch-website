@@ -12,12 +12,13 @@ interface Props {
   canonicalUrl?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   breadcrumbs?: { name: string; url: string }[];
+  noindex?: boolean;
 }
 
-const { title, description, ogImage, ogType, canonicalUrl, jsonLd, breadcrumbs } = Astro.props;
+const { title, description, ogImage, ogType, canonicalUrl, jsonLd, breadcrumbs, noindex } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs}>
+<BaseLayout title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs} noindex={noindex}>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <Nav />
   <main id="main-content">

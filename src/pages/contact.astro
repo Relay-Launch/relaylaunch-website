@@ -7,34 +7,48 @@ const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 ---
 
 <Layout
-  title="Contact | RelayLaunch"
-  description="Start a project with RelayLaunch. Submit a project request or ask a quick question. We'll respond within 1–2 business days."
+  title="Contact | RelayLaunch | Book a Free Discovery Call"
+  description="Book a free 30-minute discovery call or send us a project request. No commitment required. We respond within 1–2 business days."
   canonicalUrl="https://www.relaylaunch.com/contact/"
   breadcrumbs={[
     { name: 'Home', url: 'https://www.relaylaunch.com/' },
     { name: 'Contact', url: 'https://www.relaylaunch.com/contact/' },
   ]}
-  jsonLd={{
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: 'RelayLaunch LLC',
-    url: 'https://www.relaylaunch.com',
-    email: 'hello@relaylaunch.com',
-    telephone: '+1-857-318-6498',
-    description: 'Digital infrastructure consulting for small businesses. Website, automation, email, social, and unified dashboards.',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Watertown',
-      addressRegion: 'MA',
-      addressCountry: 'US',
+  jsonLd={[
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'RelayLaunch LLC',
+      url: 'https://www.relaylaunch.com',
+      email: 'hello@relaylaunch.com',
+      telephone: '+1-857-318-6498',
+      description: 'Digital infrastructure consulting for small businesses. Website, automation, email, social, and unified dashboards.',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Watertown',
+        addressRegion: 'MA',
+        addressCountry: 'US',
+      },
+      founder: { '@type': 'Person', name: 'Victor David Medina' },
+      sameAs: [
+        'https://github.com/Relay-Launch',
+        'https://www.linkedin.com/company/relaylaunch',
+        'https://x.com/RelayLaunch',
+      ],
     },
-    founder: { '@type': 'Person', name: 'Victor David Medina' },
-    sameAs: [
-      'https://github.com/Relay-Launch',
-      'https://www.linkedin.com/company/relaylaunch',
-      'https://x.com/RelayLaunch',
-    ],
-  }}
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        { '@type': 'Question', name: 'What do I need to know before reaching out?', acceptedAnswer: { '@type': 'Answer', text: 'Not much. Tell us what business you run, what\'s frustrating you most, and roughly what you\'re hoping to change. That\'s enough to have a productive first conversation.' } },
+        { '@type': 'Question', name: 'Do you only work with businesses that need a full build?', acceptedAnswer: { '@type': 'Answer', text: 'Not at all. The Complete Analysis is specifically designed for businesses that want clarity before committing. Some clients start there and handle the build themselves.' } },
+        { '@type': 'Question', name: 'How long do projects take?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on scope. A website build or automation setup can be turned around in a few weeks. A full operational infrastructure build is a multi-month engagement. We\'ll give you a realistic timeline upfront.' } },
+        { '@type': 'Question', name: 'Do I need to keep paying after the build is done?', acceptedAnswer: { '@type': 'Answer', text: 'No. The Launch build delivers a self-running system. The Run retainer is for ongoing optimization, content, and growth, not for keeping the lights on.' } },
+        { '@type': 'Question', name: 'What industry do you focus on?', acceptedAnswer: { '@type': 'Answer', text: 'Any local or small business that serves clients directly: spas, wellness, trades, professional services, retail, restaurants, fitness, and more.' } },
+        { '@type': 'Question', name: 'Can you work with our existing tools?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. If you have tools that work and just need to be connected, we start with what you have. We don\'t force a full replacement.' } },
+      ],
+    },
+  ]}
 >
 
   <!-- ═══════════════════════════════════════════════ HERO -->

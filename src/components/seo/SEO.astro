@@ -14,6 +14,8 @@ interface Props {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /** Breadcrumb trail for structured data (auto-generates BreadcrumbList JSON-LD) */
   breadcrumbs?: BreadcrumbItem[];
+  /** Set to true for error pages to prevent indexing */
+  noindex?: boolean;
 }
 
 const siteUrl = Astro.site?.origin ?? 'https://www.relaylaunch.com';
@@ -26,6 +28,7 @@ const {
   ogType = 'website',
   jsonLd,
   breadcrumbs,
+  noindex = false,
 } = Astro.props;
 
 const orgSchema = {
@@ -64,6 +67,7 @@ const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [json
 
 <title>{title}</title>
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <!-- Open Graph -->
 <meta property="og:type" content={ogType} />
@@ -78,6 +82,11 @@ const schemas = [orgSchema, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [json
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+
+<!-- Additional SEO -->
+<meta property="og:locale" content="en_US" />
+<meta name="theme-color" content="#0F172A" />
+<meta name="author" content="RelayLaunch LLC" />
 
 <!-- JSON-LD -->
 {schemas.map((schema) => (
