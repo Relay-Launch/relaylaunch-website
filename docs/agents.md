@@ -10,6 +10,26 @@
 
 ---
 
+## Operator Panel — Top 10 Daily Triggers
+
+These are the triggers you'll use 90% of the time. Start here before
+diving into the full roster.
+
+| Trigger | What It Does | Agents Activated |
+|---------|-------------|------------------|
+| `!code` | Build features, fix bugs, write code | BMAD *architect + *dev + Build Agent |
+| `?ops` | Audit DNS, CI/CD, security for this repo | Infra + Security + GitHub Agents |
+| `?brand` | Audit brand + prose for current page | Brand + Prose Agents |
+| `?qa` | Full accessibility + Lighthouse + performance audit | QA + Build Agents |
+| `!growth` | Generate/update SEO content for current page/post | BMAD *pm (SEO) + Content Creator + Growth Hacker |
+| `/ship` | Run multi-agent gate check, then push + PR | All 7 default agents |
+| `/relay analysis` | Spin up full Complete Analysis workflow for a client | *analyst + *pm + UX Researcher |
+| `/relay launch` | Full client build workflow | *architect + *dev + Frontend + DevOps |
+| `/relay run` | Monthly retainer operations | *pm + *qa + Content + SEO |
+| `/superpowers` | Structured brainstorm → plan → execute → test → review | Superpowers Workflow Engine |
+
+---
+
 ## Default Agents — Always Active on Code Changes
 
 These seven agents activate **automatically** on every code change, deployment,
@@ -176,6 +196,30 @@ Seven memorable domains group agents by business function:
 
 Modes also work with specific triggers: `?seo`, `!brandfix`, `~architect`.
 
+### Deterministic Routing Rules
+
+When Mode + Domain is used, these are the exact agents activated and
+their permissions. Use this table when building code-level orchestration
+(LangGraph/CrewAI nodes).
+
+| Command | Agents Activated | File Permissions |
+|---------|-----------------|------------------|
+| `?code` | BMAD *architect + Build Agent + Security Agent | Read only |
+| `!code` | BMAD *dev + Build Agent; only *dev modifies files | Read + Write |
+| `~code` | BMAD *architect + *analyst | Read only (proposals) |
+| `?brand` | Brand Agent + Prose Agent + QA Agent | Read only |
+| `!brand` | BMAD *dev (brand) + Brand Agent | Read + Write |
+| `?ops` | Infra + Security + GitHub Agents | Read only |
+| `!ops` | Infra + GitHub Agents; no `npm run build` | Read + Write (config only) |
+| `?qa` | QA Agent + Build Agent + Prose Agent | Read only |
+| `!qa` | BMAD *qa + *dev; *dev fixes, *qa validates | Read + Write |
+| `?growth` | BMAD *pm (SEO) + Growth Hacker + Content Creator | Read only |
+| `!growth` | Content Creator + *pm (SEO); write content files | Read + Write (content only) |
+| `~plan` | BMAD *analyst + *pm | Read only (no edits) |
+| `!plan` | BMAD *pm + *sm | Read + Write (docs only) |
+| `~biz` | Deal Strategist + Pipeline Analyst | Read only |
+| `!biz` | Proposal Strategist + Outbound Strategist | Read + Write (docs only) |
+
 ### Compatibility
 
 This system is **additive** — all existing triggers work unchanged.
@@ -223,15 +267,30 @@ Use the agents to review and improve their own instructions.
 
 **Trigger:** `/relay optimize`
 **Agents:** All BMAD lifecycle agents + default agents
+**Frequency:** Quarterly or when adding new agents
 
 ### Workflow
 
-1. **Self-audit** — Each agent reads its own prompt file, identifies gaps
-2. **Cross-audit** — Each agent reads adjacent prompt files, finds overlaps
-3. **Propose** — New versioned prompt files generated (e.g., `bmad-seo-v2`)
-4. **Human review** — All proposals go through PR review (never auto-deploy)
+1. **Self-audit** — Each agent reads its own prompt file, identifies gaps,
+   scores itself 1-10 on: clarity, coverage, actionability, brand alignment
+2. **Cross-audit** — Each agent reads adjacent prompt files, finds overlaps,
+   contradictions, and missing handoff points
+3. **Propose** — Generate updated prompt files with `-optimized` suffix
+   (e.g., `bmad-seo-optimized.prompt.md`)
+4. **Changelog** — Create `docs/agent-changelog-YYYYMMDD.md` listing:
+   - Changes made per agent (before/after diffs)
+   - Open questions for human review
+   - Suggested new agents or triggers
+5. **Branch** — All changes go to branch `claude/agent-optimizations-YYYYMMDD`
+6. **Human review** — PR review required (never auto-deploy prompt changes)
 
-Run quarterly or when adding new agents.
+### Output Artifacts
+
+Every `/relay optimize` run produces:
+- One updated prompt file per agent (in `.github/prompts/`)
+- `docs/agent-changelog-YYYYMMDD.md` with structured summary
+- PR branch: `claude/agent-optimizations-YYYYMMDD`
+- Slack/GitHub summary of top 5 improvements and top 3 open questions
 
 ---
 
@@ -562,6 +621,42 @@ automations, email, social, dashboard).
 1. SEO *pm audits all pages for meta tags, schema, and content gaps
 2. *architect reviews performance architecture (bundle size, lazy loading)
 3. Growth Hacker identifies conversion optimization opportunities
+
+---
+
+## Orchestration Frameworks — Next-Level Integration
+
+These frameworks extend the Relay Method from prompt-based to
+code-executable orchestration. See `docs/blueprints/rl-agent-frameworks-v1.md`
+for full implementation guides.
+
+### Installed (Prompt-Level)
+
+| Framework | Purpose | Source |
+|-----------|---------|--------|
+| **BMAD Method** | Agile SDLC roles and prompt files | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) |
+| **The Agency** | Domain specialist personas | [msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents) |
+| **Superpowers** | Structured dev workflow | [obra/superpowers](https://github.com/obra/superpowers) |
+
+### Planned (Code-Level Orchestration)
+
+| Framework | Purpose | Relay Method Use Case |
+|-----------|---------|----------------------|
+| **LangGraph** | Stateful graph workflows | Ship Gate as executable graph; `/ship` triggers 7-node pipeline |
+| **CrewAI** | Multi-agent teams | `/relay analysis`, `/relay launch` as repeatable Crews |
+| **Dotprompt** | Typed prompt templates | BMAD prompts as CI-callable templates with JSON output |
+| **Contains Studio Agents** | Extended agent library | Enrich `/devops`, `/brand`, `/content`, `/growth` behaviors |
+| **NotebookLM** | Knowledge vault | Per-client document context for diagnostics and proposals |
+
+### How They Layer Together
+
+```
+Layer 5: NotebookLM          (client knowledge vault — docs, exports, call notes)
+Layer 4: Dotprompt            (typed templates — CI/CD, n8n, GitHub Actions callable)
+Layer 3: LangGraph / CrewAI   (orchestration engine — Ship Gate, service-tier Crews)
+Layer 2: BMAD + Agency + SP   (agent definitions — roles, expertise, workflows)
+Layer 1: Relay Method core    (triggers, modes, domains, brand context, Ship Gate rules)
+```
 
 ---
 

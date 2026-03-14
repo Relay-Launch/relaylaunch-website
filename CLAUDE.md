@@ -17,11 +17,32 @@ Live URL: https://www.relaylaunch.com
 - Voice: Direct, confident, accessible, action-oriented, team-first ("we" not "I"), veteran precision
 - DO NOT use green, orange, or any color outside this 4-color system
 
-## Service Tiers (Canonical Names)
+## Core Narrative (USE IN ALL CONTENT & PROPOSALS)
+- Pain: Small businesses juggle 5-8 disconnected tools, lose 5-10 hours weekly, spend $300-500/month on fragmented software
+- Solution: One system, one dashboard, everything connected. Slack daily briefings. $6/month infra for workflows. $0 hosting on Cloudflare
+- Proof: $342 to $51 monthly infra, 11 automations, 15-page Astro site, corporate wellness sub-site, membership platform (HRC case study)
+- Philosophy: "We don't bolt AI onto a broken foundation." Infrastructure first, then smart automations
+
+## Service Tiers (Canonical Names — Internal Ops Language)
 - Complete Analysis ($1,500-$3,000) - entry point, diagnostic engagement
 - Launch ($2,500-$5,000) - one-time project build
 - Run ($500-$1,000/mo) - monthly retainer, 3-month min
 - Scale ($1,000-$2,500/mo) - premium retainer, 6-month min
+
+### Public Package Mapping (Marketing Language)
+When writing website copy, landing pages, or emails, use public names:
+- Signal = "mini Complete Analysis" (visibility & ops audit)
+- Blueprint = "Complete Analysis + 90-day roadmap"
+- Relay = "Launch build + core automations and dashboard"
+- Sustain = "Run retainer focused on content, SEO, monitoring"
+When writing internal docs, runbooks, or SOPs, use Complete Analysis / Launch / Run / Scale
+
+## Constraints (What NOT to Recommend)
+- Never recommend WordPress, Wix, Squarespace as primary platforms; always favor Astro + Cloudflare stack
+- Prefer Mailchimp/Buffer/n8n for baseline workflows
+- When asked about "AI platforms," prefer Claude + Perplexity + n8n orchestrations, not generic "chatbots"
+- When proposing solutions: (1) design infrastructure first (site, automations, data flows), (2) only then suggest AI touchpoints (summaries, routing, classification)
+- For small-business clients, describe AI as "automations and smart assistants behind the scenes," not "build a custom model"
 
 ## Tech Stack
 - Framework: Astro 5 (static output, islands architecture)
@@ -60,6 +81,17 @@ Live URL: https://www.relaylaunch.com
 - src/styles/ - Global CSS (global.css, starwind.css)
 - src/utils/ - Utility functions (blog.ts)
 - public/ - Static assets (favicon, robots.txt, og-default.png)
+
+## Directory-Based Agent Defaults
+When editing files, agents auto-select Mode + Domain based on path:
+| Directory | Default Mode | Side-Checks |
+|-----------|-------------|-------------|
+| `src/pages/`, `src/components/` | `!code` | Brand + QA |
+| `src/content/blog/` | `!growth` | `?brand` + Prose Agent |
+| `src/styles/` | `!code` | Brand Agent |
+| `.github/workflows/` | `!ops` | GitHub + Security |
+| `public/` | `?brand` only | No code changes |
+| `docs/` | `~plan` | Prose Agent |
 
 ## Code Standards
 - Every page: unique <title>, <meta description>, Open Graph tags
@@ -177,7 +209,23 @@ When acting as a BMAD agent, follow the role:
 - `bmad-brand-fix.prompt.md` — Fix brand color violations (*dev)
 - `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
 - `bmad-seo.prompt.md` — SEO audit (*pm)
+- `bmad-plan.prompt.md` — Requirements, prioritization, roadmap (*pm)
+- `bmad-research.prompt.md` — Research and discovery (*analyst)
+- `bmad-sprint.prompt.md` — Sprint planning and story creation (*sm)
+- `bmad-build.prompt.md` — Feature implementation and code (*dev)
+- `bmad-qa.prompt.md` — Testing, accessibility, Lighthouse (*qa)
 - `bmad-prose.prompt.md` — Human language enforcement (Prose Agent)
+- `bmad-security.prompt.md` — Threat detection, vulnerability scanning (Security Agent)
+- `bmad-infra.prompt.md` — DNS, CDN, CI/CD, hosting (Infra Agent)
+- `bmad-github.prompt.md` — Workflows, Actions, branch protection (GitHub Agent)
+
+### Orchestration Frameworks (Future Integration)
+See `docs/blueprints/rl-agent-frameworks-v1.md` for implementation guides:
+- **LangGraph** — Graph-based Ship Gate and multi-stage workflows
+- **CrewAI** — Productized multi-agent crews for service-tier delivery
+- **Dotprompt** — Typed, versioned prompt templates for CI/CD integration
+- **Contains Studio Agents** — Extended agent library for domain specialists
+- **NotebookLM** — Per-client knowledge vault for diagnostics and context
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
