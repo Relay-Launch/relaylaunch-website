@@ -1,21 +1,30 @@
 name: Feature Request
-description: Suggest an improvement or new feature
+description: Suggest an improvement or new feature for relaylaunch.com
 labels: ["enhancement"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        We read every feature request. Clear problem statements help us prioritize.
   - type: textarea
     id: problem
     attributes:
       label: Problem
-      description: What problem does this solve?
+      description: What problem does this solve? Who does it affect?
     validations:
       required: true
   - type: textarea
     id: solution
     attributes:
       label: Proposed solution
-      description: How should it work?
+      description: How should it work? Include specifics where possible.
     validations:
       required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you think about?
   - type: dropdown
     id: area
     attributes:
@@ -30,6 +39,7 @@ body:
         - Navigation / Footer
         - Performance / SEO
         - Accessibility
+        - CI/CD / Deployment
         - Other
   - type: dropdown
     id: priority

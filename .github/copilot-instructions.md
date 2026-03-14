@@ -8,28 +8,29 @@ code generation and suggestions in this repository.
 
 RelayLaunch (relaylaunch.com) is a veteran-owned digital infrastructure
 consultancy website. Built with Astro 5 + Tailwind CSS 4.2 + MDX.
-Deployed to Cloudflare via wrangler (CI: GitHub Actions → wrangler deploy).
+Deployed to Cloudflare Workers via wrangler (CI: GitHub Actions > wrangler deploy).
 Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
+Live URL: https://www.relaylaunch.com
 
-## Brand Standards — ENFORCE ON ALL CHANGES
+## Brand Standards (Enforce on All Changes)
 
-- Primary: Dark Navy `#0F172A` — headers, nav, footer, dark sections
-- Accent: Electric Blue `#007AFF` — CTAs, links, hover states ONLY
-- Background: White `#FFFFFF`
-- Alt sections: Light Gray `#F8FAFC`
-- Font: `Arial, Helvetica, sans-serif` — NO other fonts
-- Tagline: "Ops on Autopilot. You on Strategy."
-- Voice: Direct, confident, accessible, action-oriented, veteran precision
+- **Primary:** Dark Navy `#0F172A` (headers, nav, footer, dark sections)
+- **Accent:** Electric Blue `#007AFF` (CTAs, links, hover states ONLY)
+- **Background:** White `#FFFFFF`
+- **Alt sections:** Light Gray `#F8FAFC`
+- **Font:** `Arial, Helvetica, sans-serif` (no other fonts)
+- **Tagline:** "Ops on Autopilot. You on Strategy."
+- **Voice:** Direct, confident, accessible, action-oriented, team-first ("we" not "I"), veteran precision
 - **DO NOT** use green, orange, or any color outside this 4-color system
 
 ## Service Tiers (Canonical Names)
 
 | Tier | Price | Description |
 |------|-------|-------------|
-| Complete Analysis | $1,500–$3,000 | Entry point, diagnostic engagement |
-| Launch | $2,500–$5,000 | One-time project build |
-| Run | $500–$1,000/mo | Monthly retainer, 3-month min |
-| Scale | $1,000–$2,500/mo | Premium retainer, 6-month min |
+| Complete Analysis | $1,500-$3,000 | Entry point, diagnostic engagement |
+| Launch | $2,500-$5,000 | One-time project build |
+| Run | $500-$1,000/mo | Monthly retainer, 3-month min |
+| Scale | $1,000-$2,500/mo | Premium retainer, 6-month min |
 
 ## Tech Stack
 
@@ -37,7 +38,7 @@ Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
 - **Styling:** Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - **Content:** MDX blog posts via Astro Content Collections
 - **Deployment:** Cloudflare Workers via wrangler deploy
-- **CI/CD:** GitHub Actions (.github/workflows/astro.yml → wrangler deploy)
+- **CI/CD:** GitHub Actions (.github/workflows/astro.yml > wrangler deploy)
 - **Domain:** relaylaunch.com (Registrar: Porkbun, DNS: Cloudflare)
 - **Adapter:** @astrojs/cloudflare
 
@@ -60,7 +61,7 @@ Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
 - Responsive: mobile-first, breakpoints at 640px / 768px / 1024px
 - Accessibility: WCAG AA, proper heading hierarchy, alt text on all images
 - Use Astro `<Image>` component with lazy loading for all images
-- Zero unnecessary client-side JS — Astro static-first approach
+- Zero unnecessary client-side JS (Astro static-first approach)
 - Internal links use root-relative paths (`/services`, `/contact`)
 - Commit messages: conventional commits (`feat:`, `fix:`, `chore:`)
 
@@ -75,15 +76,12 @@ When generating CSS, Tailwind classes, or inline styles:
 - Never introduce `green`, `orange`, `red`, `purple`, or any other hue
 - Never use Tailwind color classes outside `slate`, `white`, and the custom `#007AFF` accent
 
-## AI Agents & Tools — The Relay Method™
+## AI Agents — The Relay Method
 
-This repo uses **The Relay Method™** — RelayLaunch's branded AI agent
-orchestration framework. See `docs/agents.md` for the full registry,
-all triggers, and specialist role definitions.
+This repo uses **The Relay Method** — RelayLaunch's AI agent orchestration
+framework. See `docs/agents.md` for the full registry.
 
 ### Quick Triggers
-
-Type any `/trigger` in your prompt to activate the matching specialist:
 
 | Trigger | Specialist | Trigger | Specialist |
 |---------|-----------|---------|-----------|
@@ -105,10 +103,9 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 
 Use a mode prefix + domain for fast, precise agent activation:
 
-**Modes:** `?` or `check` (review only) | `!` or `do` (make changes) | `~` or `think` (brainstorm)
-**Domains:** `code` | `brand` | `growth` | `ops` | `biz` | `plan` | `qa`
-
-Examples: `?brand` = audit brand, `!code` = build feature, `~growth` = brainstorm marketing
+- **Modes:** `?` or `check` (review only) | `!` or `do` (make changes) | `~` or `think` (brainstorm)
+- **Domains:** `code` | `brand` | `growth` | `ops` | `biz` | `plan` | `qa`
+- **Examples:** `?brand` = audit brand, `!code` = build feature, `~growth` = brainstorm marketing
 
 ### The Ship Gate
 
@@ -128,9 +125,9 @@ Examples: `?brand` = audit brand, `!code` = build feature, `~growth` = brainstor
 
 ### Frameworks
 
-- **[BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)** — Agile AI development with specialized agents and structured workflows
-- **[The Agency](https://github.com/msitarzewski/agency-agents)** — Curated AI agent personalities for engineering, design, marketing, and sales
-- **[Superpowers](https://github.com/obra/superpowers)** — Structured multi-step development workflow (brainstorm → ship)
+- **[BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)** — Agile AI development with structured workflows
+- **[The Agency](https://github.com/msitarzewski/agency-agents)** — Curated AI agent personalities
+- **[Superpowers](https://github.com/obra/superpowers)** — Structured multi-step development workflow
 
 ### BMAD Prompt Files (`.github/prompts/`)
 
@@ -153,32 +150,23 @@ Examples: `?brand` = audit brand, `!code` = build feature, `~growth` = brainstor
 
 ### Quick Agent Lookup
 
-When asked for help with a topic, check `docs/agents.md` to match the task
-to the right agent. Key mappings for this repo:
+- **Brand/colors/fonts** — BMAD `*qa` or `*dev`, Agency Brand Guardian
+- **SEO/meta/schema** — BMAD `*pm` (SEO audit prompt)
+- **Architecture/structure** — BMAD `*architect`, Agency Software Architect
+- **Code/build/fix** — BMAD `*dev`, Agency Frontend Developer
+- **Content/blog/copy** — Agency Content Creator
+- **Design/UI/UX** — Agency UI Designer, Agency UX Researcher
+- **Growth/marketing** — Agency Growth Hacker, Agency Social Media Strategist
 
-- **Brand/colors/fonts** → BMAD `*qa` or `*dev`, Agency Brand Guardian
-- **SEO/meta/schema** → BMAD `*pm` (SEO audit prompt)
-- **Architecture/structure** → BMAD `*architect`, Agency Software Architect
-- **Code/build/fix** → BMAD `*dev`, Agency Frontend Developer
-- **Content/blog/copy** → Agency Content Creator
-- **Design/UI/UX** → Agency UI Designer, Agency UX Researcher
-- **Growth/marketing** → Agency Growth Hacker, Agency Social Media Strategist
+## Ecosystem
 
-## Related Repositories
+| Repository | Purpose |
+|------------|---------|
+| **relaylaunch-website** (this repo) | Public marketing site (Astro 5 + Cloudflare) |
+| **relaylaunch-control-center** | Internal Command Center (client dashboard, operations) |
 
-This repo is part of the RelayLaunch multi-repo ecosystem:
-
-- **relaylaunch-website** (this repo) — Public-facing marketing site (Astro 5 + Cloudflare)
-- **relaylaunch-control-center** — Internal Command Center app (client dashboard, operations tools)
-
-When working on features that touch both repos (API integrations, shared data
-models, webhook contracts), check `docs/blueprints/` for cross-repo specs.
-
-## Blueprints (AI-Assisted Development)
-
-Before implementing new features, check `docs/blueprints/` for architecture
-docs, API contracts, feature requirements, and shared standards. Upload
-blueprint documents to that folder before starting a build session.
+Check `docs/blueprints/` for cross-repo specs when working on features
+that touch both repos.
 
 ## Known Issues
 

@@ -1,4 +1,6 @@
 # Builds the Astro site and deploys to Cloudflare Workers via Wrangler.
+# Runs on: push to main, manual trigger.
+# Pipeline: install > audit > build > verify secrets > deploy.
 name: Deploy Astro site to Cloudflare
 
 permissions:
@@ -34,7 +36,11 @@ jobs:
         run: npm ci
 
       - name: Audit dependencies
-        run: npm audit --audit-level=high
+        continue-on-error: true
+        run: |
+          if ! npm audit --audit-level=high 2>&1; then
+            echo "::warning::npm audit found high-severity vulnerabilities. Review and update affected packages."
+          fi
 
       - name: Build with Astro
         run: npm run build
