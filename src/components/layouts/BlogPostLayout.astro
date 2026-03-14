@@ -92,6 +92,37 @@ const articleSchema = {
         <div class="blog-content">
           <slot />
         </div>
+
+        <div class="blog-share">
+          <p class="blog-share-label">Share this article</p>
+          <div class="blog-share-links">
+            <a
+              href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl || '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="blog-share-link"
+              aria-label="Share on LinkedIn"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={`https://x.com/intent/tweet?text=${encodeURIComponent(frontmatter.title)}&url=${encodeURIComponent(canonicalUrl || '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="blog-share-link"
+              aria-label="Share on X"
+            >
+              X
+            </a>
+            <a
+              href={`mailto:?subject=${encodeURIComponent(frontmatter.title)}&body=${encodeURIComponent(`Check out this article from RelayLaunch: ${canonicalUrl}`)}`}
+              class="blog-share-link"
+              aria-label="Share via email"
+            >
+              Email
+            </a>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -249,6 +280,48 @@ const articleSchema = {
     border-radius: var(--radius-sm);
     border: 1px solid var(--color-border);
     margin-bottom: 40px;
+  }
+
+  /* ── Social sharing ── */
+  .blog-share {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .blog-share-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .blog-share-links {
+    display: flex;
+    gap: 8px;
+  }
+
+  .blog-share-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+  }
+
+  .blog-share-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--primary) 5%, transparent);
+    text-decoration: none;
   }
 
   .blog-cta { background: var(--color-surface); }
