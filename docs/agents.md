@@ -73,6 +73,7 @@ short, memorable, and organized by business function.
 | `/growth` | Agency Growth Hacker | Acquisition, viral loops, conversion |
 | `/social` | Agency Social Media Strategist | Cross-platform social strategy |
 | `/ads` | Agency PPC Campaign Strategist | Google/Meta/LinkedIn ad campaigns |
+| `/discovery` | Agency Discovery Coach | Discovery calls, qualifying, needs assessment |
 | `/outbound` | Agency Outbound Strategist | Prospecting, cold outreach, sequences |
 | `/deals` | Agency Deal Strategist | MEDDPICC, pipeline, win strategy |
 | `/proposal` | Agency Proposal Strategist | RFPs, proposals, win themes |
@@ -80,6 +81,14 @@ short, memorable, and organized by business function.
 | `/superpowers` | Superpowers Workflow | Full brainstorm → plan → execute → test → review workflow |
 | `/datamodel` | BMAD *architect | Data model and schema review |
 | `/api` | BMAD *architect | API endpoint review and validation |
+| `/prose` | Prose Agent (Default) | Human language enforcement, AI-ism detection |
+| `/review` | Meta-Role Code Reviewer | Pre-ship senior code review |
+| `~retro` | Meta-Role Retrospective | Structured project retrospective |
+| `~biz-finance` | Finance Navigator (Internal) | Business structure and entity planning |
+| `?biz-tools` | Tools Coach (Internal) | Tool stack audit and cost optimization |
+| `~plan-kpi` | KPI Explainer (Internal) | Business metrics coaching |
+| `~plan-ceo-review` | CEO Review (Internal) | Strategic vision review |
+| `~plan-eng-review` | Eng Manager Review (Internal) | Architecture maintainability review |
 
 ### 🎯 Contextual Triggers (By Business Sector)
 
@@ -237,14 +246,17 @@ Run quarterly or when adding new agents.
 
 ## The Relay Method™ — How It Works
 
-The Relay Method™ organizes AI agent assistance into four layers:
+The Relay Method™ organizes AI agent assistance into seven layers:
 
 | Layer | Purpose | Source |
 |-------|---------|--------|
 | **1. BMAD Lifecycle Agents** | Structured agile roles for the full SDLC (plan, build, test, ship) | BMAD Method |
 | **2. Agency Domain Specialists** | Deep-expertise personas for subject-matter knowledge | The Agency |
-| **3. Superpowers Workflow Engine** | Structured multi-step development workflow (brainstorm → ship) | Superpowers |
-| **4. RelayLaunch Business Context** | Service-tier workflows and brand standards | Internal |
+| **3. Contains Studio Specialists** | Department-organized agent specs (design, eng, marketing, ops) | Contains Studio |
+| **4. Superpowers Workflow Engine** | Structured multi-step development workflow (brainstorm → ship) | Superpowers |
+| **5. Meta-Role Overlays** | Executive-level strategic review (CEO, Eng Manager, Retro) | gstack-inspired |
+| **6. Founder Finance Agents** | Internal business health, tools audit, KPI coaching | Internal |
+| **7. RelayLaunch Business Context** | Service-tier workflows, brand standards, triggers, Ship Gate | Internal |
 
 ### Layer 1: BMAD Lifecycle Agents
 Structured agile roles that manage the full software development lifecycle.
@@ -570,6 +582,156 @@ automations, email, social, dashboard).
 
 ---
 
+## Founder-Only Finance Agents (Internal Use Only)
+
+> These agents exist to help Victor think clearly about RelayLaunch's own
+> business finances, tools, and metrics. They are **not** client-facing,
+> we do not market on the website, and they must never present output as legal,
+> tax, or investment advice.
+
+### 💰 Founder Finance Navigator
+**Trigger:** `~biz-finance` or `think finance`
+**File:** `.github/prompts/finance-founder-navigator.prompt.md`
+**Role:** Explain business entity options, cashflow concepts, and tax/logistics
+considerations in plain language. Prepare checklists and questions for CPAs,
+attorneys, and bookkeepers.
+**Use when:** Considering entity changes, pricing decisions, or how to structure
+pay/reinvestment.
+
+### 🔧 Small Biz Expense & Tools Coach
+**Trigger:** `?biz-tools` or `check tools`
+**File:** `.github/prompts/finance-tools-coach.prompt.md`
+**Role:** Audit your tool and subscription stack. Categorize each as keep/monitor/
+downgrade/replace/cancel. Suggest alternatives from the free-for-dev ecosystem.
+Estimate savings.
+**Use when:** Reducing monthly burn, consolidating overlapping tools, or evaluating
+a new paid tool.
+
+### 📊 Founder KPI Explainer
+**Trigger:** `~plan-kpi` or `think kpi`
+**File:** `.github/prompts/finance-kpi-explainer.prompt.md`
+**Role:** Explain core metrics (MRR, runway, utilization, project vs retainer mix)
+in terms that fit a tiny AI services studio. Suggest which 3-5 metrics to track
+and simple ways to track them.
+**Use when:** Sanity-checking revenue targets, deciding which offers to emphasize,
+or designing a personal runway plan.
+
+### Finance Agent Rules
+- These triggers are reserved for the founder only.
+- We do not use these in client projects, proposals, or website copy.
+- If you repurpose outputs for content (blog posts, educational material), strip
+  personal numbers and re-phrase for general audiences.
+- All outputs carry the disclaimer: "Not legal or tax advice."
+
+---
+
+## Meta-Role Overlays (Internal Use Only)
+
+> Strategic review personas that overlay on top of existing Relay agents.
+> They add executive-level perspective for big decisions.
+> Source inspiration: gstack (https://github.com/garrytan/gstack)
+
+### 🎯 CEO / Vision Review
+**Trigger:** `~plan-ceo-review`
+**File:** `.github/prompts/relay-meta-roles.prompt.md`
+**Role:** Challenge assumptions, ask hard questions about direction, timing, and
+trade-offs. Produce a "Founder Review" with strengths, concerns, and alternatives.
+
+### 🏗️ Engineering Manager / Staff Engineer Review
+**Trigger:** `~plan-eng-review`
+**File:** `.github/prompts/relay-meta-roles.prompt.md`
+**Role:** Evaluate architecture decisions for a solo founder. Check for
+over-engineering, assess maintainability, and suggest simplifications.
+
+### 🔍 Code Review (Pre-Ship)
+**Trigger:** `?code-review` or `/review`
+**File:** `.github/prompts/relay-meta-roles.prompt.md`
+**Role:** Senior code review before `/ship`. Catch logic errors, naming confusion,
+dead code, and issues automated linters miss.
+
+### 🔄 Retrospective Facilitator
+**Trigger:** `~retro`
+**File:** `.github/prompts/relay-meta-roles.prompt.md`
+**Role:** Guide structured reflection on completed projects. Extract actionable
+improvements for processes, tools, and agent workflows.
+
+### Meta-Role Rules
+- Overlays only; they produce reports and recommendations.
+- Never auto-execute changes (think/check modes only).
+- Can be used on client projects for premium "Strategic Review" deliverables.
+
+---
+
+## External Resources & Future Verticals
+
+> External repos, tools, and research catalogs that feed into the Relay Method.
+> Documented here so all AI tools know what's available.
+
+| Resource | GitHub | Status | Use In Relay |
+|----------|--------|--------|--------------|
+| **gstack** | [garrytan/gstack](https://github.com/garrytan/gstack) | Reference | Meta-role overlays for CEO/Eng review |
+| **claude-skills** | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | Phase 1 | Atomic micro-skills for agent prompts |
+| **free-for-dev** | [ripienaar/free-for-dev](https://github.com/ripienaar/free-for-dev) | Research | Tools Coach and Complete Analysis alternatives |
+| **Contains Studio** | [contains-studio/agents](https://github.com/contains-studio/agents) | Phase 1 | 30+ specialist agents to port |
+| **OpenBB** | [OpenBB-finance/OpenBB](https://github.com/OpenBB-finance/OpenBB) | Future | Founder finance data helpers |
+| **MindsDB** | [mindsdb/mindsdb](https://github.com/mindsdb/mindsdb) | Future | Control Center data agents |
+| **GLM-5** | [docs.z.ai](https://docs.z.ai/guides/llm/glm-5) | Future | Infra super-architect second opinions |
+| **http.zig** | [karlseguin/http.zig](https://github.com/karlseguin/http.zig) | Future | Ultra-lean edge microservices |
+| **LangGraph** | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | Phase 3 | Ship Gate and build flow graphs |
+| **CrewAI** | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | Phase 2 | Service-tier multi-agent crews |
+| **Dotprompt** | [google/dotprompt](https://github.com/google/dotprompt) | Phase 2 | Typed audit/report templates |
+
+---
+
+## Agent Count Summary
+
+### Public-Facing Agents (Website)
+
+The website showcases **11 lead agents** organized into divisions, with 150+
+specialists behind them:
+
+| # | Agent | Division | Public Role |
+|---|-------|----------|-------------|
+| 1 | **Infra Agent** | Infrastructure Command | DNS, CDN, hosting, uptime |
+| 2 | **Security Agent** | Security Division | Threat detection, vulnerability scanning |
+| 3 | **Build Agent** | Engineering Corps | Code quality, testing, PR review |
+| 4 | **Brand Agent** | Brand & Design Lab | Colors, fonts, voice, identity |
+| 5 | **QA Agent** | Engineering Corps | Accessibility, Lighthouse, responsive |
+| 6 | **Prose Agent** | Content Studio | Human language, AI-ism detection |
+| 7 | **Content Agent** | Content Studio | Blog, social, email, SEO content |
+| 8 | **Growth Agent** | Growth Engine | Acquisition, conversion, analytics |
+| 9 | **Sales Agent** | Growth Engine | Pipeline, proposals, outreach |
+| 10 | **Social Agent** | Growth Engine | Cross-platform social strategy |
+| 11 | **Ops Agent** | Infrastructure Command | CI/CD, workflows, deployment |
+
+### Internal-Only Agents (Not on Website)
+
+| Agent | Domain | Trigger |
+|-------|--------|---------|
+| Founder Finance Navigator | biz | `~biz-finance` |
+| Small Biz Expense & Tools Coach | biz | `?biz-tools` |
+| Founder KPI Explainer | plan | `~plan-kpi` |
+| CEO / Vision Review | plan | `~plan-ceo-review` |
+| Engineering Manager Review | code | `~plan-eng-review` |
+| Code Review (Pre-Ship) | code | `?code-review` |
+| Retrospective Facilitator | plan | `~retro` |
+
+### Total Agent Ecosystem
+
+| Category | Count |
+|----------|-------|
+| Default agents (always-on) | 7 |
+| BMAD + Relay prompt files | 20 |
+| Finance agents (internal) | 3 |
+| Meta-role overlays (internal) | 4 |
+| Agency domain specialists | 30+ |
+| Contains Studio specialists (Phase 1) | 30+ |
+| CrewAI service-tier crews (Phase 2) | 4 |
+| Total named triggers | 60+ |
+| Total specialist agents | 190+ |
+
+---
+
 ## Cross-Repo Agent Setup
 
 Both `relaylaunch-website` and `relaylaunch-control-center` should maintain
@@ -595,14 +757,19 @@ It combines:
 - **BMAD Method** for structured agile development lifecycle
 - **The Agency** for deep domain specialist expertise
 - **Superpowers** for systematic multi-step development workflows
+- **Contains Studio** for department-organized specialist agents
 - **RelayLaunch business context** for service-tier workflows and brand standards
 - **Mode + Domain** trigger system for precise, memorable agent activation
 - **Ship Gate** for coordinated multi-agent delivery
 - **Prose Agent** for human language enforcement on every change
+- **Meta-Role Overlays** for executive-level strategic review
+- **Founder Finance Agents** for internal business health and clarity
+- **CrewAI** (Phase 2) for multi-agent service-tier crews
+- **LangGraph** (Phase 3) for executable workflow graphs
+- **Dotprompt** (Phase 2) for typed audit and report templates
 
-The name reflects the relay race metaphor: each specialist picks up the
+The name reflects the relay race metaphor. Each specialist picks up the
 baton, runs their leg with precision, and hands off cleanly to the next.
-Just like a relay team, the method is faster than any individual and every
-handoff is deliberate.
+The method is faster than any individual. Every handoff is deliberate.
 
 © RelayLaunch LLC. "The Relay Method" is a trademark of RelayLaunch LLC.

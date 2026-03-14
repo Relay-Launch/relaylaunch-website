@@ -96,11 +96,12 @@ Per `CLAUDE.md` Brand Standards:
    - External links have `target="_blank"` and `rel="noopener"`
    - No broken anchor references
 
-9. **Prompt file integrity** — Verify all 16 BMAD prompt files exist in
+9. **Prompt file integrity** — Verify all 20 prompt files exist in
    `.github/prompts/`: bmad-architect, bmad-api-review, bmad-audit,
    bmad-brand-fix, bmad-build, bmad-data-model, bmad-github, bmad-infra,
    bmad-plan, bmad-prettify, bmad-prose, bmad-qa, bmad-research,
-   bmad-security, bmad-seo, bmad-sprint
+   bmad-security, bmad-seo, bmad-sprint, finance-founder-navigator,
+   finance-tools-coach, finance-kpi-explainer, relay-meta-roles
 
 ## Auto-Trigger Conditions
 

@@ -131,10 +131,12 @@ Per `CLAUDE.md` Brand Standards:
 - [ ] Pricing displays are consistent and correctly formatted
 
 ### 9. Prompt File Integrity
-- [ ] All 16 BMAD prompt files exist in `.github/prompts/`:
+- [ ] All 20 prompt files exist in `.github/prompts/`:
   bmad-architect, bmad-api-review, bmad-audit, bmad-brand-fix, bmad-build,
   bmad-data-model, bmad-github, bmad-infra, bmad-plan, bmad-prettify,
-  bmad-prose, bmad-qa, bmad-research, bmad-security, bmad-seo, bmad-sprint
+  bmad-prose, bmad-qa, bmad-research, bmad-security, bmad-seo, bmad-sprint,
+  finance-founder-navigator, finance-tools-coach, finance-kpi-explainer,
+  relay-meta-roles
 - [ ] Each prompt file has valid YAML frontmatter (`mode: agent`)
 - [ ] Each prompt file references `CLAUDE.md` as source of truth
 

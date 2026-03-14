@@ -127,6 +127,15 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/superpowers` — Full brainstorm → plan → execute → test → review workflow
 - `/datamodel` — Data model and schema review
 - `/api` — API endpoint review and validation
+- `/prose` — Human language enforcement, AI-ism detection
+- `/review` — Pre-ship senior code review
+- `/discovery` — Discovery calls, qualifying, needs assessment
+- `~retro` — Structured project retrospective
+- `~biz-finance` — Business structure and entity planning (internal)
+- `?biz-tools` — Tool stack audit and cost optimization (internal)
+- `~plan-kpi` — Business metrics coaching (internal)
+- `~plan-ceo-review` — Strategic vision review (internal)
+- `~plan-eng-review` — Architecture maintainability review (internal)
 
 ### Mode + Domain Triggers
 Use a mode prefix + domain for fast, precise agent calls. Both symbol
@@ -162,6 +171,10 @@ for the full spec.
 - **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
 - **The Agency** — Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
 - **Superpowers** — Structured multi-step development workflow (https://github.com/obra/superpowers)
+- **Contains Studio** — Department-organized agent specs (https://github.com/contains-studio/agents)
+- **CrewAI** (Phase 2) — Multi-agent crew orchestration (https://github.com/crewAIInc/crewAI)
+- **LangGraph** (Phase 3) — Graph-based workflow execution (https://github.com/langchain-ai/langgraph)
+- **Dotprompt** (Phase 2) — Typed prompt templates (https://github.com/google/dotprompt)
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
@@ -189,6 +202,10 @@ When acting as a BMAD agent, follow the role:
 - `bmad-infra.prompt.md` — DNS, CDN, CI/CD, hosting (Infra Agent)
 - `bmad-security.prompt.md` — Threat detection, vulnerability scanning (Security Agent)
 - `bmad-github.prompt.md` — Workflows, Actions, branch protection (GitHub Agent)
+- `finance-founder-navigator.prompt.md` — Business entity & cashflow coaching (Internal)
+- `finance-tools-coach.prompt.md` — Tool stack audit & cost optimization (Internal)
+- `finance-kpi-explainer.prompt.md` — Business metrics translation (Internal)
+- `relay-meta-roles.prompt.md` — CEO/Eng/Code Review/Retro overlays (Internal)
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
