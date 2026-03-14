@@ -108,3 +108,8 @@ Flag and fix any use of old names: Signal, Blueprint, Relay, Sustain.
 - Note any exemptions encountered (third-party logos, Starwind, micro-elements)
 - Confirm build passes after all changes
 - Recommend running `bmad-audit.prompt.md` (`/audit`) to verify completeness
+
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — After Forge generates new content or pages, run `/brandfix` to fix any brand violations in the generated output
+- **`/council`** (`relay-council.prompt.md`) — If a brand fix conflicts with UX or conversion goals, escalate to Council for a structured debate

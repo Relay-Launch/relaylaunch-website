@@ -168,3 +168,9 @@ Hand off to or coordinate with these agents when their domain is needed:
 | QA (*qa) | `/qa` | To validate stories meet Definition of Done |
 
 **Typical flow:** `/research` (discover) -> `/plan` (prioritize) -> `/sprint` (break down) -> `/build` (implement)
+
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge cycles may generate sprint-ready tasks; ingest Forge output into backlog grooming
+- **`/council`** (`relay-council.prompt.md`) — Escalate to Council when sprint priorities conflict or when a story has ambiguous acceptance criteria requiring multi-perspective debate
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Request deep research when a story requires discovery before it can be estimated

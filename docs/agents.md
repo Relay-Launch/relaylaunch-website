@@ -85,6 +85,10 @@ short, memorable, and organized by business function.
 | `/datamodel` | BMAD *architect | Data model and schema review |
 | `/api` | BMAD *architect | API endpoint review and validation |
 | `/prose` | Prose Agent (Default) | Human language enforcement, AI-ism detection |
+| `/cro` | Conversion Architect | CRO, funnel psychology, A/B testing, page structure |
+| `/behavioral` | Behavioral Designer | Cognitive science in design, visual hierarchy |
+| `/buyer` | Buyer Psychologist | Purchase psychology, objection mapping, trust signals |
+| `/neuro` | Neuromarketer | Attention, memory, anchoring, processing fluency |
 | `/review` | Meta-Role Code Reviewer | Pre-ship senior code review |
 | `/cli-anything` | CLI-Anything Pipeline | Generate agent-native CLI for any software |
 | `/council` | Relay Council | Multi-agent structured debate for strategic decisions |
@@ -401,6 +405,7 @@ The Relay Method™ organizes 280+ AI agents across thirteen integrated framewor
 | **11. Relay Forge Engine** | Trend-aware build pipeline: research, debate, build, gate, deliver | Relay Forge |
 | **12. Relay Council** | Multi-agent structured debate for strategic decisions | Relay Council |
 | **13. Deep Research Intelligence** | Multi-source trend intelligence using free/OSS tools | Deep Research |
+| **14. Behavioral Design & CRO** | Conversion psychology, cognitive science, buyer behavior, neuromarketing | Relay Behavioral |
 
 ### Layer 1: BMAD Lifecycle Agents
 Structured agile roles that manage the full software development lifecycle.
@@ -524,6 +529,20 @@ component library, design system, UX, user testing, usability, brand identity,
 consistency, positioning, visual story, multimedia, delight, micro-interactions,
 AI images, Midjourney, DALL-E
 
+### 🧠 Behavioral Design & CRO
+
+| Trigger | Agent | Framework | How to Activate |
+|---------|-------|-----------|-----------------|
+| `/cro` | Conversion Architect | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/behavioral` | Behavioral Designer | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/buyer` | Buyer Psychologist | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/neuro` | Neuromarketer | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+
+**Also responds to:** conversion, funnel, A/B testing, CRO, cognitive load,
+visual hierarchy, font sizing, spacing, whitespace, Hick's Law, Fitts' Law,
+buyer psychology, purchase decision, objection handling, anchoring, social proof,
+neuromarketing, attention, memory, processing fluency, choice architecture
+
 ### 📈 SEO & Content
 
 | Trigger | Agent | Framework | How to Activate |
@@ -617,6 +636,17 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | Relay Forge | Forge Engine | `relay-forge.prompt.md` | `/relay forge` | Trend-aware build pipeline |
 | Relay Council | Decision Engine | `relay-council.prompt.md` | `/council` | Multi-agent structured debate |
 | Deep Research | Intelligence | `relay-deep-research.prompt.md` | `/deep-research` | Multi-source trend research |
+| Conversion Architect | CRO | `relay-behavioral-design.prompt.md` | `/cro` | Conversion optimization, funnel psychology |
+| Behavioral Designer | Cognitive design | `relay-behavioral-design.prompt.md` | `/behavioral` | Visual hierarchy, spacing, cognitive load |
+| Buyer Psychologist | Purchase psychology | `relay-behavioral-design.prompt.md` | `/buyer` | Buyer personas, objection mapping, trust signals |
+| Neuromarketer | Neuromarketing | `relay-behavioral-design.prompt.md` | `/neuro` | Attention, anchoring, memory, processing fluency |
+| Backend Architect | Backend | `agency-backend-architect.prompt.md` | `/backend` | Cloudflare/D1/n8n stack architecture |
+| Brand Guardian | Brand | `agency-brand-guardian.prompt.md` | `/brand` | 4-color system, typography, voice enforcement |
+| Content Creator | Content | `agency-content-creator.prompt.md` | `/content` | Blog posts, service pages, case studies |
+| DevOps Automator | DevOps | `agency-devops-automator.prompt.md` | `/devops` | GitHub Actions + Cloudflare Workers |
+| Frontend Developer | Frontend | `agency-frontend-developer.prompt.md` | `/frontend` | Astro 5, Tailwind 4.2, Starwind |
+| Growth Hacker | Growth | `agency-growth-hacker.prompt.md` | `/growth` | Funnel architecture, channel strategy |
+| Proposal Strategist | Sales | `agency-proposal-strategist.prompt.md` | `/proposal` | Win themes, value-based pricing |
 
 ### Adding New Prompt Files
 
@@ -892,7 +922,7 @@ The website showcases **11 divisions** organized into two categories:
 | Category | Count |
 |----------|-------|
 | Default agents (always-on) | 7 |
-| BMAD + Relay prompt files | 24 |
+| BMAD + Relay prompt files | 32 |
 | Finance agents (internal) | 3 |
 | Meta-role overlays (internal) | 4 |
 | Agency domain specialists | 30+ |
@@ -905,8 +935,9 @@ The website showcases **11 divisions** organized into two categories:
 | Relay Council presets | 5 |
 | Deep Research tool integrations | 8 |
 | Business sector playbooks | 10 |
-| Total named triggers | 75+ |
-| Total specialist agents | 280+ |
+| Behavioral Design & CRO agents | 4 |
+| Total named triggers | 80+ |
+| Total specialist agents | 300+ |
 
 ---
 

@@ -99,3 +99,9 @@ Per `CLAUDE.md` Brand Standards:
 - Confirm all changes pass brand compliance (recommend running `/audit` after)
 - Confirm build passes
 - Note any exemptions encountered
+
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge-generated pages may need aesthetic polish; run `/prettify` after Forge output to refine visual quality
+- **`/council`** (`relay-council.prompt.md`) — Escalate to Council when aesthetic improvements conflict with conversion optimization or brand positioning
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research design trends and competitor aesthetics before major visual refreshes

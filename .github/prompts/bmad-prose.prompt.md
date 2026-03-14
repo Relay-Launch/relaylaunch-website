@@ -200,3 +200,9 @@ their boundaries to avoid overlap and ensure proper handoffs:
   that is Prose.
 - QA Agent checks heading hierarchy (h1 > h2 > h3); Prose Agent checks
   heading text quality.
+
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — All Forge-generated content (blog posts, page copy, meta descriptions) must pass Prose Agent review before shipping; flag AI-isms in generated text
+- **`/council`** (`relay-council.prompt.md`) — Escalate to Council when prose fixes conflict with SEO keyword requirements or brand positioning language
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Deep Research output (Trend Briefs) should be reviewed for AI-isms before being shared with clients

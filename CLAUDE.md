@@ -139,6 +139,10 @@ Type any trigger in your prompt to activate the matching specialist:
 - `~plan-eng-review` — Architecture maintainability review (internal)
 - `/cli-anything` — Generate agent-native CLI for any software (7-phase pipeline)
 - `/cli-anything gimp` — GIMP image processing via CLI-Anything harness
+- `/cro` — Conversion Rate Optimization, funnel psychology, A/B testing
+- `/behavioral` — Behavioral design, cognitive science, visual hierarchy
+- `/buyer` — Buyer psychology, objection mapping, trust signals
+- `/neuro` — Neuromarketing, attention, anchoring, processing fluency
 - `/council` — Multi-agent structured debate for strategic decisions
 - `/council strategy` — Council preset: business direction
 - `/council build` — Council preset: technical architecture
@@ -231,6 +235,14 @@ When acting as a BMAD agent, follow the role:
 - `relay-forge.prompt.md` — Relay Forge trend-aware build pipeline (Layer 11)
 - `relay-council.prompt.md` — Relay Council multi-agent debate engine (Layer 12)
 - `relay-deep-research.prompt.md` — Deep Research multi-source intelligence (Layer 13)
+- `relay-behavioral-design.prompt.md` — CRO, behavioral design, buyer psychology, neuromarketing
+- `agency-backend-architect.prompt.md` — Backend Architect (Cloudflare/D1/n8n stack)
+- `agency-brand-guardian.prompt.md` — Brand Guardian (4-color system enforcement)
+- `agency-content-creator.prompt.md` — Content Creator (blog, service pages, case studies)
+- `agency-devops-automator.prompt.md` — DevOps Automator (GitHub Actions + Cloudflare)
+- `agency-frontend-developer.prompt.md` — Frontend Developer (Astro 5, Tailwind 4.2)
+- `agency-growth-hacker.prompt.md` — Growth Hacker (funnel architecture, channel strategy)
+- `agency-proposal-strategist.prompt.md` — Proposal Strategist (win themes, pricing)
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find

@@ -1,0 +1,86 @@
+---
+---
+
+<!-- ═══════════════════════════════════════════════ TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">From Our Clients</span>
+      <h2 class="section-title" style="margin-bottom: 48px;">Don't take our word for it. Take theirs.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"We went from 6 disconnected tools and $342/month to one unified system at $51/month. The automation alone saves us 8 to 12 hours every week. We didn't just save money. We got our time back."</p>
+        <div class="testimonial-meta">
+          <strong>Luxury Wellness Spa</strong>
+          <span>Five-Star Resort, South Florida</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Three separate QuickBooks instances, 15+ day month-end close, and a parent company that had frozen acquisitions until we fixed it. RelayLaunch architected the migration that got us moving again."</p>
+        <div class="testimonial-meta">
+          <strong>Global Events Company</strong>
+          <span>ERP Migration & Consolidation</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"The Complete Analysis paid for itself before we even started the build. We finally understood where the real bottlenecks were, and it wasn't where we thought."</p>
+        <div class="testimonial-meta">
+          <strong>Small Business Owner</strong>
+          <span>Complete Analysis Client</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Testimonials ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    padding: 32px;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .testimonial-quote {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-style: italic;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .testimonial-quote::before { content: '\201C'; }
+  .testimonial-meta { border-top: 1px solid var(--color-border); padding-top: 16px; }
+  .testimonial-meta strong { display: block; font-size: 14px; margin-bottom: 2px; }
+  .testimonial-meta span { font-size: 13px; color: var(--color-muted); }
+
+  :global(.dark) .testimonials-section::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: 50%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--primary) 6%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+  .testimonials-section { position: relative; overflow: hidden; }
+
+  @media (max-width: 768px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+</style>
