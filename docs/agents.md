@@ -1,18 +1,19 @@
 # AI Agents & Tools Registry — The Relay Method™
 
 > **The Relay Method™** is RelayLaunch's branded approach to AI-assisted
-> business operations. It unifies three open-source agent frameworks — BMAD
-> Method, The Agency, and Superpowers — into a single coordinated system
-> with short trigger commands, specialist roles mapped to real business
-> functions, and cross-repo awareness. Every AI tool in the ecosystem
-> (Claude Code, GitHub Copilot, Cursor) reads this file to route tasks to
-> the right specialist.
+> business operations. It unifies ten integrated frameworks — BMAD Method,
+> The Agency, Superpowers, Contains Studio, CrewAI, LangGraph, Dotprompt,
+> CLI-Anything, LangChain, and awesome-scalability — into a single
+> coordinated system with 250+ specialist agents, short trigger commands,
+> roles mapped to real business functions, and cross-repo awareness. Every
+> AI tool in the ecosystem (Claude Code, GitHub Copilot, Cursor) reads this
+> file to route tasks to the right specialist.
 
 ---
 
 ## Default Agents — Always Active on Code Changes
 
-These seven agents activate **automatically** on every code change, deployment,
+These seven default agents activate **automatically** on every code change, deployment,
 or infrastructure modification. No trigger needed. They represent the baseline
 engineering team that protects every change going to production.
 
@@ -249,7 +250,7 @@ Run quarterly or when adding new agents.
 
 ## The Relay Method™ — How It Works
 
-The Relay Method™ organizes AI agent assistance into seven layers:
+The Relay Method™ organizes 250+ AI agents across ten integrated frameworks into these layers:
 
 | Layer | Purpose | Source |
 |-------|---------|--------|
@@ -257,9 +258,12 @@ The Relay Method™ organizes AI agent assistance into seven layers:
 | **2. Agency Domain Specialists** | Deep-expertise personas for subject-matter knowledge | The Agency |
 | **3. Contains Studio Specialists** | Department-organized agent specs (design, eng, marketing, ops) | Contains Studio |
 | **4. Superpowers Workflow Engine** | Structured multi-step development workflow (brainstorm → ship) | Superpowers |
-| **5. Meta-Role Overlays** | Executive-level strategic review (CEO, Eng Manager, Retro) | gstack-inspired |
-| **6. Founder Finance Agents** | Internal business health, tools audit, KPI coaching | Internal |
-| **7. RelayLaunch Business Context** | Service-tier workflows, brand standards, triggers, Ship Gate | Internal |
+| **5. CrewAI Orchestration** | Multi-agent crew orchestration for complex workflows | CrewAI |
+| **6. LangGraph Workflows** | Graph-based workflow execution and state management | LangGraph |
+| **7. LangChain Integrations** | 700+ tool integrations, RAG chains, agent orchestration | LangChain |
+| **8. CLI-Anything Harnesses** | Agent-native CLI generation for any software | CLI-Anything |
+| **9. Meta-Role Overlays & Finance** | Executive review, business health, KPI coaching | Internal |
+| **10. RelayLaunch Business Context** | Service-tier workflows, brand standards, triggers, Ship Gate | Internal |
 
 ### Layer 1: BMAD Lifecycle Agents
 Structured agile roles that manage the full software development lifecycle.
@@ -683,6 +687,8 @@ improvements for processes, tools, and agent workflows.
 | **LangGraph** | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | Phase 3 | Ship Gate and build flow graphs |
 | **CrewAI** | [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | Phase 2 | Service-tier multi-agent crews |
 | **Dotprompt** | [google/dotprompt](https://github.com/google/dotprompt) | Phase 2 | Typed audit/report templates |
+| **LangChain** | [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | Phase 2 | 700+ tool integrations, RAG chains, agent orchestration |
+| **awesome-scalability** | [binhnguyennus/awesome-scalability](https://github.com/binhnguyennus/awesome-scalability) | Active | Scaling patterns, infra knowledge base (400+ resources) |
 
 ---
 
@@ -717,10 +723,10 @@ The website showcases **11 divisions** organized into two categories:
 
 | Tier | Ops Suite | Growth Divisions | Total Agent Access |
 |------|-----------|-----------------|-------------------|
-| Complete Analysis | 8 (audit mode) | 0 | ~138 |
-| Launch | 8 (build mode) | 0 | ~138 |
-| Run | 8 (ops mode) | +1 (client picks 1 of 3) | ~158-168 |
-| Scale | 8 (ops mode) | +2 (client picks 2 of 3) | ~180-190 |
+| Complete Analysis | 8 (audit mode) | 0 | ~180 |
+| Launch | 8 (build mode) | 0 | ~180 |
+| Run | 8 (ops mode) | +1 (client picks 1 of 3) | ~210-220 |
+| Scale | 8 (ops mode) | +2 (client picks 2 of 3) | ~240-252 |
 
 ### Internal-Only Agents (Not on Website)
 
@@ -746,8 +752,10 @@ The website showcases **11 divisions** organized into two categories:
 | Contains Studio specialists (Phase 1) | 30+ |
 | CrewAI service-tier crews (Phase 2) | 4 |
 | CLI-Anything harnesses | 1 (GIMP) |
+| LangChain tool agents (Phase 2) | 50+ |
+| awesome-scalability patterns | 10 |
 | Total named triggers | 60+ |
-| Total specialist agents | 190+ |
+| Total specialist agents | 250+ |
 
 ---
 
@@ -836,6 +844,8 @@ It combines:
 - **Founder Finance Agents** for internal business health and clarity
 - **CrewAI** (Phase 2) for multi-agent service-tier crews
 - **LangGraph** (Phase 3) for executable workflow graphs
+- **LangChain** (Phase 2) for 700+ tool integrations and RAG chains
+- **awesome-scalability** for infrastructure scaling knowledge patterns
 - **Dotprompt** (Phase 2) for typed audit and report templates
 
 The name reflects the relay race metaphor. Each specialist picks up the

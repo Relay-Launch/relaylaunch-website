@@ -179,6 +179,8 @@ for the full spec.
 - **LangGraph** (Phase 3) — Graph-based workflow execution (https://github.com/langchain-ai/langgraph)
 - **Dotprompt** (Phase 2) — Typed prompt templates (https://github.com/google/dotprompt)
 - **CLI-Anything** — Agent-native CLI generation for any software (https://github.com/HKUDS/CLI-Anything)
+- **LangChain** (Phase 2) — 700+ tool integrations, RAG chains, agent orchestration (https://github.com/langchain-ai/langchain)
+- **awesome-scalability** — Scaling patterns and infrastructure knowledge base (https://github.com/binhnguyennus/awesome-scalability)
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
