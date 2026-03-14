@@ -13,7 +13,9 @@ export default defineConfig({
     '/case-studies/hrc': '/case-studies/luxury-wellness-spa/',
     '/control-center': '/console/',
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({
+    lastmod: new Date(),
+  })],
 
   vite: {
     plugins: [tailwindcss()],
