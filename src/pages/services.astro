@@ -681,13 +681,22 @@ const faqSchema = {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    align-items: start;
+    align-items: end;
   }
 
   .tier-card {
     padding: 32px 28px;
     display: flex;
     flex-direction: column;
+    min-height: 520px;
+  }
+
+  .tier-card:nth-child(2) {
+    min-height: 580px;
+  }
+
+  .tier-card:nth-child(3) {
+    min-height: 640px;
   }
 
   .tier-featured {
@@ -747,6 +756,10 @@ const faqSchema = {
     text-transform: uppercase;
     color: var(--color-muted);
     margin-bottom: 12px;
+  }
+
+  .tier-card .checklist {
+    flex: 1;
   }
 
   /* ── Additional Engagements ── */
@@ -949,7 +962,11 @@ const faqSchema = {
 
   @media (max-width: 768px) {
     .pkg-header, .pkg-body { grid-template-columns: 1fr; }
-    .tiers-grid { grid-template-columns: 1fr; }
+    .tiers-grid { grid-template-columns: 1fr; align-items: stretch; }
+    .tier-card,
+    .tier-card:nth-child(1),
+    .tier-card:nth-child(2),
+    .tier-card:nth-child(3) { min-height: auto; }
     .addons-grid { grid-template-columns: 1fr; }
     .industries-grid { grid-template-columns: 1fr; }
   }
