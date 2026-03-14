@@ -55,7 +55,10 @@ PR processes, and CI/CD pipeline configuration for RelayLaunch.
 ### 5. Branch Protection
 - Main branch protected from direct pushes
 - PR reviews required before merging
-- Status checks required to pass before merging
+- Status checks required to pass before merging:
+  - Build Agent (astro.yml) must pass
+  - Lighthouse CI (lighthouse.yml) must pass with 90+ scores
+  - Security audit (security.yml) must pass
 - Force pushes disabled on protected branches
 - Branch deletion rules appropriate
 

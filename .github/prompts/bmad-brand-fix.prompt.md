@@ -20,6 +20,10 @@ actual code changes, not just a report.
 
 **Forbidden:** green, orange, red, purple, or ANY color outside this system.
 
+**Exemption:** Third-party tool logos in the index.astro marquee section use
+external brand colors (e.g., Astro #FF5D01, Cloudflare #F48120). These are
+exempt from the 4-color brand standard per CLAUDE.md Known Issues.
+
 ## Steps
 
 ### 1. Scan for violations

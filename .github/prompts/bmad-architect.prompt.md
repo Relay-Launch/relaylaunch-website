@@ -28,7 +28,12 @@ the RelayLaunch website. Your job is technical design and structure validation.
 - Components are reusable and follow single-responsibility principle
 - Shared components in `src/components/`, page-specific logic in pages
 - Starwind components used correctly from `src/components/starwind/`
-- Layout hierarchy: Layout.astro → BaseLayout.astro → Page content
+  - Starwind is the design system component library (Button, Toggle, ThemeToggle)
+  - Components use `tailwind-variants` for variant management and CSS variables for theming
+  - Starwind CSS variables are defined in `src/styles/starwind.css` and map to brand colors
+- Layout hierarchy: `src/layouts/Layout.astro` wraps `src/components/layouts/BaseLayout.astro` + Nav + Footer
+  - `BaseLayout.astro` provides `<html>`, `<head>` (with SEO), `<body>`, global styles — NO Nav/Footer
+  - `BlogPostLayout.astro` provides article structure with metadata and schema for blog posts
 
 ### 3. Performance Architecture
 - Zero unnecessary client-side JavaScript
