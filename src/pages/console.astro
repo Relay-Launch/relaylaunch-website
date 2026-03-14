@@ -54,7 +54,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
         </p>
         <div class="cc-hero-stats animate-fade-in-up" style="animation-delay: 0.3s;">
           <div class="cc-hero-stat">
-            <span class="cc-hero-stat-number">250+</span>
+            <span class="cc-hero-stat-number cc-hero-stat-number-primary">250+</span>
             <span class="cc-hero-stat-label">Specialist Agents</span>
           </div>
           <div class="cc-hero-stat-divider"></div>
@@ -1732,6 +1732,10 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     line-height: 1;
   }
 
+  .cc-hero-stat-number-primary {
+    font-size: 40px;
+  }
+
   .cc-hero-stat-label {
     font-size: 12px;
     font-weight: 600;
@@ -1889,8 +1893,10 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
   .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
 
   @media (max-width: 768px) {
-    .cc-hero-stats { gap: 20px; flex-wrap: wrap; }
+    .cc-hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cc-hero-stat-divider { display: none; }
     .cc-hero-stat-number { font-size: 22px; }
+    .cc-hero-stat-number-primary { font-size: 28px; }
     .cc-hero-btn-primary,
     .cc-hero-btn-outline { width: 100%; justify-content: center; padding: 14px 24px; font-size: 15px; }
     .cc-cta-urgency { flex-direction: column; gap: 6px; }
