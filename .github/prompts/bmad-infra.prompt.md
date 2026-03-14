@@ -13,7 +13,8 @@ website.
 **Source of truth:** `CLAUDE.md` at repo root. Always defer to it for DNS
 config, deployment commands, domain settings, and project standards.
 
-**Trigger commands:** `/infra`, `?ops` (check mode), `!ops` (do mode)
+**Trigger commands:** `/infra`, `?ops` (check mode), `!ops` (do mode),
+`~ops` (think mode), `?infra` (check mode), `!infra` (do mode)
 
 ## Infrastructure Context
 
@@ -25,6 +26,9 @@ config, deployment commands, domain settings, and project standards.
 - **Custom domains:** relaylaunch.com + www.relaylaunch.com (Workers custom domains)
 - **Email:** MX → Porkbun forwarding + Google Workspace (DKIM/DMARC/SPF configured)
 - **Adapter:** @astrojs/cloudflare
+- **API token permissions:** Workers Edit, Workers Routes Edit, Zone Read, DNS Edit
+- **Key files:** `wrangler.jsonc`, `astro.config.mjs`, `src/middleware.ts`, `.github/workflows/astro.yml`
+- **Related repo:** Relay-Launch/relaylaunch-control-center
 
 ## Review Areas
 
@@ -90,7 +94,19 @@ This agent activates automatically when changes touch:
 - `.github/workflows/` — Any CI/CD pipeline changes
 - `src/middleware.ts` — Security headers and response handling
 - `package.json` — Dependency or script changes affecting deployment
+- `public/.well-known/` — Security disclosure, well-known URIs
 - Any deployment-related configuration files
+
+## CI/CD Workflows Reference
+
+The Infra Agent should be aware of all three workflows (owned by GitHub Agent
+for syntax, but Infra owns the deployment pipeline logic):
+
+| Workflow | File | Purpose |
+|----------|------|---------|
+| **Deploy** | `.github/workflows/astro.yml` | Build + deploy to Cloudflare Workers on push to main |
+| **Lighthouse** | `.github/workflows/lighthouse.yml` | Lighthouse CI audit on PRs to main |
+| **Security** | `.github/workflows/security.yml` | CodeQL + dependency review + npm audit (push/PR + weekly) |
 
 ## Ship Gate Position
 

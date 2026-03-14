@@ -10,12 +10,15 @@ description: "BMAD *dev agent — Find and fix all brand color violations in CSS
 **Mode behavior:**
 - `!` / `do` — Find and fix violations with code changes (default)
 - `?` / `check` — Scan and report only, no changes (delegates to `bmad-audit.prompt.md`)
+- `~` / `think` — Brainstorm fix strategies, no changes
 
 **Related agents:**
-- `bmad-audit.prompt.md` — Full brand compliance audit (report-only)
-- `bmad-prettify.prompt.md` — Aesthetic polish within brand constraints
-- `bmad-qa.prompt.md` — General QA, accessibility, Lighthouse, responsive
+- `bmad-audit.prompt.md` — Full brand compliance audit (report-only) (`/audit`)
+- `bmad-prettify.prompt.md` — Aesthetic polish within brand constraints (`/prettify`)
+- `bmad-qa.prompt.md` — General QA, accessibility, Lighthouse, responsive (`/qa`)
 - `bmad-prose.prompt.md` — Voice and language enforcement
+- `bmad-build.prompt.md` — Build validation after fixes (`/build`)
+- `bmad-security.prompt.md` — Dependency audit (`/security`)
 
 You are the BMAD *dev agent. Your job is to find and fix every brand color
 violation in the RelayLaunch codebase. This is implementation work — produce
@@ -38,9 +41,10 @@ actual code changes, not just a report.
   colors (e.g., Astro #FF5D01, Cloudflare #F48120) — exempt per `CLAUDE.md` Known Issues
 - **Micro-element border-radius** (3px, 6px) in `complete-analysis.astro`
   progress bars/badges — left as literal values per `CLAUDE.md` Known Issues
-- **Starwind design system** components may use internal CSS variables that
-  resolve to brand colors — fix resolved values, not variable names
-- **Print styles** — exempt from color enforcement
+- **Starwind design system** components in `src/components/starwind/` may use
+  internal CSS variables that resolve to brand colors — fix resolved values,
+  not variable names
+- **Print styles** (`@media print`) — exempt from color enforcement
 
 ## Steps
 

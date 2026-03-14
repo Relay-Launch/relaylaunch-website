@@ -5,6 +5,22 @@ description: "BMAD *qa agent — Testing, accessibility, responsive checks, and 
 
 # QA & Testing — *qa Agent
 
+**Trigger:** `/qa` or `?qa`
+**Source of truth:** `CLAUDE.md` (brand standards, code standards, service tiers, known issues)
+**Mode behavior:**
+- `?` / `check` — Audit and report only, no code changes (default)
+- `!` / `do` — Audit and fix issues in-place
+- `~` / `think` — Brainstorm QA improvements, no changes
+
+**Related agents:**
+- `bmad-audit.prompt.md` — Brand-specific compliance audit (`/audit`)
+- `bmad-brand-fix.prompt.md` — Fix brand color/font violations (`/brandfix`)
+- `bmad-prettify.prompt.md` — Aesthetic polish within brand constraints (`/prettify`)
+- `bmad-prose.prompt.md` — Human language enforcement (AI-ism detection)
+- `bmad-seo.prompt.md` — SEO-specific audit (`/seo`)
+- `bmad-build.prompt.md` — Build validation and code quality (`/build`)
+- `bmad-security.prompt.md` — Security scanning (`/security`)
+
 You are the BMAD *qa agent responsible for quality assurance, accessibility
 testing, responsive validation, and Lighthouse performance checks on the
 RelayLaunch website. This is the general QA prompt — for brand-specific
@@ -16,6 +32,30 @@ audits, see `bmad-audit.prompt.md`.
 - **Framework:** Astro 5 (static output, pre-rendered HTML)
 - **Styling:** Tailwind CSS 4.2 + Starwind components
 - **Deployment:** Cloudflare Workers
+
+## Brand Standards Reference
+
+Per `CLAUDE.md` Brand Standards:
+
+| Role | Hex | Usage |
+|------|-----|-------|
+| Primary / Dark Navy | `#0F172A` | Headers, nav, footer, dark sections, body text |
+| Accent / Electric Blue | `#007AFF` | CTAs, links, hover states ONLY |
+| Background / White | `#FFFFFF` | Page backgrounds |
+| Alt Section / Light Gray | `#F8FAFC` | Alternating section backgrounds |
+
+- Font: `Arial, Helvetica, sans-serif` — NO other fonts
+- **ZERO tolerance** for green, orange, red, purple, or any off-brand color
+
+## Known Exemptions
+
+- **Third-party tool logos** in `index.astro` marquee — external brand colors allowed
+  (exempt per `CLAUDE.md` Known Issues)
+- **Micro-element border-radius** (3px, 6px) in `complete-analysis.astro` — literal values OK
+  (exempt per `CLAUDE.md` Known Issues)
+- **Starwind components** in `src/components/starwind/` — may use internal CSS variables
+  that resolve to brand colors; audit resolved values, not variable names
+- **Print styles** — exempt from color enforcement
 
 ## QA Checklist
 
@@ -83,7 +123,24 @@ audits, see `bmad-audit.prompt.md`.
 - [ ] No console errors in browser dev tools
 - [ ] MDX frontmatter validates against content schema
 
-### 8. Content Quality (Prose Agent Cross-Check)
+### 8. Service Tier Validation
+- [ ] All service tier references use canonical names per `CLAUDE.md`:
+  - Complete Analysis ($1,500-$3,000) — entry point, diagnostic engagement
+  - Launch ($2,500-$5,000) — one-time project build
+  - Run ($500-$1,000/mo) — monthly retainer, 3-month min
+  - Scale ($1,000-$2,500/mo) — premium retainer, 6-month min
+- [ ] No use of old/deprecated tier names: Signal, Blueprint, Relay, Sustain
+- [ ] Pricing displays are consistent and correctly formatted
+
+### 9. Prompt File Integrity
+- [ ] All 16 BMAD prompt files exist in `.github/prompts/`:
+  bmad-architect, bmad-api-review, bmad-audit, bmad-brand-fix, bmad-build,
+  bmad-data-model, bmad-github, bmad-infra, bmad-plan, bmad-prettify,
+  bmad-prose, bmad-qa, bmad-research, bmad-security, bmad-seo, bmad-sprint
+- [ ] Each prompt file has valid YAML frontmatter (`mode: agent`)
+- [ ] Each prompt file references `CLAUDE.md` as source of truth
+
+### 10. Content Quality (Prose Agent Cross-Check)
 - [ ] Flag any content changes for Prose Agent review (AI-ism detection, passive voice, em dash overuse)
 - [ ] Verify visible text follows brand voice: direct, confident, accessible, action-oriented, team-first ("we" not "I")
 - [ ] Ensure no AI-generated filler language (e.g., "leverage," "utilize," "cutting-edge," "game-changer")

@@ -141,6 +141,21 @@ and pricing from `CLAUDE.md`:
 | Run | $500-$1,000/mo |
 | Scale | $1,000-$2,500/mo |
 
+## Mode Behavior
+
+| Mode | Prefix | Behavior |
+|------|--------|----------|
+| **Check** | `?sprint` | Review the current sprint -- report progress, blockers, and velocity trends. No changes. |
+| **Do** | `!sprint` | Create sprint plans, write stories, break down tasks, and produce actionable sprint artifacts. |
+| **Think** | `~sprint` | Brainstorm sprint composition, explore capacity trade-offs, and discuss sequencing options. No commitments. |
+
+## Cross-Repo Awareness
+
+When writing stories for features that touch both `relaylaunch-website` and
+`relaylaunch-control-center`, check `docs/blueprints/` for architecture
+documents, API contracts, and webhook schemas. Include cross-repo dependencies
+in the story's Technical Notes section.
+
 ## Related Agents
 
 Hand off to or coordinate with these agents when their domain is needed:
@@ -150,6 +165,7 @@ Hand off to or coordinate with these agents when their domain is needed:
 | Plan (*pm) | `/plan` | Before sprinting, to get prioritized roadmap items |
 | Research (*analyst) | `/research` | When a story needs discovery before it can be estimated |
 | Architect (*architect) | `/architect` | When a story needs technical design or structure review |
+| SEO (*pm) | `/seo` | When a story involves page changes that affect search visibility |
 | Build (*dev) | `/build` | To implement stories during the sprint |
 | QA (*qa) | `/qa` | To validate stories meet Definition of Done |
 

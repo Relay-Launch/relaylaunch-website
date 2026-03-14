@@ -102,7 +102,48 @@ This agent activates automatically on every code change, scanning for:
 - New or modified `.astro`, `.ts`, `.css`, `.mdx` files
 - Changes to `package.json` or `package-lock.json`
 - Any file containing patterns matching secrets (API keys, tokens)
+- Changes to `src/middleware.ts` (security headers, CSP)
+- Changes to `wrangler.jsonc` (deployment config)
+- Changes to `.github/workflows/security.yml` (security CI pipeline)
 - Changes to security-related configuration
+
+## Ship Gate Position
+
+The Security Agent is **gate #2** in the `/ship` gate check sequence:
+
+1. Build Agent (code compiles)
+2. **Security Agent (no vulnerabilities, no secrets)**
+3. Brand Agent (colors, fonts)
+4. QA Agent (accessibility, responsive)
+5. Prose Agent (human language)
+6. Infra Agent (config valid)
+7. GitHub Agent (workflows valid)
+
+During the gate check, scan for secrets in staged files, verify no injection
+vectors exist, confirm CSP headers are present in `src/middleware.ts`, and
+run `npm audit` for dependency vulnerabilities.
+
+## Adjacent Default Agents
+
+The Security Agent works alongside 6 other always-on default agents:
+
+| # | Agent | Prompt File | Boundary |
+|---|-------|-------------|----------|
+| 1 | **Build Agent** | `bmad-build.prompt.md` | Code compilation — Security owns vulnerability scanning, Build owns build output |
+| 2 | **Security Agent** | (this file) | Threats, CSP, secrets, dependency audit |
+| 3 | **Brand Agent** | `bmad-audit.prompt.md` | Visual identity — no overlap with Security |
+| 4 | **QA Agent** | `bmad-qa.prompt.md` | Accessibility, Lighthouse — no overlap with Security |
+| 5 | **Prose Agent** | `bmad-prose.prompt.md` | Human language — no overlap with Security |
+| 6 | **Infra Agent** | `bmad-infra.prompt.md` | DNS, CDN, hosting — shared concern on `src/middleware.ts` and deployment config |
+| 7 | **GitHub Agent** | `bmad-github.prompt.md` | Workflows, Actions — Security owns `.github/workflows/security.yml` content, GitHub owns YAML syntax |
+
+**Handoff notes:**
+- Infra Agent owns the middleware delivery mechanism; Security Agent owns the
+  CSP policy content and security header values. Both review `src/middleware.ts`.
+- GitHub Agent owns workflow YAML syntax; Security Agent owns the security
+  workflow logic (CodeQL config, npm audit steps, dependency review).
+- Security Agent scans ALL code changes for secrets and injection vectors,
+  regardless of which other agents are also reviewing the same files.
 
 ## Output Format
 

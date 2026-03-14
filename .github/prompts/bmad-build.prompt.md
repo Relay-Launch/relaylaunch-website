@@ -35,7 +35,10 @@ Default mode is **do** unless the user specifies otherwise.
 - Pages in `src/pages/` — each page is a route
 - Components in `src/components/` — reusable across pages
 - Starwind components in `src/components/starwind/` — design system primitives (Button, Toggle, ThemeToggle) using `tailwind-variants` for variant management
-- Layouts in `src/layouts/Layout.astro` (full page wrapper with Nav + Footer) and `src/components/layouts/` (BaseLayout, BlogPostLayout)
+- Starwind CSS variables defined in `src/styles/starwind.css` map to brand colors
+- Layouts: `src/layouts/Layout.astro` wraps `src/components/layouts/BaseLayout.astro` + Nav + Footer
+  - `BaseLayout.astro` provides `<html>`, `<head>` (with SEO), `<body>`, global styles — NO Nav/Footer
+  - `BlogPostLayout.astro` provides article structure with metadata and schema for blog posts
 - Blog content in `src/content/blog/` (MDX with frontmatter)
 - Utilities in `src/utils/`
 - Styles in `src/styles/`
@@ -88,6 +91,21 @@ Default mode is **do** unless the user specifies otherwise.
 - Do not modify `.github/workflows/` unless explicitly asked
 - Do not skip the build validation step
 - Do not write AI-sounding copy (the Prose Agent will flag it)
+
+## Service Tiers (Canonical Names)
+
+When building pages or components for service tiers, use these exact names:
+- **Complete Analysis** ($1,500-$3,000) — entry point, diagnostic engagement
+- **Launch** ($2,500-$5,000) — one-time project build
+- **Run** ($500-$1,000/mo) — monthly retainer, 3-month min
+- **Scale** ($1,000-$2,500/mo) — premium retainer, 6-month min
+
+## The Ship Gate
+
+Code changes follow The Ship Gate protocol:
+- Agents CAN commit locally but must NOT push to remote without `/ship`
+- `/ship` runs all 7 default agents as a gate check, then push + PR
+- Gate order: Build > Security > Brand > QA > Prose > Infra > GitHub
 
 ## Cross-Repo Awareness
 
