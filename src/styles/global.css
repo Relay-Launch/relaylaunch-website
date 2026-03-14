@@ -364,11 +364,7 @@ a[data-slot="button"]:hover { text-decoration: none; }
   box-shadow: 0 4px 12px color-mix(in srgb, var(--primary) 40%, transparent);
 }
 
-.badge-accent {
-  background: var(--color-primary-subtle);
-  color: var(--color-primary);
-  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
-}
+/* .badge-accent removed: identical to .badge-primary */
 
 /* ─── Tables ─────────────────────────────────────────────────── */
 .rl-table {
