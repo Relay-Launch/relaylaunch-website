@@ -48,10 +48,11 @@ configuration for the RelayLaunch website.
 ### 4. SSL/TLS & Security Headers
 - HTTPS enforced (HTTP redirects to HTTPS)
 - TLS 1.2+ required
-- Security headers defined in `public/_headers` (applied globally via `/*` rule):
+- Security headers enforced via Astro middleware (`src/middleware.ts`):
   - HSTS with `max-age=31536000; includeSubDomains; preload`
   - CSP with restricted `script-src`, `connect-src`, `frame-src`
   - X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
+  - IMPORTANT: Cloudflare Workers does NOT support `_headers` files (that is a Pages feature). Always use middleware.
 - Vulnerability disclosure at `public/.well-known/security.txt`
 - No mixed content warnings (`upgrade-insecure-requests` in CSP)
 
