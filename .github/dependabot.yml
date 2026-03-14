@@ -3,11 +3,11 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
-      day: monday
-    open-pull-requests-limit: 5
+      interval: daily
+    open-pull-requests-limit: 10
     labels:
       - dependencies
+    # Auto-merge patch updates via Dependabot auto-merge
     groups:
       astro:
         patterns:
@@ -18,12 +18,19 @@ updates:
           - "tailwindcss"
           - "@tailwindcss/*"
           - "tw-animate-css"
+      security-critical:
+        patterns:
+          - "undici"
+          - "miniflare"
+          - "wrangler"
+    security-updates:
+      enabled: true
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
       day: monday
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 5
     labels:
       - ci
