@@ -16,6 +16,13 @@ and external integrations.
 - **Adapter:** @astrojs/cloudflare (enables server-side routes)
 - **API Routes:** `src/pages/api/` (if present) — Astro API endpoints
 
+## Applicability Check
+
+Before reviewing, verify the codebase has API routes or form handlers:
+- Check if `src/pages/api/` exists and contains endpoint files
+- Check if any pages contain form submission handlers (contact, intake, console)
+- If no API routes or form handlers exist, report "No API endpoints found" and skip this review
+
 ## Review Areas
 
 ### 1. Endpoint Coverage

@@ -37,8 +37,8 @@ website while strictly maintaining brand standards.
 - Footer: well-structured columns, consistent link styling
 
 ### 4. Transitions & Micro-Interactions
-- Hover states on links and buttons: smooth color transition (150-200ms)
-- Focus-visible outlines for accessibility (use `#007AFF` ring)
+- Hover states on links and buttons: smooth color transition (150-200ms), e.g. `transition: color 200ms ease, background-color 200ms ease`
+- Focus-visible outlines for accessibility (use `#007AFF` ring), e.g. `outline: 2px solid #007AFF; outline-offset: 2px`
 - No layout shift on interactions (CLS-safe)
 
 ### 5. Image & Media

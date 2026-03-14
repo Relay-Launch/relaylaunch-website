@@ -13,7 +13,7 @@ the RelayLaunch website. Your job is technical design and structure validation.
 - **Framework:** Astro 5 (static output, islands architecture)
 - **Styling:** Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - **Content:** MDX blog posts via Astro Content Collections
-- **Deployment:** Cloudflare Pages/Workers via wrangler
+- **Deployment:** Cloudflare Workers via wrangler
 - **Adapter:** @astrojs/cloudflare
 
 ## Review Areas
