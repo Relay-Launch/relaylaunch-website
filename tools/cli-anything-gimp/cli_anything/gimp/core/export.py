@@ -193,6 +193,10 @@ def _composite_layer(canvas, layer, project_dir):
     return canvas
 
 
+MAX_CANVAS_DIMENSION = 10000
+MAX_CANVAS_PIXELS = 100_000_000  # 100 megapixels
+
+
 def render(project, output, preset="png", quality=None):
     """Render project to an image file."""
     if not HAS_PILLOW:
@@ -202,6 +206,13 @@ def render(project, output, preset="png", quality=None):
     w = canvas_info.get("width", 1920)
     h = canvas_info.get("height", 1080)
     bg = canvas_info.get("background", "#FFFFFF")
+
+    if w > MAX_CANVAS_DIMENSION or h > MAX_CANVAS_DIMENSION:
+        return {"ok": False, "error": f"Canvas dimensions exceed {MAX_CANVAS_DIMENSION}px limit: {w}x{h}"}
+    if w * h > MAX_CANVAS_PIXELS:
+        return {"ok": False, "error": f"Canvas exceeds {MAX_CANVAS_PIXELS} pixel limit: {w*h}"}
+    if w < 1 or h < 1:
+        return {"ok": False, "error": f"Canvas dimensions must be positive: {w}x{h}"}
 
     canvas = Image.new("RGBA", (w, h), bg)
     project_dir = os.path.dirname(os.path.abspath(output))

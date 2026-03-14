@@ -14,7 +14,7 @@ setup(
     packages=find_namespace_packages(include=["cli_anything.*"]),
     install_requires=[
         "click>=8.0.0",
-        "Pillow>=10.0.0",
+        "Pillow>=10.4.0",
         "prompt-toolkit>=3.0.0",
     ],
     extras_require={
