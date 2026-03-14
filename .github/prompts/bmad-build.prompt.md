@@ -88,7 +88,7 @@ Default mode is **do** unless the user specifies otherwise.
 - Do not add unnecessary abstractions or premature optimization
 - Do not introduce new colors, fonts, or design patterns
 - Do not add client-side JS unless islands architecture requires it
-- Do not modify `.github/workflows/` unless explicitly asked
+- Do not modify `.github/workflows/` without GitHub Agent review or explicit request
 - Do not skip the build validation step
 - Do not write AI-sounding copy (the Prose Agent will flag it)
 
@@ -121,7 +121,7 @@ Code changes follow The Ship Gate protocol:
 - **`/api`** (`bmad-api-review.prompt.md`) — API endpoint implementation needs review
 - **`/qa`** (`bmad-qa.prompt.md`) — Accessibility and Lighthouse validation after changes
 - **`/security`** (`bmad-security.prompt.md`) — Security scan on code changes
-- **`/brand-fix`** (`bmad-brand-fix.prompt.md`) — Fix brand violations found during build
+- **`/brandfix`** (`bmad-brand-fix.prompt.md`) — Fix brand violations found during build
 - **`/prose`** (`bmad-prose.prompt.md`) — Human language check on any visible text
 
 ## Output
