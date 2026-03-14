@@ -28,8 +28,6 @@ updates:
         update-types:
           - "patch"
           - "minor"
-    security-updates:
-      enabled: true
 
   - package-ecosystem: github-actions
     directory: /
