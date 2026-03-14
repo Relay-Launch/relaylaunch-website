@@ -63,16 +63,16 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Do I have to commit to a retainer right away?', acceptedAnswer: { '@type': 'Answer', text: 'No. The Complete Analysis is a standalone engagement with no strings attached. You get a 15–20 page report, keep it, and decide what to do next.' } },
-    { '@type': 'Question', name: 'Who owns what you build?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of everything we build: website, code, automations, content, accounts, and domains. No vendor lock-in.' } },
-    { '@type': 'Question', name: 'How long does a Complete Analysis take?', acceptedAnswer: { '@type': 'Answer', text: 'Five to seven business days from intake completion. You receive a 15–20 page professional report with a 90-minute walkthrough call.' } },
-    { '@type': 'Question', name: "What's the difference between Launch and Run?", acceptedAnswer: { '@type': 'Answer', text: 'Launch is a one-time build. We design and deploy your unified infrastructure. Run is ongoing operations. We stay on as your digital ops team.' } },
-    { '@type': 'Question', name: 'Can I switch tiers once I start?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can upgrade from Run to Scale at any renewal point. Downgrading follows the same cadence.' } },
-    { '@type': 'Question', name: 'Do I need to be local to work with you?', acceptedAnswer: { '@type': 'Answer', text: 'No. We work with small businesses across the U.S. remotely. Discovery calls, presentations, and strategy sessions are all via video.' } },
-    { '@type': 'Question', name: 'What if I\'m already mid-build with another provider?', acceptedAnswer: { '@type': 'Answer', text: 'We can audit what exists and take it from there. The Complete Analysis covers your current stack regardless of who built it.' } },
-    { '@type': 'Question', name: 'How is this different from hiring a freelancer?', acceptedAnswer: { '@type': 'Answer', text: 'Freelancers deliver a project and move on. We deliver infrastructure designed to run your business, then stay accountable to its performance.' } },
-    { '@type': 'Question', name: 'What industries do you work with?', acceptedAnswer: { '@type': 'Answer', text: 'Any small business that serves clients directly: wellness and spas, professional services, trades and contractors, fitness studios, restaurants, retail, and more. The infrastructure problems are the same across industries.' } },
-    { '@type': 'Question', name: 'Do you offer AI agents as part of your services?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. The Run and Scale tiers include custom AI agents built for your business. These handle content creation, lead qualification, client follow-up, and monitoring. We train them on your brand and workflows, not generic chatbots.' } },
+    { '@type': 'Question', name: 'Do I have to commit to a retainer right away?', acceptedAnswer: { '@type': 'Answer', text: 'No. The Complete Analysis is a standalone engagement with no strings attached. You get a 15–20 page report, keep it, and decide what to do next. Hire us, DIY it, or do nothing for now. Most clients choose to continue, but that\'s entirely your call.' } },
+    { '@type': 'Question', name: 'Who owns what you build?', acceptedAnswer: { '@type': 'Answer', text: 'You own 100% of everything we build: website, code, automations, content, accounts, and domains. No vendor lock-in. No dependencies. If you walk away tomorrow, your systems keep running.' } },
+    { '@type': 'Question', name: 'How long does a Complete Analysis take?', acceptedAnswer: { '@type': 'Answer', text: 'Five to seven business days from intake completion. We audit all 8 areas of your business, compile findings, and deliver a 15–20 page professional report with a 90-minute walkthrough call.' } },
+    { '@type': 'Question', name: "What's the difference between Launch and Run?", acceptedAnswer: { '@type': 'Answer', text: 'Launch is a one-time build. We design and deploy your unified infrastructure, hand it off, and you run it. Run is ongoing operations. We stay on as your digital ops team, keeping systems optimized and content flowing. Most businesses start with Launch, then add Run once the foundation is solid.' } },
+    { '@type': 'Question', name: 'Can I switch tiers once I start?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can upgrade from Run to Scale at any renewal point (monthly). Downgrading follows the same cadence. We\'ll never lock you into a tier that no longer fits where your business is.' } },
+    { '@type': 'Question', name: 'Do I need to be local to work with you?', acceptedAnswer: { '@type': 'Answer', text: 'No. We work with small businesses across the U.S. remotely. Discovery calls, presentations, and strategy sessions are all via video. Geography is never a barrier.' } },
+    { '@type': 'Question', name: 'What if I\'m already mid-build with another provider?', acceptedAnswer: { '@type': 'Answer', text: 'We can audit what exists and take it from there. The Complete Analysis covers your current stack regardless of who built it. We\'re not here to start from zero if there\'s solid work worth preserving.' } },
+    { '@type': 'Question', name: 'How is this different from hiring a freelancer?', acceptedAnswer: { '@type': 'Answer', text: 'Freelancers deliver a project and move on. We deliver infrastructure designed to run your business, then stay accountable to its performance. We combine strategy, build, and operations in a single engagement, not three separate contracts with three separate people.' } },
+    { '@type': 'Question', name: 'What industries do you work with?', acceptedAnswer: { '@type': 'Answer', text: 'Any small business that serves clients directly: wellness and spas, professional services, trades and contractors, fitness studios, restaurants, retail, and more. The infrastructure problems are the same across industries: disconnected tools, manual processes, and no unified view of operations.' } },
+    { '@type': 'Question', name: 'Do you offer AI agents as part of your services?', acceptedAnswer: { '@type': 'Answer', text: 'Every engagement includes 8 AI agent divisions (the Relay Method Ops Suite) covering infrastructure, security, engineering, content, brand, automation, QA, and strategy. The Run tier adds 1 custom growth division and Scale adds 2 custom growth divisions built for your business. These handle content creation, lead qualification, client follow-up, and growth. We train them on your brand and workflows, not generic chatbots.' } },
   ],
 };
 ---
@@ -181,9 +181,10 @@ const faqSchema = {
           <h3 id="launch" class="tier-name"><ServiceIcons icon="launch" size={28} /> Launch</h3>
           <div class="tier-price price-primary">$2,500–$5,000 <span class="price-label">one-time</span></div>
           <p class="tier-best-for">Best for businesses starting fresh or replacing a broken setup.</p>
-          <p class="tier-desc">Your digital foundation, built right the first time. Professional website, core automations, connected tools, all delivered in one engagement. You walk away with a system that works.</p>
+          <p class="tier-desc">The full Relay Method Ops Suite in build mode. 8 AI divisions actively construct, test, and harden your project. Every commit reviewed. Every page audited. Every deployment gated. You walk away with a system that works.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
+            <li>8 AI agent divisions (Relay Method Ops Suite)</li>
             <li>Custom website (5–10 pages)</li>
             <li>3–5 automation workflows</li>
             <li>Email sequence setup</li>
@@ -201,11 +202,12 @@ const faqSchema = {
           <div class="tier-price price-primary">$500–$1,000<span class="price-label">/month</span></div>
           <p class="tier-note">3-month minimum</p>
           <p class="tier-best-for">Best for businesses with infrastructure in place that need ongoing operations support.</p>
-          <p class="tier-desc">Your own AI-powered operations team. We deploy custom AI agents built for your business, not off-the-shelf bots, that handle content, monitoring, and client follow-up while you focus on what you do best.</p>
+          <p class="tier-desc">Ongoing operations with the Ops Suite in watch mode, plus one custom growth division we activate and run for your business. We build it, run it, and refine it monthly. You get a dedicated ops team and a working AI growth engine without hiring either.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
             <li>Everything in Launch</li>
-            <li>Custom AI agent tailored to your brand &amp; workflows</li>
+            <li>8 AI agent divisions in ongoing ops mode</li>
+            <li>+1 custom growth division (choose: Growth, Sales, or Social)</li>
             <li>Monthly content (blog + social) powered by AI</li>
             <li>Automation monitoring &amp; new workflows</li>
             <li>SEO optimization &amp; reporting</li>
@@ -221,11 +223,12 @@ const faqSchema = {
           <div class="tier-price price-primary">$1,000–$2,500<span class="price-label">/month</span></div>
           <p class="tier-note">6-month minimum</p>
           <p class="tier-best-for">Best for multi-location businesses or teams ready for aggressive growth.</p>
-          <p class="tier-desc">A full AI agent team custom-built for your company. Multiple tailor-made agents handling content, outreach, lead qualification, and growth strategy. Each agent is trained on your brand, your data, and your goals. Built for businesses ready to scale, not just maintain.</p>
+          <p class="tier-desc">Full operational coverage plus two custom growth divisions working together. Paired agents don't just automate tasks. They automate workflows. Monthly optimization and the compounding advantage of a 6-month partnership.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
             <li>Everything in Run</li>
-            <li>Multiple custom AI agents built for your business</li>
+            <li>+2 custom growth divisions (choose 2: Growth, Sales, or Social)</li>
+            <li>Connected agents that feed each other's results</li>
             <li>Advanced workflow automation &amp; integrations</li>
             <li>AI-powered outreach &amp; lead qualification</li>
             <li>Multi-location or multi-brand support</li>
@@ -244,14 +247,14 @@ const faqSchema = {
       <span class="section-eyebrow">Additional Engagements</span>
       <h2 class="section-title" style="margin-bottom: 16px;">Standalone services you can add anytime.</h2>
       <p class="section-sub" style="max-width: var(--container-narrow); margin-bottom: 48px;">
-        These engagements can be added to any tier or purchased independently.
+        You can add these engagements to any tier or buy them independently.
       </p>
 
       <div class="addons-grid">
         <div class="card addon-card">
           <h3>Custom AI Agent Build</h3>
           <div class="addon-price price-secondary">$1,500–$3,000</div>
-          <p>Design and deploy a custom AI agent trained on your brand, your data, and your workflows. For customer support, lead qualification, content generation, or internal knowledge retrieval. Fully integrated into your existing tools.</p>
+          <p>We design and build a specialized AI agent for your business and hand you full ownership. For customer support, lead qualification, content generation, or internal knowledge retrieval. You get documentation, deployment, and integration. Want us to run it? Pair it with a Run or Scale retainer.</p>
         </div>
 
         <div class="card addon-card">
@@ -263,7 +266,7 @@ const faqSchema = {
         <div class="card addon-card">
           <h3>AI Operations Partner</h3>
           <div class="addon-price price-secondary">$2,000–$4,000/month</div>
-          <p>A dedicated AI operations advisor embedded in your business. Identifies the highest-value automations, manages your AI agent fleet, and continuously finds time and cost savings you'd miss from inside the day-to-day.</p>
+          <p>A dedicated AI operations advisor embedded in your business. We identify the highest-value automations and manage your AI agent fleet. We continuously find time and cost savings you'd miss from inside the day-to-day.</p>
         </div>
       </div>
     </div>
@@ -345,7 +348,7 @@ const faqSchema = {
         <details class="faq-item">
           <summary class="faq-question">Do you offer AI agents as part of your services?</summary>
           <div class="faq-answer">
-            <p>Yes. The <strong>Run</strong> and <strong>Scale</strong> tiers include custom AI agents built for your business. These handle content creation, lead qualification, client follow-up, and monitoring. We train them on your brand and workflows, not generic chatbots. The Scale tier deploys multiple specialized agents working as a coordinated team.</p>
+            <p>Every engagement includes 8 AI agent divisions (the Relay Method Ops Suite) covering infrastructure, security, engineering, content, brand, automation, QA, and strategy. The <strong>Run</strong> tier adds 1 custom growth division and <strong>Scale</strong> adds 2 custom growth divisions built for your business. These handle content creation, lead qualification, client follow-up, and growth. We train them on your brand and workflows, not generic chatbots.</p>
           </div>
         </details>
       </div>

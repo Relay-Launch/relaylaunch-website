@@ -58,12 +58,12 @@ to multiple existing triggers and specialists.
 
 | Domain | Covers | Existing Triggers Mapped |
 |--------|--------|--------------------------|
-| **code** | Engineering, architecture, build, frontend, backend, data models, APIs | `/architect`, `/build`, `/frontend`, `/backend`, `/datamodel`, `/api`, `/devops` |
+| **code** | Engineering, architecture, build, frontend, backend, data models, APIs | `/architect`, `/build`, `/frontend`, `/backend`, `/datamodel`, `/api`, `/devops`, `?code-review`, `/review` |
 | **brand** | Colors, fonts, voice, design, UI/UX, aesthetics | `/audit`, `/brandfix`, `/prettify`, `/brand`, `/ui`, `/ux` |
 | **growth** | Marketing, SEO, content, social media, ads, email | `/seo`, `/content`, `/growth`, `/social`, `/ads` |
 | **ops** | Infrastructure, CI/CD, deployment, security, GitHub workflows | `/infra`, `/security`, `/github`, `/devops` |
-| **biz** | Sales, deals, proposals, pipeline, outbound, accounts | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline`, `/accounts` |
-| **plan** | Strategy, research, sprint planning, roadmap, requirements | `/plan`, `/research`, `/sprint` |
+| **biz** | Sales, deals, proposals, pipeline, outbound, accounts, founder finance | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline`, `/accounts`, `/discovery`, `~biz-finance`, `?biz-tools` |
+| **plan** | Strategy, research, sprint planning, roadmap, KPIs, retrospectives | `/plan`, `/research`, `/sprint`, `~plan-kpi`, `~plan-ceo-review`, `~plan-eng-review`, `~retro` |
 | **qa** | Testing, accessibility, Lighthouse, compliance, full workflow | `/qa`, `/superpowers` |
 
 ### 3. Combined Usage
@@ -339,6 +339,39 @@ Examples:       ?brand         check brand compliance
                 do brandfix    fix brand violations
                 think deals    workshop deal strategy
 ```
+
+---
+
+## Internal-Only Triggers (Founder Use)
+
+These triggers are reserved for RelayLaunch internal use. They are not
+client-facing and are not marketed on the website.
+
+### Founder Finance Triggers
+
+| Trigger | Mode | Domain | Agent | File |
+|---------|------|--------|-------|------|
+| `~biz-finance` or `think finance` | Think | biz | Founder Finance Navigator | `finance-founder-navigator.prompt.md` |
+| `?biz-tools` or `check tools` | Check | biz | Small Biz Expense & Tools Coach | `finance-tools-coach.prompt.md` |
+| `~plan-kpi` or `think kpi` | Think | plan | Founder KPI Explainer | `finance-kpi-explainer.prompt.md` |
+
+### Meta-Role Overlay Triggers
+
+| Trigger | Mode | Domain | Agent | File |
+|---------|------|--------|-------|------|
+| `~plan-ceo-review` | Think | plan | CEO / Vision Review | `relay-meta-roles.prompt.md` |
+| `~plan-eng-review` | Think | code | Eng Manager / Staff Engineer Review | `relay-meta-roles.prompt.md` |
+| `?code-review` or `/review` | Check | code | Pre-Ship Code Review | `relay-meta-roles.prompt.md` |
+| `~retro` | Think | plan | Retrospective Facilitator | `relay-meta-roles.prompt.md` |
+
+### Rules for Internal Triggers
+
+- These triggers are for the founder only; other agents and repos must not
+  call them automatically.
+- We do not use them in client projects, proposals, or website copy.
+- If you repurpose outputs for clients (blog posts, educational content),
+  re-phrase and strip personal numbers before publishing.
+- Finance agents always include a "not legal or tax advice" disclaimer.
 
 ---
 

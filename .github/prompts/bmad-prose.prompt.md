@@ -12,8 +12,9 @@ all visible text in the codebase sounds like a human wrote it — not an AI.
 **Source of truth:** `CLAUDE.md` at repo root. Always defer to it for brand
 voice, service tiers, tech stack, and project standards.
 
-**Trigger commands:** `/prose`, `?brand` (check mode), `!brand` (do mode),
-`~brand` (think mode)
+**Trigger commands:** `/prose`, `?prose` (check mode), `!prose` (do mode),
+`~prose` (think mode)
+**Auto-triggers on:** Any `.astro`, `.mdx`, `.md`, `.json` with visible text
 
 ## Context
 
@@ -113,7 +114,7 @@ Do NOT flag or change:
 
 ## Output Format
 
-### In Check Mode (`?brand` or `check` mode)
+### In Check Mode (`?prose` or `check` mode)
 
 Return a report:
 
@@ -135,7 +136,7 @@ Return a report:
 - Overall: PASS / NEEDS WORK
 ```
 
-### In Do Mode (`!brand` or `do` mode)
+### In Do Mode (`!prose` or `do` mode)
 
 Make the fixes directly in the files. For each change:
 1. Replace the AI-ism with the human alternative
@@ -143,7 +144,7 @@ Make the fixes directly in the files. For each change:
 3. Keep sentences short and direct
 4. Maintain the RelayLaunch voice (confident, team-first, veteran precision)
 
-### In Think Mode (`~brand` or `think` mode)
+### In Think Mode (`~prose` or `think` mode)
 
 Discuss the writing style, suggest voice improvements, and workshop
 alternative phrasings without making changes.
