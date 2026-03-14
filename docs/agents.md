@@ -10,6 +10,22 @@
 
 ---
 
+## Operator Panel — Top 7 Daily Triggers
+
+These cover 90% of daily work. Start here before scanning the full roster.
+
+| Trigger | What It Does | Agents Activated |
+|---------|-------------|-----------------|
+| `!code` | Build features, fix bugs, write code | BMAD *dev + Build Agent |
+| `?brand` | Audit brand + prose compliance | Brand Agent + Prose Agent |
+| `?qa` | Full accessibility + Lighthouse audit | QA Agent |
+| `?ops` | Audit DNS/CI/CD/security (no build) | Infra + Security + GitHub Agents |
+| `!growth` | Generate/update SEO content | BMAD *pm (SEO) + Content Creator |
+| `/ship` | Multi-agent gate check, push, and PR | All 7 default agents |
+| `/relay analysis` | Full diagnostic workflow for a client | *analyst + *pm + UX Researcher |
+
+---
+
 ## Default Agents — Always Active on Code Changes
 
 These seven agents activate **automatically** on every code change, deployment,
@@ -176,6 +192,39 @@ Seven memorable domains group agents by business function:
 
 Modes also work with specific triggers: `?seo`, `!brandfix`, `~architect`.
 
+### Deterministic Routing Rules
+
+When a Mode + Domain combo is used, these agents activate automatically:
+
+| Input | Agents Activated | Allowed Actions |
+|-------|-----------------|-----------------|
+| `?code` | BMAD *architect + Build Agent + Security Agent | Read, analyze, report only |
+| `!code` | BMAD *dev + Build Agent | Modify files, commit (only *dev writes) |
+| `?brand` | Brand Agent + Prose Agent | Read, analyze, report only |
+| `!brand` | BMAD *dev (brand) + Brand Agent | Fix violations, commit |
+| `?ops` | Infra + Security + GitHub Agents | Read, analyze, report (NO `npm run build`) |
+| `!ops` | Infra Agent + DevOps Automator | Fix infra issues, commit |
+| `?growth` | BMAD *pm (SEO) + Content Creator | Audit content and SEO, report |
+| `!growth` | Content Creator + Growth Hacker | Write content, commit |
+| `~plan` | BMAD *analyst + *pm | Research and plan (no file edits) |
+| `~biz` | Deal Strategist + Proposal Strategist | Workshop strategy (no file edits) |
+| `?qa` | QA Agent | Accessibility, Lighthouse, responsive audit |
+| `!qa` | QA Agent + BMAD *dev | Fix accessibility issues, commit |
+
+### Directory-Based Defaults
+
+When no explicit trigger is given, agents auto-select based on edited files:
+
+| Directory | Default Mode + Domain | Side-Checks |
+|-----------|----------------------|-------------|
+| `src/pages/`, `src/components/` | `!code` | Brand + QA |
+| `src/content/blog/` | `!growth` | Brand + Prose |
+| `src/styles/` | `!code` | Brand |
+| `public/` | `?brand` | (no code changes) |
+| `.github/workflows/` | `?ops` | Security + GitHub |
+| `wrangler.jsonc` | `?ops` | Infra + Security |
+| `docs/` | `~plan` | (no code changes) |
+
 ### Compatibility
 
 This system is **additive** — all existing triggers work unchanged.
@@ -222,16 +271,40 @@ When you type `/ship`, the following sequence runs:
 Use the agents to review and improve their own instructions.
 
 **Trigger:** `/relay optimize`
-**Agents:** All BMAD lifecycle agents + default agents
+**Agents:** All BMAD lifecycle agents + default agents + Agency wrappers
 
 ### Workflow
 
-1. **Self-audit** — Each agent reads its own prompt file, identifies gaps
-2. **Cross-audit** — Each agent reads adjacent prompt files, finds overlaps
-3. **Propose** — New versioned prompt files generated (e.g., `bmad-seo-v2`)
-4. **Human review** — All proposals go through PR review (never auto-deploy)
+1. **Self-audit** — Each agent reads its own prompt file, identifies gaps,
+   outdated references, or missing constraints
+2. **Cross-audit** — Each agent reads adjacent prompt files, finds overlaps,
+   contradictions, or coverage gaps between agents
+3. **Propose** — Updated prompt files generated with `-v2` suffix
+   (e.g., `bmad-seo-v2.prompt.md`)
+4. **Changelog** — Generate `docs/agent-changelog-YYYY-MM-DD.md` listing
+   all changes, rationale, and open questions
+5. **PR** — Create a PR branch: `claude/agent-optimizations-YYYY-MM-DD`
+6. **Human review** — All proposals go through PR review (never auto-deploy)
 
-Run quarterly or when adding new agents.
+### Output Artifacts
+
+Every `/relay optimize` run must produce:
+
+| Artifact | Location | Purpose |
+|----------|----------|---------|
+| Updated prompt files | `.github/prompts/` | One file per modified agent |
+| Changelog | `docs/agent-changelog-YYYY-MM-DD.md` | Changes + rationale + open questions |
+| Updated agents.md | `docs/agents.md` | Reflect any new agents, triggers, or routing |
+| Updated CLAUDE.md | `CLAUDE.md` | Reflect any new prompt files or constraints |
+| PR branch | `claude/agent-optimizations-YYYY-MM-DD` | Reviewable change set |
+
+### Schedule
+
+Run quarterly or when:
+- Adding new agents or prompt files
+- Changing service tiers or brand standards
+- After a major build that reveals process gaps
+- When multiple agents produce conflicting guidance
 
 ---
 
@@ -266,7 +339,19 @@ These are the "process" agents — they know *how* to plan, build, test, and shi
 
 ### Layer 2: Agency Domain Specialists
 Deep-expertise personas that bring subject-matter knowledge. These are the
-"what" agents — they know the craft inside and out.
+"what" agents — they know the craft inside and out. Source files live in
+`external/agency-agents/` (git submodule). RelayLaunch wrapper prompt files
+in `.github/prompts/` import the originals and add brand/stack constraints.
+
+| Trigger | Agent | Wrapper Prompt File |
+|---------|-------|-------------------|
+| `/frontend` | Frontend Developer | `agency-frontend-developer.prompt.md` |
+| `/backend` | Backend Architect | `agency-backend-architect.prompt.md` |
+| `/devops` | DevOps Automator | `agency-devops-automator.prompt.md` |
+| `/brand` | Brand Guardian | `agency-brand-guardian.prompt.md` |
+| `/content` | Content Creator | `agency-content-creator.prompt.md` |
+| `/growth` | Growth Hacker | `agency-growth-hacker.prompt.md` |
+| `/proposal` | Proposal Strategist | `agency-proposal-strategist.prompt.md` |
 
 ### Layer 3: Superpowers Workflow Engine
 Structured multi-step development workflow that enforces a systematic process
@@ -292,12 +377,13 @@ RelayLaunch's specific business model, pricing, voice, and client delivery.
 
 ### The Agency (Agency Agents)
 
-- **What:** Collection of specialized AI agent personalities — engineering,
+- **What:** Collection of 123+ specialized AI agent personalities — engineering,
   design, marketing, sales — each with deep domain expertise
 - **Source:** <https://github.com/msitarzewski/agency-agents>
-- **Install:** Clone the repo, then copy agents to `~/.claude/agents/` for
-  Claude Code or run `./scripts/install.sh` from the cloned Agency repo
-  to install for Cursor, Copilot, Aider, or Windsurf
+- **Installed as:** Git submodule at `external/agency-agents/`
+- **Wrapper prompt files:** 7 key agents have RelayLaunch-specific wrappers in
+  `.github/prompts/agency-*.prompt.md` that import the originals and add
+  brand rules + stack constraints
 - **Used in:** Both repos (relaylaunch-website, relaylaunch-control-center)
 
 ### Superpowers
@@ -307,6 +393,18 @@ RelayLaunch's specific business model, pricing, voice, and client delivery.
 - **Install:** Plugin marketplace or manual setup
 - **Philosophy:** Test-driven development, systematic processes, complexity reduction
 - **Used in:** Both repos (relaylaunch-website, relaylaunch-control-center)
+
+### BMAD Infrastructure & DevOps Expansion Pack
+
+- **What:** Infrastructure validation checklists, architecture templates, and
+  deployment workflows adapted for the RelayLaunch stack
+- **Source:** Adapted from <https://github.com/bmadcode/BMAD-METHOD-v5/tree/main/expansion-packs/bmad-infrastructure-devops>
+- **Location:** `docs/expansion-packs/infrastructure-devops/`
+- **Contents:**
+  - `checklists/infrastructure-checklist.md` — 12-section pre-deployment gate
+  - `templates/infrastructure-architecture.md` — Architecture design template
+  - `tasks/validate-infrastructure.md` — Infrastructure validation workflow
+- **Integrates with:** `/infra`, `?ops`, `/ship` gate (Infra Agent step)
 
 ---
 
@@ -338,11 +436,11 @@ reliability, SLOs, observability
 | `/build` | BMAD *dev | BMAD | `.github/prompts/bmad-build.prompt.md` |
 | `/brandfix` | BMAD *dev (brand) | BMAD | `.github/prompts/bmad-brand-fix.prompt.md` |
 | `/prettify` | BMAD *dev + *qa | BMAD | `.github/prompts/bmad-prettify.prompt.md` |
-| `/frontend` | Agency Frontend Developer | Agency | Activate "Frontend Developer" persona |
-| `/backend` | Agency Backend Architect | Agency | Activate "Backend Architect" persona |
+| `/frontend` | Agency Frontend Developer | Agency | `.github/prompts/agency-frontend-developer.prompt.md` |
+| `/backend` | Agency Backend Architect | Agency | `.github/prompts/agency-backend-architect.prompt.md` |
 | `/mobile` | Agency Mobile App Builder | Agency | Activate "Mobile App Builder" persona |
 | `/prototype` | Agency Rapid Prototyper | Agency | Activate "Rapid Prototyper" persona |
-| `/devops` | Agency DevOps Automator | Agency | Activate "DevOps Automator" persona |
+| `/devops` | Agency DevOps Automator | Agency | `.github/prompts/agency-devops-automator.prompt.md` |
 | `/docs` | Agency Technical Writer | Agency | Activate "Technical Writer" persona |
 | `/superpowers` | Superpowers Workflow | Superpowers | Activate full brainstorm → ship workflow |
 
@@ -358,7 +456,7 @@ CI/CD, pipeline, deploy, documentation
 | `/audit` | BMAD *qa | BMAD | `.github/prompts/bmad-audit.prompt.md` |
 | `/ui` | Agency UI Designer | Agency | Activate "UI Designer" persona |
 | `/ux` | Agency UX Researcher | Agency | Activate "UX Researcher" persona |
-| `/brand` | Agency Brand Guardian | Agency | Activate "Brand Guardian" persona |
+| `/brand` | Agency Brand Guardian | Agency | `.github/prompts/agency-brand-guardian.prompt.md` |
 | `/story` | Agency Visual Storyteller | Agency | Activate "Visual Storyteller" persona |
 | `/whimsy` | Agency Whimsy Injector | Agency | Activate "Whimsy Injector" persona |
 | `/imageprompt` | Agency Image Prompt Engineer | Agency | Activate "Image Prompt Engineer" persona |
@@ -373,8 +471,8 @@ AI images, Midjourney, DALL-E
 | Trigger | Agent | Framework | How to Activate |
 |---------|-------|-----------|-----------------|
 | `/seo` | BMAD *pm (SEO) | BMAD | `.github/prompts/bmad-seo.prompt.md` |
-| `/content` | Agency Content Creator | Agency | Activate "Content Creator" persona |
-| `/growth` | Agency Growth Hacker | Agency | Activate "Growth Hacker" persona |
+| `/content` | Agency Content Creator | Agency | `.github/prompts/agency-content-creator.prompt.md` |
+| `/growth` | Agency Growth Hacker | Agency | `.github/prompts/agency-growth-hacker.prompt.md` |
 | `/social` | Agency Social Media Strategist | Agency | Activate "Social Media Strategist" persona |
 | `/twitter` | Agency Twitter Engager | Agency | Activate "Twitter Engager" persona |
 | `/instagram` | Agency Instagram Curator | Agency | Activate "Instagram Curator" persona |
@@ -423,7 +521,7 @@ Meta Ads, LinkedIn Ads, TikTok Ads
 | `/discovery` | Agency Discovery Coach | Agency | Activate "Discovery Coach" persona |
 | `/deals` | Agency Deal Strategist | Agency | Activate "Deal Strategist" persona |
 | `/saleseng` | Agency Sales Engineer | Agency | Activate "Sales Engineer" persona |
-| `/proposal` | Agency Proposal Strategist | Agency | Activate "Proposal Strategist" persona |
+| `/proposal` | Agency Proposal Strategist | Agency | `.github/prompts/agency-proposal-strategist.prompt.md` |
 | `/pipeline` | Agency Pipeline Analyst | Agency | Activate "Pipeline Analyst" persona |
 | `/accounts` | Agency Account Strategist | Agency | Activate "Account Strategist" persona |
 | `/coach` | Agency Sales Coach | Agency | Activate "Sales Coach" persona |
@@ -435,24 +533,51 @@ account planning, expand, QBR, NRR, coaching, rep development, call review
 
 ---
 
-## BMAD Prompt Files in This Repo
+## Prompt Files in This Repo
 
-Copilot prompt files live in `.github/prompts/` and are activated
-automatically when referenced. Claude Code reads them via `CLAUDE.md`.
+All prompt files live in `.github/prompts/` and are activated automatically
+when referenced. Claude Code reads them via `CLAUDE.md`.
+
+### BMAD Lifecycle Agents
 
 | Agent | Role | Prompt File | Trigger | Purpose |
 |-------|------|-------------|---------|---------|
+| *analyst | Research | `bmad-research.prompt.md` | `/research` | Research, discovery, competitive analysis |
+| *pm | Requirements | `bmad-plan.prompt.md` | `/plan` | Requirements, prioritization, roadmap |
 | *architect | Technical design | `bmad-architect.prompt.md` | `/architect` | Architecture review, structure validation |
 | *architect | Data model | `bmad-data-model.prompt.md` | `/datamodel` | Data model and schema review |
 | *architect | API review | `bmad-api-review.prompt.md` | `/api` | API endpoint review and validation |
-| *qa | Testing & audit | `bmad-audit.prompt.md` | `/audit` | Full brand compliance audit |
-| *dev | Implementation | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
+| *sm | Sprint planning | `bmad-sprint.prompt.md` | `/sprint` | Story creation, sprint planning |
+| *dev | Implementation | `bmad-build.prompt.md` | `/build` | Feature implementation, bug fixes |
+| *dev | Brand fixes | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
 | *dev + *qa | Polish | `bmad-prettify.prompt.md` | `/prettify` | Aesthetic improvements with brand compliance |
-| *pm | Requirements | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
-| Prose Agent | Language | `bmad-prose.prompt.md` | _(default, auto-triggers on content changes)_ | Human language enforcement, AI-ism detection |
-| Infra Agent | Infrastructure | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
-| Security Agent | Security | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |
-| GitHub Agent | GitHub | `bmad-github.prompt.md` | `/github` | Workflows, Actions, branch protection |
+| *qa | Testing & audit | `bmad-qa.prompt.md` | `/qa` | Testing, compliance, quality checks |
+| *qa | Brand audit | `bmad-audit.prompt.md` | `/audit` | Full brand compliance audit |
+| *pm (SEO) | SEO | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
+
+### Default Agent Prompt Files
+
+| Agent | Prompt File | Trigger | Purpose |
+|-------|-------------|---------|---------|
+| Prose Agent | `bmad-prose.prompt.md` | _(auto-triggers on content)_ | Human language enforcement, AI-ism detection |
+| Infra Agent | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
+| Security Agent | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |
+| GitHub Agent | `bmad-github.prompt.md` | `/github` | Workflows, Actions, branch protection |
+
+### Agency Specialist Wrappers
+
+These thin wrappers import the original Agency agent instructions from
+`external/agency-agents/` and add RelayLaunch brand rules and stack constraints.
+
+| Agent | Prompt File | Trigger | Source |
+|-------|-------------|---------|--------|
+| Frontend Developer | `agency-frontend-developer.prompt.md` | `/frontend` | `engineering/engineering-frontend-developer.md` |
+| Backend Architect | `agency-backend-architect.prompt.md` | `/backend` | `engineering/engineering-backend-architect.md` |
+| DevOps Automator | `agency-devops-automator.prompt.md` | `/devops` | `engineering/engineering-devops-automator.md` |
+| Brand Guardian | `agency-brand-guardian.prompt.md` | `/brand` | `design/design-brand-guardian.md` |
+| Content Creator | `agency-content-creator.prompt.md` | `/content` | `marketing/marketing-content-creator.md` |
+| Growth Hacker | `agency-growth-hacker.prompt.md` | `/growth` | `marketing/marketing-growth-hacker.md` |
+| Proposal Strategist | `agency-proposal-strategist.prompt.md` | `/proposal` | `sales/sales-proposal-strategist.md` |
 
 ### Adding New Prompt Files
 

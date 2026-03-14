@@ -7,6 +7,21 @@ Deployed to Cloudflare via wrangler (CI: GitHub Actions -> wrangler deploy).
 Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
 Live URL: https://www.relaylaunch.com
 
+## Core Narrative (Use in All Agent Output)
+
+Every agent producing copy, proposals, or client-facing content must use
+this narrative spine:
+
+- **Pain story:** 5-8 tools, 5-10 hours lost weekly, $300-500/month in disconnected tools
+- **Solution:** One system, one dashboard, everything connected; Slack daily briefings; $6/month infra for workflows; $0 hosting on Cloudflare
+- **Proof:** $342 → $51 monthly infra, 11 automations, 15-page Astro site, corporate wellness sub-site, membership platform
+- **Frame:** "We don't bolt AI onto a broken foundation." Infrastructure first, then smart automations.
+
+When agents propose solutions, they must:
+1. Design the infrastructure (site, automations, data flows) first
+2. Only then suggest AI touchpoints (summaries, routing, classification)
+3. For small-business clients, describe AI as "automations and smart assistants behind the scenes," not "build a custom model"
+
 ## Brand Standards (ENFORCE ON ALL CHANGES)
 - Primary: Dark Navy #0F172A (headers, nav, footer, dark sections)
 - Accent: Electric Blue #007AFF (CTAs, links, hover states ONLY)
@@ -17,11 +32,34 @@ Live URL: https://www.relaylaunch.com
 - Voice: Direct, confident, accessible, action-oriented, team-first ("we" not "I"), veteran precision
 - DO NOT use green, orange, or any color outside this 4-color system
 
-## Service Tiers (Canonical Names)
+## Service Tiers & Package Mapping
+
+### Internal Names (ops language — use in docs, runbooks, SOPs)
 - Complete Analysis ($1,500-$3,000) - entry point, diagnostic engagement
 - Launch ($2,500-$5,000) - one-time project build
 - Run ($500-$1,000/mo) - monthly retainer, 3-month min
 - Scale ($1,000-$2,500/mo) - premium retainer, 6-month min
+
+### Public Package Names (marketing language — use on website, emails, proposals)
+- **Signal** = visibility & ops audit (mini Complete Analysis)
+- **Blueprint** = Complete Analysis + 90-day roadmap
+- **Relay** = Launch build + core automations and dashboard
+- **Sustain** = Run retainer focused on content, SEO, monitoring
+
+**Rule:** When writing website copy, landing pages, emails, or proposals,
+use Signal / Blueprint / Relay / Sustain. When writing internal docs,
+runbooks, or SOPs, use Complete Analysis / Launch / Run / Scale.
+
+## Constraints (What NOT to Recommend)
+
+- Never recommend WordPress, Wix, or Squarespace as primary platforms
+- Always favor Astro + Cloudflare stack for website builds
+- Prefer Mailchimp/Buffer/n8n for baseline workflows
+- When asked about "AI platforms," prefer Claude + Perplexity + n8n orchestrations, not generic "chatbots"
+- Do not suggest AWS/GCP/Azure when Cloudflare handles the use case
+- Do not propose self-hosted databases when edge-native options exist (D1, Turso, KV)
+- Do not write AI-sounding copy: avoid "leverage," "synergy," "utilize," "harness," "cutting-edge," "game-changing," "revolutionize," "empower," "seamless"
+- No em dashes in content — use commas, periods, or semicolons
 
 ## Tech Stack
 - Framework: Astro 5 (static output, islands architecture)
@@ -60,6 +98,8 @@ Live URL: https://www.relaylaunch.com
 - src/styles/ - Global CSS (global.css, starwind.css)
 - src/utils/ - Utility functions (blog.ts)
 - public/ - Static assets (favicon, robots.txt, og-default.png)
+- external/agency-agents/ - Agency agent source files (git submodule)
+- docs/expansion-packs/ - BMAD expansion packs (infrastructure-devops)
 
 ## Code Standards
 - Every page: unique <title>, <meta description>, Open Graph tags
@@ -71,10 +111,40 @@ Live URL: https://www.relaylaunch.com
 - Internal links use root-relative paths (/services, /contact)
 - Commit messages: conventional commits (feat:, fix:, chore:)
 
+## Directory-Based Agent Defaults
+
+When no explicit trigger is given, agents auto-select Mode + Domain based
+on the files being edited:
+
+| Directory | Default Mode + Domain | Side-Checks |
+|-----------|----------------------|-------------|
+| `src/pages/`, `src/components/` | `!code` | Brand + QA |
+| `src/content/blog/` | `!growth` | Brand + Prose |
+| `src/styles/` | `!code` | Brand |
+| `public/` | `?brand` | (no code changes) |
+| `.github/workflows/` | `?ops` | Security + GitHub |
+| `wrangler.jsonc` | `?ops` | Infra + Security |
+| `docs/` | `~plan` | (no code changes) |
+| `CLAUDE.md`, `docs/agents.md` | `~plan` | (no code changes) |
+
 ## AI Agents & Tools — The Relay Method™
 This repo uses The Relay Method™ — RelayLaunch's branded AI agent
 orchestration framework. See `docs/agents.md` for the full registry,
 all triggers, and specialist role definitions.
+
+### Operator Panel — Top 7 Daily Triggers
+
+These cover 90% of daily work. Start here before looking up the full roster.
+
+| Trigger | What It Does | Agents Activated |
+|---------|-------------|-----------------|
+| `!code` | Build features, fix bugs | BMAD *dev + Build Agent |
+| `?brand` | Audit brand compliance | Brand Agent + Prose Agent |
+| `?qa` | Full accessibility + Lighthouse audit | QA Agent |
+| `?ops` | Audit DNS/CI/CD/security | Infra + Security + GitHub |
+| `!growth` | Generate/update SEO content | BMAD *pm (SEO) + Content Creator |
+| `/ship` | Multi-agent gate check + push/PR | All 7 default agents |
+| `/relay analysis` | Full diagnostic workflow for a client | *analyst + *pm + UX Researcher |
 
 ### Default Agents (Always Active for Code Changes)
 These agents activate automatically on EVERY code change, deployment,
@@ -108,7 +178,7 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/research` — Research, discovery, competitive analysis
 - `/sprint` — Story creation, sprint planning
 - `/qa` — Testing, audit, compliance checks
-- `/frontend` — UI implementation (React/Vue/Astro)
+- `/frontend` — Astro UI implementation
 - `/backend` — API design, server architecture
 - `/infra` — Infrastructure, DNS, CDN, CI/CD, hosting
 - `/security` — Security audit, vulnerability scanning, CSP
@@ -137,6 +207,21 @@ for the full spec.
 
 **Domains:** `code`, `brand`, `growth`, `ops`, `biz`, `plan`, `qa`
 
+**Explicit Routing Rules:**
+
+| Input | Agents Activated | Allowed Actions |
+|-------|-----------------|-----------------|
+| `?code` | BMAD *architect + Build Agent + Security Agent | Read, analyze, report |
+| `!code` | BMAD *dev + Build Agent | Modify files, commit |
+| `?brand` | Brand Agent + Prose Agent | Read, analyze, report |
+| `!brand` | BMAD *dev (brand) + Brand Agent | Fix violations, commit |
+| `?ops` | Infra + Security + GitHub Agents | Read, analyze, report (no `npm run build`) |
+| `!ops` | Infra Agent + DevOps Automator | Fix infra issues, commit |
+| `?growth` | BMAD *pm (SEO) + Content Creator | Audit, report |
+| `!growth` | Content Creator + Growth Hacker | Write content, commit |
+| `~plan` | BMAD *analyst + *pm | Research and plan (no edits) |
+| `~biz` | Deal Strategist + Proposal Strategist | Workshop strategy (no edits) |
+
 **Examples:** `?brand` (audit brand), `!code` (build feature),
 `~growth` (brainstorm marketing), `check security` (security review)
 
@@ -155,10 +240,11 @@ for the full spec.
 - `/relay performance` — Lighthouse, Core Web Vitals, SEO
 - `/relay optimize` — Agents review and improve their own prompt files
 
-### Frameworks
+### Frameworks & Installed Packages
 - **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
-- **The Agency** — Specialized AI agent personalities (https://github.com/msitarzewski/agency-agents)
+- **The Agency** — Specialized AI agent personalities, installed as submodule at `external/agency-agents/` (https://github.com/msitarzewski/agency-agents)
 - **Superpowers** — Structured multi-step development workflow (https://github.com/obra/superpowers)
+- **BMAD Infrastructure & DevOps Expansion Pack** — Infrastructure validation checklists and templates at `docs/expansion-packs/infrastructure-devops/`
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
@@ -169,7 +255,9 @@ When acting as a BMAD agent, follow the role:
 - *dev = Implementation & code
 - *qa = Testing, audit & brand compliance
 
-### BMAD Prompt Files (.github/prompts/)
+### Prompt Files (.github/prompts/)
+
+#### BMAD Lifecycle Agents
 - `bmad-architect.prompt.md` — Architecture review (*architect)
 - `bmad-data-model.prompt.md` — Data model and schema review (*architect)
 - `bmad-api-review.prompt.md` — API endpoint review (*architect)
@@ -178,6 +266,25 @@ When acting as a BMAD agent, follow the role:
 - `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
 - `bmad-seo.prompt.md` — SEO audit (*pm)
 - `bmad-prose.prompt.md` — Human language enforcement (Prose Agent)
+- `bmad-build.prompt.md` — Feature implementation (*dev)
+- `bmad-plan.prompt.md` — Requirements and roadmap (*pm)
+- `bmad-research.prompt.md` — Research and discovery (*analyst)
+- `bmad-sprint.prompt.md` — Story creation and sprint planning (*sm)
+- `bmad-qa.prompt.md` — Testing and compliance (*qa)
+
+#### Default Agent Prompt Files
+- `bmad-infra.prompt.md` — Infrastructure review (Infra Agent)
+- `bmad-security.prompt.md` — Security scanning (Security Agent)
+- `bmad-github.prompt.md` — GitHub workflow review (GitHub Agent)
+
+#### Agency Specialist Wrappers (NEW)
+- `agency-frontend-developer.prompt.md` — Astro UI implementation (`/frontend`)
+- `agency-backend-architect.prompt.md` — API and server architecture (`/backend`)
+- `agency-devops-automator.prompt.md` — CI/CD and deployment (`/devops`)
+- `agency-brand-guardian.prompt.md` — Brand identity and positioning (`/brand`)
+- `agency-content-creator.prompt.md` — Blog posts and copywriting (`/content`)
+- `agency-growth-hacker.prompt.md` — Acquisition and conversion (`/growth`)
+- `agency-proposal-strategist.prompt.md` — Proposals and win themes (`/proposal`)
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
@@ -189,6 +296,9 @@ the right agent. Key mappings for this repo:
 - Content/blog/copy → Agency Content Creator
 - Design/UI/UX → Agency UI Designer, UX Researcher
 - Growth/marketing → Agency Growth Hacker, Social Media Strategist
+- Proposals/RFPs → Agency Proposal Strategist
+- Infrastructure/deploy → Agency DevOps Automator, Infra Agent
+- Backend/API → Agency Backend Architect
 
 ## Agent Team Coordination
 When working as a teammate in an agent team:
