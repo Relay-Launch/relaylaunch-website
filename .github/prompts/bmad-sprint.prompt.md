@@ -48,7 +48,7 @@ Write user stories in this format:
 ```
 
 ### 3. Sprint Composition
-- Sprint duration: 1-2 weeks
+- Sprint duration: 1 week (default) or 2 weeks for larger initiatives
 - Mix of feature work, bug fixes, and tech debt
 - No more than 1 XL item per sprint
 - Include at least 1 quick win (XS or S) for momentum

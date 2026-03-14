@@ -21,8 +21,8 @@ bugs, and writing production-quality code for the RelayLaunch website.
 ### File Organization
 - Pages in `src/pages/` — each page is a route
 - Components in `src/components/` — reusable across pages
-- Starwind components in `src/components/starwind/`
-- Layouts in `src/components/layouts/` and `src/layouts/`
+- Starwind components in `src/components/starwind/` — design system primitives (Button, Toggle, ThemeToggle) using `tailwind-variants` for variant management
+- Layouts in `src/layouts/Layout.astro` (full page wrapper with Nav + Footer) and `src/components/layouts/` (BaseLayout, BlogPostLayout)
 - Blog content in `src/content/blog/` (MDX with frontmatter)
 - Utilities in `src/utils/`
 - Styles in `src/styles/`

@@ -37,7 +37,7 @@ audits, see `bmad-audit.prompt.md`.
 - [ ] Tablet (640-767px): Layout adapts, touch targets adequate
 - [ ] Small desktop (768-1023px): Two-column layouts activate
 - [ ] Desktop (1024px+): Full layout renders correctly
-- [ ] Navigation works at all breakpoints (hamburger menu on mobile)
+- [ ] Navigation works at all breakpoints (hamburger menu on mobile with `aria-expanded`, `aria-hidden`, keyboard dismissal via Escape key, focus returned to toggle on close)
 - [ ] Images scale correctly, no overflow or cropping issues
 - [ ] Font sizes readable at all breakpoints (min 16px body text)
 - [ ] Spacing consistent and proportional at each breakpoint
