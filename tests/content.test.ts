@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readdirSync, readFileSync } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
 
-const BLOG_DIR = 'src/content/blog';
+const BLOG_DIR = resolve(import.meta.dirname, '..', 'src/content/blog');
 
 describe('Blog content', () => {
   const posts = readdirSync(BLOG_DIR).filter(f => f.endsWith('.mdx'));

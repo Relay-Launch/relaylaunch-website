@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
 import ArchitectureDiagram from '@/components/ArchitectureDiagram.astro';
+import ROICalculator from '@/components/ROICalculator.astro';
+import Testimonials from '@/components/Testimonials.astro';
+import ServiceTiers from '@/components/ServiceTiers.astro';
 
 const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
@@ -1035,93 +1038,9 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════ TESTIMONIALS -->
-  <section class="section testimonials-section">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-eyebrow">From Our Clients</span>
-        <h2 class="section-title" style="margin-bottom: 48px;">Don't take our word for it. Take theirs.</h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"We went from 6 disconnected tools and $342/month to one unified system at $51/month. The automation alone saves us 8 to 12 hours every week. We didn't just save money. We got our time back."</p>
-          <div class="testimonial-meta">
-            <strong>Luxury Wellness Spa</strong>
-            <span>Five-Star Resort, South Florida</span>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"Three separate QuickBooks instances, 15+ day month-end close, and a parent company that had frozen acquisitions until we fixed it. RelayLaunch architected the migration that got us moving again."</p>
-          <div class="testimonial-meta">
-            <strong>Global Events Company</strong>
-            <span>ERP Migration & Consolidation</span>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">"The Complete Analysis paid for itself before we even started the build. We finally understood where the real bottlenecks were, and it wasn't where we thought."</p>
-          <div class="testimonial-meta">
-            <strong>Small Business Owner</strong>
-            <span>Complete Analysis Client</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <Testimonials />
 
-  <!-- ═══════════════════════════════════════════════ ROI CALCULATOR -->
-  <section class="section roi-section mobile-condensed">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-eyebrow">ROI Calculator</span>
-        <h2 class="section-title" style="margin-bottom: 12px;">How much is the chaos actually costing you?</h2>
-        <p class="section-sub" style="margin-bottom: 40px;">Plug in your numbers. The math speaks for itself.</p>
-      </div>
-      <div class="roi-calc card" style="max-width: 800px; margin: 0 auto; padding: 40px;">
-        <div class="roi-inputs">
-          <div class="roi-field">
-            <label for="roi-tools">Monthly tool spend</label>
-            <div class="roi-input-wrap">
-              <span class="roi-prefix">$</span>
-              <input type="number" id="roi-tools" value="350" min="0" max="5000" step="50" />
-            </div>
-          </div>
-          <div class="roi-field">
-            <label for="roi-hours">Hours/week on manual work</label>
-            <input type="number" id="roi-hours" value="8" min="0" max="60" step="1" />
-          </div>
-          <div class="roi-field">
-            <label for="roi-num-tools">Number of tools</label>
-            <input type="number" id="roi-num-tools" value="6" min="1" max="20" step="1" />
-          </div>
-          <div class="roi-field">
-            <label for="roi-rate">Your hourly rate</label>
-            <div class="roi-input-wrap">
-              <span class="roi-prefix">$</span>
-              <input type="number" id="roi-rate" value="100" min="0" max="1000" step="25" />
-            </div>
-          </div>
-        </div>
-        <div class="roi-results" id="roi-results">
-          <h3>Your estimated annual savings</h3>
-          <div class="roi-stats">
-            <div class="roi-stat">
-              <div class="roi-stat-number" id="roi-tool-savings">$3,588</div>
-              <div class="roi-stat-label">in tool cost savings</div>
-            </div>
-            <div class="roi-stat">
-              <div class="roi-stat-number" id="roi-time-value">$41,600</div>
-              <div class="roi-stat-label">in reclaimed time value</div>
-            </div>
-            <div class="roi-stat">
-              <div class="roi-stat-number roi-stat-total" id="roi-total">$45,188</div>
-              <div class="roi-stat-label">total annual impact</div>
-            </div>
-          </div>
-          <Button variant="primary" href="/complete-analysis" class="mt-6">Get Your Free Assessment →</Button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ROICalculator />
 
   <!-- ═══════════════════════════════════════════════ CTA -->
   <section class="section cta-section">
@@ -1144,6 +1063,8 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 </Layout>
 
 <script>
+  import { isValidWebhookUrl, checkRateLimit, recordSubmission } from '../utils/webhook';
+
   const form = document.getElementById('lead-magnet-form') as HTMLFormElement;
   const success = document.getElementById('lead-magnet-success') as HTMLElement;
   const error = document.getElementById('lead-magnet-error') as HTMLElement;
@@ -1163,6 +1084,8 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
       return;
     }
 
+    if (!checkRateLimit('lead-magnet')) return;
+
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn?.textContent || '';
     if (submitBtn) {
@@ -1171,8 +1094,8 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
     }
 
     const webhook = form.dataset.webhook;
-    if (!webhook || webhook === '#') {
-      // Webhook not configured - show error instead of false promise
+    if (!webhook || webhook === '#' || !isValidWebhookUrl(webhook)) {
+      // Webhook not configured or invalid - show error
       form.hidden = true;
       error.hidden = false;
       return;
@@ -1193,6 +1116,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 
       if (!res.ok) throw new Error('Webhook returned an error');
 
+      recordSubmission('lead-magnet');
       form.hidden = true;
       success.hidden = false;
     } catch {
@@ -1309,9 +1233,11 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
         return;
       }
 
+      if (!checkRateLimit(`waitlist-${formId}`)) return;
+
       const webhook = wlForm.dataset.webhook;
-      if (!webhook || webhook === '#') {
-        // Webhook not configured - show error instead of false promise
+      if (!webhook || webhook === '#' || !isValidWebhookUrl(webhook)) {
+        // Webhook not configured or invalid - show error
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalText;
@@ -1334,6 +1260,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
         clearTimeout(timeoutId);
         if (!res.ok) throw new Error('Webhook error');
 
+        recordSubmission(`waitlist-${formId}`);
         wlForm.hidden = true;
         wlSuccess.hidden = false;
       } catch {

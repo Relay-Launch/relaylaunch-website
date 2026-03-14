@@ -672,6 +672,8 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
 </Layout>
 
 <script>
+  import { isValidWebhookUrl, checkRateLimit, recordSubmission } from '../utils/webhook';
+
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -718,9 +720,11 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
       return;
     }
 
+    if (!checkRateLimit('waitlist-cc')) return;
+
     const webhook = wlForm.dataset.webhook;
-    if (!webhook || webhook === '#') {
-      // Webhook not configured - show error instead of false promise
+    if (!webhook || webhook === '#' || !isValidWebhookUrl(webhook)) {
+      // Webhook not configured or invalid - show error
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalHTML;
@@ -743,6 +747,7 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
       clearTimeout(timeoutId);
       if (!res.ok) throw new Error('Webhook error');
 
+      recordSubmission('waitlist-cc');
       wlForm.hidden = true;
       wlSuccess.hidden = false;
     } catch {

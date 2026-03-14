@@ -1,0 +1,214 @@
+---
+---
+
+<!-- ═══════════════════════════════════════════════ PACKAGES -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">Service Packages</span>
+      <h2 class="section-title">Pick your starting line. We'll meet you there.</h2>
+      <p class="section-sub" style="margin-bottom: 48px;">
+        Whether you need clarity, a foundation, or a full operations team — there's
+        a package built for exactly where you are right now.
+      </p>
+    </div>
+
+    <div class="packages-grid reveal-stagger">
+      <div class="card pkg-card pkg-card-start-here">
+        <div class="pkg-start-badge">Start Here</div>
+        <div class="pkg-name">Complete Analysis</div>
+        <div class="pkg-tagline">Business Infrastructure Diagnostic</div>
+        <div class="pkg-price">$1,500–$3,000</div>
+        <ul class="checklist" style="margin-top: 20px;">
+          <li>8-area business audit</li>
+          <li>Tool stack &amp; ops review</li>
+          <li>AI readiness assessment</li>
+          <li>15–20 page roadmap report</li>
+        </ul>
+        <div class="pkg-cta-wrap">
+          <a href="/complete-analysis" class="pkg-btn pkg-btn-outline">
+            <span class="pkg-btn-text">Explore</span>
+            <span class="pkg-btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="card pkg-card">
+        <div class="pkg-name">Launch</div>
+        <div class="pkg-tagline">Digital Infrastructure Build</div>
+        <div class="pkg-price">$2,500–$5,000</div>
+        <ul class="checklist" style="margin-top: 20px;">
+          <li>Custom website (5–10 pages)</li>
+          <li>3–5 automation workflows</li>
+          <li>Email sequence setup</li>
+          <li>30-day launch support</li>
+        </ul>
+        <div class="pkg-cta-wrap">
+          <a href="/services#launch" class="pkg-btn pkg-btn-outline">
+            <span class="pkg-btn-text">Explore</span>
+            <span class="pkg-btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="card featured pkg-card">
+        <div class="badge badge-solid-primary" style="margin-bottom: 16px;">Most Popular</div>
+        <div class="pkg-name">Run</div>
+        <div class="pkg-tagline">Your Custom AI Operations Team</div>
+        <div class="pkg-price">$500–$1,000/mo</div>
+        <ul class="checklist" style="margin-top: 20px;">
+          <li>Custom AI agent for your business</li>
+          <li>AI-powered content (blog + social)</li>
+          <li>Automation monitoring &amp; workflows</li>
+          <li>SEO optimization &amp; reporting</li>
+          <li>Monthly strategy call</li>
+        </ul>
+        <div class="pkg-cta-wrap">
+          <a href="/services#run" class="pkg-btn pkg-btn-primary">
+            <span class="pkg-btn-text">Get Started</span>
+            <span class="pkg-btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="card pkg-card">
+        <div class="pkg-name">Scale</div>
+        <div class="pkg-tagline">Full AI Agent Team for Your Business</div>
+        <div class="pkg-price">$1,000–$2,500/mo</div>
+        <ul class="checklist" style="margin-top: 20px;">
+          <li>Everything in Run</li>
+          <li>Multiple custom AI agents</li>
+          <li>AI-powered outreach &amp; lead qualification</li>
+          <li>Advanced automation builds</li>
+          <li>Quarterly growth review</li>
+        </ul>
+        <div class="pkg-cta-wrap">
+          <a href="/services#scale" class="pkg-btn pkg-btn-outline">
+            <span class="pkg-btn-text">Explore</span>
+            <span class="pkg-btn-arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Packages Grid ── */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .pkg-card {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-align: center;
+    align-items: center;
+    padding: 32px 20px;
+  }
+  .pkg-card-start-here { border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary); }
+  .pkg-start-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+    border-radius: var(--radius-xs);
+    padding: 3px 10px;
+    margin-bottom: 12px;
+  }
+  .pkg-name { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 4px; color: var(--color-text); }
+  .pkg-tagline { font-size: 13px; color: var(--color-muted); margin-bottom: 8px; }
+  .pkg-price { font-size: 20px; font-weight: 800; color: var(--color-primary); letter-spacing: -0.2px; margin-bottom: 4px; }
+  .pkg-card .checklist { text-align: left; width: 100%; }
+  .pkg-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .pkg-cta-wrap {
+    margin-top: auto;
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  .pkg-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(.22,1,.36,1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pkg-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 15%, transparent), transparent);
+  }
+
+  .pkg-btn:hover::before { opacity: 1; }
+
+  .pkg-btn-arrow {
+    display: inline-flex;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
+    font-size: 18px;
+  }
+
+  .pkg-btn:hover .pkg-btn-arrow { transform: translateX(4px); }
+
+  .pkg-btn-primary {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--shadow-primary-sm);
+  }
+
+  .pkg-btn-primary:hover {
+    box-shadow: var(--shadow-primary-md);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--color-white);
+  }
+
+  .pkg-btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+
+  .pkg-btn-outline:hover {
+    background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+    box-shadow: var(--shadow-primary-sm);
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 1024px) {
+    .packages-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .packages-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  }
+</style>

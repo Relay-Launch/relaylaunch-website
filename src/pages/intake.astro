@@ -432,6 +432,8 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
 </Layout>
 
 <script>
+  import { isValidWebhookUrl, checkRateLimit, recordSubmission } from '../utils/webhook';
+
   const form = document.getElementById('intake-form') as HTMLFormElement;
   const steps = document.querySelectorAll('.form-step') as NodeListOf<HTMLElement>;
   const progressSteps = document.querySelectorAll('.progress-step') as NodeListOf<HTMLElement>;
@@ -520,10 +522,6 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
     });
   });
 
-  // Client-side rate limiting
-  const RATE_LIMIT_KEY = 'rl_intake_submitted';
-  const RATE_LIMIT_MS = 60_000; // 1 minute between submissions
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!validateStep(currentStep)) return;
@@ -535,11 +533,7 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
       return;
     }
 
-    // Rate limiting: prevent rapid resubmissions
-    const lastSubmit = sessionStorage.getItem(RATE_LIMIT_KEY);
-    if (lastSubmit && Date.now() - parseInt(lastSubmit) < RATE_LIMIT_MS) {
-      return;
-    }
+    if (!checkRateLimit('intake')) return;
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting\u2026';
@@ -562,14 +556,9 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
 
     const webhook = form.dataset.webhook;
 
-    if (!webhook) {
-      // No webhook configured - send via mailto fallback
-      const subject = encodeURIComponent(`Intake Questionnaire - ${data.business_name || 'New Submission'}`);
-      const body = encodeURIComponent(Object.entries(data).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`).join('\n\n'));
-      window.location.href = `mailto:hello@relaylaunch.com?subject=${subject}&body=${body}`;
-      // Show success anyway after redirect
+    if (!webhook || !isValidWebhookUrl(webhook)) {
       form.hidden = true;
-      successEl.hidden = false;
+      errorEl.hidden = false;
       return;
     }
 
@@ -587,7 +576,7 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
       clearTimeout(timeoutId);
       if (!res.ok) throw new Error('Submission failed');
 
-      sessionStorage.setItem(RATE_LIMIT_KEY, String(Date.now()));
+      recordSubmission('intake');
       form.hidden = true;
       successEl.hidden = false;
     } catch {
