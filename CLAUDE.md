@@ -128,6 +128,12 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/datamodel` — Data model and schema review
 - `/api` — API endpoint review and validation
 - `/prose` — Human language enforcement, AI-ism detection
+- `/cro` — Conversion Rate Optimization, funnel psychology, A/B testing
+- `/behavioral` — Behavioral design, cognitive science, visual hierarchy
+- `/buyer` — Buyer psychology, objection mapping, trust signals
+- `/neuro` — Neuromarketing, attention, anchoring, processing fluency
+- `/council` — Multi-agent deliberation (5-7 agents discuss and synthesize)
+- `/deep-research` — Multi-step structured investigation with cross-domain analysis
 - `/review` — Pre-ship senior code review
 - `/discovery` — Discovery calls, qualifying, needs assessment
 - `~retro` — Structured project retrospective
@@ -165,6 +171,12 @@ for the full spec.
 - `/relay scale` — Scale tier premium growth ops
 - `/relay brand` — Brand enforcement across all touchpoints
 - `/relay performance` — Lighthouse, Core Web Vitals, SEO
+- `/relay cro` — Conversion psychology audit and optimization
+- `/relay behavioral` — Cognitive science review of design decisions
+- `/relay buyer` — Buyer psychology analysis for copy and positioning
+- `/relay neuro` — Neuromarketing audit of attention, memory, and framing
+- `/relay council` — Multi-agent deliberation for cross-domain decisions
+- `/relay deep-research` — Structured multi-step investigation
 - `/relay optimize` — Agents review and improve their own prompt files
 
 ### Frameworks
@@ -206,6 +218,8 @@ When acting as a BMAD agent, follow the role:
 - `finance-tools-coach.prompt.md` — Tool stack audit & cost optimization (Internal)
 - `finance-kpi-explainer.prompt.md` — Business metrics translation (Internal)
 - `relay-meta-roles.prompt.md` — CEO/Eng/Code Review/Retro overlays (Internal)
+- `relay-behavioral-design.prompt.md` — CRO, behavioral design, buyer psychology, neuromarketing
+- `relay-council.prompt.md` — The Council (multi-agent deliberation) & Deep Research
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
@@ -217,6 +231,10 @@ the right agent. Key mappings for this repo:
 - Content/blog/copy → Agency Content Creator
 - Design/UI/UX → Agency UI Designer, UX Researcher
 - Growth/marketing → Agency Growth Hacker, Social Media Strategist
+- Conversion/CRO → Conversion Architect, Behavioral Designer
+- Buyer psychology → Buyer Psychologist, Neuromarketer
+- Cross-domain decisions → The Council (`/council`)
+- Deep investigation → Deep Research (`/deep-research`)
 
 ## Agent Team Coordination
 When working as a teammate in an agent team:

@@ -82,6 +82,12 @@ short, memorable, and organized by business function.
 | `/datamodel` | BMAD *architect | Data model and schema review |
 | `/api` | BMAD *architect | API endpoint review and validation |
 | `/prose` | Prose Agent (Default) | Human language enforcement, AI-ism detection |
+| `/cro` | Conversion Architect | CRO, funnel psychology, A/B testing, page structure |
+| `/behavioral` | Behavioral Designer | Cognitive science in design, Hick's/Fitts' Law, visual hierarchy |
+| `/buyer` | Buyer Psychologist | Purchase psychology, objection mapping, trust signals |
+| `/neuro` | Neuromarketer | Attention, memory, anchoring, processing fluency |
+| `/council` | The Council | Multi-agent deliberation (5-7 agents discuss, synthesize) |
+| `/deep-research` | Deep Research | Multi-step structured investigation with cross-domain analysis |
 | `/review` | Meta-Role Code Reviewer | Pre-ship senior code review |
 | `~retro` | Meta-Role Retrospective | Structured project retrospective |
 | `~biz-finance` | Finance Navigator (Internal) | Business structure and entity planning |
@@ -118,6 +124,16 @@ to understand the business domain, not just the technical task.
 - `/relay social` — Social media strategy and content calendar
 - `/relay ads` — Paid media campaigns and ad creative
 - `/relay email` — Email marketing, sequences, newsletters
+
+**Behavioral Design & Conversion:**
+- `/relay cro` — Conversion audit and optimization across all pages
+- `/relay behavioral` — Cognitive science review of design decisions
+- `/relay buyer` — Buyer psychology analysis for copy and positioning
+- `/relay neuro` — Neuromarketing audit of attention, memory, and framing
+
+**Strategic Research & Deliberation:**
+- `/relay council` — Assemble 5-7 agents to deliberate on a cross-domain question
+- `/relay deep-research` — Multi-step structured investigation with synthesized brief
 
 **Infrastructure & Engineering:**
 - `/relay arch` — Architecture review and technical decisions
@@ -162,11 +178,11 @@ Seven memorable domains group agents by business function:
 | Domain | Covers | Maps To |
 |--------|--------|---------|
 | **code** | Engineering, architecture, build, frontend, backend, APIs | `/architect`, `/build`, `/frontend`, `/backend`, `/datamodel`, `/api`, `/devops` |
-| **brand** | Colors, fonts, voice, design, UI/UX, aesthetics | `/audit`, `/brandfix`, `/prettify`, `/brand`, `/ui`, `/ux` |
-| **growth** | Marketing, SEO, content, social, ads, email | `/seo`, `/content`, `/growth`, `/social`, `/ads` |
+| **brand** | Colors, fonts, voice, design, UI/UX, aesthetics, behavioral design | `/audit`, `/brandfix`, `/prettify`, `/brand`, `/ui`, `/ux`, `/behavioral` |
+| **growth** | Marketing, SEO, content, social, ads, email, CRO, neuromarketing | `/seo`, `/content`, `/growth`, `/social`, `/ads`, `/cro`, `/neuro` |
 | **ops** | Infrastructure, CI/CD, deployment, security, GitHub | `/infra`, `/security`, `/github` |
-| **biz** | Sales, deals, proposals, pipeline, outbound | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline` |
-| **plan** | Strategy, research, sprint planning, roadmap | `/plan`, `/research`, `/sprint` |
+| **biz** | Sales, deals, proposals, pipeline, outbound, buyer psychology | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline`, `/buyer` |
+| **plan** | Strategy, research, sprint planning, roadmap, council, deep research | `/plan`, `/research`, `/sprint`, `/council`, `/deep-research` |
 | **qa** | Testing, accessibility, Lighthouse, compliance | `/qa`, `/superpowers` |
 
 ### Usage Examples
@@ -380,6 +396,30 @@ component library, design system, UX, user testing, usability, brand identity,
 consistency, positioning, visual story, multimedia, delight, micro-interactions,
 AI images, Midjourney, DALL-E
 
+### 🧠 Behavioral Design & CRO
+
+| Trigger | Agent | Framework | How to Activate |
+|---------|-------|-----------|-----------------|
+| `/cro` | Conversion Architect | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/behavioral` | Behavioral Designer | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/buyer` | Buyer Psychologist | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+| `/neuro` | Neuromarketer | Relay | `.github/prompts/relay-behavioral-design.prompt.md` |
+
+**Also responds to:** conversion, funnel, A/B testing, CRO, cognitive load,
+visual hierarchy, font sizing, spacing, whitespace, Hick's Law, Fitts' Law,
+buyer psychology, purchase decision, objection handling, anchoring, social proof,
+neuromarketing, attention, memory, processing fluency, choice architecture
+
+### 🏛️ Strategic Research & Deliberation
+
+| Trigger | Agent | Framework | How to Activate |
+|---------|-------|-----------|-----------------|
+| `/council` | The Council | Relay | `.github/prompts/relay-council.prompt.md` |
+| `/deep-research` | Deep Research | Relay | `.github/prompts/relay-council.prompt.md` |
+
+**Also responds to:** council, deliberation, consult, multi-agent discussion,
+deep research, investigation, cross-domain analysis, strategic review
+
 ### 📈 SEO & Content
 
 | Trigger | Agent | Framework | How to Activate |
@@ -470,6 +510,13 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | Infra Agent | Infrastructure | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
 | Security Agent | Security | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |
 | GitHub Agent | GitHub | `bmad-github.prompt.md` | `/github` | Workflows, Actions, branch protection |
+
+| Conversion Architect | CRO | `relay-behavioral-design.prompt.md` | `/cro` | Conversion optimization, funnel psychology, A/B testing |
+| Behavioral Designer | Cognitive design | `relay-behavioral-design.prompt.md` | `/behavioral` | Visual hierarchy, spacing, font psychology, cognitive load |
+| Buyer Psychologist | Purchase psychology | `relay-behavioral-design.prompt.md` | `/buyer` | Buyer personas, objection mapping, trust signals |
+| Neuromarketer | Neuromarketing | `relay-behavioral-design.prompt.md` | `/neuro` | Attention, anchoring, memory, processing fluency |
+| The Council | Multi-agent deliberation | `relay-council.prompt.md` | `/council` | 5-7 agents deliberate on cross-domain questions |
+| Deep Research | Structured investigation | `relay-council.prompt.md` | `/deep-research` | Multi-step research with cross-domain synthesis |
 
 ### Adding New Prompt Files
 
@@ -570,6 +617,40 @@ automations, email, social, dashboard).
 1. *qa audits the entire codebase for brand violations
 2. *dev (brand) fixes any color, font, or style violations
 3. Brand Guardian reviews positioning and messaging consistency
+
+### 🧠 Conversion Psychology Specialist
+**Trigger:** `/relay cro`
+**Agents:** Conversion Architect + Behavioral Designer + Buyer Psychologist + Neuromarketer
+**When:** Optimizing pages for conversion, reviewing pricing presentation, or
+auditing the full buyer experience.
+**Workflow:**
+1. Behavioral Designer analyzes cognitive load and visual hierarchy
+2. Buyer Psychologist maps the buyer journey and identifies objection gaps
+3. Neuromarketer evaluates attention flow and processing fluency
+4. Conversion Architect synthesizes findings into actionable CRO plan
+
+### 🏛️ The Council Specialist
+**Trigger:** `/relay council`
+**Agents:** 5-7 agents selected based on the question domain
+**When:** Facing a cross-domain decision that needs multiple expert perspectives
+before committing to a direction.
+**Workflow:**
+1. Frame the question clearly
+2. 5-7 relevant agents each provide their domain perspective
+3. Synthesizer produces consensus report with dissenting opinions
+4. User chooses which recommendation to pursue and activates the right `!do` agent
+
+### 🔬 Deep Research Specialist
+**Trigger:** `/relay deep-research`
+**Agents:** BMAD *analyst + 3-4 domain specialists + BMAD *pm (synthesis)
+**When:** Need a thorough investigation before making a big decision -- competitor
+analysis, market entry, technology choice, or strategic pivot.
+**Workflow:**
+1. Analyst breaks question into sub-questions and sets scope
+2. Domain specialists each contribute their expertise
+3. External research and cross-referencing
+4. Buyer Psychologist and Conversion Architect apply behavioral analysis
+5. PM synthesizes into a prioritized research brief
 
 ### 🔍 SEO & Performance Specialist
 **Trigger:** `/relay performance`
@@ -697,27 +778,27 @@ The website showcases **11 divisions** organized into two categories:
 | 2 | **Security Division** | 14 | Threat detection, vulnerability scanning |
 | 3 | **Engineering Corps** | 28 | Code quality, testing, PR review |
 | 4 | **Content Studio** | 32 | Blog, email, SEO, copywriting |
-| 5 | **Brand & Design Lab** | 20 | Colors, fonts, voice, identity |
+| 5 | **Brand & Design Lab** | 22 | Colors, fonts, voice, identity, behavioral design, cognitive science |
 | 6 | **Ops & Automation** | 8 | CI/CD, workflows, integrations |
 | 7 | **QA & Compliance** | 10 | Accessibility, Lighthouse, standards |
-| 8 | **Strategy & Planning** | 8 | Research, roadmaps, sprint planning |
+| 8 | **Strategy & Planning** | 10 | Research, roadmaps, sprint planning, council deliberation, deep research |
 
 ### Growth Divisions (3 divisions, unlocked in Run/Scale retainers)
 
 | # | Division | Agent Count | Public Role | Unlocked In |
 |---|----------|-------------|-------------|-------------|
-| 9 | **Growth Engine** | 30 | Acquisition, conversion, analytics | Run (+1) or Scale (+2) |
-| 10 | **Sales & Pipeline** | 12 | Outbound, proposals, pipeline | Run (+1) or Scale (+2) |
+| 9 | **Growth Engine** | 32 | Acquisition, conversion, CRO, neuromarketing, analytics | Run (+1) or Scale (+2) |
+| 10 | **Sales & Pipeline** | 13 | Outbound, proposals, pipeline, buyer psychology | Run (+1) or Scale (+2) |
 | 11 | **Social Media Command** | 10 | Cross-platform strategy, engagement | Run (+1) or Scale (+2) |
 
 ### Tier Packaging
 
 | Tier | Ops Suite | Growth Divisions | Total Agent Access |
 |------|-----------|-----------------|-------------------|
-| Complete Analysis | 8 (audit mode) | 0 | ~138 |
-| Launch | 8 (build mode) | 0 | ~138 |
-| Run | 8 (ops mode) | +1 (client picks 1 of 3) | ~158-168 |
-| Scale | 8 (ops mode) | +2 (client picks 2 of 3) | ~180-190 |
+| Complete Analysis | 8 (audit mode) | 0 | ~142 |
+| Launch | 8 (build mode) | 0 | ~142 |
+| Run | 8 (ops mode) | +1 (client picks 1 of 3) | ~152-174 |
+| Scale | 8 (ops mode) | +2 (client picks 2 of 3) | ~165-187 |
 
 ### Internal-Only Agents (Not on Website)
 
@@ -736,14 +817,16 @@ The website showcases **11 divisions** organized into two categories:
 | Category | Count |
 |----------|-------|
 | Default agents (always-on) | 7 |
-| BMAD + Relay prompt files | 20 |
+| Prompt files (BMAD + Relay) | 22 |
+| Behavioral Design & CRO agents | 4 |
+| Council & Deep Research agents | 2 |
 | Finance agents (internal) | 3 |
 | Meta-role overlays (internal) | 4 |
 | Agency domain specialists | 30+ |
 | Contains Studio specialists (Phase 1) | 30+ |
 | CrewAI service-tier crews (Phase 2) | 4 |
-| Total named triggers | 60+ |
-| Total specialist agents | 190+ |
+| Total named triggers | 70+ |
+| **Total specialist agents** | **200+** |
 
 ---
 
@@ -773,6 +856,9 @@ It combines:
 - **The Agency** for deep domain specialist expertise
 - **Superpowers** for systematic multi-step development workflows
 - **Contains Studio** for department-organized specialist agents
+- **Behavioral Design & CRO** for conversion psychology, cognitive science, and buyer behavior
+- **The Council** for multi-agent deliberation on cross-domain decisions
+- **Deep Research** for structured, multi-step investigation workflows
 - **RelayLaunch business context** for service-tier workflows and brand standards
 - **Mode + Domain** trigger system for precise, memorable agent activation
 - **Ship Gate** for coordinated multi-agent delivery

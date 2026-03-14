@@ -59,11 +59,11 @@ to multiple existing triggers and specialists.
 | Domain | Covers | Existing Triggers Mapped |
 |--------|--------|--------------------------|
 | **code** | Engineering, architecture, build, frontend, backend, data models, APIs | `/architect`, `/build`, `/frontend`, `/backend`, `/datamodel`, `/api`, `/devops`, `?code-review`, `/review` |
-| **brand** | Colors, fonts, voice, design, UI/UX, aesthetics | `/audit`, `/brandfix`, `/prettify`, `/brand`, `/ui`, `/ux` |
-| **growth** | Marketing, SEO, content, social media, ads, email | `/seo`, `/content`, `/growth`, `/social`, `/ads` |
+| **brand** | Colors, fonts, voice, design, UI/UX, aesthetics, behavioral design | `/audit`, `/brandfix`, `/prettify`, `/brand`, `/ui`, `/ux`, `/behavioral` |
+| **growth** | Marketing, SEO, content, social, ads, email, CRO, neuromarketing | `/seo`, `/content`, `/growth`, `/social`, `/ads`, `/cro`, `/neuro` |
 | **ops** | Infrastructure, CI/CD, deployment, security, GitHub workflows | `/infra`, `/security`, `/github`, `/devops` |
-| **biz** | Sales, deals, proposals, pipeline, outbound, accounts, founder finance | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline`, `/accounts`, `/discovery`, `~biz-finance`, `?biz-tools` |
-| **plan** | Strategy, research, sprint planning, roadmap, KPIs, retrospectives | `/plan`, `/research`, `/sprint`, `~plan-kpi`, `~plan-ceo-review`, `~plan-eng-review`, `~retro` |
+| **biz** | Sales, deals, proposals, pipeline, outbound, accounts, buyer psychology, founder finance | `/outbound`, `/deals`, `/proposal`, `/coach`, `/pipeline`, `/accounts`, `/discovery`, `/buyer`, `~biz-finance`, `?biz-tools` |
+| **plan** | Strategy, research, sprint planning, roadmap, KPIs, council, deep research, retrospectives | `/plan`, `/research`, `/sprint`, `/council`, `/deep-research`, `~plan-kpi`, `~plan-ceo-review`, `~plan-eng-review`, `~retro` |
 | **qa** | Testing, accessibility, Lighthouse, compliance, full workflow | `/qa`, `/superpowers` |
 
 ### 3. Combined Usage
@@ -89,6 +89,14 @@ Mode + Domain creates a clear, memorable two-part trigger:
 | `!qa` or `do qa` | Fix QA issues found in audit. |
 | `?plan` or `check plan` | Review current roadmap, sprint backlog, priorities. |
 | `~plan` or `think plan` | Workshop requirements, explore feature ideas, plan sprints. |
+| `?cro` or `check cro` | Conversion audit — score pages, find conversion killers. |
+| `!cro` or `do cro` | Implement conversion optimizations — CTAs, copy, layout. |
+| `~behavioral` or `think behavioral` | Explore cognitive science principles for current design challenge. |
+| `!behavioral` or `do behavioral` | Adjust spacing, hierarchy, and layout to reduce cognitive friction. |
+| `?buyer` or `check buyer` | Analyze pages from the buyer's psychological perspective. |
+| `~neuro` or `think neuro` | Explore neuroscience principles for marketing materials. |
+| `/council` | Assemble 5-7 agents to deliberate on a cross-domain question. |
+| `/deep-research` | Multi-step structured investigation with synthesized brief. |
 
 ### 4. Drilling Into Specific Agents
 

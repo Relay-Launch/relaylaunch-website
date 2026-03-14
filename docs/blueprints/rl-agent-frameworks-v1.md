@@ -55,6 +55,12 @@ Use this file before creating new agents, workflows, or client offerings.
   - Prose Agent (AI-ism detection)
   - Service-tier triggers (`/relay analysis`, `/relay launch`, `/relay run`, `/relay scale`)
   - 7 default agents (always-on)
+- **Behavioral Design & CRO** (4 agents: Conversion Architect, Behavioral Designer, Buyer Psychologist, Neuromarketer)
+  - Spec: `relay-behavioral-design.prompt.md`
+  - Triggers: `/cro`, `/behavioral`, `/buyer`, `/neuro`
+- **Council & Deep Research** (2 meta-agents: The Council, Deep Research)
+  - Spec: `relay-council.prompt.md`
+  - Triggers: `/council`, `/deep-research`
 - **Specs:** `rl-trigger-system-v1.md`, `rl-website-build-framework-v1.md`
 
 ---
@@ -195,6 +201,12 @@ Use this file before creating new agents, workflows, or client offerings.
 | `/relay launch` | *architect + *dev | Frontend + DevOps | multiple | Launch Crew |
 | `/relay run` | *pm + *qa | Content + Growth | multiple | Run Crew |
 | `/relay scale` | *pm + Growth | Growth + Analytics | multiple | Scale Crew |
+| `/cro` | — | — | — | — (Relay native) |
+| `/behavioral` | — | — | — | — (Relay native) |
+| `/buyer` | — | — | — | — (Relay native) |
+| `/neuro` | — | — | — | — (Relay native) |
+| `/council` | All relevant | All relevant | All relevant | — (orchestration) |
+| `/deep-research` | *analyst + *pm | Multiple | Multiple | Analysis Crew |
 
 ---
 
