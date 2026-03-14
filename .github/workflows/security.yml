@@ -1,4 +1,4 @@
-# Runs security checks: CodeQL analysis, npm audit, secrets scanning, and dependency review.
+# Runs security checks: npm audit, secrets scanning, and dependency review.
 # Triggers: push to main, PRs to main, weekly Monday 06:00 UTC, manual.
 name: Security Audit
 
@@ -16,36 +16,10 @@ permissions:
   contents: read
 
 jobs:
-  codeql:
-    name: CodeQL analysis
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: read
-      security-events: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@820e3160e279568db735cee8ed8f8e77a6da7818 # v3
-        with:
-          languages: javascript-typescript
-          config: |
-            queries:
-              - uses: security-extended
-            paths:
-              - src
-            paths-ignore:
-              - node_modules
-              - dist
-              - "**/*.test.ts"
-              - "**/*.spec.ts"
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@820e3160e279568db735cee8ed8f8e77a6da7818 # v3
-        with:
-          category: "/language:javascript-typescript"
+  # NOTE: CodeQL analysis removed from this workflow.
+  # GitHub's default CodeQL setup is enabled on this repo and conflicts
+  # with advanced configurations in workflow files. CodeQL runs via the
+  # default setup instead (see repo Settings > Code security > Code scanning).
 
   audit:
     name: Dependency audit
