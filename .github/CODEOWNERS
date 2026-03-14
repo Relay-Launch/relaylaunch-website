@@ -1,0 +1,12 @@
+# Default owner for all files
+* @Relay-Launch/core
+
+# Infrastructure & deployment
+wrangler.jsonc @Relay-Launch/core
+.github/workflows/ @Relay-Launch/core
+astro.config.mjs @Relay-Launch/core
+
+# Security-sensitive files require explicit review
+src/middleware.ts @Relay-Launch/core
+.github/dependabot.yml @Relay-Launch/core
+public/.well-known/ @Relay-Launch/core
