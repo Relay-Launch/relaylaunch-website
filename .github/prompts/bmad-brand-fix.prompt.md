@@ -5,6 +5,18 @@ description: "BMAD *dev agent — Find and fix all brand color violations in CSS
 
 # Fix Brand Color Violations — *dev Agent
 
+**Trigger:** `/brandfix` or `!brand`
+**Source of truth:** `CLAUDE.md` (brand standards, known issues, exemptions)
+**Mode behavior:**
+- `!` / `do` — Find and fix violations with code changes (default)
+- `?` / `check` — Scan and report only, no changes (delegates to `bmad-audit.prompt.md`)
+
+**Related agents:**
+- `bmad-audit.prompt.md` — Full brand compliance audit (report-only)
+- `bmad-prettify.prompt.md` — Aesthetic polish within brand constraints
+- `bmad-qa.prompt.md` — General QA, accessibility, Lighthouse, responsive
+- `bmad-prose.prompt.md` — Voice and language enforcement
+
 You are the BMAD *dev agent. Your job is to find and fix every brand color
 violation in the RelayLaunch codebase. This is implementation work — produce
 actual code changes, not just a report.
@@ -20,9 +32,15 @@ actual code changes, not just a report.
 
 **Forbidden:** green, orange, red, purple, or ANY color outside this system.
 
-**Exemption:** Third-party tool logos in the index.astro marquee section use
-external brand colors (e.g., Astro #FF5D01, Cloudflare #F48120). These are
-exempt from the 4-color brand standard per CLAUDE.md Known Issues.
+## Known Exemptions
+
+- **Third-party tool logos** in `index.astro` marquee section use external brand
+  colors (e.g., Astro #FF5D01, Cloudflare #F48120) — exempt per `CLAUDE.md` Known Issues
+- **Micro-element border-radius** (3px, 6px) in `complete-analysis.astro`
+  progress bars/badges — left as literal values per `CLAUDE.md` Known Issues
+- **Starwind design system** components may use internal CSS variables that
+  resolve to brand colors — fix resolved values, not variable names
+- **Print styles** — exempt from color enforcement
 
 ## Steps
 
@@ -74,6 +92,16 @@ CSS custom property definitions only reference approved brand colors.
 - Run `npm run build` to confirm no build errors
 - Confirm no remaining off-brand color references in the codebase
 
+### 5. Verify service tier naming
+Ensure all service tier references use canonical names per `CLAUDE.md`:
+- Complete Analysis ($1,500-$3,000)
+- Launch ($2,500-$5,000)
+- Run ($500-$1,000/mo)
+- Scale ($1,000-$2,500/mo)
+Flag and fix any use of old names: Signal, Blueprint, Relay, Sustain.
+
 ## Output
 - List every file changed with a summary of what was fixed
+- Note any exemptions encountered (third-party logos, Starwind, micro-elements)
 - Confirm build passes after all changes
+- Recommend running `bmad-audit.prompt.md` (`/audit`) to verify completeness

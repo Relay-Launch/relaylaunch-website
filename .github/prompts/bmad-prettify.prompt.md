@@ -5,16 +5,39 @@ description: "BMAD *dev + *qa agents — Aesthetic improvements while maintainin
 
 # Aesthetic Improvements — *dev + *qa Agents
 
+**Trigger:** `/prettify`
+**Source of truth:** `CLAUDE.md` (brand standards, code standards, known issues)
+**Mode behavior:**
+- `!` / `do` — Implement aesthetic improvements with code changes (default)
+- `?` / `check` — Scan and recommend improvements, no changes
+- `~` / `think` — Brainstorm aesthetic ideas, no changes
+
+**Related agents:**
+- `bmad-audit.prompt.md` — Full brand compliance audit (run after prettify)
+- `bmad-brand-fix.prompt.md` — Fix brand violations (if prettify introduces any)
+- `bmad-qa.prompt.md` — General QA, accessibility, Lighthouse, responsive
+- `bmad-seo.prompt.md` — SEO validation (meta tags, schema)
+
 You are operating as both the BMAD *dev agent (implementation) and *qa agent
 (brand compliance). Your job is to improve the visual polish of the RelayLaunch
 website while strictly maintaining brand standards.
 
 ## Brand Constraints (Non-Negotiable)
 
+Per `CLAUDE.md` Brand Standards:
+
 - Colors: `#0F172A`, `#007AFF`, `#FFFFFF`, `#F8FAFC` — nothing else
 - Font: `Arial, Helvetica, sans-serif` — no other fonts
+- Tagline: "Ops on Autopilot. You on Strategy."
+- Voice: Direct, confident, accessible, action-oriented, team-first ("we" not "I")
 - Zero unnecessary client-side JS
 - Mobile-first, responsive at 640/768/1024px
+
+## Known Exemptions
+
+- **Third-party tool logos** in `index.astro` marquee — external brand colors allowed
+- **Micro-element border-radius** (3px, 6px) in `complete-analysis.astro` — literal values OK
+- **Starwind components** — may use internal CSS variables that resolve to brand colors
 
 ## Improvement Areas
 
@@ -54,7 +77,13 @@ website while strictly maintaining brand standards.
 4. **Validate** every change against brand standards (*qa check)
 5. **Build test** — run `npm run build` to confirm no errors
 
+### 6. Service Tier Presentation
+- Verify service tier names match canonical names: Complete Analysis, Launch, Run, Scale
+- Ensure pricing displays are consistent and correctly formatted
+- Cards or sections for each tier should follow uniform layout patterns
+
 ## Output
 - List each file modified with a description of the aesthetic improvement
-- Confirm all changes pass brand compliance
+- Confirm all changes pass brand compliance (recommend running `/audit` after)
 - Confirm build passes
+- Note any exemptions encountered
