@@ -633,6 +633,8 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 </Layout>
 
 <script>
+  import { isValidWebhookUrl, checkRateLimit, recordSubmission } from '../utils/webhook';
+
   const form = document.getElementById('ca-book-form') as HTMLFormElement;
   const success = document.getElementById('ca-book-success') as HTMLElement;
   const errorDiv = document.getElementById('ca-book-error') as HTMLElement;
@@ -651,9 +653,11 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     const honeypot = form.querySelector('input[name="website"]') as HTMLInputElement;
     if (honeypot?.value) {
       form.hidden = true;
-      successDiv.hidden = false;
+      success.hidden = false;
       return;
     }
+
+    if (!checkRateLimit('complete-analysis')) return;
 
     const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn?.textContent || '';
@@ -663,9 +667,12 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     }
 
     const webhook = form.dataset.webhook;
-    if (!webhook || webhook === '#') {
-      // No webhook configured - fall back to mailto
-      window.location.href = `mailto:hello@relaylaunch.com?subject=Complete Analysis Inquiry&body=Name: ${encodeURIComponent(name)}%0ABusiness: ${encodeURIComponent(business)}%0AMessage: ${encodeURIComponent(message)}`;
+    if (!webhook || webhook === '#' || !isValidWebhookUrl(webhook)) {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+      errorDiv.hidden = false;
       return;
     }
 
@@ -684,6 +691,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 
       if (!res.ok) throw new Error('Webhook error');
 
+      recordSubmission('complete-analysis');
       form.hidden = true;
       success.hidden = false;
     } catch {

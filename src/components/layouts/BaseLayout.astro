@@ -40,19 +40,14 @@ const isProd = import.meta.env.PROD;
       })();
     </script>
     {isProd && gaId && (
+      <meta name="ga-measurement-id" content={gaId} />
       <script is:inline src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} async></script>
-      <script is:inline define:vars={{ gaId }}>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', gaId);
-      </script>
     )}
     <SEO title={title} description={description} ogImage={ogImage} ogType={ogType} canonicalUrl={canonicalUrl} jsonLd={jsonLd} breadcrumbs={breadcrumbs} noindex={noindex} />
   </head>
   <body>
     <slot />
-    <script is:inline>
+    <script>
       // Scroll-reveal: observe .reveal and .reveal-stagger elements
       (function() {
         if (!('IntersectionObserver' in window)) {
@@ -76,7 +71,7 @@ const isProd = import.meta.env.PROD;
       })();
     </script>
     <!-- Cal.com embed: scheduling widget for discovery calls (lazy-loaded on interaction) -->
-    <script is:inline>
+    <script>
       (function() {
         var calLoaded = false;
         function loadCal() {
@@ -104,11 +99,23 @@ const isProd = import.meta.env.PROD;
       })();
     </script>
 
-    {isProd && gaId && (
-      <script is:inline>
+    <script>
+      // GA init + CTA click tracking (only runs if GA measurement ID is present)
+      (function() {
+        var gaMeta = document.querySelector('meta[name="ga-measurement-id"]');
+        if (!gaMeta) return;
+        var gaId = gaMeta.getAttribute('content');
+        if (!gaId) return;
+
+        // Initialize gtag
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', gaId);
+
         // CTA click tracking via optimized event delegation
         document.addEventListener('click', function(e) {
-          // Early exit if gtag not available
           if (typeof gtag !== 'function') return;
 
           var target = e.target;
@@ -166,7 +173,7 @@ const isProd = import.meta.env.PROD;
             });
           }
         }, { passive: true });
-      </script>
-    )}
+      })();
+    </script>
   </body>
 </html>

@@ -493,6 +493,8 @@ const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 </style>
 
 <script>
+  import { isValidWebhookUrl, checkRateLimit, recordSubmission } from '../utils/webhook';
+
   const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -505,8 +507,10 @@ const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
         return;
       }
 
+      if (!checkRateLimit('contact')) return;
+
       const webhookUrl = contactForm.dataset.webhook;
-      if (!webhookUrl || webhookUrl === '#') return;
+      if (!webhookUrl || webhookUrl === '#' || !isValidWebhookUrl(webhookUrl)) return;
 
       const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
       if (submitBtn) {
@@ -523,6 +527,7 @@ const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ...data, source: 'contact-form' }),
         });
+        recordSubmission('contact');
         contactForm.hidden = true;
         const success = document.getElementById('contact-form-success');
         if (success) success.hidden = false;

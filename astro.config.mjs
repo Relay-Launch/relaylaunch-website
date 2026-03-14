@@ -13,7 +13,15 @@ export default defineConfig({
     '/case-studies/hrc': '/case-studies/luxury-wellness-spa/',
     '/control-center': '/console/',
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    sitemap({
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
+    }),
+  ],
 
   vite: {
     plugins: [tailwindcss()],

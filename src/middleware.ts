@@ -28,7 +28,7 @@ const securityHeaders: Record<string, string> = {
   'Cross-Origin-Resource-Policy': 'same-origin',
   'Content-Security-Policy': [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' https://app.cal.com https://cal.com https://www.googletagmanager.com https://www.google-analytics.com",
+    "script-src 'self' 'sha256-yOCVZUsKEB+8dMRXvcCWhGgxM+QiQRm6KM5Jd1HoUr4=' https://app.cal.com https://cal.com https://www.googletagmanager.com https://www.google-analytics.com",
     "style-src 'self' 'unsafe-inline' https://app.cal.com https://cal.com",
     "img-src 'self' data: https: blob:",
     "font-src 'self' data:",

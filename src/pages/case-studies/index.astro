@@ -1,6 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('caseStudies');
+const sorted = caseStudies.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <Layout
@@ -22,20 +26,12 @@ import { Button } from '@/components/starwind/button';
       name: 'RelayLaunch LLC',
       url: 'https://www.relaylaunch.com',
     },
-    hasPart: [
-      {
-        '@type': 'Article',
-        name: 'Luxury Wellness Spa: Tool Cost Reduction & Infrastructure Build',
-        url: 'https://www.relaylaunch.com/case-studies/luxury-wellness-spa/',
-        description: 'How RelayLaunch replaced $342/month in disconnected tools with $51/month in unified infrastructure for a luxury wellness spa.',
-      },
-      {
-        '@type': 'Article',
-        name: 'Global Events Company: ERP Migration',
-        url: 'https://www.relaylaunch.com/case-studies/events-erp-migration/',
-        description: 'QuickBooks-to-Sage Intacct migration for a global events company with three US entities and multi-currency consolidation.',
-      },
-    ],
+    hasPart: sorted.map((cs) => ({
+      '@type': 'Article',
+      name: cs.data.title,
+      url: `https://www.relaylaunch.com/case-studies/${cs.data.slug}/`,
+      description: cs.data.description,
+    })),
   }}
 >
 
@@ -55,72 +51,31 @@ import { Button } from '@/components/starwind/button';
   <section class="section cards-section">
     <div class="container">
 
-      <a href="/case-studies/luxury-wellness-spa" class="cs-card card reveal">
-        <div class="cs-card-header">
-          <div class="cs-meta">
-            <span class="badge badge-primary">Wellness / Hospitality</span>
-            <span class="cs-location">Five-Star Resort · South Florida</span>
+      {sorted.map((cs) => (
+        <a href={`/case-studies/${cs.data.slug}`} class="cs-card card reveal">
+          <div class="cs-card-header">
+            <div class="cs-meta">
+              <span class="badge badge-primary">{cs.data.industry}</span>
+              <span class="cs-services">{cs.data.services.join(' · ')}</span>
+            </div>
+            <span class="cs-arrow">&rarr;</span>
           </div>
-          <span class="cs-arrow">→</span>
-        </div>
 
-        <h2 class="cs-title">Luxury Wellness Spa</h2>
-        <p class="cs-summary">
-          $342/month in disconnected tools replaced with $51/month in unified infrastructure.
-          One luxury spa. Five platforms. Zero integration. We fixed all of it.
-        </p>
+          <h2 class="cs-title">{cs.data.client}</h2>
+          <p class="cs-summary">{cs.data.description}</p>
 
-        <div class="cs-stats">
-          <div class="cs-stat">
-            <span class="cs-stat-number text-accent">$3,492</span>
-            <span class="cs-stat-label">Annual savings</span>
+          <div class="cs-stats">
+            {cs.data.metrics.slice(0, 3).map((metric) => (
+              <div class="cs-stat">
+                <span class="cs-stat-number text-accent">{metric.value}</span>
+                <span class="cs-stat-label">{metric.label}</span>
+              </div>
+            ))}
           </div>
-          <div class="cs-stat">
-            <span class="cs-stat-number text-accent">11</span>
-            <span class="cs-stat-label">Workflows automated</span>
-          </div>
-          <div class="cs-stat">
-            <span class="cs-stat-number text-accent">$50k+</span>
-            <span class="cs-stat-label">Infrastructure value delivered</span>
-          </div>
-        </div>
 
-        <span class="cs-read-more">Read the full case study →</span>
-      </a>
-
-      <a href="/case-studies/events-erp-migration" class="cs-card card reveal">
-        <div class="cs-card-header">
-          <div class="cs-meta">
-            <span class="badge badge-primary">Events & Trade Shows / Finance Systems</span>
-            <span class="cs-location">Multi-Entity · US + UK Operations</span>
-          </div>
-          <span class="cs-arrow">→</span>
-        </div>
-
-        <h2 class="cs-title">Global Events Company: ERP Migration</h2>
-        <p class="cs-summary">
-          Three siloed QuickBooks instances replaced with one unified Sage Intacct environment.
-          Multi-entity consolidation, multi-currency reporting, and a 10-day close cycle, all delivered
-          through a structured 6-month migration program.
-        </p>
-
-        <div class="cs-stats">
-          <div class="cs-stat">
-            <span class="cs-stat-number text-accent">3 → 1</span>
-            <span class="cs-stat-label">Unified platform</span>
-          </div>
-          <div class="cs-stat">
-            <span class="cs-stat-number text-accent">10-day</span>
-            <span class="cs-stat-label">Close cycle achieved</span>
-          </div>
-          <div class="cs-stat">
-            <span class="cs-stat-number text-accent">7</span>
-            <span class="cs-stat-label">Enterprise deliverables</span>
-          </div>
-        </div>
-
-        <span class="cs-read-more">Read the full case study →</span>
-      </a>
+          <span class="cs-read-more">Read the full case study &rarr;</span>
+        </a>
+      ))}
 
       <!-- Upcoming case studies -->
       <div class="coming-soon">
@@ -205,7 +160,8 @@ import { Button } from '@/components/starwind/button';
     flex-wrap: wrap;
   }
 
-  .cs-location {
+  .cs-location,
+  .cs-services {
     font-size: 13px;
     color: var(--color-muted);
   }
