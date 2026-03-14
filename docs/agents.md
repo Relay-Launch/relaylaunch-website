@@ -445,10 +445,15 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | *architect | Technical design | `bmad-architect.prompt.md` | `/architect` | Architecture review, structure validation |
 | *architect | Data model | `bmad-data-model.prompt.md` | `/datamodel` | Data model and schema review |
 | *architect | API review | `bmad-api-review.prompt.md` | `/api` | API endpoint review and validation |
-| *qa | Testing & audit | `bmad-audit.prompt.md` | `/audit` | Full brand compliance audit |
-| *dev | Implementation | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
+| *analyst | Research | `bmad-research.prompt.md` | `/research` | Research, discovery, competitive analysis |
+| *pm | Requirements | `bmad-plan.prompt.md` | `/plan` | Requirements, prioritization, roadmap |
+| *sm | Sprint planning | `bmad-sprint.prompt.md` | `/sprint` | Story creation, sprint planning, scrum |
+| *dev | Implementation | `bmad-build.prompt.md` | `/build` | Implement features, fix bugs, write code |
+| *dev | Brand fixes | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
 | *dev + *qa | Polish | `bmad-prettify.prompt.md` | `/prettify` | Aesthetic improvements with brand compliance |
-| *pm | Requirements | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
+| *qa | Testing & audit | `bmad-audit.prompt.md` | `/audit` | Full brand compliance audit |
+| *qa | QA & compliance | `bmad-qa.prompt.md` | `/qa` | Testing, audit, compliance checks |
+| *pm | SEO | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
 | Prose Agent | Language | `bmad-prose.prompt.md` | _(default, auto-triggers on content changes)_ | Human language enforcement, AI-ism detection |
 | Infra Agent | Infrastructure | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
 | Security Agent | Security | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |

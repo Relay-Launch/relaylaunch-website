@@ -1,6 +1,6 @@
 # The Relay Method™ — Mode + Domain Trigger System v1
 
-> **Status:** Proposed
+> **Status:** Active (implemented)
 > **Source of truth:** `relaylaunch-website` repo
 > **Applies to:** Claude Code, GitHub Copilot, Cursor, and any AI tool reading
 > `CLAUDE.md`, `docs/agents.md`, or `.github/copilot-instructions.md`
