@@ -8,6 +8,9 @@ on:
     paths:
       - 'tools/cli-anything-*/**'
 
+permissions:
+  contents: read
+
 jobs:
   test-gimp-cli:
     name: Test cli-anything-gimp
