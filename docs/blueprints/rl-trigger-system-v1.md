@@ -303,10 +303,20 @@ The new features layer on top:
 - Run first `/relay optimize` cycle to improve existing prompt files
 - Add domain-specific prompt files for each family (code, brand, etc.)
 
-### Phase 3 (Future)
+### Phase 3 (Current)
+- Relay Forge Engine (Layer 11): Trend-aware build pipeline
+- Relay Council (Layer 12): Multi-agent structured debate
+- Deep Research (Layer 13): Free multi-source trend intelligence
+- Business Sector Playbooks: 10 client verticals with pre-configured agent combos
+- Free tool integrations: Perplexica, SearXNG, Serper, Brave, Tavily, Firecrawl
+
+### Phase 4 (Future)
 - Tooling: Shell aliases or Claude Code hooks for mode prefixes
 - Analytics: Track which triggers are used most to optimize the system
 - Cross-repo: Deploy to `relaylaunch-control-center`
+- Perplexica n8n node for automated trend research in Relay Console
+- CrewAI service-tier crews for multi-agent retainer delivery
+- LangGraph Ship Gate graphs for executable workflow automation
 
 ---
 
@@ -332,12 +342,21 @@ Ship Gate:      /ship         = push + PR with gate checks
 
 Self-Optimize:  /relay optimize = agents improve their own prompts
 
+Forge Engine:   /relay forge [client] = full 5-phase pipeline
+                /deep-research        = multi-source trend intelligence
+                /council              = multi-agent debate
+                /council strategy     = business direction debate
+                /council build        = technical architecture debate
+
 Examples:       ?brand         check brand compliance
                 !code          build a feature
                 ~growth        brainstorm marketing ideas
                 check security review security posture
                 do brandfix    fix brand violations
                 think deals    workshop deal strategy
+                /relay forge spa-client  run full Forge for a client
+                /council client          debate client delivery approach
+                /deep-research           pull live trend intelligence
 ```
 
 ---

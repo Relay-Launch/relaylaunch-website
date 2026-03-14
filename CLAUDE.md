@@ -139,6 +139,14 @@ Type any trigger in your prompt to activate the matching specialist:
 - `~plan-eng-review` — Architecture maintainability review (internal)
 - `/cli-anything` — Generate agent-native CLI for any software (7-phase pipeline)
 - `/cli-anything gimp` — GIMP image processing via CLI-Anything harness
+- `/council` — Multi-agent structured debate for strategic decisions
+- `/council strategy` — Council preset: business direction
+- `/council build` — Council preset: technical architecture
+- `/council client` — Council preset: client delivery decisions
+- `/council growth` — Council preset: marketing and acquisition
+- `/council sales` — Council preset: deal strategy
+- `/deep-research` — Multi-source trend intelligence (free/OSS tools)
+- `/relay forge [client]` — Full Forge pipeline: research -> debate -> build -> gate -> deliver
 
 ### Mode + Domain Triggers
 Use a mode prefix + domain for fast, precise agent calls. Both symbol
@@ -169,6 +177,8 @@ for the full spec.
 - `/relay brand` — Brand enforcement across all touchpoints
 - `/relay performance` — Lighthouse, Core Web Vitals, SEO
 - `/relay optimize` — Agents review and improve their own prompt files
+- `/relay forge [client]` — Trend-aware build pipeline (research, council, build, gate, deliver)
+- `/relay council` — Convene specialist agents for structured debate
 
 ### Frameworks
 - **BMAD Method** — Agile AI development framework (https://github.com/bmad-code-org/BMAD-METHOD)
@@ -181,6 +191,11 @@ for the full spec.
 - **CLI-Anything** — Agent-native CLI generation for any software (https://github.com/HKUDS/CLI-Anything)
 - **LangChain** (Phase 2) — 700+ tool integrations, RAG chains, agent orchestration (https://github.com/langchain-ai/langchain)
 - **awesome-scalability** — Scaling patterns and infrastructure knowledge base (https://github.com/binhnguyennus/awesome-scalability)
+- **Perplexica** (Phase 1) — OSS Perplexity clone for Deep Research (https://github.com/ItzCrazyKns/Perplexica)
+- **SearXNG** (Phase 1) — Meta-search backend for Perplexica (https://github.com/searxng/searxng)
+- **Flowise** (Phase 1) — Visual LLM workflow builder (https://github.com/FlowiseAI/Flowise)
+- **Activepieces** (Phase 1) — OSS workflow automation (https://github.com/activepieces/activepieces)
+- **Ollama** (Phase 1) — Local LLM runner for offline work (https://github.com/ollama/ollama)
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
@@ -213,6 +228,9 @@ When acting as a BMAD agent, follow the role:
 - `finance-kpi-explainer.prompt.md` — Business metrics translation (Internal)
 - `relay-meta-roles.prompt.md` — CEO/Eng/Code Review/Retro overlays (Internal)
 - `cli-anything.prompt.md` — CLI-Anything agent-native CLI generator
+- `relay-forge.prompt.md` — Relay Forge trend-aware build pipeline (Layer 11)
+- `relay-council.prompt.md` — Relay Council multi-agent debate engine (Layer 12)
+- `relay-deep-research.prompt.md` — Deep Research multi-source intelligence (Layer 13)
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
@@ -225,6 +243,10 @@ the right agent. Key mappings for this repo:
 - Design/UI/UX → Agency UI Designer, UX Researcher
 - Growth/marketing → Agency Growth Hacker, Social Media Strategist
 - Image processing/GIMP → CLI-Anything GIMP Agent
+- Strategy/decisions → Relay Council (`/council`)
+- Trends/intelligence → Deep Research (`/deep-research`)
+- Client onboarding → Relay Forge (`/relay forge [client]`)
+- Business sectors → See `docs/agents.md` Business Sector Playbooks
 
 ## CLI-Anything Tools
 Agent-native CLI harnesses for software automation. See `docs/agents.md` for
