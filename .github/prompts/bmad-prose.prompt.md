@@ -150,8 +150,8 @@ alternative phrasings without making changes.
 
 ## Priority
 
-The Prose Agent runs as part of the `/ship` gate check. It is the 5th
-gate in the sequence:
+The Relay Method orchestrates 10 integrated frameworks and 250+ agents.
+The Prose Agent is gate #5 in the `/ship` sequence:
 
 1. Build Agent (code compiles)
 2. Security Agent (no vulnerabilities)

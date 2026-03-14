@@ -157,6 +157,7 @@ This agent activates automatically when changes touch:
 
 ## Ship Gate Position
 
+The Relay Method orchestrates 10 integrated frameworks and 250+ agents.
 The QA Agent is **gate #4** in the `/ship` gate check sequence:
 
 1. Build Agent (code compiles)

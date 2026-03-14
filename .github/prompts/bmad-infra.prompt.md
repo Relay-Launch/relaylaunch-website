@@ -109,6 +109,7 @@ for syntax, but Infra owns the deployment pipeline logic):
 
 ## Ship Gate Position
 
+The Relay Method orchestrates 10 integrated frameworks and 250+ agents.
 The Infra Agent is **gate #6** in the `/ship` gate check sequence:
 
 1. Build Agent (code compiles)

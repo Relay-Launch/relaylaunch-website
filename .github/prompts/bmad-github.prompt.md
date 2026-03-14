@@ -96,6 +96,7 @@ This agent activates automatically when changes touch:
 
 ## Ship Gate Position
 
+The Relay Method orchestrates 10 integrated frameworks and 250+ agents.
 The GitHub Agent is **gate #7** (final gate) in the `/ship` gate check sequence:
 
 1. Build Agent (code compiles)
