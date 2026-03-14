@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { Button } from '@/components/starwind/button';
 
 const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
+const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 ---
 
 <Layout
@@ -20,6 +21,7 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
       name: 'RelayLaunch LLC',
       url: 'https://www.relaylaunch.com',
       email: 'hello@relaylaunch.com',
+      telephone: '+1-857-318-6498',
       description: 'Digital infrastructure consulting for small businesses. Website, automation, email, social, and unified dashboards.',
       address: {
         '@type': 'PostalAddress',
@@ -28,7 +30,11 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
         addressCountry: 'US',
       },
       founder: { '@type': 'Person', name: 'Victor David Medina' },
-      sameAs: ['https://github.com/Relay-Launch', 'https://www.linkedin.com/company/relaylaunch'],
+      sameAs: [
+        'https://github.com/Relay-Launch',
+        'https://www.linkedin.com/company/relaylaunch',
+        'https://x.com/RelayLaunch',
+      ],
     },
     {
       '@context': 'https://schema.org',
@@ -56,6 +62,10 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
         No commitment required. Tell us where you are and what you're trying to build.
         We'll figure out the right fit and move fast.
       </p>
+      <div class="response-badges">
+        <span class="response-badge">Discovery calls: same-week availability</span>
+        <span class="response-badge">Email responses: 1-2 business days</span>
+      </div>
     </div>
   </section>
 
@@ -82,57 +92,76 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════ SECONDARY OPTIONS -->
+  <!-- ═══════════════════════════════════════════════ CONTACT FORM -->
   <section class="section">
     <div class="container contact-grid">
 
       <div class="contact-primary">
-        <h2 class="section-title" style="font-size: 22px; margin-bottom: 8px;">Or reach out directly</h2>
+        <h2 class="section-title" style="font-size: 22px; margin-bottom: 8px;">Send us a message</h2>
         <p style="color: var(--color-muted); font-size: 15px; margin-bottom: 24px;">
-          Prefer email? Send us a project request or a quick question.
+          Tell us about your business and what you need. We respond within 1-2 business days.
         </p>
 
-        <div class="secondary-options">
-          <div class="secondary-option">
-            <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">Start a Project Request</h3>
-            <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Tell us about your business and what you're looking to build.</p>
-            <Button
-              variant="outline"
-              href="mailto:hello@relaylaunch.com?subject=Project%20Request%20-%20RelayLaunch&body=Hi%20RelayLaunch%2C%0A%0AI%27d%20like%20to%20discuss%20a%20project.%20Here%27s%20a%20bit%20about%20my%20business%3A%0A%0ABusiness%20name%3A%20%0AIndustry%3A%20%0AWhat%20I%27m%20looking%20for%3A%20%0ACurrent%20tools%20I%20use%3A%20%0ABiggest%20pain%20point%3A%20%0A%0AThanks!"
-              size="sm"
-            >
-              Send a Project Request →
-            </Button>
+        <form id="contact-form" class="contact-form" data-webhook={contactWebhookUrl} novalidate>
+          <div class="hp-field" aria-hidden="true"><label for="contact-hp">Website</label><input type="text" id="contact-hp" name="website" tabindex="-1" autocomplete="off" /></div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-name">Your Name <span class="required">*</span></label>
+              <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Jane Smith" />
+            </div>
+            <div class="form-field">
+              <label for="cf-email">Email <span class="required">*</span></label>
+              <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="you@company.com" />
+            </div>
           </div>
-
-          <div class="secondary-option">
-            <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">Ask a Quick Question</h3>
-            <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Not ready for a full request? Just send a quick email.</p>
-            <Button
-              variant="outline"
-              href="mailto:hello@relaylaunch.com?subject=Quick%20Question%20-%20RelayLaunch"
-              size="sm"
-            >
-              Ask a Quick Question
-            </Button>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="cf-business">Business Name</label>
+              <input type="text" id="cf-business" name="business_name" placeholder="Your Business LLC" />
+            </div>
+            <div class="form-field">
+              <label for="cf-interest">Interested In</label>
+              <select id="cf-interest" name="interest">
+                <option value="">Select one...</option>
+                <option value="complete-analysis">Complete Analysis ($1,500-$3,000)</option>
+                <option value="launch">Launch Build ($2,500-$5,000)</option>
+                <option value="run">Run Retainer ($500-$1,000/mo)</option>
+                <option value="scale">Scale Retainer ($1,000-$2,500/mo)</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
           </div>
+          <div class="form-field">
+            <label for="cf-message">How can we help? <span class="required">*</span></label>
+            <textarea id="cf-message" name="message" required rows="4" placeholder="Tell us about your business, what's not working, and what you'd like to change."></textarea>
+          </div>
+          <Button type="submit" variant="primary" size="lg" class="w-full justify-center">Send Message →</Button>
+          <p style="font-size: 12px; color: var(--color-muted); margin-top: 8px; text-align: center;">We respond within 1-2 business days. No spam.</p>
+        </form>
+        <div id="contact-form-success" class="form-success" hidden>
+          <p style="font-weight: 700; font-size: 18px; margin-bottom: 8px;">Message sent.</p>
+          <p style="color: var(--color-muted);">We'll review your message and get back to you within 1-2 business days. If you'd like to get started sooner, <a href={`https://cal.com/${calLink}`} style="color: var(--color-primary);">book a discovery call</a>.</p>
+        </div>
 
-          <div class="secondary-option">
-            <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">GitHub</h3>
-            <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Submit a request or question via GitHub Issues.</p>
-            <div class="github-options">
-              <a href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml" target="_blank" rel="noopener noreferrer" class="github-link">
-                <span class="github-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </span>
-                Project request
-              </a>
-              <a href="https://github.com/Relay-Launch/.github/issues/new?template=quick-question.yml" target="_blank" rel="noopener noreferrer" class="github-link">
-                <span class="github-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </span>
-                Quick question
-              </a>
+        <div class="alt-contact-row" style="margin-top: 32px;">
+          <p class="section-eyebrow" style="margin-bottom: 16px;">Other Ways to Reach Us</p>
+          <div class="secondary-options">
+            <div class="secondary-option">
+              <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">Email Directly</h3>
+              <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Prefer your own email client? Send us a message.</p>
+              <Button variant="outline" href="mailto:hello@relaylaunch.com?subject=Project%20Inquiry%20-%20RelayLaunch" size="sm">Email Us →</Button>
+            </div>
+            <div class="secondary-option">
+              <h3 style="font-size: var(--font-size-md); font-weight: 700; margin-bottom: 6px;">GitHub</h3>
+              <p style="color: var(--color-muted); font-size: var(--font-size-base); margin-bottom: 12px;">Submit a request via GitHub Issues.</p>
+              <div class="github-options">
+                <a href="https://github.com/Relay-Launch/.github/issues/new?template=project-request.yml" target="_blank" rel="noopener noreferrer" class="github-link">
+                  <span class="github-icon">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  </span>
+                  Open an issue
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -169,6 +198,9 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
         <div class="card" style="margin-top: 16px; padding: 20px;">
           <p class="section-eyebrow" style="margin-bottom: 12px;">Direct Contact</p>
           <div class="direct-links">
+            <a href="tel:+18573186498" class="direct-link">
+              <span class="direct-icon">☎</span> (857) 318-6498
+            </a>
             <a href="mailto:hello@relaylaunch.com" class="direct-link">
               <span class="direct-icon">✉</span> hello@relaylaunch.com
             </a>
@@ -221,6 +253,25 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
 <style>
   .hero { padding-top: 80px; }
 
+  .response-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .response-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    border-radius: 20px;
+    padding: 5px 14px;
+  }
+
   /* Discovery call hero section (P0-6) */
   .discovery-call-section {
     padding-top: 0;
@@ -230,10 +281,79 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
     background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--primary) 3%, var(--color-surface)) 100%);
   }
 
+  /* ── Contact form ── */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .contact-form .form-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-text);
+  }
+
+  .contact-form .required {
+    color: var(--color-primary);
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-success {
+    padding: 32px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+  }
+
+  .alt-contact-row .secondary-options {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 640px) {
+    .form-row { grid-template-columns: 1fr; }
+    .alt-contact-row .secondary-options { grid-template-columns: 1fr; }
+  }
+
   /* Secondary options grid */
   .secondary-options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
 
@@ -371,3 +491,47 @@ const calLink = import.meta.env.PUBLIC_CAL_LINK || 'victor-medina-vh0z5e/30min';
   }
 
 </style>
+
+<script>
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const hp = contactForm.querySelector<HTMLInputElement>('[name="website"]');
+      if (hp && hp.value) {
+        contactForm.hidden = true;
+        const success = document.getElementById('contact-form-success');
+        if (success) success.hidden = false;
+        return;
+      }
+
+      const webhookUrl = contactForm.dataset.webhook;
+      if (!webhookUrl || webhookUrl === '#') return;
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      const data = Object.fromEntries(new FormData(contactForm));
+      delete data.website;
+
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...data, source: 'contact-form' }),
+        });
+        contactForm.hidden = true;
+        const success = document.getElementById('contact-form-success');
+        if (success) success.hidden = false;
+      } catch {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message →';
+        }
+      }
+    });
+  }
+</script>

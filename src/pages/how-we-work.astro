@@ -28,11 +28,12 @@ const analysisOutline = [
 
 const tools = [
   { name: 'Astro', description: 'Fast, modern websites with perfect Lighthouse scores and zero JavaScript bloat.' },
+  { name: 'Cloudflare', description: 'Global CDN, DDoS protection, and edge computing. Sub-second page loads worldwide at $0/month hosting.' },
   { name: 'n8n', description: 'Self-hosted workflow automation connecting your tools without recurring per-task fees.' },
   { name: 'Claude', description: 'AI-powered analysis, content generation, and intelligent workflow automation.' },
   { name: 'Perplexity', description: 'AI-assisted research for competitive analysis and market intelligence.' },
   { name: 'Terraform', description: 'Infrastructure as code. Repeatable, version-controlled cloud deployments.' },
-  { name: 'AWS', description: 'Enterprise-grade hosting and services scaled to small-business budgets.' },
+  { name: 'Tailwind CSS', description: 'Utility-first CSS framework for consistent, responsive design without bloated stylesheets.' },
 ];
 ---
 
@@ -164,6 +165,34 @@ const tools = [
             <p>{tool.description}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ RELATED -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">Next Steps</span>
+      <h2 class="section-title" style="margin-bottom: 32px;">See the process in action.</h2>
+      <div class="related-grid">
+        <a href="/case-studies/luxury-wellness-spa" class="related-card card">
+          <span class="related-eyebrow">Case Study</span>
+          <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Luxury Wellness Spa</h3>
+          <p style="font-size: 14px; color: var(--color-muted); line-height: 1.6;">$342/mo reduced to $51/mo. 11 automations deployed. 30-day turnaround.</p>
+          <span class="related-link">Read case study &rarr;</span>
+        </a>
+        <a href="/services" class="related-card card">
+          <span class="related-eyebrow">Services</span>
+          <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Service Packages</h3>
+          <p style="font-size: 14px; color: var(--color-muted); line-height: 1.6;">Clear scope, fixed pricing, and defined deliverables. See all four tiers.</p>
+          <span class="related-link">View packages &rarr;</span>
+        </a>
+        <a href="/blog" class="related-card card">
+          <span class="related-eyebrow">Blog</span>
+          <h3 style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Infrastructure Insights</h3>
+          <p style="font-size: 14px; color: var(--color-muted); line-height: 1.6;">Practical thinking on the systems and workflows that help small businesses run leaner.</p>
+          <span class="related-link">Read the blog &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -362,6 +391,50 @@ const tools = [
 
   @media (max-width: 768px) {
     .analysis-days { grid-template-columns: 1fr; }
+  }
+
+  /* ── Related cards ── */
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.25s ease;
+  }
+
+  .related-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-sm);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .related-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+  }
+
+  .related-link {
+    margin-top: auto;
+    padding-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .related-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 640px) {

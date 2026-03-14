@@ -5,7 +5,7 @@ import { Button } from '@/components/starwind/button';
 
 <Layout
   title="About | RelayLaunch | Veteran-Owned Digital Infrastructure Consultancy"
-  description="Founded by a USMC veteran with Fortune 500 engineering experience. RelayLaunch brings enterprise-grade systems, AI-powered automation, and specialist agents to small businesses nationwide."
+  description="Veteran-owned digital infrastructure consultancy. Enterprise-grade systems, AI-powered automation, and a team of specialist agents built for small business scale. Founded by Victor David Medina, USMC Sergeant (E-5)."
   canonicalUrl="https://www.relaylaunch.com/about/"
   breadcrumbs={[
     { name: 'Home', url: 'https://www.relaylaunch.com/' },
@@ -170,6 +170,35 @@ import { Button } from '@/components/starwind/button';
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════ RESULTS -->
+  <section class="section">
+    <div class="container">
+      <span class="section-eyebrow">Results</span>
+      <h2 class="section-title" style="margin-bottom: 40px;">What our work looks like in practice.</h2>
+
+      <div class="results-grid reveal-stagger">
+        <div class="card result-card">
+          <div class="result-stat">$280/mo</div>
+          <div class="result-label">saved in monthly tool costs</div>
+          <p class="result-desc">A luxury wellness spa replaced 5 disconnected tools with one integrated system. Monthly costs dropped from $342 to $51.</p>
+          <a href="/case-studies/luxury-wellness-spa" class="result-link">Read the case study &rarr;</a>
+        </div>
+        <div class="card result-card">
+          <div class="result-stat">30 days</div>
+          <div class="result-label">from intake to full launch</div>
+          <p class="result-desc">Complete infrastructure build: 15-page Astro site, 11 automation workflows, unified dashboard, and email sequences.</p>
+          <a href="/case-studies/luxury-wellness-spa" class="result-link">See the build &rarr;</a>
+        </div>
+        <div class="card result-card">
+          <div class="result-stat">11</div>
+          <div class="result-label">automation workflows deployed</div>
+          <p class="result-desc">Client follow-ups, booking confirmations, review requests, and marketing sequences running on autopilot.</p>
+          <a href="/how-we-work" class="result-link">See our process &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════ WHY DIFFERENT -->
   <section class="section" style="background: var(--color-surface);">
     <div class="container">
@@ -318,6 +347,59 @@ import { Button } from '@/components/starwind/button';
   }
   .value-item strong { display: block; font-size: 15px; margin-bottom: 6px; }
   .value-item p { font-size: 14px; line-height: 1.6; }
+
+  /* ── Results grid ── */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .result-card {
+    padding: 28px;
+    text-align: center;
+  }
+
+  .result-stat {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .result-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+
+  .result-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+  }
+
+  .result-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .result-link:hover {
+    text-decoration: none;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .results-grid { grid-template-columns: 1fr; }
+  }
 
   /* ── Compare table ── */
   .compare-table-wrap { overflow-x: auto; }
