@@ -1,0 +1,86 @@
+# Runs security checks: npm audit, secrets scanning, and dependency review.
+name: Security Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run daily at 06:00 UTC to catch newly disclosed CVEs
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+
+  dependency-review:
+    name: Dependency review (PRs)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: high
+          deny-licenses: GPL-3.0, AGPL-3.0
+
+  secrets-scan:
+    name: Secrets scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Scan for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          extra_args: --only-verified
+
+  codeql:
+    name: CodeQL analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-extended
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
