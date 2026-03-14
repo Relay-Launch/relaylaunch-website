@@ -43,6 +43,16 @@ const waitlistWebhookUrl = import.meta.env.PUBLIC_WAITLIST_WEBHOOK_URL || '#';
       },
       priceRange: '$$',
       knowsAbout: ['digital infrastructure', 'business automation', 'ERP migration', 'web development'],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Digital Infrastructure Services',
+        itemListElement: [
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Complete Analysis', description: '8-area business infrastructure diagnostic' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Launch', description: 'One-time digital infrastructure build' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Run', description: 'Monthly digital operations retainer' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Scale', description: 'Premium growth retainer with AI agents' } },
+        ],
+      },
     },
   ]}
 >
