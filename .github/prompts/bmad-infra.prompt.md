@@ -19,7 +19,7 @@ config, deployment commands, domain settings, and project standards.
 ## Infrastructure Context
 
 - **Hosting:** Cloudflare Workers (via wrangler deploy)
-- **CI/CD:** GitHub Actions (`.github/workflows/astro.yml`)
+- **CI/CD:** GitHub Actions (`.github/workflows/astro.yml`, `ci.yml`, `lighthouse.yml`, `security.yml`)
 - **DNS:** Cloudflare (nameservers: lindsey.ns.cloudflare.com, steven.ns.cloudflare.com)
 - **Registrar:** Porkbun (domain: relaylaunch.com)
 - **Zone ID:** 1113a607a714b1f4f3467003a78175fa
@@ -99,14 +99,15 @@ This agent activates automatically when changes touch:
 
 ## CI/CD Workflows Reference
 
-The Infra Agent should be aware of all three workflows (owned by GitHub Agent
+The Infra Agent should be aware of all four workflows (owned by GitHub Agent
 for syntax, but Infra owns the deployment pipeline logic):
 
 | Workflow | File | Purpose |
 |----------|------|---------|
 | **Deploy** | `.github/workflows/astro.yml` | Build + deploy to Cloudflare Workers on push to main |
+| **CI** | `.github/workflows/ci.yml` | Build validation for PRs (install, build, type-check) |
 | **Lighthouse** | `.github/workflows/lighthouse.yml` | Lighthouse CI audit on PRs to main |
-| **Security** | `.github/workflows/security.yml` | CodeQL + dependency review + npm audit (push/PR + weekly) |
+| **Security** | `.github/workflows/security.yml` | CodeQL + dependency review + npm audit + secrets scan (push/PR + weekly) |
 
 ## Ship Gate Position
 

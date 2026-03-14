@@ -1,3 +1,5 @@
+# Runs Lighthouse CI on pull requests and posts results as a PR comment.
+# Thresholds: Performance >= 95, Accessibility >= 95, SEO >= 95 (set in .lighthouserc.json).
 name: Lighthouse CI
 
 on:
@@ -47,7 +49,7 @@ jobs:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Post Lighthouse results as PR comment
-        if: always()
+        if: always() && steps.lighthouse.outcome != 'cancelled'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
         env:
           LIGHTHOUSE_LINKS: ${{ steps.lighthouse.outputs.links }}
@@ -55,11 +57,26 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const links  = JSON.parse(process.env.LIGHTHOUSE_LINKS);
-            const manifest = JSON.parse(process.env.LIGHTHOUSE_MANIFEST);
+            const linksRaw = process.env.LIGHTHOUSE_LINKS || '{}';
+            const manifestRaw = process.env.LIGHTHOUSE_MANIFEST || '[]';
+
+            let links, manifest;
+            try {
+              links = JSON.parse(linksRaw);
+              manifest = JSON.parse(manifestRaw);
+            } catch (e) {
+              console.log('Could not parse Lighthouse output:', e.message);
+              return;
+            }
+
+            if (!Array.isArray(manifest) || manifest.length === 0) {
+              console.log('No Lighthouse results to report.');
+              return;
+            }
 
             const scoreIcon = (score) => {
-              if (score >= 0.9) return '🟢';
+              if (score >= 0.95) return '🟢';
+              if (score >= 0.9) return '🟡';
               if (score >= 0.5) return '🟠';
               return '🔴';
             };
@@ -80,7 +97,7 @@ jobs:
               '|------|-------------|---------------|-----|',
               ...rows,
               '',
-              '_Thresholds: Performance ≥ 95 · Accessibility ≥ 95 · SEO ≥ 95_',
+              '_Targets: Performance >= 95 · Accessibility >= 95 · SEO >= 95_',
             ].join('\n');
 
             const { data: comments } = await github.rest.issues.listComments({

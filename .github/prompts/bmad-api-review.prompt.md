@@ -27,7 +27,7 @@ Default mode is **check** unless the user specifies otherwise.
 - **Styling:** Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - **Deployment:** Cloudflare Workers via `wrangler deploy`
 - **Adapter:** @astrojs/cloudflare (enables server-side routes)
-- **CI/CD:** GitHub Actions (`.github/workflows/astro.yml`) builds and deploys via wrangler
+- **CI/CD:** GitHub Actions (`astro.yml` deploy, `ci.yml` PR validation, `lighthouse.yml` performance, `security.yml` scanning)
 - **API Routes:** `src/pages/api/` (if present) — Astro API endpoints
 - **Types:** TypeScript strict mode throughout
 

@@ -1,12 +1,16 @@
 name: Bug Report
 description: Report a bug on relaylaunch.com
-labels: ["bug"]
+labels: ["bug", "triage"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting this. We review every bug report and prioritize fixes based on impact.
   - type: textarea
     id: description
     attributes:
       label: What happened?
-      description: A clear description of the bug.
+      description: A clear description of the bug. What did you see?
     validations:
       required: true
   - type: textarea
@@ -16,6 +20,15 @@ body:
       description: What should have happened instead?
     validations:
       required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Walk us through it step by step.
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. See error
   - type: input
     id: page
     attributes:
@@ -45,3 +58,13 @@ body:
     attributes:
       label: Screenshots
       description: Drag and drop screenshots if helpful.
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How much does this impact your experience?
+      options:
+        - Minor (cosmetic or low impact)
+        - Moderate (feature partially broken)
+        - Major (feature completely broken)
+        - Critical (site down or security issue)

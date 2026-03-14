@@ -21,8 +21,9 @@ stack, deployment config, CI/CD setup, and project standards.
 - **Repo:** Relay-Launch/relaylaunch-website
 - **Workflows:**
   - `.github/workflows/astro.yml` — Build and deploy to Cloudflare Workers (push to main)
+  - `.github/workflows/ci.yml` — Build validation for PRs (install, build, type-check)
   - `.github/workflows/lighthouse.yml` — Lighthouse CI audit (PRs to main)
-  - `.github/workflows/security.yml` — Security Audit: CodeQL analysis + dependency review + npm audit (push/PR to main + weekly schedule)
+  - `.github/workflows/security.yml` — Security Audit: CodeQL + dependency review + npm audit + secrets scan (push/PR to main + weekly schedule)
 - **Deployment:** `wrangler deploy` to Cloudflare Workers
 - **Branch convention:** `claude/description-XXXXX` for agent branches
 - **Related repo:** Relay-Launch/relaylaunch-control-center
@@ -64,7 +65,8 @@ stack, deployment config, CI/CD setup, and project standards.
 - PR reviews required before merging
 - Status checks required to pass before merging:
   - Build Agent (astro.yml) must pass
-  - Lighthouse CI (lighthouse.yml) must pass with 90+ scores
+  - CI build (ci.yml) must pass
+  - Lighthouse CI (lighthouse.yml) must pass with 95+ scores
   - Security audit (security.yml) must pass
 - Force pushes disabled on protected branches
 - Branch deletion rules appropriate
@@ -86,6 +88,7 @@ stack, deployment config, CI/CD setup, and project standards.
 
 This agent activates automatically when changes touch:
 - `.github/workflows/astro.yml` — Deploy workflow
+- `.github/workflows/ci.yml` — PR build validation workflow
 - `.github/workflows/lighthouse.yml` — Lighthouse CI workflow
 - `.github/workflows/security.yml` — Security audit workflow
 - `.github/` — PR templates, issue templates, dependabot config, prompts
@@ -139,6 +142,7 @@ The GitHub Agent works alongside 6 other always-on default agents:
 | Workflow | File | Status | Issues |
 |----------|------|--------|--------|
 | Deploy   | astro.yml    | ... | ... |
+| CI       | ci.yml       | ... | ... |
 | Lighthouse | lighthouse.yml | ... | ... |
 | Security | security.yml | ... | ... |
 

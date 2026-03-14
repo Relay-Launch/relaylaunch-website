@@ -27,7 +27,7 @@ Default mode is **check** unless the user specifies otherwise.
 - **Content:** MDX blog posts via Astro Content Collections
 - **Deployment:** Cloudflare Workers via `wrangler deploy`
 - **Adapter:** @astrojs/cloudflare
-- **CI/CD:** GitHub Actions (`.github/workflows/astro.yml`) builds and deploys via wrangler
+- **CI/CD:** GitHub Actions (`astro.yml` deploy, `ci.yml` PR validation, `lighthouse.yml` performance, `security.yml` scanning)
 
 ## Brand Standards (Architecture Must Enforce)
 

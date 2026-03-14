@@ -3,3 +3,6 @@ contact_links:
   - name: General Question
     url: mailto:hello@relaylaunch.com
     about: For general questions about RelayLaunch services, reach out via email.
+  - name: Security Vulnerability
+    url: mailto:security@relaylaunch.com
+    about: Report security vulnerabilities directly. Do not open a public issue.
