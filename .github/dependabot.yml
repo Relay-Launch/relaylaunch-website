@@ -7,7 +7,6 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - dependencies
-    # Auto-merge patch updates via Dependabot auto-merge
     groups:
       astro:
         patterns:
@@ -23,6 +22,12 @@ updates:
           - "undici"
           - "miniflare"
           - "wrangler"
+      security-patches:
+        applies-to: security-updates
+        dependency-type: production
+        update-types:
+          - "patch"
+          - "minor"
     security-updates:
       enabled: true
 
@@ -34,3 +39,7 @@ updates:
     open-pull-requests-limit: 5
     labels:
       - ci
+    groups:
+      actions:
+        patterns:
+          - "*"

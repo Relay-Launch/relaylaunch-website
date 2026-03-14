@@ -1,0 +1,7 @@
+# RelayLaunch Security Contact
+# https://securitytxt.org/
+
+Contact: mailto:hello@relaylaunch.com
+Preferred-Languages: en
+Canonical: https://www.relaylaunch.com/.well-known/security.txt
+Expires: 2027-03-14T00:00:00.000Z

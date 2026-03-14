@@ -15,6 +15,9 @@ headers, and audit dependencies for the RelayLaunch website.
 - **Hosting:** Cloudflare Workers (edge-deployed)
 - **CI/CD:** GitHub Actions with secrets management
 - **Attack surface:** Static pages + potential API routes + form handlers
+- **CI Security:** CodeQL analysis + dependency review + npm audit (`.github/workflows/codeql.yml`)
+- **Security headers:** Enforced via `public/_headers` (CSP, HSTS, X-Frame-Options, Permissions-Policy)
+- **Vulnerability disclosure:** `public/.well-known/security.txt`
 
 ## Review Areas
 
@@ -43,19 +46,23 @@ headers, and audit dependencies for the RelayLaunch website.
 - No dependencies with typosquatting or supply chain risk indicators
 
 ### 4. Content Security Policy (CSP)
-- CSP header present and restrictive
-- `script-src` does not include `unsafe-inline` or `unsafe-eval` (unless justified)
-- `style-src` is appropriately scoped
-- `img-src` allows only expected domains
-- `frame-ancestors` set to prevent clickjacking
-- Report-uri or report-to configured for CSP violation monitoring
+- CSP header defined in `public/_headers` and covers all pages (`/*`)
+- `script-src` allows `'self'`, `'unsafe-inline'` (Astro inline scripts), and trusted CDNs only
+- `style-src` scoped to `'self'` and `'unsafe-inline'` (Tailwind)
+- `img-src` allows `'self'`, `data:`, `https:`, and `blob:`
+- `frame-ancestors 'self'` prevents clickjacking
+- `connect-src` restricted to known webhook and analytics endpoints
+- `upgrade-insecure-requests` enforces HTTPS for all subresources
+- When modifying CSP, update `public/_headers` — not inline meta tags
 
-### 5. Security Headers
-- `Strict-Transport-Security` (HSTS) with appropriate max-age
+### 5. Security Headers (defined in `public/_headers`)
+- `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
 - `X-Content-Type-Options: nosniff`
-- `X-Frame-Options: DENY` or `SAMEORIGIN`
-- `Referrer-Policy` set appropriately
-- `Permissions-Policy` restricts unnecessary browser features
+- `X-Frame-Options: SAMEORIGIN`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy` disables camera, microphone, geolocation, payment, USB, sensors
+- `X-XSS-Protection: 1; mode=block`
+- All headers applied globally via `/*` rule in `public/_headers`
 
 ### 6. Form & Input Security
 - Contact/intake forms validate input server-side
