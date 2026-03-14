@@ -194,7 +194,7 @@ def project():
 @click.option("--dpi", default=72, type=int, help="Canvas DPI.")
 @click.option("--mode", default="RGB", type=click.Choice(["RGB", "RGBA", "L", "CMYK"]))
 @click.option("--profile", type=click.Choice(list(proj_mod.PROFILES.keys())), help="Use a preset profile.")
-@click.option("--output", "-o", help="Output file path.")
+@click.option("--output", "-o", "output_path", help="Output file path.")
 @handle_error
 def project_new(name, width, height, dpi, mode, profile, output_path=None):
     """Create a new image project."""
@@ -220,7 +220,7 @@ def project_open(path):
 
 
 @project.command("save")
-@click.option("--output", "-o", help="Save to a different path.")
+@click.option("--output", "-o", "output_path", help="Save to a different path.")
 @handle_error
 @require_project
 def project_save(output_path=None):
@@ -665,13 +665,13 @@ def draw():
 @draw.command("create")
 @click.option("--width", "-w", default=800, type=int)
 @click.option("--height", "-h", default=600, type=int)
-@click.option("--output", "-o", required=True, help="Output file path.")
+@click.option("--output", "-o", "output_path", required=True, help="Output file path.")
 @click.option("--bg", default="white", help="Background color.")
 @handle_error
-def draw_create(width, height, output, bg):
+def draw_create(width, height, output_path, bg):
     """Create a blank image via GIMP backend."""
     from cli_anything.gimp.utils.gimp_backend import create_and_export
-    result = create_and_export(width, height, output, bg)
+    result = create_and_export(width, height, output_path, bg)
     output(result)
 
 

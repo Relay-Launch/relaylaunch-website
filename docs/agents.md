@@ -769,10 +769,9 @@ When setting up a new repo in the RelayLaunch ecosystem:
 ## CLI-Anything — Agent-Native Software CLIs
 
 The Relay Method™ integrates [CLI-Anything](https://github.com/HKUDS/CLI-Anything),
-the open-source framework for making any software agent-controllable via
-structured CLI commands. CLI-Anything generates complete Python CLI harnesses
-using a 7-phase pipeline: Analyze → Design → Implement → Plan Tests → Write
-Tests → Document → Publish.
+the open-source framework that turns any software into an agent-friendly CLI.
+CLI-Anything generates complete Python CLI harnesses using a 7-phase pipeline:
+Analyze, Design, Implement, Plan Tests, Write Tests, Document, Publish.
 
 ### Installed CLI Harnesses
 
@@ -783,8 +782,8 @@ Tests → Document → Publish.
 ### GIMP CLI Agent
 
 The GIMP CLI agent provides raster image processing via a stateful CLI with
-layers, filters, canvas manipulation, and export. It uses Pillow as primary
-engine with optional GIMP batch mode fallback.
+layers, filters, canvas manipulation, and export. It runs on Pillow with
+optional GIMP batch mode as fallback.
 
 **Command Groups:** `project`, `layer`, `canvas`, `filter`, `media`, `export`, `draw`, `session`
 

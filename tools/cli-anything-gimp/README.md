@@ -1,6 +1,6 @@
 # cli-anything-gimp
 
-CLI harness for GIMP — raster image processing via CLI. Generated using the
+CLI harness for GIMP. Raster image processing via CLI. Generated using the
 [CLI-Anything](https://github.com/HKUDS/CLI-Anything) 7-phase pipeline.
 
 ## Installation
@@ -56,7 +56,7 @@ cli-anything-gimp media probe photo.png
 - **Primary engine:** Pillow (always available)
 - **Optional backend:** GIMP batch mode via `gimp -i -b` (Script-Fu)
 - **State model:** JSON project manifests with layer stacks
-- **Output:** Dual-mode — human-readable or `--json` for agents
+- **Output:** Dual-mode, human-readable or `--json` for agents
 - **REPL:** Interactive mode via prompt-toolkit
 
 ## Requirements
