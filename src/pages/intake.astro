@@ -515,6 +515,10 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
     });
   });
 
+  // Client-side rate limiting
+  const RATE_LIMIT_KEY = 'rl_intake_submitted';
+  const RATE_LIMIT_MS = 60_000; // 1 minute between submissions
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!validateStep(currentStep)) return;
@@ -523,6 +527,12 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
     const honeypot = form.querySelector('input[name="website"]') as HTMLInputElement;
     if (honeypot?.value) {
       form.hidden = true;
+      return;
+    }
+
+    // Rate limiting: prevent rapid resubmissions
+    const lastSubmit = sessionStorage.getItem(RATE_LIMIT_KEY);
+    if (lastSubmit && Date.now() - parseInt(lastSubmit) < RATE_LIMIT_MS) {
       return;
     }
 
@@ -572,6 +582,7 @@ const webhookUrl = import.meta.env.PUBLIC_INTAKE_WEBHOOK_URL || '';
       clearTimeout(timeoutId);
       if (!res.ok) throw new Error('Submission failed');
 
+      sessionStorage.setItem(RATE_LIMIT_KEY, String(Date.now()));
       form.hidden = true;
       successEl.hidden = false;
     } catch {
