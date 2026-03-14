@@ -60,6 +60,7 @@ Live URL: https://www.relaylaunch.com
 - src/styles/ - Global CSS (global.css, starwind.css)
 - src/utils/ - Utility functions (blog.ts)
 - public/ - Static assets (favicon, robots.txt, og-default.png)
+- tools/cli-anything-gimp/ - GIMP CLI harness (CLI-Anything, Python/Click)
 
 ## Code Standards
 - Every page: unique <title>, <meta description>, Open Graph tags
@@ -136,6 +137,8 @@ Type any trigger in your prompt to activate the matching specialist:
 - `~plan-kpi` — Business metrics coaching (internal)
 - `~plan-ceo-review` — Strategic vision review (internal)
 - `~plan-eng-review` — Architecture maintainability review (internal)
+- `/cli-anything` — Generate agent-native CLI for any software (7-phase pipeline)
+- `/cli-anything gimp` — GIMP image processing via CLI-Anything harness
 
 ### Mode + Domain Triggers
 Use a mode prefix + domain for fast, precise agent calls. Both symbol
@@ -175,6 +178,7 @@ for the full spec.
 - **CrewAI** (Phase 2) — Multi-agent crew orchestration (https://github.com/crewAIInc/crewAI)
 - **LangGraph** (Phase 3) — Graph-based workflow execution (https://github.com/langchain-ai/langgraph)
 - **Dotprompt** (Phase 2) — Typed prompt templates (https://github.com/google/dotprompt)
+- **CLI-Anything** — Agent-native CLI generation for any software (https://github.com/HKUDS/CLI-Anything)
 
 ### BMAD Agent Roles
 When acting as a BMAD agent, follow the role:
@@ -206,6 +210,7 @@ When acting as a BMAD agent, follow the role:
 - `finance-tools-coach.prompt.md` — Tool stack audit & cost optimization (Internal)
 - `finance-kpi-explainer.prompt.md` — Business metrics translation (Internal)
 - `relay-meta-roles.prompt.md` — CEO/Eng/Code Review/Retro overlays (Internal)
+- `cli-anything.prompt.md` — CLI-Anything agent-native CLI generator
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
@@ -217,6 +222,16 @@ the right agent. Key mappings for this repo:
 - Content/blog/copy → Agency Content Creator
 - Design/UI/UX → Agency UI Designer, UX Researcher
 - Growth/marketing → Agency Growth Hacker, Social Media Strategist
+- Image processing/GIMP → CLI-Anything GIMP Agent
+
+## CLI-Anything Tools
+Agent-native CLI harnesses for software automation. See `docs/agents.md` for
+the full registry and `tools/cli-anything-*/` for installed packages.
+- **GIMP CLI** (`cli-anything-gimp`) — Raster image processing: layers, filters, canvas, export
+  - Install: `cd tools/cli-anything-gimp && pip install -e .`
+  - Usage: `cli-anything-gimp --json project new --name poster --profile hd1080p -o poster.json`
+  - Tests: `cd tools/cli-anything-gimp && pytest cli_anything/gimp/tests/ -v`
+  - Workflow: `.github/workflows/cli-anything.yml`
 
 ## Agent Team Coordination
 When working as a teammate in an agent team:

@@ -83,6 +83,7 @@ short, memorable, and organized by business function.
 | `/api` | BMAD *architect | API endpoint review and validation |
 | `/prose` | Prose Agent (Default) | Human language enforcement, AI-ism detection |
 | `/review` | Meta-Role Code Reviewer | Pre-ship senior code review |
+| `/cli-anything` | CLI-Anything Pipeline | Generate agent-native CLI for any software |
 | `~retro` | Meta-Role Retrospective | Structured project retrospective |
 | `~biz-finance` | Finance Navigator (Internal) | Business structure and entity planning |
 | `?biz-tools` | Tools Coach (Internal) | Tool stack audit and cost optimization |
@@ -127,6 +128,8 @@ to understand the business domain, not just the technical task.
 - `/relay golive` — Full production deployment gate (all 7 default agents run final checks)
 - `/relay ci` — GitHub Actions workflow validation and CI/CD pipeline review
 - `/relay optimize` — Agents review and improve their own prompt files
+- `/cli-anything gimp` — GIMP image processing via CLI-Anything harness
+- `/cli-anything <software>` — Generate new CLI harness (7-phase pipeline)
 - `/ship` — Push to remote + create PR with full gate check by all 7 default agents
 
 ---
@@ -742,6 +745,7 @@ The website showcases **11 divisions** organized into two categories:
 | Agency domain specialists | 30+ |
 | Contains Studio specialists (Phase 1) | 30+ |
 | CrewAI service-tier crews (Phase 2) | 4 |
+| CLI-Anything harnesses | 1 (GIMP) |
 | Total named triggers | 60+ |
 | Total specialist agents | 190+ |
 
@@ -759,6 +763,58 @@ When setting up a new repo in the RelayLaunch ecosystem:
 2. Add BMAD prompt files to `.github/prompts/` as needed
 3. Reference agents in `CLAUDE.md` and `.github/copilot-instructions.md`
 4. Install frameworks: `npx bmad-method install` and copy Agency agents
+
+---
+
+## CLI-Anything — Agent-Native Software CLIs
+
+The Relay Method™ integrates [CLI-Anything](https://github.com/HKUDS/CLI-Anything),
+the open-source framework for making any software agent-controllable via
+structured CLI commands. CLI-Anything generates complete Python CLI harnesses
+using a 7-phase pipeline: Analyze → Design → Implement → Plan Tests → Write
+Tests → Document → Publish.
+
+### Installed CLI Harnesses
+
+| Software | CLI Command | Location | Status |
+|----------|------------|----------|--------|
+| **GIMP** | `cli-anything-gimp` | `tools/cli-anything-gimp/` | Installed |
+
+### GIMP CLI Agent
+
+The GIMP CLI agent provides raster image processing via a stateful CLI with
+layers, filters, canvas manipulation, and export. It uses Pillow as primary
+engine with optional GIMP batch mode fallback.
+
+**Command Groups:** `project`, `layer`, `canvas`, `filter`, `media`, `export`, `draw`, `session`
+
+**Triggers:**
+- `/cli-anything gimp` — Activate GIMP CLI agent for image processing tasks
+- `/cli-anything` — Generate a new CLI harness for any software (7-phase pipeline)
+
+**Capabilities:**
+- 14 canvas presets (HD, 4K, social media, print)
+- 24+ filters (adjustment, blur, stylize, transform)
+- 15 blend modes with numpy compositing
+- 13 export presets (PNG, JPEG, WebP, TIFF, PDF, etc.)
+- Session persistence with 50-step undo/redo
+- Dual output: human-readable or `--json` for agent consumption
+- Interactive REPL mode via prompt-toolkit
+
+**Installation:**
+```bash
+cd tools/cli-anything-gimp && pip install -e .
+```
+
+### Adding New CLI Harnesses
+
+To generate a CLI for new software using the CLI-Anything methodology:
+
+1. Run `/cli-anything <software>` to start the 7-phase pipeline
+2. Output goes to `tools/cli-anything-<software>/`
+3. Register the new harness in this table
+4. Add trigger to Quick Triggers section
+5. Update `CLAUDE.md` with the new CLI tool reference
 
 ---
 
