@@ -94,3 +94,27 @@ Every story must meet these criteria before closing:
 
 ### Individual Story
 Full story card with acceptance criteria, technical notes, and task breakdown.
+
+### Velocity Tracking
+After each sprint, compare planned vs. actual completion to calibrate future capacity:
+
+```
+## Sprint [N] Velocity Report
+
+| Metric                  | Value |
+|-------------------------|-------|
+| Stories planned          | [X]   |
+| Stories completed        | [Y]   |
+| Completion rate          | [Y/X] |
+| Points planned           | [P]   |
+| Points completed         | [C]   |
+| Carry-over to next sprint| [P-C] |
+
+### Observations
+- [What went well / what slowed us down]
+- [Adjust next sprint capacity up or down based on trend]
+```
+
+Use a rolling average of the last 3 sprints to set realistic capacity targets.
+If completion rate drops below 70% for 2 consecutive sprints, reduce planned
+points by 20% and investigate blockers.

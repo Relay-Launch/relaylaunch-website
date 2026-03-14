@@ -25,11 +25,12 @@ audits, see `bmad-audit.prompt.md`.
 - [ ] All `<img>` and `<Image>` elements have descriptive `alt` text
 - [ ] Interactive elements (links, buttons) have accessible names
 - [ ] Focus-visible outlines present on all focusable elements
-- [ ] Color contrast meets AA ratio (4.5:1 for text, 3:1 for large text)
+- [ ] Color contrast meets WCAG AA ratio: 4.5:1 minimum for normal text (< 18px / 14px bold), 3:1 minimum for large text (>= 18px / 14px bold)
 - [ ] Form inputs have associated `<label>` elements
 - [ ] Skip-to-content link present (if applicable)
 - [ ] ARIA attributes used correctly (no redundant or incorrect roles)
 - [ ] Page is navigable with keyboard only (Tab, Enter, Escape)
+- [ ] Font stack compliance: only `Arial, Helvetica, sans-serif` — flag any page or component using other font families
 
 ### 2. Responsive Design
 - [ ] Mobile (320-639px): Content readable, no horizontal scroll
@@ -70,11 +71,23 @@ audits, see `bmad-audit.prompt.md`.
 - [ ] Sitemap generated and accessible
 - [ ] Canonical URLs set on all pages
 
-### 6. Build Health
+### 6. Starwind Component Testing
+- [ ] All Starwind components (in `src/components/starwind/`) render correctly in isolation
+- [ ] Starwind components respect brand color variables (no hardcoded off-brand colors)
+- [ ] Starwind component slots and props pass through correctly
+- [ ] Starwind components maintain accessibility (keyboard nav, ARIA, focus states)
+
+### 7. Build Health
 - [ ] `npm run build` completes without errors or warnings
 - [ ] No TypeScript errors in strict mode
 - [ ] No console errors in browser dev tools
 - [ ] MDX frontmatter validates against content schema
+
+### 8. Content Quality (Prose Agent Cross-Check)
+- [ ] Flag any content changes for Prose Agent review (AI-ism detection, passive voice, em dash overuse)
+- [ ] Verify visible text follows brand voice: direct, confident, accessible, action-oriented, team-first ("we" not "I")
+- [ ] Ensure no AI-generated filler language (e.g., "leverage," "utilize," "cutting-edge," "game-changer")
+- [ ] Cross-reference with `bmad-prose.prompt.md` for full language enforcement rules
 
 ## Process
 

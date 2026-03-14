@@ -36,6 +36,7 @@ For every page:
 - [ ] LocalBusiness schema with address, phone, service area
 - [ ] BlogPosting schema on each blog post
 - [ ] BreadcrumbList on interior pages
+- [ ] Structured data color values (logos, brand references) use brand-approved colors only: Dark Navy #0F172A, Electric Blue #007AFF, White #FFFFFF, Light Gray #F8FAFC
 
 ### 4. Technical SEO
 - [ ] `robots.txt` exists and is properly configured
@@ -52,7 +53,13 @@ For every page:
 - [ ] No render-blocking resources
 - [ ] Images optimized (WebP/AVIF via Astro Image)
 
-### 6. Content SEO
+### 6. Brand & Service Tier Compliance
+- [ ] Service tier names use canonical names exactly: **Complete Analysis**, **Launch**, **Run**, **Scale** — no variations (e.g., not "Analysis Package" or "Starter")
+- [ ] Service tier pricing matches canonical ranges from CLAUDE.md
+- [ ] Homepage meta description includes the tagline: "Ops on Autopilot. You on Strategy."
+- [ ] Homepage `<title>` reflects brand positioning and tagline
+
+### 7. Content SEO
 - [ ] Blog posts have descriptive URLs (slugs match topic)
 - [ ] Internal linking between related pages
 - [ ] Service pages target relevant keywords

@@ -43,9 +43,19 @@ headers, and audit dependencies for the RelayLaunch website.
 - Check for known CVEs in direct dependencies
 - Verify no unnecessary dependencies inflate attack surface
 - Lock file (`package-lock.json`) is committed and up to date
+- **Verify `package-lock.json` is tracked by git** — run `git ls-files package-lock.json` to confirm. If missing from version control, `npm ci` in CI will fail and local installs may produce inconsistent dependency trees
 - No dependencies with typosquatting or supply chain risk indicators
 
-### 4. Content Security Policy (CSP)
+### 4. CORS Configuration
+- API endpoints (if any) must define explicit `Access-Control-Allow-Origin` headers
+- Allowed origins: `https://relaylaunch.com`, `https://www.relaylaunch.com`
+- Never use wildcard (`*`) for `Access-Control-Allow-Origin` on authenticated endpoints
+- `Access-Control-Allow-Methods` restricted to required HTTP methods only
+- `Access-Control-Allow-Headers` limited to necessary headers (no wildcards)
+- Preflight (`OPTIONS`) responses should include appropriate `Access-Control-Max-Age`
+- CORS headers are set in `src/middleware.ts` alongside other security headers
+
+### 5. Content Security Policy (CSP)
 - CSP header defined in `src/middleware.ts` and applied to all responses
 - `script-src` allows `'self'`, `'unsafe-inline'` (Astro inline scripts), and trusted CDNs only
 - `style-src` scoped to `'self'` and `'unsafe-inline'` (Tailwind)
@@ -55,7 +65,7 @@ headers, and audit dependencies for the RelayLaunch website.
 - `upgrade-insecure-requests` enforces HTTPS for all subresources
 - When modifying CSP, update `src/middleware.ts` — not inline meta tags or `_headers` files
 
-### 5. Security Headers (defined in `src/middleware.ts`)
+### 6. Security Headers (defined in `src/middleware.ts`)
 - `Strict-Transport-Security: max-age=31536000; includeSubDomains; preload`
 - `X-Content-Type-Options: nosniff`
 - `X-Frame-Options: SAMEORIGIN`
@@ -64,15 +74,17 @@ headers, and audit dependencies for the RelayLaunch website.
 - `X-XSS-Protection: 1; mode=block`
 - All headers applied via Astro middleware on every response (`src/middleware.ts`)
 
-### 6. Form & Input Security
+### 7. Form & Input Security
 - Contact/intake forms validate input server-side
 - Rate limiting on form submission endpoints
 - CSRF protection on state-changing requests
 - Email fields validated to prevent header injection
 - File uploads (if any) restricted by type and size
 
-### 7. Third-Party Risk
+### 8. Third-Party Risk
 - External scripts loaded from trusted CDNs with integrity hashes (SRI)
+- All external `<script>` and `<link rel="stylesheet">` tags must include the `integrity` attribute with a valid SRI hash and `crossorigin="anonymous"`
+- When updating external dependencies, regenerate SRI hashes (use `shasum -b -a 384 [file] | awk '{print $1}' | xxd -r -p | base64`)
 - Third-party embeds (analytics, chat widgets) reviewed for data collection
 - No third-party scripts with write access to the DOM
 - External link `rel="noopener"` prevents reverse tabnapping
