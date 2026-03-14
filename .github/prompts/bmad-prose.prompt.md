@@ -34,7 +34,7 @@ internal developer documentation.
 Flag and suggest replacements for these AI writing patterns:
 
 ### Em Dashes
-Replace `—` (em dash) with commas, periods, colons, or conjunctions.
+Replace the em dash character (`—`, `&mdash;`, Unicode U+2014) with commas, periods, colons, or conjunctions.
 - BAD: "We build systems — fast ones — that scale."
 - GOOD: "We build fast systems that scale."
 
@@ -157,3 +157,9 @@ gate in the sequence:
 - "We leverage cutting-edge solutions to streamline your digital ecosystem."
 - "Our comprehensive approach transforms your holistic business paradigm."
 - "Unlock seamless scalability with our innovative, best-in-class platform."
+
+## Veteran Precision
+
+"Veteran precision" means: short, direct sentences without hedging.
+Avoid "might," "could," "may," "perhaps," "it's possible that."
+State facts. Give direction. Be specific. No filler.

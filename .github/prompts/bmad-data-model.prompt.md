@@ -35,7 +35,7 @@ structures, and type safety.
 - Data fetched in pages flows correctly to components
 - No prop drilling beyond 2 levels — restructure if needed
 - Blog post queries use proper `getCollection()` / `getEntry()` patterns
-- Draft posts filtered correctly in production builds
+- Draft posts filtered correctly: `getCollection('blog', ({ data }) => !data.draft)`
 
 ### 4. Schema Evolution Safety
 - Adding new fields won't break existing content

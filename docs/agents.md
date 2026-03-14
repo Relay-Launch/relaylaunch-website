@@ -449,7 +449,7 @@ automatically when referenced. Claude Code reads them via `CLAUDE.md`.
 | *dev | Implementation | `bmad-brand-fix.prompt.md` | `/brandfix` | Find and fix brand color violations |
 | *dev + *qa | Polish | `bmad-prettify.prompt.md` | `/prettify` | Aesthetic improvements with brand compliance |
 | *pm | Requirements | `bmad-seo.prompt.md` | `/seo` | SEO audit with prioritized fixes |
-| Prose Agent | Language | `bmad-prose.prompt.md` | _(default)_ | Human language enforcement, AI-ism detection |
+| Prose Agent | Language | `bmad-prose.prompt.md` | _(default, auto-triggers on content changes)_ | Human language enforcement, AI-ism detection |
 | Infra Agent | Infrastructure | `bmad-infra.prompt.md` | `/infra` | DNS, CDN, CI/CD, hosting review |
 | Security Agent | Security | `bmad-security.prompt.md` | `/security` | Threat detection, vulnerability scanning, CSP |
 | GitHub Agent | GitHub | `bmad-github.prompt.md` | `/github` | Workflows, Actions, branch protection |
