@@ -178,6 +178,7 @@ const faqSchema = {
           <span class="section-eyebrow" style="margin-bottom: 12px;">Tier 1</span>
           <h3 id="launch" class="tier-name"><ServiceIcons icon="launch" size={28} /> Launch</h3>
           <div class="tier-price price-primary">$2,500–$5,000 <span class="price-label">one-time</span></div>
+          <p class="tier-best-for">Best for businesses starting fresh or replacing a broken setup.</p>
           <p class="tier-desc">Your digital foundation, built right the first time. Professional website, core automations, connected tools — all delivered in one engagement. You walk away with a system that works.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
@@ -197,6 +198,7 @@ const faqSchema = {
           <h3 id="run" class="tier-name"><ServiceIcons icon="run" size={28} /> Run</h3>
           <div class="tier-price price-primary">$500–$1,000<span class="price-label">/month</span></div>
           <p class="tier-note">3-month minimum</p>
+          <p class="tier-best-for">Best for businesses with infrastructure in place that need ongoing operations support.</p>
           <p class="tier-desc">Your own AI-powered operations team. We deploy custom AI agents built for your business — not off-the-shelf bots — that handle content, monitoring, and client follow-up while you focus on what you do best.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
@@ -216,6 +218,7 @@ const faqSchema = {
           <h3 id="scale" class="tier-name"><ServiceIcons icon="scale" size={28} /> Scale</h3>
           <div class="tier-price price-primary">$1,000–$2,500<span class="price-label">/month</span></div>
           <p class="tier-note">6-month minimum</p>
+          <p class="tier-best-for">Best for multi-location businesses or teams ready for aggressive growth.</p>
           <p class="tier-desc">A full AI agent team custom-built for your company. Multiple tailor-made agents handling content, outreach, lead qualification, and growth strategy — each trained on your brand, your data, and your goals. For businesses ready to scale, not just maintain.</p>
           <h4 class="tier-includes-title">Includes</h4>
           <ul class="checklist">
@@ -654,6 +657,18 @@ const faqSchema = {
     font-size: 13px;
     color: var(--color-muted);
     margin-bottom: 4px;
+  }
+
+  .tier-best-for {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    border-radius: var(--radius-xs);
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    line-height: 1.5;
   }
 
   .tier-desc {

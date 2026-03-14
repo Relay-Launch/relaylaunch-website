@@ -4,6 +4,7 @@ import { Button } from '@/components/starwind/button';
 import { getPublishedPosts, formatDate } from '@/utils/blog';
 
 const posts = await getPublishedPosts();
+const webhookUrl = import.meta.env.PUBLIC_LEAD_MAGNET_WEBHOOK_URL || '#';
 ---
 
 <Layout
@@ -76,6 +77,41 @@ const posts = await getPublishedPosts();
           <p>No posts yet. Check back soon.</p>
         </div>
       )}
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ NEWSLETTER -->
+  <section class="section newsletter-section">
+    <div class="container">
+      <div class="newsletter-card card" style="padding: var(--card-padding); border-color: var(--color-primary); box-shadow: 0 0 0 1px var(--color-primary), var(--shadow-sm);">
+        <div class="newsletter-inner">
+          <div class="newsletter-text">
+            <span class="section-eyebrow">Stay in the Loop</span>
+            <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;">Get the Digital Readiness Assessment</h2>
+            <p style="color: var(--color-muted); font-size: 15px; line-height: 1.6;">
+              A 1-page checklist to see if your business has outgrown its current digital setup.
+              Score yourself across 10 areas and find out where you're leaving time and money on the table.
+            </p>
+          </div>
+          <div class="newsletter-form-wrap">
+            <form id="blog-newsletter-form" class="newsletter-form" data-webhook={webhookUrl} novalidate>
+              <div class="hp-field" aria-hidden="true"><label for="blog-website">Website</label><input type="text" id="blog-website" name="website" tabindex="-1" autocomplete="off" /></div>
+              <div class="form-field">
+                <input type="text" id="blog-name" name="name" required autocomplete="name" placeholder="Your name" />
+              </div>
+              <div class="form-field">
+                <input type="email" id="blog-email" name="email" required autocomplete="email" placeholder="you@company.com" />
+              </div>
+              <Button type="submit" variant="primary" class="w-full justify-center">Get the Assessment →</Button>
+              <p style="font-size: 12px; color: var(--color-muted); margin-top: 8px; text-align: center;">No spam. Unsubscribe anytime.</p>
+            </form>
+            <div id="blog-newsletter-success" class="newsletter-success" hidden>
+              <p style="font-weight: 700; margin-bottom: 4px;">You're in.</p>
+              <p style="color: var(--color-muted); font-size: 14px;">Check your inbox for the assessment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -163,6 +199,48 @@ const posts = await getPublishedPosts();
     color: var(--color-primary);
   }
 
+  /* ── Newsletter ── */
+  .newsletter-section {
+    background: var(--color-surface);
+  }
+
+  .newsletter-card {
+    background: linear-gradient(135deg, var(--color-bg) 0%, color-mix(in srgb, var(--primary) 3%, var(--color-bg)) 100%);
+  }
+
+  .newsletter-inner {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+  }
+
+  @media (max-width: 768px) {
+    .newsletter-inner { grid-template-columns: 1fr; gap: 24px; }
+  }
+
   .cta-section { background: var(--color-surface); }
 
   .empty-state {
@@ -172,3 +250,33 @@ const posts = await getPublishedPosts();
     font-size: 16px;
   }
 </style>
+
+<script>
+  const blogForm = document.getElementById('blog-newsletter-form') as HTMLFormElement | null;
+  if (blogForm) {
+    blogForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const hp = blogForm.querySelector<HTMLInputElement>('[name="website"]');
+      if (hp && hp.value) return;
+
+      const webhookUrl = blogForm.dataset.webhook;
+      if (!webhookUrl || webhookUrl === '#') return;
+
+      const data = Object.fromEntries(new FormData(blogForm));
+      delete data.website;
+
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...data, source: 'blog-newsletter' }),
+        });
+        blogForm.hidden = true;
+        const success = document.getElementById('blog-newsletter-success');
+        if (success) success.hidden = false;
+      } catch {
+        // Silently fail - form stays visible for retry
+      }
+    });
+  }
+</script>
