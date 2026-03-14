@@ -352,6 +352,52 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════ INDUSTRIES -->
+  <section class="section" style="background: var(--color-surface);">
+    <div class="container">
+      <span class="section-eyebrow">Who We Work With</span>
+      <h2 class="section-title" style="margin-bottom: 16px;">Small businesses that serve clients directly.</h2>
+      <p class="section-sub" style="max-width: var(--container-narrow); margin-bottom: 40px;">
+        The infrastructure challenges are the same across industries: disconnected tools,
+        manual processes, and zero automation. We solve them all.
+      </p>
+      <div class="industries-grid reveal-stagger">
+        <div class="industry-item">
+          <span class="industry-icon">💆</span>
+          <span class="industry-name">Wellness & Spas</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">⚖️</span>
+          <span class="industry-name">Professional Services</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">🔧</span>
+          <span class="industry-name">Trades & Contractors</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">🏋️</span>
+          <span class="industry-name">Fitness Studios</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">🍽️</span>
+          <span class="industry-name">Restaurants & Food</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">🏪</span>
+          <span class="industry-name">Retail & E-commerce</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">🏥</span>
+          <span class="industry-name">Healthcare & Clinics</span>
+        </div>
+        <div class="industry-item">
+          <span class="industry-icon">🎓</span>
+          <span class="industry-name">Education & Training</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════ CTA -->
   <section class="section">
     <div class="container" style="text-align: center;">
@@ -866,9 +912,45 @@ const faqSchema = {
     .addons-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* ── Industries grid ── */
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .industry-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .industry-item:hover {
+    border-color: color-mix(in srgb, var(--primary) 25%, var(--color-border));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .industry-icon { font-size: 20px; }
+
+  .industry-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 1024px) {
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 768px) {
     .pkg-header, .pkg-body { grid-template-columns: 1fr; }
     .tiers-grid { grid-template-columns: 1fr; }
     .addons-grid { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -48,6 +48,10 @@ const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
         No commitment required. Tell us where you are and what you're trying to build.
         We'll figure out the right fit and move fast.
       </p>
+      <div class="response-badges">
+        <span class="response-badge">Discovery calls: same-week availability</span>
+        <span class="response-badge">Email responses: 1-2 business days</span>
+      </div>
     </div>
   </section>
 
@@ -234,6 +238,25 @@ const contactWebhookUrl = import.meta.env.PUBLIC_CONTACT_WEBHOOK_URL || '#';
 
 <style>
   .hero { padding-top: 80px; }
+
+  .response-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .response-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: color-mix(in srgb, var(--primary) 8%, transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+    border-radius: 20px;
+    padding: 5px 14px;
+  }
 
   /* Discovery call hero section (P0-6) */
   .discovery-call-section {
