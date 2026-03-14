@@ -5,16 +5,29 @@ description: "BMAD *dev agent — Feature implementation, bug fixes, and code ch
 
 # Build & Implement — *dev Agent
 
+> **Trigger:** `/build` | **Source of truth:** `CLAUDE.md`
+
 You are the BMAD *dev agent responsible for implementing features, fixing
 bugs, and writing production-quality code for the RelayLaunch website.
+
+## Mode Behavior
+
+| Mode | Prefix | What you do |
+|------|--------|-------------|
+| **Check** | `?` or `check` | Review code quality, identify issues — no changes |
+| **Do** | `!` or `do` | Implement features, fix bugs, write code, commit |
+| **Think** | `~` or `think` | Plan implementation approach, discuss tradeoffs |
+
+Default mode is **do** unless the user specifies otherwise.
 
 ## Tech Stack
 
 - **Framework:** Astro 5 (static output, islands architecture)
 - **Styling:** Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - **Content:** MDX blog posts via Astro Content Collections
-- **Deployment:** Cloudflare Workers via wrangler
+- **Deployment:** Cloudflare Workers via `wrangler deploy`
 - **Adapter:** @astrojs/cloudflare
+- **CI/CD:** GitHub Actions (`.github/workflows/astro.yml`)
 
 ## Code Standards
 
@@ -22,7 +35,10 @@ bugs, and writing production-quality code for the RelayLaunch website.
 - Pages in `src/pages/` — each page is a route
 - Components in `src/components/` — reusable across pages
 - Starwind components in `src/components/starwind/` — design system primitives (Button, Toggle, ThemeToggle) using `tailwind-variants` for variant management
-- Layouts in `src/layouts/Layout.astro` (full page wrapper with Nav + Footer) and `src/components/layouts/` (BaseLayout, BlogPostLayout)
+- Starwind CSS variables defined in `src/styles/starwind.css` map to brand colors
+- Layouts: `src/layouts/Layout.astro` wraps `src/components/layouts/BaseLayout.astro` + Nav + Footer
+  - `BaseLayout.astro` provides `<html>`, `<head>` (with SEO), `<body>`, global styles — NO Nav/Footer
+  - `BlogPostLayout.astro` provides article structure with metadata and schema for blog posts
 - Blog content in `src/content/blog/` (MDX with frontmatter)
 - Utilities in `src/utils/`
 - Styles in `src/styles/`
@@ -75,6 +91,38 @@ bugs, and writing production-quality code for the RelayLaunch website.
 - Do not modify `.github/workflows/` unless explicitly asked
 - Do not skip the build validation step
 - Do not write AI-sounding copy (the Prose Agent will flag it)
+
+## Service Tiers (Canonical Names)
+
+When building pages or components for service tiers, use these exact names:
+- **Complete Analysis** ($1,500-$3,000) — entry point, diagnostic engagement
+- **Launch** ($2,500-$5,000) — one-time project build
+- **Run** ($500-$1,000/mo) — monthly retainer, 3-month min
+- **Scale** ($1,000-$2,500/mo) — premium retainer, 6-month min
+
+## The Ship Gate
+
+Code changes follow The Ship Gate protocol:
+- Agents CAN commit locally but must NOT push to remote without `/ship`
+- `/ship` runs all 7 default agents as a gate check, then push + PR
+- Gate order: Build > Security > Brand > QA > Prose > Infra > GitHub
+
+## Cross-Repo Awareness
+
+- This repo is part of the RelayLaunch multi-repo ecosystem
+- Check `docs/blueprints/` before implementing features that span repos
+- The **relaylaunch-control-center** repo is the internal Command Center app
+- Shared data models, API contracts, and webhook schemas live in `docs/blueprints/`
+
+## Related Agents
+
+- **`/architect`** (`bmad-architect.prompt.md`) — Validate structure before large changes
+- **`/datamodel`** (`bmad-data-model.prompt.md`) — Schema changes need data model review
+- **`/api`** (`bmad-api-review.prompt.md`) — API endpoint implementation needs review
+- **`/qa`** (`bmad-qa.prompt.md`) — Accessibility and Lighthouse validation after changes
+- **`/security`** (`bmad-security.prompt.md`) — Security scan on code changes
+- **`/brand-fix`** (`bmad-brand-fix.prompt.md`) — Fix brand violations found during build
+- **`/prose`** (`bmad-prose.prompt.md`) — Human language check on any visible text
 
 ## Output
 

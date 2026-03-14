@@ -18,7 +18,7 @@ Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
 - Background: White `#FFFFFF`
 - Alt sections: Light Gray `#F8FAFC`
 - Font: `Arial, Helvetica, sans-serif` — NO other fonts
-- Tagline: "Launch your digital infrastructure, without pausing your business."
+- Tagline: "Ops on Autopilot. You on Strategy."
 - Voice: Direct, confident, accessible, action-oriented, veteran precision
 - **DO NOT** use green, orange, or any color outside this 4-color system
 
@@ -36,7 +36,7 @@ Founder: Victor David Medina, USMC Sergeant (E-5), Watertown MA.
 - **Framework:** Astro 5 (static output, islands architecture)
 - **Styling:** Tailwind CSS 4.2 + custom CSS variables + Starwind components
 - **Content:** MDX blog posts via Astro Content Collections
-- **Deployment:** Cloudflare Pages/Workers via wrangler
+- **Deployment:** Cloudflare Workers via wrangler deploy
 - **CI/CD:** GitHub Actions (.github/workflows/astro.yml → wrangler deploy)
 - **Domain:** relaylaunch.com (Registrar: Porkbun, DNS: Cloudflare)
 - **Adapter:** @astrojs/cloudflare
@@ -97,8 +97,9 @@ Type any `/trigger` in your prompt to activate the matching specialist:
 | `/research` | Research/discovery | `/outbound` | Prospecting |
 | `/sprint` | Sprint planning | `/deals` | Deal strategy |
 | `/qa` | Testing/compliance | `/proposal` | RFP/proposals |
-| `/superpowers` | Workflow engine | `/datamodel` | Data model review |
-| `/api` | API endpoint review | | |
+| `/devops` | CI/CD/pipelines | `/coach` | Rep development |
+| `/ux` | UX research | `/datamodel` | Data model review |
+| `/superpowers` | Workflow engine | `/api` | API endpoint review |
 
 ### Mode + Domain Triggers
 
@@ -134,13 +135,21 @@ Examples: `?brand` = audit brand, `!code` = build feature, `~growth` = brainstor
 ### BMAD Prompt Files (`.github/prompts/`)
 
 - `bmad-architect.prompt.md` — Architecture review and structure validation
-- `bmad-data-model.prompt.md` — Data model and schema review
 - `bmad-api-review.prompt.md` — API endpoint review and validation
 - `bmad-audit.prompt.md` — Full brand compliance audit
 - `bmad-brand-fix.prompt.md` — Find and fix brand color violations
+- `bmad-build.prompt.md` — Feature implementation, bug fixes
+- `bmad-data-model.prompt.md` — Data model and schema review
+- `bmad-plan.prompt.md` — Requirements and prioritization
 - `bmad-prettify.prompt.md` — Aesthetic polish with brand compliance
+- `bmad-qa.prompt.md` — Testing, audit and compliance
+- `bmad-research.prompt.md` — Research and discovery
 - `bmad-seo.prompt.md` — SEO audit with prioritized fixes
+- `bmad-sprint.prompt.md` — Story creation and sprint planning
 - `bmad-prose.prompt.md` — Human language enforcement (Prose Agent)
+- `bmad-infra.prompt.md` — DNS, CDN, CI/CD, hosting review
+- `bmad-security.prompt.md` — Threat detection, vulnerability scanning, CSP
+- `bmad-github.prompt.md` — Workflows, Actions, branch protection
 
 ### Quick Agent Lookup
 
@@ -173,5 +182,5 @@ blueprint documents to that folder before starting a build session.
 
 ## Known Issues
 
-- `complete-analysis.astro` still has some hardcoded hex values (`#F8FAFC`, `#fbbf24`, `#64748b`) that should use CSS variables
-- Inconsistent `border-radius` values across pages (10px vs 12px) — consider a `--radius-card` variable
+- Third-party tool logos in index.astro marquee use external brand colors (exempt from 4-color brand standard)
+- Micro-element border-radius (3px, 6px) in complete-analysis.astro progress bars/badges left as literal values (too small for CSS variables)

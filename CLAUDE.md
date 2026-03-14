@@ -110,9 +110,11 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/qa` — Testing, audit, compliance checks
 - `/frontend` — UI implementation (React/Vue/Astro)
 - `/backend` — API design, server architecture
+- `/devops` — CI/CD, pipelines, infrastructure
 - `/infra` — Infrastructure, DNS, CDN, CI/CD, hosting
 - `/security` — Security audit, vulnerability scanning, CSP
 - `/github` — GitHub workflows, Actions, branch protection
+- `/ux` — User testing, usability, research
 - `/content` — Blog posts, copywriting, editorial
 - `/growth` — Acquisition, viral loops, conversion
 - `/brand` — Brand identity, consistency, positioning
@@ -121,6 +123,7 @@ Type any trigger in your prompt to activate the matching specialist:
 - `/outbound` — Prospecting, cold outreach
 - `/deals` — Deal strategy, pipeline, MEDDPICC
 - `/proposal` — RFPs, proposals, win themes
+- `/coach` — Rep development, call review, training
 - `/superpowers` — Full brainstorm → plan → execute → test → review workflow
 - `/datamodel` — Data model and schema review
 - `/api` — API endpoint review and validation
@@ -175,9 +178,17 @@ When acting as a BMAD agent, follow the role:
 - `bmad-api-review.prompt.md` — API endpoint review (*architect)
 - `bmad-audit.prompt.md` — Brand compliance audit (*qa)
 - `bmad-brand-fix.prompt.md` — Fix brand color violations (*dev)
+- `bmad-build.prompt.md` — Feature implementation, bug fixes (*dev)
+- `bmad-plan.prompt.md` — Requirements & prioritization (*pm)
 - `bmad-prettify.prompt.md` — Aesthetic polish (*dev + *qa)
+- `bmad-qa.prompt.md` — Testing, audit & compliance (*qa)
+- `bmad-research.prompt.md` — Research & discovery (*analyst)
 - `bmad-seo.prompt.md` — SEO audit (*pm)
+- `bmad-sprint.prompt.md` — Story creation & sprint planning (*sm)
 - `bmad-prose.prompt.md` — Human language enforcement (Prose Agent)
+- `bmad-infra.prompt.md` — DNS, CDN, CI/CD, hosting (Infra Agent)
+- `bmad-security.prompt.md` — Threat detection, vulnerability scanning (Security Agent)
+- `bmad-github.prompt.md` — Workflows, Actions, branch protection (GitHub Agent)
 
 ### Quick Agent Lookup
 When the user asks for help with a topic, check `docs/agents.md` to find
