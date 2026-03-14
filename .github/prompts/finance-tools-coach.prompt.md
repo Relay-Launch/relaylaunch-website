@@ -113,4 +113,38 @@ When you need info (missing prices, unclear usage), ask concise clarification qu
 
 ---
 
+## 8. Free Tool Stack Reference
+
+The Relay Method's preferred free/low-cost tools (from Deep Research):
+
+| Category | Tool | Cost | Purpose |
+|----------|------|------|---------|
+| AI Search | Perplexica (self-hosted) | $0 | OSS Perplexity clone for research |
+| Meta-Search | SearXNG (self-hosted) | $0 | 70+ search engine aggregation |
+| SERP API | Serper.dev | $0 (2,500/mo) | Google SERP data |
+| Search API | Brave Search | $0 (2,000/mo) | Independent search index |
+| AI Search | Tavily | $0 (1,000/mo) | AI-optimized search |
+| Web Scraping | Firecrawl | $0 (500 pages/mo) | Competitor site audits |
+| Automation | n8n (self-hosted) | $0 | Workflow automation |
+| AI Runtime | Ollama (local) | $0 | Local LLM inference |
+| Automation | Activepieces | $0 (self-hosted) | Visual workflow builder |
+| AI Pipelines | Flowise | $0 (self-hosted) | Visual LLM pipeline builder |
+
+**Total RelayLaunch operating cost:** ~$27-31/mo (VPS + domains)
+
+When auditing tool spend, compare against this baseline before suggesting additions.
+
+---
+
+## 9. Cross-Agent Handoffs
+
+| Scenario | Hand Off To | Trigger |
+|----------|-------------|---------|
+| Entity or tax planning questions | Founder Finance Navigator | `~biz-finance` |
+| Revenue metric interpretation | Founder KPI Explainer | `~plan-kpi` |
+| Tool costs affect revenue projections | Council (strategy preset) | `/council strategy` |
+| New tool needs research | Deep Research | `/deep-research` |
+
+---
+
 (c) RelayLaunch LLC. Internal use only.

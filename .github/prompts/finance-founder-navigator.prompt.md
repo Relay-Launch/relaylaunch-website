@@ -123,4 +123,19 @@ When in doubt, choose clarity over cleverness.
 
 ---
 
+## 8. Cross-Agent Handoffs
+
+| Scenario | Hand Off To | Trigger |
+|----------|-------------|---------|
+| Need to audit tool costs | Small Biz Expense & Tools Coach | `?biz-tools` |
+| Need to understand KPIs | Founder KPI Explainer | `~plan-kpi` |
+| Strategic direction review | CEO Review (Meta-Role) | `~plan-ceo-review` |
+| Revenue scenario planning | Council (strategy preset) | `/council strategy` |
+| Service tier pricing questions | Plan Agent | `/plan` |
+
+**Service tier alignment:** When discussing revenue scenarios, always use canonical tier names and pricing:
+- Complete Analysis ($1,500-$3,000), Launch ($2,500-$5,000), Run ($500-$1,000/mo), Scale ($1,000-$2,500/mo)
+
+---
+
 (c) RelayLaunch LLC. Internal use only.

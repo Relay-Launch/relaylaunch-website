@@ -111,6 +111,11 @@ Use: Campaign strategy, content calendar, channel prioritization
 Seats: Deals, Discovery, Proposal, Coach, CEO Review
 Use: Major proposal review, pricing decisions, partnership evaluation
 
+### `/council sector [vertical]` — Client Vertical Strategy
+Seats: Growth, Content, SEO, Deep Research, Brand, Finance
+Use: Industry-specific strategy for any of the 10 business sector playbooks
+Verticals: wellness, fitness, restaurants, professional-services, home-services, retail, healthcare, real-estate, education, nonprofits
+
 ---
 
 ## 4. Council for Client Engagements

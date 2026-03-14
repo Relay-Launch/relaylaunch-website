@@ -175,6 +175,36 @@ Pre-built query sets for common client verticals:
 - "service area page SEO"
 - "home services review management"
 
+### Retail & E-commerce
+- "local retail online presence [year]"
+- "small shop e-commerce platform comparison"
+- "retail inventory management software"
+- "local delivery service setup small business"
+
+### Healthcare & Dental
+- "dental practice marketing trends [year]"
+- "telehealth platform comparison small practice"
+- "patient portal software HIPAA compliant"
+- "healthcare appointment booking optimization"
+
+### Real Estate
+- "real estate agent website best practices [year]"
+- "IDX integration comparison"
+- "neighborhood landing page SEO strategy"
+- "real estate lead capture conversion"
+
+### Education & Tutoring
+- "tutoring business marketing [year]"
+- "online course platform comparison"
+- "education booking system integration"
+- "parent communication portal tools"
+
+### Nonprofits
+- "nonprofit website best practices [year]"
+- "online donation platform comparison"
+- "donor retention strategies digital"
+- "nonprofit impact storytelling content"
+
 ---
 
 ## 6. Mode Behavior

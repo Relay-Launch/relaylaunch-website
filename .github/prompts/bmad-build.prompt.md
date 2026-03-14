@@ -158,6 +158,12 @@ The Build Agent works alongside 6 other always-on default agents:
 - Security Agent scans for vulnerabilities in code that Build Agent compiles.
 - Infra Agent deploys the build output that Build Agent produces.
 
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — Forge Phase 3 provisions build tasks; Build Agent executes them. Validate all Forge-generated code against brand and code standards before Ship Gate.
+- **`/council build`** (`relay-council.prompt.md`) — Convene a technical council before large builds. Build Agent implements the Council Verdict's top recommendations.
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research feeds technology decisions; Build Agent implements the chosen stack. Check research findings before adopting new dependencies.
+
 ## Related Specialist Agents
 
 - **`/architect`** (`bmad-architect.prompt.md`) — Validate structure before large changes

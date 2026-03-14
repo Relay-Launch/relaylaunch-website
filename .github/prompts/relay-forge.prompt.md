@@ -105,6 +105,18 @@ Run the standard 7-agent Ship Gate on all Forge-generated changes:
 4. Archive Trend Brief + Council Verdict for future reference
 5. Feed outcomes back into next cycle (compound learning)
 
+**Post-delivery handoffs:**
+
+| Outcome | Hand Off To | Trigger |
+|---------|-------------|---------|
+| New blog content created | Prose Agent | `/prose` (AI-ism check) |
+| New pages or components built | QA Agent | `/qa` (accessibility + Lighthouse) |
+| SEO changes made | SEO Agent | `/seo` (verify keyword targets) |
+| Brand-visible changes | Brand Agent | `/audit` (4-color compliance) |
+| Infrastructure touched | Infra Agent | `/infra` (config validation) |
+| Client strategy shifted | CEO Review | `~plan-ceo-review` (strategic lens) |
+| Cycle complete | Retrospective | `~retro` (what worked, what to improve) |
+
 ---
 
 ## 3. Business Sector Presets

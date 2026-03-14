@@ -195,6 +195,25 @@ The QA Agent works alongside 6 other always-on default agents:
 - GitHub Agent owns the Lighthouse workflow configuration; QA Agent owns the
   score thresholds and pass/fail criteria.
 
+## Forge / Council / Deep Research Integration
+
+- **`/relay forge`** (`relay-forge.prompt.md`) — QA Agent validates all Forge-generated pages and components in Phase 4 (Ship Gate). Run full accessibility, responsive, and Lighthouse checks on every Forge output.
+- **`/council build`** (`relay-council.prompt.md`) — Convene when a QA finding conflicts with a business requirement (e.g., accessibility fix changes conversion layout). Council debates the trade-off.
+- **`/deep-research`** (`relay-deep-research.prompt.md`) — Research emerging accessibility standards, new Lighthouse audit categories, and WCAG updates. Feed findings into QA checklist maintenance.
+
+## Lighthouse Score Thresholds
+
+QA Agent owns these pass/fail thresholds for the Ship Gate and `lighthouse.yml`:
+
+| Category | Minimum Score | Action on Failure |
+|----------|--------------|-------------------|
+| Performance | 95 | Block ship, investigate LCP/CLS/FID |
+| Accessibility | 95 | Block ship, fix WCAG violations |
+| Best Practices | 95 | Block ship, review console errors |
+| SEO | 95 | Block ship, check meta tags and structure |
+
+These thresholds are configured in `.github/workflows/lighthouse.yml` (GitHub Agent owns the YAML, QA Agent owns the values).
+
 ## Related Specialist Agents
 
 - `bmad-audit.prompt.md` — Brand compliance audit (`/audit`)
